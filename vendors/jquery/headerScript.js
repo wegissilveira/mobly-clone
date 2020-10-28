@@ -1,4 +1,3 @@
-
 $(".floatingMenu-main").hover(function() {
     $(".active").removeClass("active");
     $(".active2").removeClass("active2");
@@ -12,12 +11,3 @@ $(".floatingMenu-main2").hover(function() {
     $(this).addClass("active-categorias");
     $(this).siblings().addClass("active-categorias2");
 });
-
-/*
-$(".teste").hover(function() {
-    $(this).addClass("active");
-    $(this).siblings().addClass("active");
-}, function() {
-    $(this).removeClass("active");
-    $(this).siblings().removeClass("active");
-});*/

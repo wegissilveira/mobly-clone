@@ -9,212 +9,32 @@
         <link rel="stylesheet" type="text/css" href="resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="vendors/fonts/flaticon.css">
 
-        <title>Loja Treino</title>
+        <title>Loja De Móveis</title>
 
     </head>
 
     <body onload="startSlide();">
-        <header>
-            <div class="header__first">
-                <div class="header__geral">
-                    <div class="header__first--search">
-                        <input type="text" name="busca" id="busca" placeholder="Encontre produtos..." onfocus="this.placeholder=''" onblur="this.placeholder='Encontre produtos...'" style="
-                            background-color: #201047; 
-                            border: none; 
-                            font-size: 15px; 
-                            font-style: italic;" >
-                        <button type="submit">Buscar</button>
-                    </div>
-                    
-                    <div class="header__geral--sub">
-                        <a href="/index.html" id="logoDemoTexto">DEMO</a>
-                        <ul>
-                            <a class="header__geral--item" href="#">
-                                <i class="flaticon-telephone"></i>
-                                <li>Atendimento</li>
-                            </a>
-                            <a class="header__geral--item" href="#">
-                                <i class="flaticon-round-account-button-with-user-inside"></i>
-                                <li>Minha conta</li>
-                            </a>
-                            <a class="header__geral--item" href="#">
-                                <i class="flaticon-favorite-heart-button"></i>
-                                <li>Favoritos</li>
-                            </a>
+        
+        <header id="includedHeader"></header>
 
-                        </ul>
-                        <a class="header__geral--cart" href="#">
-                            <div class="header__geral--cartSub">
-                                <i class="flaticon-shopping-cart-1"></i>
-                                <p>0</p>
-                                <i class="flaticon-chevron-arrow-down" id="header__geral--cartCheck"></i>
-                            </div>
-                        </a>
-                    </div>
+        <div class="header__off">
+            <div class="header__off--inner">
+                <div>
+                    <p style="color: #009BE1; font-size: 16px;">Só com <span style="font-weight: bold;">PayPal:</span> Você tem <span style="font-weight: bold;">5% OFF*</span> em todo o site!</p>
                 </div>
-            
+                <a href="#" style="
+                    border: #999999 solid 1px; 
+                    height: 19px; 
+                    width: 115px; 
+                    border-radius: 3px; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    cursor:help;">
+                    <p style="color: #999999; font-size: 10px;">*Confira o regulamento.</p>
+                </a>
             </div>
-            <div class="header__menu">
-                <ul>
-                    <div class="header__menu--sub" style="padding-left: 0;" onmouseover="openMenu(1)" onmouseout="closeMenu(1)">
-                        <li class="header__menu--sub-mainItem">Por Ambiente</li>
-                        <i class="flaticon-chevron-arrow-down"></i>
-                        <div class="header__menu--floatingMenu" id="floatingMenu1">
-                            <i class="flaticon-drop-up-arrow"></i>
-                            <div class="header__menu--floatingMenu-main">
-                                <ul>
-                                    <a href="" onmouseover="openSubMenu1()" onmouseout="closeSubMenu1()">
-                                        <li class="floatingMenu-main active" >ÁREA EXTERNA</li>
-                                        
-                                        <i class="active2 flaticon-diamond "></i>
-                                        <i class="active2 flaticon-right-arrow"></i>
-                                        <div class="header__menu--floatingMenu-mainSub testeSub" id="mainSub-1--js">
-                                            <ul>
-                                                <a href=""><li>Bancos de Jardim</li></a>
-                                                <a href=""><li>Cadeiras de Jardim</li></a>
-                                                <a href=""><li>Espreguiçadeiras</li></a>
-                                                <a href=""><li>Mesas de Jardim</li></a>
-                                                <a href=""><li>Ombrelones</li></a>
-                                            </ul>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main">BANHEIRO</li>
-                                        <i class="flaticon-diamond"></i>
-                                        <i class="flaticon-right-arrow "></i>
-                                        <div class="header__menu--floatingMenu-mainSub">
-                                            <p>teste</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main">COZINHA</li>
-                                        
-                                        <i  class="flaticon-diamond"></i>
-                                        <i class="flaticon-right-arrow "></i>
-                                        <div class="header__menu--floatingMenu-mainSub">
-                                            <p>teste2</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main">ESCRITÓRIO</li>
-                                        
-                                        <i  class="flaticon-diamond"></i>
-                                        <i class="flaticon-right-arrow "></i>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main">LAVANDERIA</li>
-                                        
-                                        <i  class="flaticon-diamond"></i>
-                                        <i  class="flaticon-right-arrow "></i>
-                                    </a>
-                                </ul>
-                                <div class="overtest-floatingMenu"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header__menu--sub" onmouseover="openMenu(2)" onmouseout="closeMenu(2)">
-                        <li class="header__menu--sub-mainItem">Por Categoria</li>
-                        <i class="flaticon-chevron-arrow-down"></i>
-                        <div class="header__menu--floatingMenu-categoria" id="floatingMenu2">
-                            <i class="flaticon-drop-up-arrow"></i>
-                            <div class="header__menu--floatingMenu-main">
-                                <ul>
-                                    <a href="" >
-                                        <li class="floatingMenu-main2 active-categorias">MESA & BANHO</li>
-                                        
-                                        <i class="active-categorias2 flaticon-diamond "></i>
-                                        <i class="active-categorias2 flaticon-right-arrow"></i>
-                                        <p class="header__menu--floatingMenu-mainSub">ÁREA EXTERNA</p>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main2">DECORAÇÃO</li>
-                                        <i class="flaticon-diamond"></i>
-                                        <i class="flaticon-right-arrow "></i>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main2">INFANTIL</li>
-                                        
-                                        <i  class="flaticon-diamond"></i>
-                                        <i class="flaticon-right-arrow "></i>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main2">ILUMINAÇÃO</li>
-                                        
-                                        <i  class="flaticon-diamond"></i>
-                                        <i class="flaticon-right-arrow "></i>
-                                    </a>
-                                    <a href="">
-                                        <li class="floatingMenu-main2">ELETRO</li>
-                                        
-                                        <i  class="flaticon-diamond"></i>
-                                        <i  class="flaticon-right-arrow "></i>
-                                    </a>
-                                </ul>
-                                <div class="overtest-floatingMenu"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="header__menu--sub-a" href="/moblyInspira.html">
-                        <li class="header__menu--sub-mainItem">INSPIRAÇÃO</li>
-                    </a>
-                    <a 
-                        class="header__menu--sub-a" 
-                        href="/lancamentos.html" 
-                        onmouseover="openFloatingBanner(1)" 
-                        onmouseout="closeFloatingBanner(1)"
-                    >
-                        <li class="header__menu--sub-mainItem">LANÇAMENTOS</li>
-                        <div class="header__menu--floatingImage-1" id="banner1" >
-                            <i class="flaticon-drop-up-arrow"></i>
-                            <img src="/vendors/img/banner-flutuante.jpg" alt="banner flutuante">
-                            <p class="header__menu--floatingImage-1-btn">APROVEITAR</p>
-                        </div>
-                    </a>
-                    <a 
-                        class="header__menu--sub-a" 
-                        href="#" 
-                        onmouseover="openFloatingBanner(2)" 
-                        onmouseout="closeFloatingBanner(2)"
-                    >
-                        <li class="header__menu--sub-mainItem">OUTLET</li>
-                        <div class="header__menu--floatingImage-2" id="banner2">
-                            <i class="flaticon-drop-up-arrow"></i>
-                            <img src="/vendors/img/banner-flutuante2.jpg" alt="banner flutuante">
-                            <p class="header__menu--floatingImage-2-btn">APROVEITAR</p>
-                        </div>
-                    </a>
-                    <a class="header__menu--sub-a" href="#">
-                        <li class="header__menu--sub-mainItem">BLOG</li>
-                    </a>
-                    <!--<a href="/teste.html"><li>teste</li></a>
-                                        <a href="/item.html" ><li>item</li></a>-->
-                    <a class="header__menu--sub-a" href="#" style="padding-right: 0;">
-                        <li id="header__menu--semanaM">PROMOÇÕES</li>
-                    </a>
-                </ul>
-            </div>
-
-            <div class="header__menu--floatingMenu-background" id="backgroundTeste"></div>
-            
-            <div class="header__off">
-                <div class="header__off--inner">
-                    <div>
-                        <p style="color: #009BE1; font-size: 16px;">Só com <span style="font-weight: bold;">PayPal:</span> Você tem <span style="font-weight: bold;">5% OFF*</span> em todo o site!</p>
-                    </div>
-                    <a href="#" style="
-                        border: #999999 solid 1px; 
-                        height: 19px; 
-                        width: 115px; 
-                        border-radius: 3px; 
-                        display: flex; 
-                        align-items: center; 
-                        justify-content: center; 
-                        cursor:help;">
-                        <p style="color: #999999; font-size: 10px;">*Confira o regulamento.</p>
-                    </a>
-                </div>
-            </div>
-        </header>
+        </div>
 
         <section class="slider">
 
@@ -699,10 +519,10 @@
                     <div class="promo__container--header">
                         <p>Acabaram de chegar</p>
                         <div class="promo__container--header-markerSlider">
-                            <i class="flaticon-circle marker-amostras--js" onclick="currentSlidePromo2(1)"></i>
-                            <i class="flaticon-circle marker-amostras--js" onclick="currentSlidePromo2(2)"></i>
-                            <i class="flaticon-circle marker-amostras--js" onclick="currentSlidePromo2(3)"></i>
-                            <i class="flaticon-circle marker-amostras--js" onclick="currentSlidePromo2(4)"></i>
+                            <i class="flaticon-circle marker-amostras2--js" onclick="currentSlidePromo2(1)"></i>
+                            <i class="flaticon-circle marker-amostras2--js" onclick="currentSlidePromo2(2)"></i>
+                            <i class="flaticon-circle marker-amostras2--js" onclick="currentSlidePromo2(3)"></i>
+                            <i class="flaticon-circle marker-amostras2--js" onclick="currentSlidePromo2(4)"></i>
                         </div>
                     </div>
                     <div class="promo__container--slider">
@@ -978,116 +798,12 @@
             </div>
         </section>
 
-        <footer>
-            <div class="footer__container">
-                <div class="footer__container--header">
-                    <div class="footer__container--header-social">
-                        <strong>Acompanhe-nos</strong>
-                        <div class="footer__container--header-socialIcons">
-                            <a href="#"><i class="flaticon-facebook-logo"></i></a>
-                            <a href="#"><i class="flaticon-youtube-logo"></i></a>
-                            <a href="#"><i class="flaticon-pinterest"></i></a>
-                            <a href="#"><i class="flaticon-instagram-social-network-logo-of-photo-camera"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer__container--header-app">
-                        <strong>App demo</strong>
-                        <a href="" ><img src="/resources/img/download-app.svg" style="width: 128px; height: 37px;"></a>
-                        <a href="" ><img src="/resources/img/download-app-android.png" style="width: 110px; height: 37px;"></a>
-                    </div>
-                </div>
-                <div class="footer__container--welcome">
-                    <p style="font-size: 20px; ">Bem-vindo à Demo.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id eros turpis. Phasellus placerat et turpis nec maximus. Ut volutpat nec dui et volutpat. Cras sit amet malesuada nisl, id pretium purus. <a href="">Suspendisse</a> st vel convallis dapibus. Fusce massa <a href="">condimentum est</a> para organizar seus pertences, incríveis <a href="">feugiat</a> Mauris varius, nunc vel faucibus sagittis, urna sem dictum quam, nec blandit justo enim et augue. Suspendisse potenti. Phasellus scelerisque augue non efficitur laoreet. Ut ullamcorper dictum cursus. Fusce tristique est vel convallis dapibus!</p>
-                    <p>Aenean enim est, facilisis sed pulvinar in, malesuada nec diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec tincidunt magna in feugiat gravida. Nulla id leo facilisis, vulputate ante at, molestie o <a href="">Móveis</a> Sed maximus ultrices ex id tempus. Etiam sit amet velit eget nisi ultrices dapibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam sagittis imperdiet sapien id luctus. Praesent at odio vel quam vehicula ullamcorper. Sed blandit turpis ut arcu consequat sodales a sed nisi. Aliquam sed nisi quis turpis pretium commodo.</p>
-                    <p>Aenean enim est, facilisis sed pulvinar in, malesuada nec diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec tincidunt magna in feugiat gravida. Nulla id leo facilisis, vulputate ante at, molestie o<a href="">Phasellus dignissim</a>. Mauris varius, nunc vel faucibus sagittis, urna sem dictum quam, nec blandit justo enim et augue. Suspendisse potenti. Phasellus scelerisque augue non efficitur laoreet. Ut ullamcorper dictum cursus. Fusce tristique est vel convallis dapibus!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id eros turpis. Phasellus placerat et turpis nec maximus. Ut volutpat nec dui et volutpat. Cras sit amet malesuada nisl, id pretium purus. Suspendisse id gravida lectus. Integer consequat lectus vitae mattis ultrices. Mauris varius, nunc vel faucibus sagittis, urna sem dictum quam, nec blandit justo enim et augue.</p>
-                    <p style="font-size: 14px; margin-bottom: 40px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id eros turpis. Phasellus placerat et turpis nec maximus. Ut volutpat nec!</p>
-                </div>
-                <ul class="footer__container--menu">
-                    <a href="#"><li>Atendimento</li></a>
-                    <a href="#"><li>Sobre a Demo</li></a>
-                    <a href="#"><li>Política de Privacidade</li></a>
-                    <a href="#"><li>Afiliados</li></a>
-                    <a href="#"><li>Termos de Uso</li></a>
-                    <a href="#"><li>Torne-se um Parceiro</li></a>
-                    <a href="#"><li>Imprensa</li></a>
-                    <a href="#"><li>Mapa do Site</li></a>
-                    <a href="#"><li>Mapa de Categorias</li></a>
-                </ul>
-                
-                <div class="footer__container--glossario">
-                    <p style="margin-left: 45px;">Glossário</p>
-                    <ul>
-                        <a href=""><li>A</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>B</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>C</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>D</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>E</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>F</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>G</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>H</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>I</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>J</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>K</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>L</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>M</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>N</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>O</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>P</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>Q</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>R</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>S</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>T</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>U</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>V</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>W</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>X</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>Y</li></a>
-                        <li class="footer__container--glossario-ponto">&#149;</li>
-                        <a href=""><li>Z</li></a>
-                    </ul>
-                    
-                </div>
-                <div class="footer__container--adressess">
-                    <a href="" ><strong>Acessar versão mobile</strong></a>
-                    <p class="footer__container--adressess-P1">Endereço: turpis nec maximus, 2257</p>
-                    <p class="footer__container--adressess-P2">Demo, DM - CEP 0000-000 - CNPJ: 00.000.000/0000-00</p>
-                    <p class="footer__container--adressess-P1">Envie um email clicando <a href="">AQUI</a></p>
-                    <a class="footer__container--adressess-P2"  href="" >Confira nossos telefones</a>
-                    <p class="footer__container--adressess-P1"> <span>&copy; 2019 turpis nec maximus. Ut volutpat nec.</span></p>
-                </div>
-            </div>
-        </footer>
+        <footer id="includedFooter"></footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-        <script src="/resources/js/index.js"></script>
-        <script src="/resources/js/script.js"></script>
+        <script src="/resources/js/index.js"></script>  
+        <script src="/vendors/jquery/script.js"></script>
 
     </body>
 

@@ -235,7 +235,7 @@ header {
     display: flex;
     flex-direction: column;
 
-    height: 202px;
+    height: 156px;
     color: #fff;
     background-color: #12013B;
 }
@@ -624,10 +624,11 @@ input#busca { color: #fff;
 .slider__img-5,
 .slider__img-6,
 .slider__img-7 {
-    background-image: url(../../vendors/img/slide1/20190618---LojaMobly_Home_Gif.gif);
+    /* background-image: url(../../vendors/img/slide1/20190618---LojaMobly_Home_Gif.gif); */
     height: 85%;
 }
 
+.slider__img { background-image: url(../../vendors/img/slide1/20190618---LojaMobly_Home_Gif.gif); }
 .slider__img-1 { background-image: url(../../vendors/img/slide1/slider1.png);}
 .slider__img-3 { background-image: url(../../vendors/img/slide1/slider3.png);}
 .slider__img-4 { background-image: url(../../vendors/img/slide1/slider4.jpg);}
@@ -1161,6 +1162,7 @@ input#busca { color: #fff;
 .promoInspira__container--header-markerSlider  { width: 50px;}
 
 .promoInspira__container--header-markerSlider i,
+.marker-amostras2--js,
 .marker-amostras--js {
     font-size: 10px;
     color: #999999;

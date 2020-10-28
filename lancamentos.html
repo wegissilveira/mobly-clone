@@ -13,131 +13,7 @@
     </head>
 
     <body>
-        <header class="headerMoblyInspira">
-            <div class="header__first">
-                <div class="header__geral">
-                    <div class="header__first--search">
-                        <input type="text" name="busca" id="busca" placeholder="Encontre sofás, mesas..." onfocus="this.placeholder=''" onblur="this.placeholder='Encontre sofás, mesas...'" style="
-                            background-color: #201047; 
-                            border: none; 
-                            font-size: 15px; 
-                            font-style: italic;" >
-                        <button type="submit">Buscar</button>
-                    </div>
-                    
-                    <div class="header__geral--sub">
-                        <a href="/index.html"><img class="header__logo" src="vendors/img/logo.svg" alt="Logo"></a>
-                        <ul>
-                            <a class="header__geral--item" href="#">
-                                <i class="flaticon-telephone"></i>
-                                <li>Atendimento</li>
-                            </a>
-                            <a class="header__geral--item" href="#">
-                                <i class="flaticon-round-account-button-with-user-inside"></i>
-                                <li>Minha conta</li>
-                            </a>
-                            <a class="header__geral--item" href="/favoritos.html">
-                                <i class="flaticon-favorite-heart-button"></i>
-                                <li>Favoritos</li>
-                            </a>
-
-                        </ul>
-                        <a class="header__geral--cart" href="#">
-                            <div class="header__geral--cartSub">
-                                <i class="flaticon-shopping-cart-1"></i>
-                                <p>0</p>
-                                <i class="flaticon-chevron-arrow-down" id="header__geral--cartCheck"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            
-            </div>
-            <div class="header__menu">
-                <ul>
-                    <div class="header__menu--sub">
-                        <li>Por Ambiente</li>
-                        <i class="flaticon-chevron-arrow-down"></i>
-                    </div>
-                    <div class="header__menu--sub">
-                        <li>Por Categoria</li>
-                        <i class="flaticon-chevron-arrow-down"></i>
-                    </div>
-                    <a href="/moblyInspira.html"><li>MOBLY INSPIRA</li></a>
-                    <a href="/lancamentos.html"><li>LANÇAMENTOS</li></a>
-                    <a href="#"><li>Outlet</li></a>
-                    <a href="#"><li>Blog</li></a>
-                    <!--<a href="/teste.html"><li>teste</li></a>
-                    <a href="/item.html" ><li>item</li></a>-->
-                    <a href="#"><li id="header__menu--semanaM">Semana M</li></a>
-                </ul>
-            </div>
-            <!--<div class="header__menu--floatingMenu-background"></div>
-            <div class="header__menu--floatingMenu">
-                <i class="flaticon-drop-up-arrow"></i>
-                <div class="header__menu--floatingMenu-main">
-                    <ul>
-                        <a href="">
-                            <li>Área Externa</li>
-                            <i class="flaticon-right-arrow"></i>
-                            <i class="flaticon-diamond"></i>
-                            <p class="header__menu--floatingMenu-mainSub">ÁREA EXTERNA</p>
-                        </a>
-                        <a href="">
-                            <li>Banheiro</li>
-                        </a>
-                        <a href="">
-                            <li>Cozinha</li>
-                        </a>
-                        <a href="">
-                            <li>Escritório</li>
-                        </a>
-                        <a href="">
-                            <li>Lavanderia</li>
-                        </a>
-                    </ul>
-                </div>
-            </div>-->
-            
-            <!--<div class="header__menu--floatingMenu-background"></div>
-            <div class="header__menu--floatingMenu-categoria">
-                <i class="flaticon-drop-up-arrow"></i>
-                <div class="header__menu--floatingMenu-main">
-                    <ul>
-                        <a href="">
-                            <li>MESA E BANHO</li>
-                            <i class="flaticon-right-arrow"></i>
-                            <i class="flaticon-diamond"></i>
-                            <p class="header__menu--floatingMenu-mainSub">BANHO</p>
-                        </a>
-                        <a href="">
-                            <li>DECORAÇÃO</li>
-                        </a>
-                        <a href="">
-                            <li>ELETRO</li>
-                        </a>
-                        <a href="">
-                            <li>INFANTIL</li>
-                        </a>
-                        <a href="">
-                            <li>ILUMINAÇÃO</li>
-                        </a>
-                    </ul>
-                </div>
-            </div>-->
-            <!--<div class="header__menu--floatingMenu-background"></div>
-            <div class="header__menu--floatingImage-1">
-                <i class="flaticon-drop-up-arrow"></i>
-                <a href=""><img src="/vendors/img/banner-flutuante.jpg" alt="banner flutuante"></a>
-                <p class="header__menu--floatingImage-1-btn">APROVEITAR</p>
-            </div>-->
-            <!--<div class="header__menu--floatingMenu-background"></div>
-            <div class="header__menu--floatingImage-2">
-                <i class="flaticon-drop-up-arrow"></i>
-                <a href=""><img src="/vendors/img/banner-flutuante2.jpg" alt="banner flutuante"></a>
-                <p class="header__menu--floatingImage-2-btn">APROVEITAR</p>
-            </div>-->
-        </header>
+        <header id="includedHeader"></header>
        
         <section class="lancamentosBanner">
             <a href="">
@@ -950,8 +826,8 @@
             </div>
         </section>
 
-        <footer>
-            <div class="footer__container">
+        <footer id="includedFooter">
+            <!-- <div class="footer__container">
                 <div class="footer__container--header">
                     <div class="footer__container--header-social">
                         <strong>Acompanhe-nos</strong>
@@ -1053,10 +929,13 @@
                     <a class="footer__container--adressess-P2"  href="" >Confira nossos telefones</a>
                     <p class="footer__container--adressess-P1"> <span>&copy; 2019 Mobly.com.br. Todos os direitos reservados.</span></p>
                 </div>
-            </div>
+            </div> -->
         </footer>
 
-        <script src="/resources/js/index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script src="/resources/js/index.js"></script>  
+        <script src="/vendors/jquery/script.js"></script>
 
     </body>
 

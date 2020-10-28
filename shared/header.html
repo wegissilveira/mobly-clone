@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="vendors/fonts/flaticon.css">
+
+        <title>Loja Treino</title>
+
+    </head>
+
+    <body >
+        <div id="externalHeader" class="header__first">
+            <div class="header__geral">
+                <div class="header__first--search">
+                    <input type="text" name="busca" id="busca" placeholder="Encontre produtos..." onfocus="this.placeholder=''" onblur="this.placeholder='Encontre produtos...'" style="
+                        background-color: #201047; 
+                        border: none; 
+                        font-size: 15px; 
+                        font-style: italic;" >
+                    <button type="submit">Buscar</button>
+                </div>
+                
+                <div class="header__geral--sub">
+                    <a href="/index.html" id="logoDemoTexto">DEMO</a>
+                    <ul>
+                        <a class="header__geral--item" href="#">
+                            <i class="flaticon-telephone"></i>
+                            <li>Atendimento</li>
+                        </a>
+                        <a class="header__geral--item" href="#">
+                            <i class="flaticon-round-account-button-with-user-inside"></i>
+                            <li>Minha conta</li>
+                        </a>
+                        <a class="header__geral--item" href="#">
+                            <i class="flaticon-favorite-heart-button"></i>
+                            <li>Favoritos</li>
+                        </a>
+
+                    </ul>
+                    <a class="header__geral--cart" href="#">
+                        <div class="header__geral--cartSub">
+                            <i class="flaticon-shopping-cart-1"></i>
+                            <p>0</p>
+                            <i class="flaticon-chevron-arrow-down" id="header__geral--cartCheck"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="header__menu">
+            <ul>
+                <div class="header__menu--sub" style="padding-left: 0;" onmouseover="openMenu(1)" onmouseout="closeMenu(1)">
+                    <li class="header__menu--sub-mainItem">Por Ambiente</li>
+                    <i class="flaticon-chevron-arrow-down"></i>
+                    <div class="header__menu--floatingMenu" id="floatingMenu1">
+                        <i class="flaticon-drop-up-arrow"></i>
+                        <div class="header__menu--floatingMenu-main">
+                            <ul>
+                                <a href="" onmouseover="openSubMenu1()" onmouseout="closeSubMenu1()">
+                                    <li class="floatingMenu-main active" >ÁREA EXTERNA</li>
+                                    
+                                    <i class="active2 flaticon-diamond "></i>
+                                    <i class="active2 flaticon-right-arrow"></i>
+                                    <div class="header__menu--floatingMenu-mainSub testeSub" id="mainSub-1--js">
+                                        <ul>
+                                            <a href=""><li>Bancos de Jardim</li></a>
+                                            <a href=""><li>Cadeiras de Jardim</li></a>
+                                            <a href=""><li>Espreguiçadeiras</li></a>
+                                            <a href=""><li>Mesas de Jardim</li></a>
+                                            <a href=""><li>Ombrelones</li></a>
+                                        </ul>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main">BANHEIRO</li>
+                                    <i class="flaticon-diamond"></i>
+                                    <i class="flaticon-right-arrow "></i>
+                                    <div class="header__menu--floatingMenu-mainSub">
+                                        <p>teste</p>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main">COZINHA</li>
+                                    
+                                    <i  class="flaticon-diamond"></i>
+                                    <i class="flaticon-right-arrow "></i>
+                                    <div class="header__menu--floatingMenu-mainSub">
+                                        <p>teste2</p>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main">ESCRITÓRIO</li>
+                                    
+                                    <i  class="flaticon-diamond"></i>
+                                    <i class="flaticon-right-arrow "></i>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main">LAVANDERIA</li>
+                                    
+                                    <i  class="flaticon-diamond"></i>
+                                    <i  class="flaticon-right-arrow "></i>
+                                </a>
+                            </ul>
+                            <div class="overtest-floatingMenu"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__menu--sub" onmouseover="openMenu(2)" onmouseout="closeMenu(2)">
+                    <li class="header__menu--sub-mainItem">Por Categoria</li>
+                    <i class="flaticon-chevron-arrow-down"></i>
+                    <div class="header__menu--floatingMenu-categoria" id="floatingMenu2">
+                        <i class="flaticon-drop-up-arrow"></i>
+                        <div class="header__menu--floatingMenu-main">
+                            <ul>
+                                <a href="" >
+                                    <li class="floatingMenu-main2 active-categorias">MESA & BANHO</li>
+                                    
+                                    <i class="active-categorias2 flaticon-diamond "></i>
+                                    <i class="active-categorias2 flaticon-right-arrow"></i>
+                                    <p class="header__menu--floatingMenu-mainSub">ÁREA EXTERNA</p>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main2">DECORAÇÃO</li>
+                                    <i class="flaticon-diamond"></i>
+                                    <i class="flaticon-right-arrow "></i>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main2">INFANTIL</li>
+                                    
+                                    <i  class="flaticon-diamond"></i>
+                                    <i class="flaticon-right-arrow "></i>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main2">ILUMINAÇÃO</li>
+                                    
+                                    <i  class="flaticon-diamond"></i>
+                                    <i class="flaticon-right-arrow "></i>
+                                </a>
+                                <a href="">
+                                    <li class="floatingMenu-main2">ELETRO</li>
+                                    
+                                    <i  class="flaticon-diamond"></i>
+                                    <i  class="flaticon-right-arrow "></i>
+                                </a>
+                            </ul>
+                            <div class="overtest-floatingMenu"></div>
+                        </div>
+                    </div>
+                </div>
+                <a class="header__menu--sub-a" href="/moblyInspira.html">
+                    <li class="header__menu--sub-mainItem">INSPIRAÇÃO</li>
+                </a>
+                <a 
+                    class="header__menu--sub-a" 
+                    href="/lancamentos.html" 
+                    onmouseover="openFloatingBanner(1)" 
+                    onmouseout="closeFloatingBanner(1)"
+                >
+                    <li class="header__menu--sub-mainItem">LANÇAMENTOS</li>
+                    <div class="header__menu--floatingImage-1" id="banner1" >
+                        <i class="flaticon-drop-up-arrow"></i>
+                        <img src="/vendors/img/banner-flutuante.jpg" alt="banner flutuante">
+                        <p class="header__menu--floatingImage-1-btn">APROVEITAR</p>
+                    </div>
+                </a>
+                <a 
+                    class="header__menu--sub-a" 
+                    href="#" 
+                    onmouseover="openFloatingBanner(2)" 
+                    onmouseout="closeFloatingBanner(2)"
+                >
+                    <li class="header__menu--sub-mainItem">OUTLET</li>
+                    <div class="header__menu--floatingImage-2" id="banner2">
+                        <i class="flaticon-drop-up-arrow"></i>
+                        <img src="/vendors/img/banner-flutuante2.jpg" alt="banner flutuante">
+                        <p class="header__menu--floatingImage-2-btn">APROVEITAR</p>
+                    </div>
+                </a>
+                <a class="header__menu--sub-a" href="#">
+                    <li class="header__menu--sub-mainItem">BLOG</li>
+                </a>
+                <!--<a href="/teste.html"><li>teste</li></a>
+                                    <a href="/item.html" ><li>item</li></a>-->
+                <a class="header__menu--sub-a" href="#" style="padding-right: 0;">
+                    <li id="header__menu--semanaM">PROMOÇÕES</li>
+                </a>
+            </ul>
+        </div>
+
+        <div class="header__menu--floatingMenu-background" id="backgroundTeste"></div>
+
+        <!-- <div class="header__off">
+            <div class="header__off--inner">
+                <div>
+                    <p style="color: #009BE1; font-size: 16px;">Só com <span style="font-weight: bold;">PayPal:</span> Você tem <span style="font-weight: bold;">5% OFF*</span> em todo o site!</p>
+                </div>
+                <a href="#" style="
+                    border: #999999 solid 1px; 
+                    height: 19px; 
+                    width: 115px; 
+                    border-radius: 3px; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    cursor:help;">
+                    <p style="color: #999999; font-size: 10px;">*Confira o regulamento.</p>
+                </a>
+            </div>
+        </div> -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script src="/resources/js/header.js"></script>
+        <script src="/vendors/jquery/headerScript.js"></script>
+
+    </body>
+
+</html>

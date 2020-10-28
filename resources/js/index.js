@@ -1,79 +1,3 @@
-/* *Floating Menus* */
-
-let bg = document.getElementById('backgroundTeste');
-let mainSubMenu = document.getElementById('mainSub-1--js');
-
-function openBg() {
-    bg.style.display = "block";
-}
-
-function closeBg() {
-    bg.style.display = "none";
-}
-
-/* *Floating Menu* */
-function openMenu(n) {
-    let menu = document.getElementById('floatingMenu'+n)
-    menu.style.display = "block";
-    let menuLeft = menu.getBoundingClientRect().x
-
-    let title = document.getElementsByClassName('header__menu--sub-mainItem')
-    let titleLeft = title[n - 1].getBoundingClientRect().x
-    let titleWidth = title[n - 1].clientWidth
-
-    let iconArrow = document.getElementById('floatingMenu'+n).children[0]
-    let iconArrowWidth = iconArrow.clientWidth
-    let arrowPosition = titleLeft + ((titleWidth / 2) - iconArrowWidth / 2) - menuLeft
-
-    iconArrow.style.left = arrowPosition + 'px'
-
-    openBg();
-}
-
-function closeMenu(n) {
-    document.getElementById('floatingMenu'+n).style.display = "none";
-    closeBg();
-}
-
-/* */
-function openSubMenu1() {
-    mainSubMenu.style.display = "block";
-}
-
-function closeSubMenu1() {
-    mainSubMenu.style.display = "none";
-}
-
-
-/* *Floating Banners* */
-
-/* Floating Banner */
-function openFloatingBanner(n) {
-    let title = document.getElementsByClassName('header__menu--sub-mainItem')
-    let titleLeft = title[n + 2].getBoundingClientRect().x
-    let titleWidth = title[n + 2].clientWidth
-
-    let banner = document.getElementById('banner'+n)
-    banner.style.display = "block";
-    let bannerLeft = banner.getBoundingClientRect().x
-
-    let iconArrow = document.getElementsByClassName('header__menu--floatingImage-'+n)[0].children[0]
-    let iconArrowWidth = iconArrow.clientWidth
-    let arrowPosition = titleLeft + ((titleWidth / 2) - iconArrowWidth / 2) - bannerLeft
-
-    iconArrow.style.left = arrowPosition + 'px'
-
-    openBg();
-}
-
-function closeFloatingBanner(n) {
-    document.getElementById('banner'+n).style.display = "none";
-    closeBg();
-}
-
-
-/* */
-
 /* *Slides 1* */
 
 let sliderImages = document.querySelectorAll('.slide--js'),
@@ -81,7 +5,9 @@ let sliderImages = document.querySelectorAll('.slide--js'),
     //rightArrowMain = document.querySelector("#right-arrow--mainSlider-js"),
     dots = document.getElementsByClassName("mainMarker--js"),
     i,
-    current = 1;
+    current = 1,
+    currentPromo = 1,
+    currentPromo2 = 1
 
 showSlides(current);
 showSlidesAuto();
@@ -117,6 +43,7 @@ function showSlidesAuto() {
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" markerT", "");
     }
+    
     current++; 
 
     if (current > sliderImages.length) {current = 1}
@@ -127,70 +54,6 @@ function showSlidesAuto() {
     setTimeout(showSlidesAuto, 5000);
 }
 
-
-
-/* Slider baseado no vídeo do link: https://www.youtube.com/watch?v=7ZO2RTMNSAY - ÓTIMA EXPLICAÇÃO - O problema é que com esse código só é possível passar um slide por vez e como existem os dots é necessário que seja possível navegar para qualquer slide */
-
-    //clear all images
-    /*
-function reset() {
-    for(let i = 0; i < sliderImages.length; i++){
-        sliderImages[i].style.display = 'none';
-    }
-}
-
-function resetMarker() {
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" markerT", "");
-    }
-}
-
-//Init slider
-function startSlide() {
-    reset();
-    resetMarker();
-    sliderImages[0].style.display = 'block';
-    dots[current].className += " markerT";
-}
-
-// Show prev
-function slideLeft() {
-    reset();
-    resetMarker();
-    sliderImages[current - 1].style.display = 'block';
-    dots[current - 1].className += " markerT";
-    current--;
-}
-
-//Show next
-function slideRight() {
-    reset();
-    resetMarker();
-    sliderImages[current + 1].style.display = 'block';
-    dots[current + 1].className += " markerT";
-    current++;
-    
-}
-
-// Left arrow click
-leftArrowMain.addEventListener('click', function() {
-    if (current === 0) {
-        current = sliderImages.length;
-    }
-    slideLeft();
-});
-
-// Right arrow click
-rightArrowMain.addEventListener('click', function() {
-    if (current === sliderImages.length - 1) {
-        current = current = -1;
-    }
-    slideRight();
-});
-
-startSlide();
-
-/* ** */
 
 /* *Thumbnails Main Slider */   
 function openThumbnail(n) {
@@ -304,20 +167,20 @@ function dotsAmostras() {
 }
 */
 
-showSlidesPromo(current);
+showSlidesPromo(currentPromo);
 showSlidesPromo2(current);
 
 function plusSlidesPromo(n) {
-    showSlidesPromo(current += n);
+    showSlidesPromo(currentPromo += n);
 }
 
 function currentSlidePromo(n) {
-    showSlidesPromo(current = n);
+    showSlidesPromo(currentPromo = n);
 }
 
 function showSlidesPromo(n) {
-    if (n > sliderPromo.length) {current = 1}
-    if(n < 1) {current = sliderPromo.length}
+    if (n > sliderPromo.length) {currentPromo = 1}
+    if(n < 1) {currentPromo = sliderPromo.length}
     for (i = 0; i < sliderPromo.length; i++) {
         sliderPromo[i].style.display = "none";
     }
@@ -326,22 +189,24 @@ function showSlidesPromo(n) {
         dotsAmostras[i].className = dotsAmostras[i].className.replace(" markerT2", "");
     }
 
-    sliderPromo[current - 1].style.display = "flex";
-    dotsAmostras[current - 1].className += " markerT2";
+    sliderPromo[currentPromo - 1].style.display = "flex";
+    dotsAmostras[currentPromo - 1].className += " markerT2";
+
+    // console.log(currentPromo)
 }
 
 
 function plusSlidesPromo2(n) {
-    showSlidesPromo2(current += n);
+    showSlidesPromo2(currentPromo2 += n);
 }
 
 function currentSlidePromo2(n) {
-    showSlidesPromo2(current = n);
+    showSlidesPromo2(currentPromo2 = n);
 }
 
 function showSlidesPromo2(n) {
-    if (n > sliderPromo2.length) {current = 1}
-    if(n < 1) {current = sliderPromo2.length}
+    if (n > sliderPromo2.length) {currentPromo2 = 1}
+    if(n < 1) {currentPromo2 = sliderPromo2.length}
     for (i = 0; i < sliderPromo2.length; i++) {
         sliderPromo2[i].style.display = "none";
     }
@@ -350,8 +215,8 @@ function showSlidesPromo2(n) {
         dotsAmostras2[i].className = dotsAmostras2[i].className.replace(" markerT2", "");
     }
 
-    sliderPromo2[current - 1].style.display = "flex";
-    dotsAmostras2[current - 1].className += " markerT2";
+    sliderPromo2[currentPromo2 - 1].style.display = "flex";
+    dotsAmostras2[currentPromo2 - 1].className += " markerT2";
 }
 
 
@@ -370,7 +235,7 @@ function closeArrows(n) {
 /* */
 //Semana M countdown
 let htmlCrono = document.getElementById('semanaM__countdown');
-let countdownDate = new Date("September 15, 2019 12:00:00").getTime();
+let countdownDate = new Date("September 15, 2021 12:00:00").getTime();
 
 let x = setInterval(function() {
     let now = new Date().getTime();
@@ -410,7 +275,7 @@ function foscoImg() {
 let heart = document.getElementById('heartClick');
 let heartList = document.getElementById('favoritos--js');
 
-heart.addEventListener('click', addItem);
+// heart.addEventListener('click', addItem);
 
 function addItem() {
     let newItem = document.getElementById('item');
@@ -421,3 +286,6 @@ function addItem() {
 
     itemList.appendChild(img);
 }
+
+
+
