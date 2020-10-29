@@ -20,73 +20,21 @@
         <div class="header__off">
             <div class="header__off--inner">
                 <div>
-                    <p style="color: #009BE1; font-size: 16px;">Só com <span style="font-weight: bold;">PayPal:</span> Você tem <span style="font-weight: bold;">5% OFF*</span> em todo o site!</p>
+                    <p>Só com <span>PayPal:</span> Você tem <span>5% OFF*</span> em todo o site!</p>
                 </div>
-                <a href="#" style="
-                    border: #999999 solid 1px; 
-                    height: 19px; 
-                    width: 115px; 
-                    border-radius: 3px; 
-                    display: flex; 
-                    align-items: center; 
-                    justify-content: center; 
-                    cursor:help;">
-                    <p style="color: #999999; font-size: 10px;">*Confira o regulamento.</p>
+                <a href="#">
+                    <p>*Confira o regulamento.</p>
                 </a>
             </div>
         </div>
 
         <section class="slider">
 
-            <div class="slide--js slider__img"></div>
-            <div class="slide--js slider__img-1"></div>
-            <div class="slide--js slider__img-3"></div>
-            <div class="slide--js slider__img-4"></div>
-            <div class="slide--js slider__img-5"></div>
-            <div class="slide--js slider__img-6"></div>
-            <div class="slide--js slider__img-7"></div>
+            <div id="mainSlider" style="height:100%"></div>
 
-            <div id="slider__marker" style="flex-direction: column; width: 50%; margin-left: 25%;">
-                <div style="width: 100%; display: flex; justify-content: space-between;">
-                    <div class="slider__thumbnail1">
-                        <img src="/vendors/img/slide1/slider.gif" alt="thumbnail">
-                        <i class="flaticon-down-arrow"></i>
-                    </div>
-                    <div class="slider__thumbnail2">
-                        <img src="/vendors/img/slide1/slider1.png" alt="thumbnail">
-                        <i class="flaticon-down-arrow"></i>
-                    </div>
-                    <div class="slider__thumbnail3">
-                        <img src="/vendors/img/slide1/slider3.png" alt="thumbnail">
-                        <i class="flaticon-down-arrow"></i>
-                    </div>
-                    <div class="slider__thumbnail4">
-                        <img src="/vendors/img/slide1/slider4.jpg" alt="thumbnail">
-                        <i class="flaticon-down-arrow"></i>
-                    </div>
-                    <div class="slider__thumbnail5">
-                        <img src="/vendors/img/slide1/slider5.jpg" alt="thumbnail">
-                        <i class="flaticon-down-arrow"></i>
-                    </div>
-                    <div class="slider__thumbnail6">
-                        <img src="/vendors/img/slide1/slider6.jpg" alt="thumbnail">
-                        <i class="flaticon-down-arrow"></i>
-                    </div>
-                    <div class="slider__thumbnail7">
-                        <img src="/vendors/img/slide1/slider7.jpg" alt="thumbnail">
-                        <i class="flaticon-down-arrow"></i>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: space-evenly; width: 50%;">
-                    <i class="flaticon-circle mainMarker--js" onclick="currentSlide(1)" onmouseover="openThumbnail(1)" onmouseout="closeThumbnail(1)"></i>
-                    <i class="flaticon-circle mainMarker--js" onclick="currentSlide(2)" onmouseover="openThumbnail(2)" onmouseout="closeThumbnail(2)"></i>
-                    <i class="flaticon-circle mainMarker--js" onclick="currentSlide(3)" onmouseover="openThumbnail(3)" onmouseout="closeThumbnail(3)"></i>
-                    <i class="flaticon-circle mainMarker--js" onclick="currentSlide(4)" onmouseover="openThumbnail(4)" onmouseout="closeThumbnail(4)"></i>
-                    <i class="flaticon-circle mainMarker--js" onclick="currentSlide(5)" onmouseover="openThumbnail(5)" onmouseout="closeThumbnail(5)"></i>
-                    <i class="flaticon-circle mainMarker--js" onclick="currentSlide(6)" onmouseover="openThumbnail(6)" onmouseout="closeThumbnail(6)"></i>
-                    <i class="flaticon-circle mainMarker--js" onclick="currentSlide(7)" onmouseover="openThumbnail(7)" onmouseout="closeThumbnail(7)"></i>
-                </div>
+            <div id="slider__marker_container">
+                <div id="slider__marker_thumbnails"></div>
+                <div id="slider__marker_icons"></div>
             </div>
 
             <i class="flaticon-left-arrow" id="arrow11" onclick="plusSlides(-1)"></i>
@@ -110,19 +58,13 @@
                     <div class="semanaM__galeria--header">
                         <p style="font-size: 23px; margin-left: -50px"> <span style="color: rgba(255, 255, 255, 0.459); font-weight:normal">confira nossos</span> ambientes</p>
                         <a href="#" class="semanaM__logo" id="logoSemanaTexto">Promoções</a>
-                        <div style="
-                            display: flex; 
-                            flex-direction:column; 
-                            align-items: center; 
-                            justify-content: 
-                            space-between; 
-                            height: 68px;">
+                        <div>
                             <p style="color: rgba(255, 255, 255, 0.459); font-weight: 100">as ofertas acabam em:</p>
                             <p id="semanaM__countdown" style="font-size: 35px; font-weight: bold;">18 Dias 18:43:22</p>
                         </div>
                     </div>
-                    <div class="semanaM__geleria--images">
-                        <div class="semanaM__galeria--row" id="semanaM__galeria--row1">
+                    <div class="semanaM__galeria--images">
+                        <!-- <div class="semanaM__galeria--row" id="semanaM__galeria--row1">
                             <a href="#">
                                 <img src="/vendors/img/galeria/20190625-SemanaM-AmbientesDesktop-1-SaladeEstar.jpg" alt="promo">
                                 <div class="semanaM__galeria--iContainer-green">
@@ -161,7 +103,7 @@
                                     <i class="flaticon-right-arrow"></i>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
         
                     </div>
                 </div>
@@ -802,8 +744,9 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-        <script src="/resources/js/index.js"></script>  
         <script src="/vendors/jquery/script.js"></script>
+        <script src="/resources/js/index.js"></script>  
+        
 
     </body>
 

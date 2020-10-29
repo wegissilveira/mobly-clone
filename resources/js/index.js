@@ -1,15 +1,16 @@
 /* *Slides 1* */
 
-let sliderImages = document.querySelectorAll('.slide--js'),
+// let sliderImages = document.querySelectorAll('.slide--js'),
     //leftArrowMain = document.querySelector("#left-arrow--mainSlider-js"),
     //rightArrowMain = document.querySelector("#right-arrow--mainSlider-js"),
-    dots = document.getElementsByClassName("mainMarker--js"),
+    let dots = document.getElementsByClassName("mainMarker--js"),
     i,
-    current = 1,
+    current = 0,
     currentPromo = 1,
-    currentPromo2 = 1
+    currentPromo2 = 1,
+    currentDeco = 1 
 
-showSlides(current);
+// showSlides(current);
 showSlidesAuto();
 
 function plusSlides(n) {
@@ -21,6 +22,7 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
+    let sliderImages = document.querySelectorAll('.slide--js')
     if (n > sliderImages.length) {current = 1}
     if (n < 1) {current = sliderImages.length}
     for (i = 0; i < sliderImages.length; i++) {
@@ -32,10 +34,14 @@ function showSlides(n) {
     }
 
     sliderImages[current-1].style.display = "block";
-    dots[current-1].className += " markerT";
+    
+    dots[current-1].className += " markerT";  
+    
 }
 
+
 function showSlidesAuto() {
+    let sliderImages = document.querySelectorAll('.slide--js')
     for (i = 0; i < sliderImages.length; i++) {
         sliderImages[i].style.display = "none";
     }
@@ -48,8 +54,10 @@ function showSlidesAuto() {
 
     if (current > sliderImages.length) {current = 1}
 
-    sliderImages[current-1].style.display = "block";
-    dots[current-1].className += " markerT";
+    if (sliderImages[0] !== undefined) {
+        sliderImages[current-1].style.display = "block";
+        dots[current-1].className += " markerT";
+    }
 
     setTimeout(showSlidesAuto, 5000);
 }
@@ -59,14 +67,14 @@ function showSlidesAuto() {
 function openThumbnail(n) {
     let marker = document.getElementsByClassName("mainMarker--js")
     let position = marker[n - 1].getBoundingClientRect().x - (223 / 2)
-    let thumbnail = document.querySelector(".slider__thumbnail"+n)
+    let thumbnail = document.querySelector("#slider__thumbnail_js-"+n)
 
     thumbnail.style.display ="flex";
     thumbnail.style.left = position + 'px'
 }
 
 function closeThumbnail(n) {
-    document.querySelector(".slider__thumbnail"+n).style.display = "none";
+    document.querySelector("#slider__thumbnail_js-"+n).style.display = "none";
 }
 
 
@@ -86,7 +94,7 @@ function startSlide() {
 }
 
 function loadImg(img) {
-    document.getElementById('inspirese__banner').style.backgroundImage="URL(../../../vendors/img/"+img+")";
+    document.getElementById('inspirese__banner').style.backgroundImage="URL(../../../vendors/img/inspiresse/"+img+")";
 }
 
 function next() {
@@ -117,20 +125,21 @@ function prev() {
 
 let sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
 
-showSlidesDeco(current);
+showSlidesDeco(currentDeco);
 
 function plusSlidesDeco(n) {
-    showSlidesDeco(current += n);
+    showSlidesDeco(currentDeco += n);
 }
 
 function showSlidesDeco(n) {
-    if (n > sliderDecorado.length) {current = 1}
-    if (n < 1) {current = sliderDecorado.length}
+    if (n > sliderDecorado.length) {currentDeco = 1}
+    if (n < 1) {currentDeco = sliderDecorado.length}
     for (i = 0; i < sliderDecorado.length; i++) {
         sliderDecorado[i].style.display = "none";
     }
 
-    sliderDecorado[current-1].style.display = "block";
+    sliderDecorado[currentDeco-1].style.display = "block";
+    // console.log('teste')
 }
 
 /* slider promo */
@@ -289,3 +298,11 @@ function addItem() {
 
 
 
+// function create() {
+//     let parentDiv = document.getElementById('test') // => Getting parent
+//     let childDiv = document.createElement('div') // => creating new element
+//     childDiv.className = 'slider__img' // => adding class to new element
+//     parentDiv.appendChild(childDiv) // => inserting new element into parent
+// }
+
+// create()
