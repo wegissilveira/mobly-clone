@@ -18,21 +18,23 @@ $(document).ready(function(){
         $.each(dataArr, (index, value) => {
 
             // Inserção de imagens no slider
-            let mainSliderDiv = $('<div></div>')
+            const mainSliderDiv = $('<div></div>')
             if (index === 0) {
                 mainSliderDiv.css("background-image", `url(${value})`)
                 mainSliderDiv.addClass('slider__img slide--js')
+
                 mainSliderDiv.appendTo('#mainSlider')
             } else {
                 mainSliderDiv.css({"background-image": `url(${value})`, 'display': 'none'})
                 mainSliderDiv.addClass('slider__img slide--js')
+
                 mainSliderDiv.appendTo('#mainSlider')
             }
 
             // Inserção de thumbnails do slider
-            let thumbnailDiv = $('<div></div>')
-            let thumbnailImg = $('<img>')
-            let thumbnailArrow = $('<i></i>')
+            const thumbnailDiv = $('<div></div>')
+            const thumbnailImg = $('<img>')
+            const thumbnailArrow = $('<i></i>')
 
             thumbnailDiv.attr('id', `slider__thumbnail_js-${index + 1}`)
             thumbnailDiv.addClass('slider__thumbnail')
@@ -44,7 +46,7 @@ $(document).ready(function(){
             thumbnailDiv.appendTo('#slider__marker_thumbnails')
 
             // Inserção dos pontos de marcação dos slides
-            let sliderMarker = $('<i></i>')
+            const sliderMarker = $('<i></i>')
 
             sliderMarker.addClass('flaticon-circle mainMarker--js')
             if (index === 0) {sliderMarker.addClass('flaticon-circle mainMarker--js markerT')}
@@ -77,16 +79,16 @@ $(document).ready(function(){
         }
         
         let divRef = 0
-        let semanaMDivs = $('.semanaM__galeria--row')
+        const semanaMDivs = $('.semanaM__galeria--row')
         semanaMDivs.css('margin-bottom', 20)
 
         // Populando as divs com as imagens
         $.each(dataArr, (index, value) => {
 
-            let semanaMLink = $('<a></a>')
-            let semanaMImg = $('<img>')
-            let semanaMArrow_div = $('<div></div>') 
-            let semanaMArrow = $('<i></i>') 
+            const semanaMLink = $('<a></a>')
+            const semanaMImg = $('<img>')
+            const semanaMArrow_div = $('<div></div>') 
+            const semanaMArrow = $('<i></i>') 
             
             semanaMImg.attr('src', value)
             semanaMArrow_div.addClass('semanaM__galeria--iContainer-green')
@@ -110,13 +112,45 @@ $(document).ready(function(){
 
     /* Acabaram de chegar */
     $.getScript('../../data/novosProdutosData.js', function () {
-        // console.log(returnData())
 
         $.each(returnData(), (index, value) => {
-            console.log(index)
-            console.log(value)
 
+            // Criação da div com todos os elementos necessários dentro
+            const slideDiv = $('<div></div>')
+            const slideLink = $('<a></a>')
+            const slideImg = $('<img>')
+            const slideDescriptionDiv = $('<div></div>')
+            const slideDescriptionTitle = $(`<p>${value.nome}<br>${value.material}</p>`)
+            const slideDescriptionPrice = $(`<p>${value.preco}</p>`)
+            const slideDescriptionArrow = $('<i></i>')
+
+            slideDiv.addClass('promo__container--slider-uni')
+            slideImg.attr('src', value.img)
+            slideDescriptionDiv.addClass('promo__container--slider-description')
+            slideDescriptionPrice.addClass('promo__container--slider-preco')
+            slideDescriptionArrow.addClass('flaticon-right-arrow promo__container--description-arrow')
             
+            slideDescriptionTitle.appendTo(slideDescriptionDiv)
+            slideDescriptionPrice.appendTo(slideDescriptionDiv)
+            slideDescriptionArrow.appendTo(slideDescriptionDiv)
+            slideImg.appendTo(slideLink)
+            slideDescriptionDiv.appendTo(slideLink)
+            slideLink.appendTo(slideDiv)
+            slideDiv.appendTo('.promo__container--slider-bloco')
+
         })
+
+        let dotsQtd = Math.floor(returnData().length / 4)
+
+        for (let i = 0; i < dotsQtd; i++) {
+
+            let dotIcon = $('<i></i>')
+
+            dotIcon.addClass('flaticon-circle marker-amostras--js')
+            if (i === 0) {dotIcon.addClass('flaticon-circle marker-amostras--js markerT2')}
+            
+            dotIcon.appendTo('.promo__container--header-markerSlider')
+        }
+
     })
 }) 

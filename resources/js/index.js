@@ -3,12 +3,12 @@
 // let sliderImages = document.querySelectorAll('.slide--js'),
     //leftArrowMain = document.querySelector("#left-arrow--mainSlider-js"),
     //rightArrowMain = document.querySelector("#right-arrow--mainSlider-js"),
-    let dots = document.getElementsByClassName("mainMarker--js"),
+let dots = document.getElementsByClassName("mainMarker--js"),
     i,
     current = 0,
-    currentPromo = 1,
+    currentPromoDot = 0,
     // currentPromo2 = 1,
-    currentDeco = 1 
+    currentDeco = 1
 
 // showSlides(current);
 showSlidesAuto();
@@ -34,9 +34,9 @@ function showSlides(n) {
     }
 
     sliderImages[current-1].style.display = "block";
-    
-    dots[current-1].className += " markerT";  
-    
+
+    dots[current-1].className += " markerT";
+
 }
 
 
@@ -49,8 +49,8 @@ function showSlidesAuto() {
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" markerT", "");
     }
-    
-    current++; 
+
+    current++;
 
     if (current > sliderImages.length) {current = 1}
 
@@ -63,7 +63,7 @@ function showSlidesAuto() {
 }
 
 
-/* *Thumbnails Main Slider */   
+/* *Thumbnails Main Slider */
 function openThumbnail(n) {
     let marker = document.getElementsByClassName("mainMarker--js")
     let position = marker[n - 1].getBoundingClientRect().x - (223 / 2)
@@ -176,32 +176,49 @@ function dotsAmostras() {
 }
 */
 
-showSlidesPromo(currentPromo);
+// showSlidesPromoDots(currentPromoDot);
 // showSlidesPromo2(current);
 
-function plusSlidesPromo(n) {
-    showSlidesPromo(currentPromo += n);
-}
+function passSlidesPromo(n) {
+    
+    let transformValue = sliderPromo[0].style.transform
+    let translateValue = transformValue.replace(/[^\d.]/g, '')
+    translateValue = Number(translateValue)
 
-function currentSlidePromo(n) {
-    showSlidesPromo(currentPromo = n);
-}
+    if (n === 1) {
 
-function showSlidesPromo(n) {
-    if (n > sliderPromo.length) {currentPromo = 1}
-    if(n < 1) {currentPromo = sliderPromo.length}
-    for (i = 0; i < sliderPromo.length; i++) {
-        sliderPromo[i].style.display = "none";
+        translateValue < 75 ?
+            sliderPromo[0].style.transform = `translateX(-${translateValue + 25}%)`
+        :
+            sliderPromo[0].style.transform = `translateX(0)`
+
+    } else if (n === -1) {
+        translateValue > 0 ?
+            sliderPromo[0].style.transform = `translateX(-${translateValue - 25}%)`
+        :
+            sliderPromo[0].style.transform = `translateX(-75%)`
     }
+
+    /* Pontos de marcação dos slides (dots) */
+    let newTransformValue = sliderPromo[0].style.transform
+    let newTranslateValue = newTransformValue.replace(/[^\d.]/g, '')
+    newTranslateValue = Number(newTranslateValue)
+
+    showSlidesPromoDots(newTranslateValue)
+}
+
+
+function showSlidesPromoDots(n) {
+
+    let currentPromoDot = n / 25
 
     for (i = 0; i < dotsAmostras.length; i++) {
         dotsAmostras[i].className = dotsAmostras[i].className.replace(" markerT2", "");
     }
 
-    sliderPromo[currentPromo - 1].style.display = "flex";
-    dotsAmostras[currentPromo - 1].className += " markerT2";
-
-    // console.log(currentPromo)
+    if (dotsAmostras[currentPromoDot] !== undefined) {
+        dotsAmostras[currentPromoDot].className += " markerT2";
+    } 
 }
 
 
@@ -249,7 +266,7 @@ let countdownDate = new Date("September 15, 2021 12:00:00").getTime();
 let x = setInterval(function() {
     let now = new Date().getTime();
     let distance = countdownDate - now;
-    
+
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
     let hours = Math.floor((distance % ( 1000 * 60 * 60 * 24))/ (100 * 60 * 600)).toLocaleString(undefined, {minimumIntegerDigits: 2});
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toLocaleString(undefined, {minimumIntegerDigits: 2});
@@ -296,13 +313,3 @@ function addItem() {
     itemList.appendChild(img);
 }
 
-
-
-// function create() {
-//     let parentDiv = document.getElementById('test') // => Getting parent
-//     let childDiv = document.createElement('div') // => creating new element
-//     childDiv.className = 'slider__img' // => adding class to new element
-//     parentDiv.appendChild(childDiv) // => inserting new element into parent
-// }
-
-// create()
