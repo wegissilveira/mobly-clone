@@ -7,7 +7,7 @@
     i,
     current = 0,
     currentPromo = 1,
-    currentPromo2 = 1,
+    // currentPromo2 = 1,
     currentDeco = 1 
 
 // showSlides(current);
@@ -177,7 +177,7 @@ function dotsAmostras() {
 */
 
 showSlidesPromo(currentPromo);
-showSlidesPromo2(current);
+// showSlidesPromo2(current);
 
 function plusSlidesPromo(n) {
     showSlidesPromo(currentPromo += n);
@@ -205,28 +205,28 @@ function showSlidesPromo(n) {
 }
 
 
-function plusSlidesPromo2(n) {
-    showSlidesPromo2(currentPromo2 += n);
-}
+// function plusSlidesPromo2(n) {
+//     showSlidesPromo2(currentPromo2 += n);
+// }
 
-function currentSlidePromo2(n) {
-    showSlidesPromo2(currentPromo2 = n);
-}
+// function currentSlidePromo2(n) {
+//     showSlidesPromo2(currentPromo2 = n);
+// }
 
-function showSlidesPromo2(n) {
-    if (n > sliderPromo2.length) {currentPromo2 = 1}
-    if(n < 1) {currentPromo2 = sliderPromo2.length}
-    for (i = 0; i < sliderPromo2.length; i++) {
-        sliderPromo2[i].style.display = "none";
-    }
+// function showSlidesPromo2(n) {
+//     if (n > sliderPromo2.length) {currentPromo2 = 1}
+//     if(n < 1) {currentPromo2 = sliderPromo2.length}
+//     for (i = 0; i < sliderPromo2.length; i++) {
+//         sliderPromo2[i].style.display = "none";
+//     }
 
-    for (i = 0; i < dotsAmostras2.length; i++) {
-        dotsAmostras2[i].className = dotsAmostras2[i].className.replace(" markerT2", "");
-    }
+//     for (i = 0; i < dotsAmostras2.length; i++) {
+//         dotsAmostras2[i].className = dotsAmostras2[i].className.replace(" markerT2", "");
+//     }
 
-    sliderPromo2[currentPromo2 - 1].style.display = "flex";
-    dotsAmostras2[currentPromo2 - 1].className += " markerT2";
-}
+//     sliderPromo2[currentPromo2 - 1].style.display = "flex";
+//     dotsAmostras2[currentPromo2 - 1].className += " markerT2";
+// }
 
 
 /* */

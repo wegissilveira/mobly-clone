@@ -7,7 +7,8 @@ $(function(){
 });
 
 $(document).ready(function(){
-    // MainSlider
+
+    /* MainSlider */
     $.getScript("../../data/mainSliderData.js", function() {
 
         const dataArr = $.map(returnData(), value => {
@@ -60,48 +61,62 @@ $(document).ready(function(){
         console.log(exception)
     })
     
-    // SemanaM imagens
+    /* SemanaM imagens */
     $.getScript("../../data/semanaMData.js", function() {
 
         const dataArr = $.map(returnData(), value => {
             return [value]
         })
 
-        let semanaMDiv = $('<div></div>')
-        semanaMDiv.addClass('semanaM__galeria--row')
+        // Criando as divs parents das imagens
+        for (let i = 0; i < dataArr.length; i++) {
+            if ((i + 1) % 3 === 0) {
+                $('<div></div>').addClass('semanaM__galeria--row')
+                .appendTo('.semanaM__galeria--images')
+            }
+        }
+        
+        let divRef = 0
+        let semanaMDivs = $('.semanaM__galeria--row')
+        semanaMDivs.css('margin-bottom', 20)
 
+        // Populando as divs com as imagens
         $.each(dataArr, (index, value) => {
 
             let semanaMLink = $('<a></a>')
             let semanaMImg = $('<img>')
             let semanaMArrow_div = $('<div></div>') 
             let semanaMArrow = $('<i></i>') 
-
-            // if (index <= 2) {
             
-                // semanaMDiv.attr('id', 'semanaM__galeria--row1')
-                semanaMImg.attr('src', value)
-                semanaMArrow_div.addClass('semanaM__galeria--iContainer-green')
-                if (index % 2 !== 0) {semanaMArrow_div.addClass('semanaM__galeria--iContainer-grey')}
-                semanaMArrow.addClass('flaticon-right-arrow')
+            semanaMImg.attr('src', value)
+            semanaMArrow_div.addClass('semanaM__galeria--iContainer-green')
+            if (index % 2 !== 0) {semanaMArrow_div.addClass('semanaM__galeria--iContainer-grey')}
+            semanaMArrow.addClass('flaticon-right-arrow')
 
-                semanaMArrow.appendTo(semanaMArrow_div)
-                semanaMImg.appendTo(semanaMLink)
-                semanaMArrow_div.appendTo(semanaMLink)
-                semanaMLink.appendTo(semanaMDiv)
+            semanaMArrow.appendTo(semanaMArrow_div)
+            semanaMImg.appendTo(semanaMLink)
+            semanaMArrow_div.appendTo(semanaMLink)
+            semanaMLink.appendTo(semanaMDivs[divRef])
 
-                if ((index + 1) % 3 === 0) {
-                    // semanaMLink.appendTo(semanaMDiv)
-                    semanaMDiv.appendTo('.semanaM__galeria--images')
-                    // console.log('teste')
-                    console.log(index)
-                }
-            // }
+            if ((index + 1) % 3 === 0) {
+                divRef++
+            }
         })
-
         
     }).fail(function( jqxhr, settings, exception ) {
         console.log('error:')
         console.log(exception)
+    })
+
+    /* Acabaram de chegar */
+    $.getScript('../../data/novosProdutosData.js', function () {
+        // console.log(returnData())
+
+        $.each(returnData(), (index, value) => {
+            console.log(index)
+            console.log(value)
+
+            
+        })
     })
 }) 

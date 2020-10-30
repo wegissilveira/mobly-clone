@@ -673,11 +673,9 @@ input#busca { color: #fff;
     width: 50%;
 }
 
-#slider__marker i { cursor: pointer;}
+#slider__marker_icons .flaticon-circle { cursor: pointer;}
 
-.slider__marker .flaticon-circle { cursor: pointer;}
-
-#slider__marker .flaticon-circle:hover,
+#slider__marker_icons .flaticon-circle:hover,
 .markerT { color: #FF4600;}
 
 /* Thumbnail Main Slider*/
@@ -1093,7 +1091,7 @@ input#busca { color: #fff;
 /* PROMO E PROMO INSPIRA */
 /* ------------------------------------------------------- */
 
-.promo { height: 1000px;}
+/* .promo { height: 1000px;} */
 
 .promoInspira {
     display: flex;
@@ -1195,7 +1193,7 @@ input#busca { color: #fff;
 .promo__container--slider-bloco,  
 .promo__container--slider-bloco2 { 
     justify-content: space-between; 
-    width: 3920px;
+    /* width: 3920px; */
     position: relative;
 }
 
@@ -1286,13 +1284,21 @@ input#busca { color: #fff;
     font-weight: normal;
 }
 
-#promo__container--description-arrow {
+.promo__container--description-arrow {
     margin-top: 60px;
     margin-left: 0;
     width: 0;
     height: 0;
     display: block;
 }
+/* 
+#promo__container--description-arrow {
+    margin-top: 60px;
+    margin-left: 0;
+    width: 0;
+    height: 0;
+    display: block;
+} */
 
 /* Overslap Promo Slider */
 .overslapPromoRight,
