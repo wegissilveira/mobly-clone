@@ -11,6 +11,10 @@ $(document).ready(function(){
     /* MainSlider */
     $.getScript("../../data/mainSliderData.js", function() {
 
+        const windowWidth = $(window).width()
+        const mainSliderContainer = $('#mainSlider')
+        mainSliderContainer.css('width', windowWidth * 7)
+
         const dataArr = $.map(returnData(), value => {
             return [value]
         })
@@ -18,17 +22,20 @@ $(document).ready(function(){
         $.each(dataArr, (index, value) => {
 
             // Inserção de imagens no slider
+            
             const mainSliderDiv = $('<div></div>')
+            
             if (index === 0) {
                 mainSliderDiv.css("background-image", `url(${value})`)
                 mainSliderDiv.addClass('slider__img slide--js')
 
-                mainSliderDiv.appendTo('#mainSlider')
+                mainSliderDiv.appendTo(mainSliderContainer)
             } else {
-                mainSliderDiv.css({"background-image": `url(${value})`, 'display': 'none'})
+                // mainSliderDiv.css({"background-image": `url(${value})`, 'display': 'none'})
+                mainSliderDiv.css({"background-image": `url(${value})`})
                 mainSliderDiv.addClass('slider__img slide--js')
-
-                mainSliderDiv.appendTo('#mainSlider')
+                
+                mainSliderDiv.appendTo(mainSliderContainer)
             }
 
             // Inserção de thumbnails do slider
@@ -50,7 +57,10 @@ $(document).ready(function(){
 
             sliderMarker.addClass('flaticon-circle mainMarker--js')
             if (index === 0) {sliderMarker.addClass('flaticon-circle mainMarker--js markerT')}
-            sliderMarker.on('click', () => currentSlide(index + 1))
+           
+            // sliderMarker.appendTo('.promo__container--header-markerSlider')
+
+            sliderMarker.on('click', () => passMainSlides(index + 1, 'dot'))
             sliderMarker.on('mouseover', () => openThumbnail(index + 1))
             sliderMarker.on('mouseout', () => closeThumbnail(index + 1))
 
@@ -121,7 +131,7 @@ $(document).ready(function(){
             const slideImg = $('<img>')
             const slideDescriptionDiv = $('<div></div>')
             const slideDescriptionTitle = $(`<p>${value.nome}<br>${value.material}</p>`)
-            const slideDescriptionPrice = $(`<p>${value.preco}</p>`)
+            const slideDescriptionPrice = $(`<p>R$ ${value.preco}</p>`)
             const slideDescriptionArrow = $('<i></i>')
 
             slideDiv.addClass('promo__container--slider-uni')

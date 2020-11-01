@@ -3,64 +3,96 @@
 // let sliderImages = document.querySelectorAll('.slide--js'),
     //leftArrowMain = document.querySelector("#left-arrow--mainSlider-js"),
     //rightArrowMain = document.querySelector("#right-arrow--mainSlider-js"),
-let dots = document.getElementsByClassName("mainMarker--js"),
-    i,
-    current = 0,
+// let dots = document.getElementsByClassName("mainMarker--js"),
+    let i,
+    currentDotMainSlider = 0,
     currentPromoDot = 0,
     // currentPromo2 = 1,
     currentDeco = 1
 
 // showSlides(current);
-showSlidesAuto();
 
-function plusSlides(n) {
-    showSlides(current += n);
-}
 
-function currentSlide(n) {
-    showSlides(current = n);
-}
+// function passMainSlidesCallback(n) {
+//     passMainSlides(current += n);
+// }
 
-function showSlides(n) {
-    let sliderImages = document.querySelectorAll('.slide--js')
-    if (n > sliderImages.length) {current = 1}
-    if (n < 1) {current = sliderImages.length}
-    for (i = 0; i < sliderImages.length; i++) {
-        sliderImages[i].style.display = "none";
+// function passMainSlidesDots(n) {
+//     passMainSlides(current = n);
+// }
+
+const mainSliderContainer = document.getElementById('mainSlider')
+function passMainSlides(n, ref) {
+
+    const windowWidth = document.documentElement.clientWidth
+    let mainSliderContainerWidth = mainSliderContainer.style.width
+    mainSliderContainerWidth = Number(mainSliderContainerWidth.replace(/[^\d.]/g, ''))
+
+    const transformValue = mainSliderContainer.style.transform
+    let translateValue = transformValue.replace(/[^\d.]/g, '')
+    translateValue = Number(translateValue) 
+
+    let newN = n
+    if (ref !== 'dot') {
+        if (n === 1) {
+            translateValue < mainSliderContainerWidth - windowWidth ? 
+                translateValue = -translateValue - windowWidth :
+                translateValue = 0
+    
+        } else if (n === -1) {
+            translateValue > 0 ?
+                translateValue = -translateValue + windowWidth :
+                translateValue = windowWidth - mainSliderContainerWidth
+        }
+
+    } else {
+        translateValue = -windowWidth * (n - 1)
+        newN = (n - 1) - currentDotMainSlider
     }
+    
 
+    mainSliderContainer.style.transform = `translateX(${translateValue}px)`
+
+    passMainSlidesDots(newN) 
+
+}
+
+function passMainSlidesDots(n) {
+    
+    let dots = document.getElementsByClassName("mainMarker--js")
+
+    let totalDots = mainSliderContainer.children.length
+
+    currentDotMainSlider = currentDotMainSlider + n
+    
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" markerT", "");
+    } 
+
+    if (currentDotMainSlider < totalDots - 1 && currentDotMainSlider > 0) {
+        currentDotMainSlider = currentDotMainSlider
+
+    } else if (currentDotMainSlider >= totalDots) {
+        currentDotMainSlider = 0
+        
+    } else if (currentDotMainSlider < 0) {
+        currentDotMainSlider = totalDots - 1
     }
 
-    sliderImages[current-1].style.display = "block";
-
-    dots[current-1].className += " markerT";
-
+    if (dots[currentDotMainSlider] !== undefined) {
+        dots[currentDotMainSlider].className += " markerT"
+    }
+    
 }
 
+function passMainSlidesAuto() {
 
-function showSlidesAuto() {
-    let sliderImages = document.querySelectorAll('.slide--js')
-    for (i = 0; i < sliderImages.length; i++) {
-        sliderImages[i].style.display = "none";
-    }
+    passMainSlides(1)
 
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" markerT", "");
-    }
-
-    current++;
-
-    if (current > sliderImages.length) {current = 1}
-
-    if (sliderImages[0] !== undefined) {
-        sliderImages[current-1].style.display = "block";
-        dots[current-1].className += " markerT";
-    }
-
-    setTimeout(showSlidesAuto, 5000);
+    setTimeout(passMainSlidesAuto, 5000);
 }
+
+passMainSlidesAuto()
 
 
 /* *Thumbnails Main Slider */
@@ -181,7 +213,7 @@ function dotsAmostras() {
 
 function passSlidesPromo(n) {
     
-    let transformValue = sliderPromo[0].style.transform
+    const transformValue = sliderPromo[0].style.transform
     let translateValue = transformValue.replace(/[^\d.]/g, '')
     translateValue = Number(translateValue)
 
@@ -200,17 +232,17 @@ function passSlidesPromo(n) {
     }
 
     /* Pontos de marcação dos slides (dots) */
-    let newTransformValue = sliderPromo[0].style.transform
+    const newTransformValue = sliderPromo[0].style.transform
     let newTranslateValue = newTransformValue.replace(/[^\d.]/g, '')
     newTranslateValue = Number(newTranslateValue)
 
-    showSlidesPromoDots(newTranslateValue)
+    passSlidesPromoDots(newTranslateValue)
 }
 
 
-function showSlidesPromoDots(n) {
+function passSlidesPromoDots(n) {
 
-    let currentPromoDot = n / 25
+    const currentPromoDot = n / 25
 
     for (i = 0; i < dotsAmostras.length; i++) {
         dotsAmostras[i].className = dotsAmostras[i].className.replace(" markerT2", "");

@@ -57,7 +57,7 @@ ul { list-style: none;}
 /* **Banners Background - margin-left ** */
 
 /* Index */
-.slider__img,
+/* .slider__img, */
 .ultimos__bg,
 .custom__bg,
 /* Mobly Inspira*/
@@ -644,8 +644,19 @@ input#busca { color: #fff;
 
 .slider {height: 420px; }
 
-.slider__img { 
+#mainSlider {
     height: 85%;
+    display: flex;
+    transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+}
+
+.slider__img { 
+    height: 100%;
+    width: 100%;
 }
 
 #slider__marker_container {
@@ -657,7 +668,7 @@ input#busca { color: #fff;
     height: 15%;
     width: 50%;
     margin-left: 25%;
-    margin-top: -70px;
+    margin-top: -10px;
     font-size: 10px;
     color: #999999;
 }
@@ -672,6 +683,7 @@ input#busca { color: #fff;
     display: flex;
     justify-content: space-between;
     width: 50%;
+    /* z-index: 9999; */
 }
 
 #slider__marker_icons .flaticon-circle { cursor: pointer;}
