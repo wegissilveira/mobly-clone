@@ -120,6 +120,52 @@ $(document).ready(function(){
         console.log(exception)
     })
 
+    /* Ambientes decorados */
+    $.getScript('../../data/ambientesDecoradosData.js', function () {
+
+        const dataArr = $.map(returnData(), value => {
+            return [value]
+        })
+        
+        $.each(dataArr, (index, value) => {
+
+            const decoradosBloco = $('<div></div>')
+            const decoradosBlocoRow_1 = $('<div><a></a><a></a></div>')
+            const decoradosBlocoRow_2 = $('<div><a></a><a></a></div>')
+
+            decoradosBloco.addClass('decorados__slider--bloco')
+            if (index !== 0) {decoradosBloco.css('display', 'none')}
+            decoradosBlocoRow_1.addClass('decorados__slider--row')
+            decoradosBlocoRow_2.addClass('decorados__slider--row')
+
+            const valueArr = $.map(value, imgBlock => {
+                return [imgBlock]
+            })
+
+            $.each(valueArr, (i, val) => {
+
+                const decoradosImg = $('<img>')
+
+                decoradosImg.attr('src', val)
+
+                if (i <= 1) {
+                    decoradosImg.appendTo(decoradosBlocoRow_1[0].children[i])
+                } else {
+                    decoradosImg.appendTo(decoradosBlocoRow_2[0].children[i - 2])
+                } 
+                
+            })
+
+            decoradosBlocoRow_1.appendTo(decoradosBloco)
+            decoradosBlocoRow_2.appendTo(decoradosBloco)
+            decoradosBloco.appendTo('.decorados__slider--container')
+        })
+
+    }).fail(function( jqxhr, settings, exception ) {
+        console.log('error:')
+        console.log(exception)
+    })
+
     /* Acabaram de chegar */
     $.getScript('../../data/novosProdutosData.js', function () {
 
@@ -162,5 +208,9 @@ $(document).ready(function(){
             dotIcon.appendTo('.promo__container--header-markerSlider')
         }
 
+    }).fail(function( jqxhr, settings, exception ) {
+        console.log('error:')
+        console.log(exception)
     })
+    
 }) 

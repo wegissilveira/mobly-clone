@@ -129,8 +129,8 @@
                     <div class="decorados__header--title">
                         <p style="font-size: 22px; font-weight: bold;">Ambientes Decorados</p>
                     </div>
-                    <ul>
-                        <li>Área externa</li>
+                    <ul class="decorados__header-tabs">
+                        <li class="decorados__header-tab-active">Área externa</li>
                         <li>Banheiro</li>
                         <li>Cozinha</li>
                         <li>Escritório</li>
@@ -143,62 +143,14 @@
                 </div>
             </div>
             <div class="decorados__slider" >
-                <div class="decorados__slider--bloco">
-                    <div class="decorados__slider--row">
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-1.jpg" alt="decorado">
-                        </a>
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-2.jpg" alt="decorado">
-                        </a>
-                    </div>
-                    <div class="decorados__slider--row" id="decorados__slider--row2">
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-3.jpg" alt="decorado">
-                        </a>
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-4.jpg" alt="decorado">
-                        </a>
-                    </div>
+                <div class="decorados__slider--container">
+                    
                 </div>
-                <div class="decorados__slider--bloco">
-                    <div class="decorados__slider--row">
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-2.jpg" alt="decorado">
-                        </a>
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-1.jpg" alt="decorado">
-                        </a>
-                    </div>
-                    <div class="decorados__slider--row" id="decorados__slider--row2">
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-4.jpg" alt="decorado">
-                        </a>
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-3.jpg" alt="decorado">
-                        </a>
-                    </div>
+                <div class="decorados__slider_arrows-container">
+                    <i class="flaticon-left-arrow" onclick="passSlidesDecorados(-1)"></i>
+                    <i class="flaticon-right-arrow" onclick="passSlidesDecorados(1)"></i>
                 </div>
-                <div class="decorados__slider--bloco">
-                    <div class="decorados__slider--row">
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-4.jpg" alt="decorado">
-                        </a>
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-2.jpg" alt="decorado">
-                        </a>
-                    </div>
-                    <div class="decorados__slider--row" id="decorados__slider--row2">
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-1.jpg" alt="decorado">
-                        </a>
-                        <a href="#">
-                            <img src="/vendors/img/decorados/area-3.jpg" alt="decorado">
-                        </a>
-                    </div>
-                </div>
-                <i class="flaticon-left-arrow" id="arrow31" onclick="plusSlidesDeco(-1)"></i>
-                <i class="flaticon-right-arrow" id="arrow32" onclick="plusSlidesDeco(1)"></i>
+                
             </div>
         
         </section>

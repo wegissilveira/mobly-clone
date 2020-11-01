@@ -155,23 +155,44 @@ function prev() {
 
 /* *Slider Decorados* */
 
-let sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
+// let sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
 
-showSlidesDeco(currentDeco);
+// showSlidesDeco(currentDeco);
 
 function plusSlidesDeco(n) {
     showSlidesDeco(currentDeco += n);
 }
 
-function showSlidesDeco(n) {
-    if (n > sliderDecorado.length) {currentDeco = 1}
-    if (n < 1) {currentDeco = sliderDecorado.length}
+function passSlidesDecorados(n) {
+
+    let newN = currentDeco += n
+
+    const sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
+    const sliderDecoradoTabs = document.getElementsByClassName('decorados__header-tabs')
+    const sliderDecoradoTabsArr = Array.from(sliderDecoradoTabs[0].children)
+    const tabsQtd = sliderDecorado.length
+    
+    sliderDecoradoTabsArr.map(tab => {
+        tab.className = ''
+    }) 
+        
+    if (newN - 1 < tabsQtd && newN - 1 >= 0) {
+        sliderDecoradoTabsArr[newN - 1].className = 'decorados__header-tab-active'
+    } else if (newN - 1 >= tabsQtd) {
+        sliderDecoradoTabsArr[0].className = 'decorados__header-tab-active'  
+    } else if (newN - 1 <= 0) {
+        sliderDecoradoTabsArr[tabsQtd - 1].className = 'decorados__header-tab-active' 
+    }
+
+    if (newN > sliderDecorado.length) {currentDeco = 1}
+    if (newN < 1) {currentDeco = sliderDecorado.length}
     for (i = 0; i < sliderDecorado.length; i++) {
         sliderDecorado[i].style.display = "none";
     }
 
+    sliderDecoradoTabs[0].children
+
     sliderDecorado[currentDeco-1].style.display = "block";
-    // console.log('teste')
 }
 
 /* slider promo */

@@ -1,6 +1,6 @@
 let mainSliderData
 
-function returnData(){
+function returnData() {
     mainSliderData = {
         img1: '../vendors/img/slide1/slider.gif',
         img2: '../vendors/img/slide1/slider1.png',
