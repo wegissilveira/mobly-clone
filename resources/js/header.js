@@ -1,7 +1,7 @@
 /* *Floating Menus* */
 
 let bg = document.getElementById('backgroundTeste');
-let mainSubMenu = document.getElementById('mainSub-1--js');
+// let mainSubMenu = document.getElementById('mainSub-1--js');
 
 function openBg() {
     bg.style.display = "block";
@@ -36,13 +36,26 @@ function closeMenu(n) {
 }
 
 // /* */
-function openSubMenu1() {
-    mainSubMenu.style.display = "block";
+function openSubMenu1(el) {
+    
+    for (let i = 0; i < el.parentNode.children.length; i++) {
+        el.parentNode.children[i].children[0].classList.remove('active')
+        el.parentNode.children[i].children[1].classList.remove('active2')
+        el.parentNode.children[i].children[2].classList.remove('active2')
+        el.parentNode.children[i].children[3].style.display = 'none'
+    }
+
+    el.children[0].classList.add('active') 
+    el.children[1].classList.add('active2') 
+    el.children[2].classList.add('active2') 
+    el.children[3].style.display = 'block'
+    // mainSubMenu.style.display = "block";
 }
 
-function closeSubMenu1() {
-    mainSubMenu.style.display = "none";
-}
+// function closeSubMenu1(el) {
+//     el.children[0].classList.remove('active') 
+//     mainSubMenu.style.display = "none";
+// }
 
 
 /* *Floating Banners* */

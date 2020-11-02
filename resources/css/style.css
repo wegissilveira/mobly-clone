@@ -473,10 +473,13 @@ input#busca { color: #fff;
 
     height: 100%;
     width: 100%;
-
 }
 
-.header__menu--floatingMenu-main a { width: 100%;}
+.header__menu--floatingMenu-main ul li p {
+    cursor: pointer;
+}
+
+/* .header__menu--floatingMenu-main a { width: 100%;} */
 
 /* Icon sub menu arrow right */
 .header__menu--floatingMenu-main .flaticon-right-arrow {
@@ -514,9 +517,10 @@ input#busca { color: #fff;
 
 /* */
 .header__menu--floatingMenu-mainSub {
-    margin-left: 213px;
-    margin-top: -10px;
     position: absolute;
+    top: 0;
+    margin-left: 213px;
+    margin-top: 15px;
     color: #A8A8A8;
     font-size: 18px;
     height: 85%;
@@ -524,7 +528,13 @@ input#busca { color: #fff;
     display: none;
 }
 
-.header__menu--floatingMenu-mainSub li:hover { color: #FF4600;}
+.header__menu--floatingMenu-mainSub li {
+    cursor: pointer;
+}
+
+.header__menu--floatingMenu-mainSub li:hover { 
+    color: #FF4600;
+}
 /* */
 
 /* Floating Images */
@@ -1066,6 +1076,7 @@ input#busca { color: #fff;
 
 .decorados__header-tab-active {
     font-weight: bold;
+    font-size: 18px;
     border-bottom: 2px solid #787878;
     padding-bottom: 2px;
 }

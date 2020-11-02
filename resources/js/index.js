@@ -159,13 +159,11 @@ function prev() {
 
 // showSlidesDeco(currentDeco);
 
-function plusSlidesDeco(n) {
-    showSlidesDeco(currentDeco += n);
-}
+// function plusSlidesDeco(n) {
+//     showSlidesDeco(currentDeco += n);
+// }
 
-function passSlidesDecorados(n) {
-
-    let newN = currentDeco += n
+function passSlidesDecorados(n, ref) {
 
     const sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
     const sliderDecoradoTabs = document.getElementsByClassName('decorados__header-tabs')
@@ -175,25 +173,37 @@ function passSlidesDecorados(n) {
     sliderDecoradoTabsArr.map(tab => {
         tab.className = ''
     }) 
-        
-    if (newN - 1 < tabsQtd && newN - 1 >= 0) {
-        sliderDecoradoTabsArr[newN - 1].className = 'decorados__header-tab-active'
-    } else if (newN - 1 >= tabsQtd) {
-        sliderDecoradoTabsArr[0].className = 'decorados__header-tab-active'  
-    } else if (newN - 1 <= 0) {
-        sliderDecoradoTabsArr[tabsQtd - 1].className = 'decorados__header-tab-active' 
-    }
 
-    if (newN > sliderDecorado.length) {currentDeco = 1}
-    if (newN < 1) {currentDeco = sliderDecorado.length}
     for (i = 0; i < sliderDecorado.length; i++) {
         sliderDecorado[i].style.display = "none";
     }
+        
+    if (ref !== 'tab') {
 
-    sliderDecoradoTabs[0].children
+        let newN = currentDeco += n
 
-    sliderDecorado[currentDeco-1].style.display = "block";
+        if (newN - 1 < tabsQtd && newN - 1 >= 0) {
+            sliderDecoradoTabsArr[newN - 1].className = 'decorados__header-tab-active'
+        } else if (newN - 1 >= tabsQtd) {
+            sliderDecoradoTabsArr[0].className = 'decorados__header-tab-active'  
+        } else if (newN - 1 <= 0) {
+            sliderDecoradoTabsArr[tabsQtd - 1].className = 'decorados__header-tab-active' 
+        }
+
+        if (newN > sliderDecorado.length) {currentDeco = 1}
+        if (newN < 1) {currentDeco = sliderDecorado.length}
+
+        sliderDecorado[currentDeco-1].style.display = "block";
+
+    } else {
+        currentDeco = n + 1
+
+        sliderDecoradoTabsArr[n].className = 'decorados__header-tab-active' 
+        sliderDecorado[n].style.display = "block";
+    }
+
 }
+
 
 /* slider promo */
 
