@@ -4,11 +4,11 @@
     //leftArrowMain = document.querySelector("#left-arrow--mainSlider-js"),
     //rightArrowMain = document.querySelector("#right-arrow--mainSlider-js"),
 // let dots = document.getElementsByClassName("mainMarker--js"),
-    let i,
-    currentDotMainSlider = 0,
-    currentPromoDot = 0,
+    // let i,
+    let currentDotMainSlider = 0
+    // currentPromoDot = 0,
     // currentPromo2 = 1,
-    currentDeco = 1
+    // currentDeco = 1
 
 // showSlides(current);
 
@@ -163,12 +163,14 @@ function prev() {
 //     showSlidesDeco(currentDeco += n);
 // }
 
+let currentDeco = 1
+
 function passSlidesDecorados(n, ref) {
 
     const sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
     const sliderDecoradoTabs = document.getElementsByClassName('decorados__header-tabs')
     const sliderDecoradoTabsArr = Array.from(sliderDecoradoTabs[0].children)
-    const tabsQtd = sliderDecorado.length
+    // const tabsQtd = sliderDecorado.length
     
     sliderDecoradoTabsArr.map(tab => {
         tab.className = ''
@@ -178,29 +180,29 @@ function passSlidesDecorados(n, ref) {
         sliderDecorado[i].style.display = "none";
     }
         
-    if (ref !== 'tab') {
+    // if (ref !== 'tab') {
 
-        let newN = currentDeco += n
+    //     let newN = currentDeco += n
 
-        if (newN - 1 < tabsQtd && newN - 1 >= 0) {
-            sliderDecoradoTabsArr[newN - 1].className = 'decorados__header-tab-active'
-        } else if (newN - 1 >= tabsQtd) {
-            sliderDecoradoTabsArr[0].className = 'decorados__header-tab-active'  
-        } else if (newN - 1 <= 0) {
-            sliderDecoradoTabsArr[tabsQtd - 1].className = 'decorados__header-tab-active' 
-        }
+    //     if (newN - 1 < tabsQtd && newN - 1 >= 0) {
+    //         sliderDecoradoTabsArr[newN - 1].className = 'decorados__header-tab-active'
+    //     } else if (newN - 1 >= tabsQtd) {
+    //         sliderDecoradoTabsArr[0].className = 'decorados__header-tab-active'  
+    //     } else if (newN - 1 <= 0) {
+    //         sliderDecoradoTabsArr[tabsQtd - 1].className = 'decorados__header-tab-active' 
+    //     }
 
-        if (newN > sliderDecorado.length) {currentDeco = 1}
-        if (newN < 1) {currentDeco = sliderDecorado.length}
+    //     if (newN > sliderDecorado.length) {currentDeco = 1}
+    //     if (newN < 1) {currentDeco = sliderDecorado.length}
 
-        sliderDecorado[currentDeco-1].style.display = "block";
+    //     sliderDecorado[currentDeco-1].style.display = "block";
 
-    } else {
+    // } else {
         currentDeco = n + 1
 
         sliderDecoradoTabsArr[n].className = 'decorados__header-tab-active' 
         sliderDecorado[n].style.display = "block";
-    }
+    // }
 
 }
 
@@ -241,6 +243,7 @@ function dotsAmostras() {
 
 // showSlidesPromoDots(currentPromoDot);
 // showSlidesPromo2(current);
+let currentPromoDot = 0
 
 function passSlidesPromo(n) {
     
