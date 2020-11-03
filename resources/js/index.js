@@ -165,7 +165,7 @@ function prev() {
 
 let currentDeco = 1
 
-function passSlidesDecorados(n, ref) {
+function passSlidesDecorados(n) {
 
     const sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
     const sliderDecoradoTabs = document.getElementsByClassName('decorados__header-tabs')

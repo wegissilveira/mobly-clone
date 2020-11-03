@@ -9,9 +9,9 @@ $(function(){
     $("#includedFooter").load("../../shared/footer.html"); 
 });
 
-$(document).ready(function(){
-
-    /* MainSlider */
+$(function(){
+    
+    /* Main Slider */
     $.getScript("../../data/mainSliderData.js", function() {
 
         const windowWidth = $(window).width()
@@ -25,7 +25,6 @@ $(document).ready(function(){
         $.each(dataArr, (index, value) => {
 
             // Inserção de imagens no slider
-            
             const mainSliderDiv = $('<div></div>')
             
             if (index === 0) {
@@ -124,7 +123,7 @@ $(document).ready(function(){
     })
 
     /* Ambientes decorados */
-    $.getScript('../../data/ambientesDecoradosData.js', function () {
+    $.getScript('../../data/ambientesDecoradosData.js', function() {
 
         const dataArr = $.map(returnData(), value => {
             return [value]
@@ -169,37 +168,45 @@ $(document).ready(function(){
         console.log(exception)
     })
 
-    /* Acabaram de chegar */
-    $.getScript('../../data/novosProdutosData.js', function () {
+    /* Produtos */
+    $.getScript('../../data/produtosData.js', function() {
+
+        /* Acabaram de chegar (HOMEPAGE) */
+        let novosProdutosArr = []
 
         $.each(returnData(), (index, value) => {
 
             // Criação da div com todos os elementos necessários dentro
-            const slideDiv = $('<div></div>')
-            const slideLink = $('<a></a>')
-            const slideImg = $('<img>')
-            const slideDescriptionDiv = $('<div></div>')
-            const slideDescriptionTitle = $(`<p>${value.nome}<br>${value.material}</p>`)
-            const slideDescriptionPrice = $(`<p>R$ ${value.preco}</p>`)
-            const slideDescriptionArrow = $('<i></i>')
+            if (value.novoProduto) {
 
-            slideDiv.addClass('promo__container--slider-uni')
-            slideImg.attr('src', value.img)
-            slideDescriptionDiv.addClass('promo__container--slider-description')
-            slideDescriptionPrice.addClass('promo__container--slider-preco')
-            slideDescriptionArrow.addClass('flaticon-right-arrow promo__container--description-arrow')
-            
-            slideDescriptionTitle.appendTo(slideDescriptionDiv)
-            slideDescriptionPrice.appendTo(slideDescriptionDiv)
-            slideDescriptionArrow.appendTo(slideDescriptionDiv)
-            slideImg.appendTo(slideLink)
-            slideDescriptionDiv.appendTo(slideLink)
-            slideLink.appendTo(slideDiv)
-            slideDiv.appendTo('.promo__container--slider-bloco')
+                const slideDiv = $('<div></div>')
+                const slideLink = $('<a></a>')
+                const slideImg = $('<img>')
+                const slideDescriptionDiv = $('<div></div>')
+                const slideDescriptionTitle = $(`<p>${value.nome}<br>${value.material}</p>`)
+                const slideDescriptionPrice = $(`<p>R$ ${value.preco}</p>`)
+                const slideDescriptionArrow = $('<i></i>')
+
+                slideDiv.addClass('promo__container--slider-uni')
+                slideImg.attr('src', value.img)
+                slideDescriptionDiv.addClass('promo__container--slider-description')
+                slideDescriptionPrice.addClass('promo__container--slider-preco')
+                slideDescriptionArrow.addClass('flaticon-right-arrow promo__container--description-arrow')
+                
+                slideDescriptionTitle.appendTo(slideDescriptionDiv)
+                slideDescriptionPrice.appendTo(slideDescriptionDiv)
+                slideDescriptionArrow.appendTo(slideDescriptionDiv)
+                slideImg.appendTo(slideLink)
+                slideDescriptionDiv.appendTo(slideLink)
+                slideLink.appendTo(slideDiv)
+                slideDiv.appendTo('.promo__container--slider-bloco')
+
+                novosProdutosArr.push(value.novoProduto)
+            }
 
         })
 
-        let dotsQtd = Math.floor(returnData().length / 4)
+        let dotsQtd = Math.floor(novosProdutosArr.length / 4)
 
         for (let i = 0; i < dotsQtd; i++) {
 
@@ -210,10 +217,15 @@ $(document).ready(function(){
             
             dotIcon.appendTo('.promo__container--header-markerSlider')
         }
+        
+
+        /* Lista de produtos (LANÇAMENTOS PAGE) */
+        console.log(returnData())
 
     }).fail(function( jqxhr, settings, exception ) {
         console.log('error:')
         console.log(exception)
     })
+
     
 }) 
