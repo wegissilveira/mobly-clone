@@ -220,13 +220,28 @@ $(function(){
         
 
         /* Lista de produtos (LANÇAMENTOS PAGE) */
-        // console.log(returnData())
-        const rowsQtde = Math.round(returnData().length / 4)
-        console.log(rowsQtde)
-        for (let i = 0; i < rowsQtde; i ++) {
+        
+        const pagesQtde = Math.ceil(returnData().length / 12)
+        const rowsQtde = Math.ceil(returnData().length / 4)
+
+        for (let i = 0; i < pagesQtde; i++) {
             $('<div></div>')
-                .addClass('filters__mostruarioContainer--row')
+                .css('display', i !== 0 ? 'none' : 'block')
+                .addClass('filters__mostruarioContainer--page')
                 .appendTo('.filters__mostruarioContainer')
+        }
+
+        const produtosPages = $('.filters__mostruarioContainer--page')
+
+        for (let i = 0; i < rowsQtde; i++) {
+
+            const pageIndex = Math.floor(i / 3)
+            
+            const produtosRow = $('<div></div>')
+
+            produtosRow.addClass('filters__mostruarioContainer--row')
+
+            produtosRow.appendTo(produtosPages[pageIndex])
         }
 
         const produtosContainer = $('.filters__mostruarioContainer--row')
@@ -258,10 +273,7 @@ $(function(){
             produtosDescriptionTitle.appendTo(produtosDescriptionDiv)
             produtosDescriptionPriceParc.appendTo(produtosDescriptionDiv)
             produtosDescriptionPrice.appendTo(produtosDescriptionDiv)
-            
-            if (index < 12) {
-                produtosSubContainerDiv.appendTo(produtosContainer[rowIndex])
-            }
+            produtosSubContainerDiv.appendTo(produtosContainer[rowIndex])
             
         })
         
