@@ -206,7 +206,7 @@ $(function(){
 
         })
 
-        let dotsQtd = Math.floor(novosProdutosArr.length / 4)
+        const dotsQtd = Math.floor(novosProdutosArr.length / 4)
 
         for (let i = 0; i < dotsQtd; i++) {
 
@@ -220,7 +220,51 @@ $(function(){
         
 
         /* Lista de produtos (LANÇAMENTOS PAGE) */
-        console.log(returnData())
+        // console.log(returnData())
+        const rowsQtde = Math.round(returnData().length / 4)
+        console.log(rowsQtde)
+        for (let i = 0; i < rowsQtde; i ++) {
+            $('<div></div>')
+                .addClass('filters__mostruarioContainer--row')
+                .appendTo('.filters__mostruarioContainer')
+        }
+
+        const produtosContainer = $('.filters__mostruarioContainer--row')
+
+        $.each(returnData(), (index, value) => {
+
+            const rowIndex = Math.floor(index / 4)
+            
+            const produtosSubContainerDiv = $('<div></div>')
+            const produtosDiscount = $('<p>50%</p>')
+            const produtosImg = $('<img>')
+            const produtosIcon = $('<i></i>')
+            const produtosDescriptionDiv = $('<div></div>')
+            const produtosDescriptionTitle = $('<p></p>')
+            const produtosDescriptionPriceParc = $(`<p><strong>6x 58,33</strong><span> sem juros</span></p>`)
+            const produtosDescriptionPrice = $(`<p><span>709,90</span><strong> ${value.preco}</strong></p>`)
+
+            produtosSubContainerDiv.addClass('filters__mostruarioContainer--row-uni4')
+            produtosDiscount.addClass('filters__mostruarioContainer--row-discount')
+            produtosImg.attr('src', value.img)
+            produtosIcon.addClass('flaticon-like')
+            produtosDescriptionPriceParc.addClass('filters__mostruario--price-split')
+            produtosDescriptionPrice.addClass('filters__mostruario--price')
+            
+            produtosDiscount.appendTo(produtosSubContainerDiv)
+            produtosImg.appendTo(produtosSubContainerDiv)
+            produtosIcon.appendTo(produtosSubContainerDiv)
+            produtosDescriptionDiv.appendTo(produtosSubContainerDiv)
+            produtosDescriptionTitle.appendTo(produtosDescriptionDiv)
+            produtosDescriptionPriceParc.appendTo(produtosDescriptionDiv)
+            produtosDescriptionPrice.appendTo(produtosDescriptionDiv)
+            
+            if (index < 12) {
+                produtosSubContainerDiv.appendTo(produtosContainer[rowIndex])
+            }
+            
+        })
+        
 
     }).fail(function( jqxhr, settings, exception ) {
         console.log('error:')
