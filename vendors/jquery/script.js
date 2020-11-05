@@ -225,11 +225,21 @@ $(function(){
         const rowsQtde = Math.ceil(returnData().length / 4)
 
         for (let i = 0; i < pagesQtde; i++) {
+            $(`<p>${i+1}</p>`)
+                .addClass(i === 0 ? 'filters__container--row-pages-active' : '')
+                .on('click', () => passPageProducts(i))
+                .appendTo('.filters__container--row-pages')            
+
             $('<div></div>')
                 .css('display', i !== 0 ? 'none' : 'block')
                 .addClass('filters__mostruarioContainer--page')
                 .appendTo('.filters__mostruarioContainer')
         }
+
+        // => TALVEZ INSERIR ESSA ARROW PARA MUDAR DE BLOCO DE PÁGINAS, MAS CASO ISSO OCORRA SERIA NECESSÁRIO UMA ARROW PARA VOLTAR TBM
+        // $('<i></i>')
+        //     .addClass('flaticon-right-arrow filters__container--row-pages-arrow')
+        //     .appendTo('.filters__container--row-pages')
 
         const produtosPages = $('.filters__mostruarioContainer--page')
 

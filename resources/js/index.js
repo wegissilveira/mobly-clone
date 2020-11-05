@@ -379,3 +379,29 @@ function addItem() {
     itemList.appendChild(img);
 }
 
+
+/* **lancamentos.js** */
+
+function passPageProducts(index) {
+    
+    const productPagesContainer = document.getElementsByClassName('filters__mostruarioContainer--page')
+    const productPagesNumber = document.getElementsByClassName('filters__container--row-pages')
+    const productPagesArray = Array.from(productPagesNumber[0].children)
+
+    for (let i = 0; i < productPagesArray.length; i++) {
+        //Esse bloco 'if' só será necessário caso eu insira as arrow
+        // if (i !== productPagesArray.length - 1) {
+        //     productPagesArray[i].className = ''
+        // }
+        
+        productPagesContainer[i].style.display = 'none'
+        productPagesArray[i].className = ''
+    }
+
+    productPagesContainer[index].style.display = 'block'
+    productPagesArray[index].className = 'filters__container--row-pages-active'
+
+    // console.log(productPagesArray)
+    // console.log(productPages[0].children[index])
+    // console.log(index)
+}
