@@ -209,8 +209,8 @@ function passSlidesDecorados(n) {
 
 /* slider promo */
 
-let sliderPromo = document.getElementsByClassName('promo__container--slider-bloco'),
-    dotsAmostras = document.getElementsByClassName('marker-amostras--js');
+// let sliderPromo = document.getElementsByClassName('promo__container--slider-bloco'),
+// let dotsAmostras = document.getElementsByClassName('marker-amostras--js');
 let sliderPromo2 = document.getElementsByClassName('promo__container--slider-bloco2'),
     dotsAmostras2 = document.getElementsByClassName('marker-amostras2--js');
 /* *Nessa maneira eu passo os slides baseado na localização, mas neste caso eu vou ter que colocar cada 4 em um container para que possa ser identificado como uma unidade e possibilitar a mudança dos dots. Por isso inserir a forma com a qual eu já estava fazendo os outros slides.
@@ -247,6 +247,8 @@ let currentPromoDot = 0
 
 function passSlidesPromo(n) {
     
+    const sliderPromo = document.getElementsByClassName('promo__container--slider-bloco')
+
     const transformValue = sliderPromo[0].style.transform
     let translateValue = transformValue.replace(/[^\d.]/g, '')
     translateValue = Number(translateValue)
@@ -275,6 +277,8 @@ function passSlidesPromo(n) {
 
 
 function passSlidesPromoDots(n) {
+
+    const dotsAmostras = document.getElementsByClassName('marker-amostras--js')
 
     const currentPromoDot = n / 25
 

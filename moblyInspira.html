@@ -12,7 +12,7 @@
 
     </head>
 
-    <body onload="tes()">
+    <body>
         <header id="includedHeader">
             <!-- <div class="header__first">
                 <div class="header__geral">
@@ -180,61 +180,18 @@
                         <p>Ver todos os produtos</p>
                         <i class="flaticon-right-arrow" id="promo__container--header-arrow"></i>
                     </a>
-                    <div class="promoInspira__container--header-markerSlider">
-                        <i class="flaticon-circle"></i>
-                        <i class="flaticon-circle"></i>
-                        <i class="flaticon-circle"></i>
-                    </div>
+                    <div class="promo__container--header-markerSlider"></div>
                 </div>
+                
                 <div class="promoInspira__container--slider">
-                    <div class="promo__container--slider-uni">
-                        <a href="#">
-                            <img src="/vendors/img/promo/img-1.jpg" alt="amostra">
-                            <div class="promo__container--slider-description">
-                                <p>Escrivaninha Mesa</p>
-                                <p>Escritório Madeira Pinus</p>
-                                <p class="promo__container--slider-preco"><span>de: 239,90</span> por: 394,90</p>
-                                <i class="flaticon-right-arrow" id="promo__container--description-arrow"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="promo__container--slider-uni">
-                        <a href="#">
-                            <img src="/vendors/img/promo/img-2.jpg" alt="amostra">
-                            <div class="promo__container--slider-description">
-                                <p>Escrivaninha Mesa</p>
-                                <p>Escritório Madeira Pinus</p>
-                                <p class="promo__container--slider-preco"><span>de: 239,90</span> por: 394,90</p>
-                                <i class="flaticon-right-arrow" id="promo__container--description-arrow"></i>
-                            </div>
-                        </a>
-                    </div> 
-                    <div class="promo__container--slider-uni">
-                        <a href="#">
-                            <img src="/vendors/img/promo/img-3.jpg" alt="amostra">
-                            <div class="promo__container--slider-description">
 
-                                <p>Escrivaninha Mesa</p>
-                                <p>Escritório Madeira Pinus</p>
-                                <p class="promo__container--slider-preco"><span>de: 239,90</span> por: 394,90</p>
-                                <i class="flaticon-right-arrow" id="promo__container--description-arrow"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="promo__container--slider-uni">
-                        <a href="#">
-                            <img src="/vendors/img/promo/img-4.jpg" alt="amostra">
-    
-                            <div class="promo__container--slider-description">
-                                <p>Escrivaninha Mesa</p>
-                                <p>Escritório Madeira Pinus</p>
-                                <p class="promo__container--slider-preco"><span>de: 239,90</span> por: 394,90</p>
-                                <i class="flaticon-right-arrow" id="promo__container--description-arrow"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <i class="flaticon-left-arrow"></i>
-                    <i class="flaticon-right-arrow"></i>
+                    <!--Populado com script.js-->
+                    <div class="promo__container--slider-bloco"></div>
+                    
+                </div>
+                <div class="promo__slider--arrow-container">
+                    <i class="flaticon-left-arrow" onclick="passSlidesPromo(-1);"></i>
+                    <i class="flaticon-right-arrow" onclick="passSlidesPromo(1);"></i>
                 </div>
             </div>
         </section>
@@ -324,8 +281,8 @@
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
         <script src="./node_modules//jquery/dist/jquery.min.js"></script>
 
-        <script src="/resources/js/index.js"></script>  
         <script src="/vendors/jquery/script.js"></script>
+        <script src="/resources/js/index.js"></script>  
 
     </body>
 
