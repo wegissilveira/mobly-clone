@@ -1,5 +1,3 @@
-// import $ from 'jquery'
-
 
 $(function(){
     $("#includedHeader").load("../../shared/header.html"); 
@@ -8,6 +6,15 @@ $(function(){
 $(function(){
     $("#includedFooter").load("../../shared/footer.html"); 
 });
+
+$(function(){
+    $("#info").load("../../shared/info-session.html"); 
+});
+
+$(function(){
+    $("#newsletter").load("../../shared/newsletter-session.html"); 
+});
+
 
 $(function(){
     
@@ -219,7 +226,7 @@ $(function(){
         }
         
 
-        /* Lista de produtos (LANÇAMENTOS PAGE) */
+        /* **Lista de produtos (LANÇAMENTOS PAGE)** */
         
         const pagesQtde = Math.ceil(returnData().length / 12)
         const rowsQtde = Math.ceil(returnData().length / 4)
@@ -257,10 +264,10 @@ $(function(){
         const produtosContainer = $('.filters__mostruarioContainer--row')
 
         $.each(returnData(), (index, value) => {
-
+            
             const rowIndex = Math.floor(index / 4)
             
-            const produtosSubContainerDiv = $('<div></div>')
+            const produtosSubContainerLink = $('<a></a>')
             const produtosDiscount = $('<p>50%</p>')
             const produtosImg = $('<img>')
             const produtosIcon = $('<i></i>')
@@ -269,23 +276,67 @@ $(function(){
             const produtosDescriptionPriceParc = $(`<p><strong>6x 58,33</strong><span> sem juros</span></p>`)
             const produtosDescriptionPrice = $(`<p><span>709,90</span><strong> ${value.preco}</strong></p>`)
 
-            produtosSubContainerDiv.addClass('filters__mostruarioContainer--row-uni4')
+            produtosSubContainerLink.addClass('filters__mostruarioContainer--row-uni4')
+            produtosSubContainerLink.attr('href', `/item.html?product_id=${value.id}`)
             produtosDiscount.addClass('filters__mostruarioContainer--row-discount')
             produtosImg.attr('src', value.img)
             produtosIcon.addClass('flaticon-like')
             produtosDescriptionPriceParc.addClass('filters__mostruario--price-split')
             produtosDescriptionPrice.addClass('filters__mostruario--price')
             
-            produtosDiscount.appendTo(produtosSubContainerDiv)
-            produtosImg.appendTo(produtosSubContainerDiv)
-            produtosIcon.appendTo(produtosSubContainerDiv)
-            produtosDescriptionDiv.appendTo(produtosSubContainerDiv)
+            produtosDiscount.appendTo(produtosSubContainerLink)
+            produtosImg.appendTo(produtosSubContainerLink)
+            produtosIcon.appendTo(produtosSubContainerLink)
+            produtosDescriptionDiv.appendTo(produtosSubContainerLink)
             produtosDescriptionTitle.appendTo(produtosDescriptionDiv)
             produtosDescriptionPriceParc.appendTo(produtosDescriptionDiv)
             produtosDescriptionPrice.appendTo(produtosDescriptionDiv)
-            produtosSubContainerDiv.appendTo(produtosContainer[rowIndex])
+            produtosSubContainerLink.appendTo(produtosContainer[rowIndex])
             
         })
+
+
+        /* **Item individual (Item PAGE)** */
+
+        const url_string = window.location.href
+        const url = new URL(url_string)
+        const id = Number(url.searchParams.get("product_id"))
+        
+        $.each(returnData(), (index, value) => {
+
+            if (value.id === id) {
+                
+                // const productBuyContainer = $('<div></div>')
+                // const productBuyDetails = $('<div></div>')
+                // const productBuyDetailsPrice = $('<div></div>')
+                
+                const product_mainImg = $('<img>')
+                const productBuyDetailsPriceTitle = $(`<h3>${value.nome}</h3>`)
+                const price_savePercentage = $(`<p>Economize 50%</p>`)
+                const price_original = $(`<p>De: 709,99</p>`)
+                const price_final = $(`<p>por<span>&nbsp;${value.preco}</span></p>`)
+                const price_saveMoney = $(`<p><span>(economize 360,00)</span><br> Ou em até 6x de 58,33 sem juros</p>`)
+
+                // const buyButton = ('<button>Comprar</button>')
+                // const productBuyDetailsShipping = ('<div></div>')
+                // const productBuyDetailsShippingTitle = ('<div><i class="flaticon-shipped"></i><p>Calcular frete e prazo</p></div>')
+
+                product_mainImg.attr('src', value.img)
+                price_savePercentage.addClass('produto__comprar--detalhes-economize')
+                price_original.addClass('produto__comprar--detalhes-price-origin')
+                price_final.addClass('produto__comprar--detalhes-por')
+                price_saveMoney.css('line-through', '1.5')
+
+                product_mainImg.appendTo('.produto__imagem--main')
+                productBuyDetailsPriceTitle.appendTo('.produto__comprar--detalhes-preco')
+                price_savePercentage.appendTo('.produto__comprar--detalhes-preco')
+                price_original.appendTo('.produto__comprar--detalhes-preco')
+                price_final.appendTo('.produto__comprar--detalhes-preco')
+                price_saveMoney.appendTo('.produto__comprar--detalhes-preco')
+
+            }
+        })
+
         
 
     }).fail(function( jqxhr, settings, exception ) {
