@@ -306,10 +306,6 @@ $(function(){
 
             if (value.id === id) {
                 
-                // const productBuyContainer = $('<div></div>')
-                // const productBuyDetails = $('<div></div>')
-                // const productBuyDetailsPrice = $('<div></div>')
-                
                 const product_mainImg = $('<img>')
                 const productBuyDetailsPriceTitle = $(`<h3>${value.nome}</h3>`)
                 const price_savePercentage = $(`<p>Economize 50%</p>`)
@@ -317,11 +313,56 @@ $(function(){
                 const price_final = $(`<p>por<span>&nbsp;${value.preco}</span></p>`)
                 const price_saveMoney = $(`<p><span>(economize 360,00)</span><br> Ou em até 6x de 58,33 sem juros</p>`)
 
-                // const buyButton = ('<button>Comprar</button>')
-                // const productBuyDetailsShipping = ('<div></div>')
-                // const productBuyDetailsShippingTitle = ('<div><i class="flaticon-shipped"></i><p>Calcular frete e prazo</p></div>')
+                const measuresContainer = $('.produto__comprar--detalhes-descricaoDimensoes')
 
-                product_mainImg.attr('src', value.img)
+                // Alterando imagem principal para a que receber o hover
+                const imgsArr = $.map(value.imgs, value => {
+                    return [value]
+                })
+
+                $.each(imgsArr, (i, val) => {
+
+                    if (i === 0) {
+                        product_mainImg.attr('src', val)
+                    } 
+
+                    const thumb_img = $('<img>')
+                    thumb_img.attr('src', val)
+                    thumb_img.addClass(i === 0 ? 'produto__imagem--thumb-img produto__imagem--thumb-img-active' : 'produto__imagem--thumb-img')
+
+                    thumb_img.on('mouseover', () => {
+                        const thumb_imgs_container = $('.produto__imagem--thumb')
+                        const thumb_imgs_arr = Array.from(thumb_imgs_container[0].children)
+
+                        $.map(thumb_imgs_arr, thumb => {
+                            thumb.className = 'produto__imagem--thumb-img'
+                        })
+
+                        product_mainImg.attr('src', imgsArr[i])
+
+                        thumb_imgs_arr[i].className = 'produto__imagem--thumb-img produto__imagem--thumb-img-active'
+
+                    })
+
+                    thumb_img.appendTo('.produto__imagem--thumb')
+                    
+                })
+
+                const measuresArr = $.map(value.dimensoes, value => {
+                    return [value]
+                })
+
+                const measuresArr_keys = Object.keys(value.dimensoes).map(item => {
+                    return item.charAt(0).toUpperCase() + item.slice(1)
+                })
+                
+                $.each(measuresArr, (i, val) => {
+                    
+                    $(`<p>${measuresArr_keys[i]}:<span> ${val}</span></p>`)
+                    .addClass('measure_unit')
+                    .appendTo(measuresContainer[0].children[i])
+                })
+
                 price_savePercentage.addClass('produto__comprar--detalhes-economize')
                 price_original.addClass('produto__comprar--detalhes-price-origin')
                 price_final.addClass('produto__comprar--detalhes-por')

@@ -2565,7 +2565,8 @@ footer { height: 920px;}
 .produto__container { 
     display: flex;
 
-    margin-top: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 
@@ -2583,12 +2584,18 @@ footer { height: 920px;}
 
 .produto__imagem--thumb { margin-left: 40px;}
 
-.produto__imagem--thumb img { 
+.produto__imagem--thumb-img { 
     width: 58px;
     height: auto;
-    border: #000 solid 1px;
+    border: #ccc solid 1px;
     margin-bottom: 20px;
+    margin-left: 10px;
     cursor: pointer;
+}
+
+.produto__imagem--thumb-img-active {
+    width: 54px;
+    border: #ccc solid 3px;
 }
 /* */
 
@@ -2601,7 +2608,7 @@ footer { height: 920px;}
 
 .produto__comprar--detalhes { 
     margin-left: 80px;
-    margin-top: 60px;
+    /* margin-top: 60px; */
 }
 
 
@@ -2785,7 +2792,16 @@ input#frete { padding-left: 10px;}
     color: #5A168F;
 }
 
-.produto__comprar--detalhes-descricaoDimensoes p { margin-left: 10px;}
+/* .produto__comprar--detalhes-descricaoDimensoes p { margin-left: 10px;} */
+
+.measure_unit {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.measure_unit span {
+    font-weight: 100;
+}
 
 .produto__comprar--detalhes-descricaoDimensoes a {
     display: flex;
