@@ -25,12 +25,13 @@
                     <!--Populado com script.js-->
                     <div class="produto__imagem--thumb"></div>
 
-                    <a href="" style="color: red;"><i class="flaticon-pinterest"></i></a>
+                    <!-- <a href="" style="color: red;"><i class="flaticon-pinterest"></i></a> -->
                     <p style="margin-top: 30px;">*Imagens meramente ilustrativas</p>
                 </div>
                 <div class="produto__comprar--container">
                     <div class="produto__comprar--detalhes">
 
+                        <!--Populado com script.js-->
                         <div class="produto__comprar--detalhes-preco"></div>
 
                         <button class="produto__comprar--detalhes-comprarBtn">Comprar</button>
@@ -45,13 +46,13 @@
                             </div>
                         </div>
 
-                        <div class="produto__comprar--detalhes-favoritos">
+                        <!-- <div class="produto__comprar--detalhes-favoritos">
                             <i class="flaticon-star" style="margin-left: 10px;"></i>
                             <i class="flaticon-star"></i>
                             <i class="flaticon-star"></i>
                             <i class="flaticon-star"></i>
                             <i class="flaticon-star"></i>
-                        </div>
+                        </div> -->
 
                         <div class="produto__comprar--detalhes-boxes">
                             <a href="" >
@@ -72,9 +73,10 @@
                         <div class="produto__comprar--detalhes-descricao">
                             <p>Marca: Mobly</p>
                             <div class="produto__comprar--detalhes-descricaoTitle">
-                                <p class="active">Tamanho</p>
-                                <p class="disabled">Descrição</p>
+                                <p onClick="changeTabDescriptionProduct('size')" class="active-tab ">Tamanho</p>
+                                <p onClick="changeTabDescriptionProduct('text')" class="disabled-tab">Descrição</p>
                             </div>
+                            <!--Populado com script.js (há um 'p' abaixo do 'i')-->
                             <div class="produto__comprar--detalhes-descricaoDimensoes">
                                 <div>
                                     <i class="flaticon-cube-with-arrows"></i>
@@ -93,6 +95,8 @@
                                     <i class="flaticon-right-arrow"></i>
                                 </a> -->
                             </div>
+                            <!--Populado com script.js-->
+                            <div class="produto__comprar--detalhes-descricaoText"></div>
                         </div>
                     </div>
                 </div>

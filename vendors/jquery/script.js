@@ -176,6 +176,11 @@ $(function(){
     })
 
     /* Produtos */
+
+    let priceFormat 
+    let finalPrice 
+    let finalPriceStr 
+
     $.getScript('../../data/produtosData.js', function() {
 
         /* Acabaram de chegar (HOMEPAGE) */
@@ -186,16 +191,21 @@ $(function(){
             // Criação da div com todos os elementos necessários dentro
             if (value.novoProduto) {
 
+                priceFormat = Number(value.preco.replace(',', '.'))
+                finalPrice = (priceFormat / 100) * (100 - value.desconto)
+                finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
+
                 const slideDiv = $('<div></div>')
                 const slideLink = $('<a></a>')
                 const slideImg = $('<img>')
                 const slideDescriptionDiv = $('<div></div>')
-                const slideDescriptionTitle = $(`<p>${value.nome}<br>${value.material}</p>`)
-                const slideDescriptionPrice = $(`<p>R$ ${value.preco}</p>`)
+                const slideDescriptionTitle = $(`<p>${value.nome}</p>`)
+                const slideDescriptionPrice = $(`<p>Por: R$ ${finalPriceStr}</p>`)
                 const slideDescriptionArrow = $('<i></i>')
 
                 slideDiv.addClass('promo__container--slider-uni')
-                slideImg.attr('src', value.img)
+                slideLink.attr('href', `/item.html?product_id=${value.id}`)
+                slideImg.attr('src', value.imgs.img_1)
                 slideDescriptionDiv.addClass('promo__container--slider-description')
                 slideDescriptionPrice.addClass('promo__container--slider-preco')
                 slideDescriptionArrow.addClass('flaticon-right-arrow promo__container--description-arrow')
@@ -264,22 +274,26 @@ $(function(){
         const produtosContainer = $('.filters__mostruarioContainer--row')
 
         $.each(returnData(), (index, value) => {
+
+            // priceFormat = Number(value.preco.replace(',', '.'))
+            // finalPrice = (priceFormat / 100) * (100 - value.desconto)
+            // finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
             
             const rowIndex = Math.floor(index / 4)
             
             const produtosSubContainerLink = $('<a></a>')
-            const produtosDiscount = $('<p>50%</p>')
+            const produtosDiscount = $(`<p>-${value.desconto}%</p>`)
             const produtosImg = $('<img>')
             const produtosIcon = $('<i></i>')
             const produtosDescriptionDiv = $('<div></div>')
-            const produtosDescriptionTitle = $('<p></p>')
-            const produtosDescriptionPriceParc = $(`<p><strong>6x 58,33</strong><span> sem juros</span></p>`)
-            const produtosDescriptionPrice = $(`<p><span>709,90</span><strong> ${value.preco}</strong></p>`)
-
+            const produtosDescriptionTitle = $(`<p>${value.nome}</p>`)
+            const produtosDescriptionPriceParc = $(`<p><strong>10x ${(finalPrice / 10).toFixed(2).replace('.', ',')}</strong><span> sem juros</span></p>`)
+            const produtosDescriptionPrice = $(`<p><span>${value.preco}</span><strong> ${finalPriceStr}</strong></p>`)
+            
             produtosSubContainerLink.addClass('filters__mostruarioContainer--row-uni4')
             produtosSubContainerLink.attr('href', `/item.html?product_id=${value.id}`)
             produtosDiscount.addClass('filters__mostruarioContainer--row-discount')
-            produtosImg.attr('src', value.img)
+            produtosImg.attr('src', value.imgs.img_1)
             produtosIcon.addClass('flaticon-like')
             produtosDescriptionPriceParc.addClass('filters__mostruario--price-split')
             produtosDescriptionPrice.addClass('filters__mostruario--price')
@@ -305,15 +319,21 @@ $(function(){
         $.each(returnData(), (index, value) => {
 
             if (value.id === id) {
-                
-                const product_mainImg = $('<img>')
-                const productBuyDetailsPriceTitle = $(`<h3>${value.nome}</h3>`)
-                const price_savePercentage = $(`<p>Economize 50%</p>`)
-                const price_original = $(`<p>De: 709,99</p>`)
-                const price_final = $(`<p>por<span>&nbsp;${value.preco}</span></p>`)
-                const price_saveMoney = $(`<p><span>(economize 360,00)</span><br> Ou em até 6x de 58,33 sem juros</p>`)
 
-                const measuresContainer = $('.produto__comprar--detalhes-descricaoDimensoes')
+                // const priceFormat = Number(value.preco.replace(',', '.'))
+                // const finalPrice = (priceFormat / 100) * (100 - value.desconto)
+                // const finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
+                const priceSave = (priceFormat - finalPrice).toFixed(2).replace('.', ',')
+                
+                const product_mainImg_El = $('<img>')
+                const productBuyDetailsPriceTitle_El = $(`<h3>${value.nome}</h3>`)
+                const price_savePercentage_El = $(`<p>Economize ${value.desconto}%</p>`)
+                const price_original_El = $(`<p>De: ${value.preco}</p>`)
+                const price_final_El = $(`<p>por<span>&nbsp;${finalPriceStr}</span></p>`)
+                const price_saveMoney_El = $(`<p><span>(economize ${priceSave})</span><br> Ou em até 10x de ${(finalPrice / 10).toFixed(2).replace('.', ',')} sem juros</p>`)
+
+                const measuresContainer_El = $('.produto__comprar--detalhes-descricaoDimensoes')
+                const textDescription_El = $(`<p>${value.descricao}</p>`)
 
                 // Alterando imagem principal para a que receber o hover
                 const imgsArr = $.map(value.imgs, value => {
@@ -323,14 +343,14 @@ $(function(){
                 $.each(imgsArr, (i, val) => {
 
                     if (i === 0) {
-                        product_mainImg.attr('src', val)
+                        product_mainImg_El.attr('src', val)
                     } 
 
-                    const thumb_img = $('<img>')
-                    thumb_img.attr('src', val)
-                    thumb_img.addClass(i === 0 ? 'produto__imagem--thumb-img produto__imagem--thumb-img-active' : 'produto__imagem--thumb-img')
+                    const thumb_img_El = $('<img>')
+                    thumb_img_El.attr('src', val)
+                    thumb_img_El.addClass(i === 0 ? 'produto__imagem--thumb-img produto__imagem--thumb-img-active' : 'produto__imagem--thumb-img')
 
-                    thumb_img.on('mouseover', () => {
+                    thumb_img_El.on('mouseover', () => {
                         const thumb_imgs_container = $('.produto__imagem--thumb')
                         const thumb_imgs_arr = Array.from(thumb_imgs_container[0].children)
 
@@ -338,13 +358,13 @@ $(function(){
                             thumb.className = 'produto__imagem--thumb-img'
                         })
 
-                        product_mainImg.attr('src', imgsArr[i])
+                        product_mainImg_El.attr('src', imgsArr[i])
 
                         thumb_imgs_arr[i].className = 'produto__imagem--thumb-img produto__imagem--thumb-img-active'
 
                     })
 
-                    thumb_img.appendTo('.produto__imagem--thumb')
+                    thumb_img_El.appendTo('.produto__imagem--thumb')
                     
                 })
 
@@ -360,20 +380,21 @@ $(function(){
                     
                     $(`<p>${measuresArr_keys[i]}:<span> ${val}</span></p>`)
                     .addClass('measure_unit')
-                    .appendTo(measuresContainer[0].children[i])
+                    .appendTo(measuresContainer_El[0].children[i])
                 })
 
-                price_savePercentage.addClass('produto__comprar--detalhes-economize')
-                price_original.addClass('produto__comprar--detalhes-price-origin')
-                price_final.addClass('produto__comprar--detalhes-por')
-                price_saveMoney.css('line-through', '1.5')
+                price_savePercentage_El.addClass('produto__comprar--detalhes-economize')
+                price_original_El.addClass('produto__comprar--detalhes-price-origin')
+                price_final_El.addClass('produto__comprar--detalhes-por')
+                price_saveMoney_El.css('line-through', '1.5')
 
-                product_mainImg.appendTo('.produto__imagem--main')
-                productBuyDetailsPriceTitle.appendTo('.produto__comprar--detalhes-preco')
-                price_savePercentage.appendTo('.produto__comprar--detalhes-preco')
-                price_original.appendTo('.produto__comprar--detalhes-preco')
-                price_final.appendTo('.produto__comprar--detalhes-preco')
-                price_saveMoney.appendTo('.produto__comprar--detalhes-preco')
+                product_mainImg_El.appendTo('.produto__imagem--main')
+                productBuyDetailsPriceTitle_El.appendTo('.produto__comprar--detalhes-preco')
+                price_savePercentage_El.appendTo('.produto__comprar--detalhes-preco')
+                price_original_El.appendTo('.produto__comprar--detalhes-preco')
+                price_final_El.appendTo('.produto__comprar--detalhes-preco')
+                price_saveMoney_El.appendTo('.produto__comprar--detalhes-preco')
+                textDescription_El.appendTo('.produto__comprar--detalhes-descricaoText')
 
             }
         })

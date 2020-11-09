@@ -95,6 +95,24 @@ function passMainSlidesAuto() {
 passMainSlidesAuto()
 
 
+/* Mostrar setas do mainSlider */
+const mainSlider_El = document.getElementById('mainSlider')
+const mainSliderArrows_El = document.getElementsByClassName('mainSlider-arrows-container')[0]
+
+mainSlider_El.addEventListener('mouseenter', () => {
+    mainSliderArrows_El.style.display = 'flex'
+})
+
+mainSliderArrows_El.addEventListener('mouseenter', () => {
+    mainSliderArrows_El.style.display = 'flex'
+})
+
+mainSlider_El.addEventListener('mouseleave', () => {
+    mainSliderArrows_El.style.display = 'none'
+})
+/* ** */
+
+
 /* *Thumbnails Main Slider */
 function openThumbnail(n) {
     let marker = document.getElementsByClassName("mainMarker--js")
@@ -408,4 +426,28 @@ function passPageProducts(index) {
     // console.log(productPagesArray)
     // console.log(productPages[0].children[index])
     // console.log(index)
+}
+
+
+
+
+/* **Itens individuais** */
+
+function changeTabDescriptionProduct(tab) {
+
+    const descriptionTabs = document.getElementsByClassName('produto__comprar--detalhes-descricaoTitle')[0].children
+    const dimensions = document.getElementsByClassName('produto__comprar--detalhes-descricaoDimensoes')[0]
+    const text = document.getElementsByClassName('produto__comprar--detalhes-descricaoText')[0]
+    
+    if (tab === 'size') {
+        descriptionTabs[0].className = 'active-tab'
+        descriptionTabs[1].className = 'disabled-tab'
+        dimensions.style.display = 'block'
+        text.style.display = 'none'
+    } else if (tab ===  'text') {
+        descriptionTabs[0].className = 'disabled-tab'
+        descriptionTabs[1].className = 'active-tab'
+        dimensions.style.display = 'none'
+        text.style.display = 'block'
+    }
 }
