@@ -224,6 +224,98 @@ function passSlidesDecorados(n) {
 
 }
 
+let overSliderIndex
+let currentImg
+let overSlider
+const arrowsContainer = document.getElementsByClassName('decorados__overSlider_arrows-container')[0]
+
+function showDecorados_overSlider(action, indexBlock, indexImg) {
+
+    overSliderIndex = indexBlock !== undefined ? indexBlock : overSliderIndex
+    currentImg = indexImg !== undefined ? indexImg : currentImg
+
+    // console.log(indexBlock)
+    // console.log('toggle')
+
+    const body = document.getElementsByTagName("BODY")[0]
+    overSlider = document.getElementsByClassName('decorados_overSlider')[0]
+    const overlay = document.getElementsByClassName('decorados_overSlider_overlay')[0]
+    const currentOverSlider = overSlider.children[overSliderIndex + 2]
+    const currentOverSliderImage = currentOverSlider.children[currentImg]
+
+    // const decoradosContainerTop = document.getElementsByClassName('decorados')[0].offsetTop
+
+    // console.log(currentOverSlider)
+    // console.log(currentOverSliderImage)
+    // console.log(currentImg)
+
+    if (action === 'open') {
+        body.style.overflow = 'hidden'
+        overSlider.style.display = 'flex'
+        overlay.style.display = 'block'
+        overlay.style.height = body.offsetHeight + 'px'
+        // overlay.style.marginTop = -decoradosContainerTop + 'px'
+        currentOverSlider.style.display = 'block'
+        currentOverSliderImage.style.display = 'block'
+        arrowsContainer.style.display = 'flex'
+        
+        if (currentImg === 0) {
+            arrowsContainer.children[0].style.display = 'none'
+            arrowsContainer.children[1].style.display = 'flex'
+            arrowsContainer.children[2].style.display = 'flex'
+            arrowsContainer.children[3].style.display = 'none'
+        } else if (currentImg === 3) {
+            arrowsContainer.children[0].style.display = 'flex'
+            arrowsContainer.children[1].style.display = 'none'
+            arrowsContainer.children[2].style.display = 'none'
+            arrowsContainer.children[3].style.display = 'flex'
+        } else {
+            arrowsContainer.children[0].style.display = 'flex'
+            arrowsContainer.children[1].style.display = 'none'
+            arrowsContainer.children[2].style.display = 'flex'
+            arrowsContainer.children[3].style.display = 'none'
+        }
+
+    } else if (action === 'close') {
+        
+        body.style.overflow = 'unset'
+        overSlider.style.display = 'none'
+        currentOverSlider.style.display = 'none'
+        currentOverSliderImage.style.display = 'none'
+        arrowsContainer.style.display = 'none'
+    }
+    
+}
+
+
+function passSlidesOverSlider(arg) {
+    // console.log('pass')
+    const currentOverSlider = overSlider.children[overSliderIndex + 2].children
+    
+    currentImg = currentImg + arg
+    
+    for (let i = 0; i < currentOverSlider.length; i++) {
+        currentOverSlider[i].style.display = 'none'
+    }
+
+    if (currentImg === currentOverSlider.length - 1) {
+        arrowsContainer.children[2].style.display = 'none'
+        arrowsContainer.children[3].style.display = 'flex'
+    } else if (currentImg === 0) {
+        arrowsContainer.children[0].style.display = 'none'
+        arrowsContainer.children[1].style.display = 'flex'
+    } else {
+        arrowsContainer.children[0].style.display = 'flex'
+        arrowsContainer.children[1].style.display = 'none'
+        arrowsContainer.children[2].style.display = 'flex'
+        arrowsContainer.children[3].style.display = 'none'
+    }
+
+    currentOverSlider[currentImg].style.display = 'block'
+    
+}
+
+
 
 /* slider promo */
 

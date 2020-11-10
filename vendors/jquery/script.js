@@ -139,8 +139,11 @@ $(function(){
         $.each(dataArr, (index, value) => {
 
             const decoradosBloco = $('<div></div>')
-            const decoradosBlocoRow_1 = $('<div><a></a><a></a></div>')
-            const decoradosBlocoRow_2 = $('<div><a></a><a></a></div>')
+            const decoradosBlocoRow_1 = $('<div><div></div><div></div></div>')
+            const decoradosBlocoRow_2 = $('<div><div></div><div></div></div>')
+
+            const overSliderContainer = $('.decorados_overSlider')
+            const overSliderDiv = $('<div></div>')
 
             decoradosBloco.addClass('decorados__slider--bloco')
             if (index !== 0) {decoradosBloco.css('display', 'none')}
@@ -151,10 +154,12 @@ $(function(){
                 return [imgBlock]
             })
 
+            overSliderDiv.appendTo('.decorados_overSlider')
+            
             $.each(valueArr, (i, val) => {
 
                 const decoradosImg = $('<img>')
-
+                decoradosImg.on('click', () => showDecorados_overSlider('open', index, i))
                 decoradosImg.attr('src', val)
 
                 if (i <= 1) {
@@ -162,6 +167,10 @@ $(function(){
                 } else {
                     decoradosImg.appendTo(decoradosBlocoRow_2[0].children[i - 2])
                 } 
+
+                const overSliderImg = $('<img>')
+                overSliderImg.attr('src', val)
+                overSliderImg.appendTo(overSliderContainer[0].children[index + 2])
                 
             })
 
@@ -174,6 +183,7 @@ $(function(){
         console.log('error:')
         console.log(exception)
     })
+    
 
     /* Produtos */
 

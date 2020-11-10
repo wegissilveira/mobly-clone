@@ -6,7 +6,7 @@ function returnData() {
             img1: '../vendors/img/decorados/area-externa/area-externa-img-1.jpg',
             img2: '../vendors/img/decorados/area-externa/area-externa-img-2.jpg',
             img3: '../vendors/img/decorados/area-externa/area-externa-img-3.jpg',
-            img4: '../vendors/img/decorados/area-externa/area-externa-img-4.jpg'
+            img4: '../vendors/img/decorados/area-externa/area-externa-img-1.jpg'
         },
         banheiro: {
             img1: '../vendors/img/decorados/banheiro/banheiro-img-1.jpg',

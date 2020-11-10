@@ -150,12 +150,23 @@
                 </div>
             </div>
             <div class="decorados__slider" >
+
                 <!--Populado com script.js-->
                 <div class="decorados__slider--container"></div>
-                <!-- <div class="decorados__slider_arrows-container">
-                    <i class="flaticon-left-arrow" onclick="passSlidesDecorados(-1)"></i>
-                    <i class="flaticon-right-arrow" onclick="passSlidesDecorados(1)"></i>
-                </div> -->
+
+                <div class="decorados_overSlider" >
+                    <div class="decorados_overSlider_overlay" onclick="showDecorados_overSlider('close')"></div>
+                    <div class="decorados__overSlider_arrows-container">
+                        <i class="flaticon-left-arrow" onclick="passSlidesOverSlider(-1)"></i>
+                        <i class="flaticon-left-arrow disabled"></i>
+                        <i class="flaticon-right-arrow" onclick="passSlidesOverSlider(1)"></i>
+                        <i class="flaticon-right-arrow disabled"></i>
+                    </div>
+
+                    <!--Populado com script.js-->
+                    <!--Daqui pra baixo são inseridos os overSliders, um para cada tab-->
+                    
+                </div>
                 
             </div>
         
@@ -198,8 +209,7 @@
 
         <script src="/vendors/jquery/script.js"></script>
         <script src="/resources/js/index.js"></script>  
-        
-
+ 
     </body>
 
 
