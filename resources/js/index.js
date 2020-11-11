@@ -22,6 +22,7 @@
 // }
 
 const mainSliderContainer = document.getElementById('mainSlider')
+
 function passMainSlides(n, ref) {
 
     const windowWidth = document.documentElement.clientWidth
@@ -518,6 +519,24 @@ function passPageProducts(index) {
     // console.log(productPagesArray)
     // console.log(productPages[0].children[index])
     // console.log(index)
+}
+
+function productLike(event, product_id) {
+
+    const favoritosStorage = JSON.parse(localStorage.getItem('favoritos'))
+    let favoritosArr = favoritosStorage !== null ? [...favoritosStorage] : []
+
+    if (event.target.className === 'flaticon-like') {
+        event.target.className = 'flaticon-favorite-heart-button'
+        favoritosArr.push(product_id)
+        localStorage.setItem('favoritos', JSON.stringify(favoritosArr))
+    } else {
+        event.target.className = 'flaticon-like'
+        favoritosArr = favoritosArr.filter(item => item !== product_id)
+        localStorage.setItem('favoritos', JSON.stringify(favoritosArr))
+    }
+
+    event.preventDefault()
 }
 
 

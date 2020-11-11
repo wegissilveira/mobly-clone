@@ -17,6 +17,8 @@ $(function(){
 
 
 $(function(){
+
+    const favoritosStorage = JSON.parse(localStorage.getItem('favoritos'))
     
     /* Main Slider */
     $.getScript("../../data/mainSliderData.js", function() {
@@ -284,7 +286,8 @@ $(function(){
         const produtosContainer = $('.filters__mostruarioContainer--row')
 
         $.each(returnData(), (index, value) => {
-
+            // console.log(favoritosStorage.includes(value.id))
+            const favorito = favoritosStorage.includes(value.id)
             // priceFormat = Number(value.preco.replace(',', '.'))
             // finalPrice = (priceFormat / 100) * (100 - value.desconto)
             // finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
@@ -304,7 +307,9 @@ $(function(){
             produtosSubContainerLink.attr('href', `/item.html?product_id=${value.id}`)
             produtosDiscount.addClass('filters__mostruarioContainer--row-discount')
             produtosImg.attr('src', value.imgs.img_1)
-            produtosIcon.addClass('flaticon-like')
+            produtosIcon.addClass(favorito ? 'flaticon-favorite-heart-button' : 'flaticon-like')
+            // produtosIcon.addClass('flaticon-favorite-heart-button')
+            produtosIcon.on('click', () => productLike(event, value.id))
             produtosDescriptionPriceParc.addClass('filters__mostruario--price-split')
             produtosDescriptionPrice.addClass('filters__mostruario--price')
             

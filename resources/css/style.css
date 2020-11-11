@@ -2616,11 +2616,11 @@ footer { height: 920px;}
 }
 
 .filters__mostruarioContainer--row-uni4:hover {
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
 }
 
 .filters__mostruario--price-split {
@@ -2681,7 +2681,7 @@ footer { height: 920px;}
 
 
 .filters__mostruarioContainer--row-uni4 .flaticon-like,
-.filters__mostruarioContainer--row-uni3 .flaticon-like {
+.filters__mostruarioContainer--row-uni4 .flaticon-favorite-heart-button {
     display:inline-block;
     color: #FF4600;
     font-weight: bold;
@@ -2693,11 +2693,11 @@ footer { height: 920px;}
 }
 
 .filters__mostruarioContainer--row-uni4 .flaticon-like:hover {
-    transform:scale(1.1);
-    -webkit-transform:scale(1.1);
-    -moz-transform:scale(1.1);
-    -ms-transform:scale(1.1);
-    -o-transform:scale(1.1);
+    transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    -moz-transform:scale(1.2);
+    -ms-transform:scale(1.2);
+    -o-transform:scale(1.2);
 }
 
 .filters__mostruarioContainer--row-uni3 .flaticon-like { margin-left: 240px;}
