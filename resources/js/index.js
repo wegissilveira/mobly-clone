@@ -1,3 +1,4 @@
+
 /* *Slides 1* */
 
 // let sliderImages = document.querySelectorAll('.slide--js'),
@@ -521,20 +522,57 @@ function passPageProducts(index) {
     // console.log(index)
 }
 
-function productLike(event, product_id) {
+function productLike(event, product_id, el) {
 
     const favoritosStorage = JSON.parse(localStorage.getItem('favoritos'))
-    let favoritosArr = favoritosStorage !== null ? [...favoritosStorage] : []
+    const favoritosQtdeStorage = JSON.parse(localStorage.getItem('favoritosQtde'))
 
-    if (event.target.className === 'flaticon-like') {
-        event.target.className = 'flaticon-favorite-heart-button'
-        favoritosArr.push(product_id)
-        localStorage.setItem('favoritos', JSON.stringify(favoritosArr))
-    } else {
-        event.target.className = 'flaticon-like'
-        favoritosArr = favoritosArr.filter(item => item !== product_id)
-        localStorage.setItem('favoritos', JSON.stringify(favoritosArr))
+    let favoritosArr = favoritosStorage !== null ? [...favoritosStorage] : []
+    let favoritosQtdeArr = favoritosQtdeStorage !== null ? {...favoritosQtdeStorage} : {}
+    let favoritosQtde = favoritosQtdeArr[product_id] !== undefined ? favoritosQtdeArr[product_id] : 0
+
+    if (el === 'icon') {
+        if (event.target.className === 'flaticon-like') {
+
+            event.target.className = 'flaticon-favorite-heart-button'
+            favoritosArr.push(product_id)
+
+            favoritosQtde = ++favoritosQtde
+
+        } else {
+
+            event.target.className = 'flaticon-like'
+
+            favoritosArr = favoritosArr.filter(item => item !== product_id)
+
+            favoritosQtde = favoritosQtde > 0 ? --favoritosQtde : 0
+        }
+
+    } else if (el === 'div') {
+        if (event.currentTarget.children[0].className === 'flaticon-like') {
+
+            favoritosArr.push(product_id)
+
+            favoritosQtde = ++favoritosQtde
+
+            event.currentTarget.children[0].className = 'flaticon-favorite-heart-button'
+            event.currentTarget.children[2].innerHTML = favoritosQtde + ' favoritaram'
+
+        } else {
+
+            favoritosArr = favoritosArr.filter(item => item !== product_id)
+
+            favoritosQtde = favoritosQtde > 0 ? --favoritosQtde : 0
+
+            event.currentTarget.children[0].className = 'flaticon-like'
+            event.currentTarget.children[2].innerHTML = favoritosQtde + ' favoritaram'
+        }
     }
+
+    favoritosQtdeArr[product_id] = favoritosQtde
+
+    localStorage.setItem('favoritos', JSON.stringify(favoritosArr))
+    localStorage.setItem('favoritosQtde', JSON.stringify(favoritosQtdeArr))
 
     event.preventDefault()
 }

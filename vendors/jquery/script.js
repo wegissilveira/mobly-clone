@@ -1,3 +1,9 @@
+// Criando o objeto da quantidade de favoritos no local storage
+window.addEventListener('load', () => {
+    const favoritosQtde = JSON.parse(localStorage.getItem('favoritosQtde'))
+    localStorage.setItem('favoritosQtde', favoritosQtde !== null ? JSON.stringify   (favoritosQtde) : JSON.stringify({}))
+})
+
 
 $(function(){
     $("#includedHeader").load("../../shared/header.html"); 
@@ -287,7 +293,7 @@ $(function(){
 
         $.each(returnData(), (index, value) => {
             // console.log(favoritosStorage.includes(value.id))
-            const favorito = favoritosStorage.includes(value.id)
+            const favorito = favoritosStorage !== null ? favoritosStorage.includes(value.id) : false
             // priceFormat = Number(value.preco.replace(',', '.'))
             // finalPrice = (priceFormat / 100) * (100 - value.desconto)
             // finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
@@ -308,8 +314,7 @@ $(function(){
             produtosDiscount.addClass('filters__mostruarioContainer--row-discount')
             produtosImg.attr('src', value.imgs.img_1)
             produtosIcon.addClass(favorito ? 'flaticon-favorite-heart-button' : 'flaticon-like')
-            // produtosIcon.addClass('flaticon-favorite-heart-button')
-            produtosIcon.on('click', () => productLike(event, value.id))
+            produtosIcon.on('click', () => productLike(event, value.id, 'icon'))
             produtosDescriptionPriceParc.addClass('filters__mostruario--price-split')
             produtosDescriptionPrice.addClass('filters__mostruario--price')
             
@@ -333,8 +338,11 @@ $(function(){
         
         $.each(returnData(), (index, value) => {
 
-            if (value.id === id) {
+            const favorito = favoritosStorage !== null ? favoritosStorage.includes(value.id) : false
+            const favoritosQtde = JSON.parse(localStorage.getItem('favoritosQtde'))
+            
 
+            if (value.id === id) {
                 // const priceFormat = Number(value.preco.replace(',', '.'))
                 // const finalPrice = (priceFormat / 100) * (100 - value.desconto)
                 // const finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
@@ -383,6 +391,15 @@ $(function(){
                     
                 })
 
+                const productLike_icon_El = $('<i></i>')
+                let productLike_qtde_El
+                if (favoritosQtde !== null) {
+                    productLike_qtde_El = $(`<p>${favoritosQtde[value.id] !== undefined ? favoritosQtde[value.id] : 0} favoritaram</p>`)
+                } else {
+                    productLike_qtde_El = 0
+                }
+                
+
                 const measuresArr = $.map(value.dimensoes, value => {
                     return [value]
                 })
@@ -402,6 +419,8 @@ $(function(){
                 price_original_El.addClass('produto__comprar--detalhes-price-origin')
                 price_final_El.addClass('produto__comprar--detalhes-por')
                 price_saveMoney_El.css('line-through', '1.5')
+                productLike_icon_El.addClass(favorito ? 'flaticon-favorite-heart-button' : 'flaticon-like')
+                $('.produto__comprar--detalhes-boxesLike').on('click', () => productLike(event, value.id, 'div'))
 
                 product_mainImg_El.appendTo('.produto__imagem--main')
                 productBuyDetailsPriceTitle_El.appendTo('.produto__comprar--detalhes-preco')
@@ -410,6 +429,8 @@ $(function(){
                 price_final_El.appendTo('.produto__comprar--detalhes-preco')
                 price_saveMoney_El.appendTo('.produto__comprar--detalhes-preco')
                 textDescription_El.appendTo('.produto__comprar--detalhes-descricaoText')
+                productLike_icon_El.prependTo('.produto__comprar--detalhes-boxesLike')
+                productLike_qtde_El.appendTo('.produto__comprar--detalhes-boxesLike')
 
             }
         })

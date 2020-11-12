@@ -2916,6 +2916,7 @@ input#frete { padding-left: 10px;}
     border: #000 solid 1px;
     height: 75px;
     width: 140px;
+    cursor: pointer;
 }
 
 .produto__comprar--detalhes-boxes { font-size: 12px;}
