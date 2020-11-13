@@ -580,27 +580,27 @@ function returnData() {
             descricao: 'Carregando todo o charme e sofisticação do <strong>estilo industrial</strong> na estrutura, a <strong>Mesa Chaplin</strong> reúne requinte e bom gosto na medida certa para a sua <strong>sala de jantar ou cozinha</strong>. O destaque da peça vai para as <strong>linhas retas</strong> que dão esse ar moderno para ela, sem contar, claro, as <strong>cores sóbrias do tampo e dos pés</strong> que ajudam na hora de <strong>combinar</strong> com outros <strong>móveis</strong> e dar o seu toque pessoal na <strong>decoração</strong>. É a oportunidade perfeita de deixar o seu ambiente de confraternização bonito, aconchegante e pronto para receber as visitas. Ah, a peça não acompanha cadeiras e você deve adquiri-las separadamente para deixar o uso completo.',
             novoProduto: false
         },
-        {
-            id: 28,
-            imgs: {
-                img_1: '../vendors/img/produtos/sofa-3/sofa-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/sofa-3/sofa-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/sofa-3/sofa-3-img-3.jpg',
-                img_4: '../vendors/img/produtos/sofa-3/sofa-3-img-4.jpg'
-            },
-            nome: 'Sofá 3 Lugares Beny Base de Madeira Linho Cotton Cru.',
-            // material: 'Escritório Madeira Pinus',
-            preco: '1457,99',
-            desconto: 6,
-            dimensoes: {
-                altura: '81 cm',
-                largura: '182 cm',
-                profundidade: '81 cm',
-                peso: '48,000 kg'
-            },
-            descricao: 'Se você busca por um <strong>móvel</strong> para transformar sua <strong>sala de estar</strong>, vai se apaixonar pelo <strong>Sofá Beny</strong>. Com <strong>3 lugares</strong>, ele é aconchegante e possui um visual que vai elevar a <strong>decoração</strong> do espaço para outro nível. A base em <strong>madeira</strong>, as espumas de diferentes densidades e revestimento em Linho rústico Amarelo são a cereja do bolo. Prontinho, você encontrou o item que faltava para sua sala! Agora é só clicar em comprar!',
-            novoProduto: false
-        },
+        // {
+        //     id: 28,
+        //     imgs: {
+        //         img_1: '../vendors/img/produtos/sofa-3/sofa-3-img-1.jpg',
+        //         img_2: '../vendors/img/produtos/sofa-3/sofa-3-img-2.jpg',
+        //         img_3: '../vendors/img/produtos/sofa-3/sofa-3-img-3.jpg',
+        //         img_4: '../vendors/img/produtos/sofa-3/sofa-3-img-4.jpg'
+        //     },
+        //     nome: 'Sofá 3 Lugares Beny Base de Madeira Linho Cotton Cru.',
+        //     // material: 'Escritório Madeira Pinus',
+        //     preco: '1457,99',
+        //     desconto: 6,
+        //     dimensoes: {
+        //         altura: '81 cm',
+        //         largura: '182 cm',
+        //         profundidade: '81 cm',
+        //         peso: '48,000 kg'
+        //     },
+        //     descricao: 'Se você busca por um <strong>móvel</strong> para transformar sua <strong>sala de estar</strong>, vai se apaixonar pelo <strong>Sofá Beny</strong>. Com <strong>3 lugares</strong>, ele é aconchegante e possui um visual que vai elevar a <strong>decoração</strong> do espaço para outro nível. A base em <strong>madeira</strong>, as espumas de diferentes densidades e revestimento em Linho rústico Amarelo são a cereja do bolo. Prontinho, você encontrou o item que faltava para sua sala! Agora é só clicar em comprar!',
+        //     novoProduto: false
+        // },
         // {
         //     id: 2,
         //     img: '../vendors/img/produtos/cadeira_1.jpg',

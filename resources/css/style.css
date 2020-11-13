@@ -2190,7 +2190,7 @@ footer { height: 920px;}
 .lancamentosBanner__boxes,
 .lancamentosBanner__ofertas--container,
 .filters__container,
-.filters__mostruarioContainer,
+/* .filters__mostruarioContainer, */
 .produto__container { 
     margin-left: 315px;
     margin-top: -150px;
@@ -2598,7 +2598,13 @@ footer { height: 920px;}
 
 
 /* *Filters Ofertas* */
-.filters__mostruarioContainer {margin-top: 0;}
+
+.filters__mostruarioContainer {
+    margin-left: 315px;
+    /* margin-top: -150px; */
+    width: 960px;
+    margin-top: 0;
+}
 
 .filters__mostruarioContainer--row {
     display: flex;
@@ -2890,6 +2896,26 @@ input#frete { padding-left: 10px;}
 
 
 /* Favoritos */
+
+.favoritos-session {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 315px;
+    width: 960px;
+}
+
+.pages-favoritos-header {
+    border-bottom: rgb(197, 197, 197) solid 1px;
+    width: 100%;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pages-favoritos-header p {
+    font-weight: bold;
+}
+
 .produto__comprar--detalhes-favoritos { 
     color: #FF4600;
     font-size: 17px;

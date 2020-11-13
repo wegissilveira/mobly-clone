@@ -255,9 +255,26 @@ $(function(){
         
 
         /* **Lista de produtos (LANÇAMENTOS PAGE)** */
-        
-        const pagesQtde = Math.ceil(returnData().length / 12)
-        const rowsQtde = Math.ceil(returnData().length / 4)
+        /* **Produtos favoritos (Favoritos PAGE)** */
+
+        const favoritosDataArr = returnData().filter(item => favoritosStorage.includes(item.id) )
+
+        const url_string = window.location.href
+        const url = new URL(url_string)
+
+        let newReturnData
+        let pagesQtde
+        let rowsQtde
+
+        if (url.pathname === '/lancamentos.html') {
+            newReturnData = returnData()
+            pagesQtde = Math.ceil(returnData().length / 12)
+            rowsQtde = Math.ceil(returnData().length / 4)
+        } else if (url.pathname === '/favoritos.html') {
+            newReturnData = favoritosDataArr
+            pagesQtde = Math.ceil(favoritosDataArr.length / 12)
+            rowsQtde = Math.ceil(favoritosDataArr.length / 4)
+        }
 
         for (let i = 0; i < pagesQtde; i++) {
             $(`<p>${i+1}</p>`)
@@ -265,10 +282,13 @@ $(function(){
                 .on('click', () => passPageProducts(i))
                 .appendTo('.filters__container--row-pages')            
 
-            $('<div></div>')
-                .css('display', i !== 0 ? 'none' : 'block')
+            const productsBlock = $('<div></div>')
+                // .css('display', i !== 0 ? 'none' : 'block')
                 .addClass('filters__mostruarioContainer--page')
-                .appendTo('.filters__mostruarioContainer')
+
+            productsBlock.appendTo('.filters__mostruarioContainer')
+
+            productsBlock.appendTo('.favoritos')
         }
 
         // => TALVEZ INSERIR ESSA ARROW PARA MUDAR DE BLOCO DE PÁGINAS, MAS CASO ISSO OCORRA SERIA NECESSÁRIO UMA ARROW PARA VOLTAR TBM
@@ -285,18 +305,17 @@ $(function(){
             const produtosRow = $('<div></div>')
 
             produtosRow.addClass('filters__mostruarioContainer--row')
+            produtosRow.attr('id', `row-${i}`)
 
             produtosRow.appendTo(produtosPages[pageIndex])
         }
 
-        const produtosContainer = $('.filters__mostruarioContainer--row')
+        const produtosRow = $('.filters__mostruarioContainer--row')
 
-        $.each(returnData(), (index, value) => {
-            // console.log(favoritosStorage.includes(value.id))
+        let width = []
+        $.each(newReturnData, (index, value) => {
+  
             const favorito = favoritosStorage !== null ? favoritosStorage.includes(value.id) : false
-            // priceFormat = Number(value.preco.replace(',', '.'))
-            // finalPrice = (priceFormat / 100) * (100 - value.desconto)
-            // finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
             
             const rowIndex = Math.floor(index / 4)
             
@@ -317,7 +336,7 @@ $(function(){
             produtosIcon.on('click', () => productLike(event, value.id, 'icon'))
             produtosDescriptionPriceParc.addClass('filters__mostruario--price-split')
             produtosDescriptionPrice.addClass('filters__mostruario--price')
-            
+
             produtosDiscount.appendTo(produtosSubContainerLink)
             produtosImg.appendTo(produtosSubContainerLink)
             produtosIcon.appendTo(produtosSubContainerLink)
@@ -325,15 +344,27 @@ $(function(){
             produtosDescriptionTitle.appendTo(produtosDescriptionDiv)
             produtosDescriptionPriceParc.appendTo(produtosDescriptionDiv)
             produtosDescriptionPrice.appendTo(produtosDescriptionDiv)
-            produtosSubContainerLink.appendTo(produtosContainer[rowIndex])
-            
+
+            produtosSubContainerLink.appendTo(produtosRow[rowIndex])
+
+            // O width da row é a soma dos widths de cada div do produto, aqui se garante que cada row tenha o seu próprio array para determinar a qtde de div em cada uma.
+            if (width.includes(rowIndex)) {
+                width.push(rowIndex)
+            } else {
+                width = [rowIndex]
+            }
+
+            $(`#row-${rowIndex}`).css('width', (produtosSubContainerLink[0].offsetWidth * width.length + (width.length * 20)) + 'px')      
         })
+        
+        $('.filters__mostruarioContainer').find('div').eq().css('display', 'none')
+        $('.filters__mostruarioContainer').find('div').eq(0).css('display', 'block')
 
 
         /* **Item individual (Item PAGE)** */
 
-        const url_string = window.location.href
-        const url = new URL(url_string)
+        // const url_string = window.location.href
+        // const url = new URL(url_string)
         const id = Number(url.searchParams.get("product_id"))
         
         $.each(returnData(), (index, value) => {
@@ -343,9 +374,7 @@ $(function(){
             
 
             if (value.id === id) {
-                // const priceFormat = Number(value.preco.replace(',', '.'))
-                // const finalPrice = (priceFormat / 100) * (100 - value.desconto)
-                // const finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
+                
                 const priceSave = (priceFormat - finalPrice).toFixed(2).replace('.', ',')
                 
                 const product_mainImg_El = $('<img>')
@@ -434,6 +463,7 @@ $(function(){
 
             }
         })
+
 
         
 
