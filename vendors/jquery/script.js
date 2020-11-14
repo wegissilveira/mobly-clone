@@ -291,6 +291,10 @@ $(function(){
             productsBlock.appendTo('.favoritos')
         }
 
+        if (favoritosStorage.length === 0) {
+            $('<div><p>Sua lista de favoritos está vazia.</p></div>').appendTo('.favoritos')
+        }
+        
         // => TALVEZ INSERIR ESSA ARROW PARA MUDAR DE BLOCO DE PÁGINAS, MAS CASO ISSO OCORRA SERIA NECESSÁRIO UMA ARROW PARA VOLTAR TBM
         // $('<i></i>')
         //     .addClass('flaticon-right-arrow filters__container--row-pages-arrow')
@@ -356,9 +360,11 @@ $(function(){
 
             $(`#row-${rowIndex}`).css('width', (produtosSubContainerLink[0].offsetWidth * width.length + (width.length * 20)) + 'px')      
         })
-        
-        $('.filters__mostruarioContainer').find('div').eq().css('display', 'none')
-        $('.filters__mostruarioContainer').find('div').eq(0).css('display', 'block')
+
+        // Aplicando block na página 1 e none nas demais
+        const items = $('.filters__mostruarioContainer--page')
+        items.slice(0, items.length).css('display', 'none')
+        items.slice(0,1).css('display', 'block')
 
 
         /* **Item individual (Item PAGE)** */
