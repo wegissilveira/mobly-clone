@@ -3034,3 +3034,187 @@ input#frete { padding-left: 10px;}
     margin-top: 10px;
     color: #414141;
 }
+
+
+/* CARRINHO */
+
+.carrinho-session {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 315px;
+    width: 960px;
+}
+
+.carrinho-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.produto-container {
+    width: 73%;
+}
+
+.frete-calculo-container {
+    width: 60%;
+}
+
+.frete-calculo-container h4 {
+    margin-bottom: 5px;
+}
+
+.frete-input-placeholder {
+    background-color: #fff;
+    color: #BEBEBE;
+    width: 65%;
+    margin-left: 10px;
+    padding-left: 5px;
+    pointer-events: none;
+    transform: translate(0, 33px);
+    -webkit-transform: translate(0, 33px);
+    -moz-transform: translate(0, 33px);
+    -ms-transform: translate(0, 33px);
+    -o-transform: translate(0, 33px);
+
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.frete-calculo-subContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.frete-calculo-cep {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 65%;
+}
+
+.frete-calculo-cep div {
+    width: 62%;
+}
+
+.frete-calculo-cep input {
+    max-width: 93%;
+    height: 42px;
+    outline: none;
+    border: 1px solid #BEBEBE;
+    padding-left: 10px;
+    font-size: 18px;
+    z-index: 9999;
+
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.frete-calculo-cep input:focus {
+    outline: none;
+    border:1px solid #5A98FF;
+}
+
+.frete-calculo-cep button {
+    width: 35%;
+    height: 45px;
+    background-color: #5F22A8;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border: 0;
+    cursor: pointer;
+
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.frete-calculo-cep button:hover {
+    background-color: #7032bb;
+}
+
+.frete-calculo-cep button:focus {
+    outline: 0;
+}
+
+.frete-calculo-subContainer a {
+    padding-bottom: 14px;
+    color: #5A98FF;
+    text-decoration: underline;
+}
+
+.carrinho-produto-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* .carrinho-img-container {
+    width: 70%;
+} */
+
+.carrinho-img-container div {
+    width: 115px;
+    height: 115px;
+}
+
+.carrinho-img-container div img {
+    max-width: 100%;
+}
+
+.carrinho-produto-detalhes {
+    border-bottom: 1px solid #BEBEBE;
+    padding-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrinho-produto-detalhes div:first-of-type {
+    max-width: 40%;
+}
+
+.carrinho-produto-detalhes div:not(:first-of-type) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .carrinho-produto-detalhes div:nth-of-type(2),
+.carrinho-produto-detalhes div:nth-of-type(4) {
+    height: 70%;
+} */
+
+.carrinho-produto-detalhes div:nth-of-type(2) p:nth-of-type(2),
+.carrinho-produto-detalhes div:nth-of-type(4) p:nth-of-type(2) {
+    font-weight: bold;
+}
+
+.carrinho-produto-detalhes div:nth-of-type(3) p:nth-of-type(2) {
+    border: 1px solid #BEBEBE;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+}
+
+.carrinho-produto-montagem {
+    padding-top: 15px;
+}
+
+.comprar-container {
+    width: 25%;
+    height: 400px;
+    background-color: yellowgreen;
+}

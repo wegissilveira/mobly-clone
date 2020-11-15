@@ -22,6 +22,9 @@
 //     passMainSlides(current = n);
 // }
 
+    
+
+
 const mainSliderContainer = document.getElementById('mainSlider')
 
 function passMainSlides(n, ref) {
@@ -59,6 +62,7 @@ function passMainSlides(n, ref) {
 
 }
 
+
 function passMainSlidesDots(n) {
     
     let dots = document.getElementsByClassName("mainMarker--js")
@@ -94,25 +98,34 @@ function passMainSlidesAuto() {
     setTimeout(passMainSlidesAuto, 5000);
 }
 
-passMainSlidesAuto()
-
-
-/* Mostrar setas do mainSlider */
-const mainSlider_El = document.getElementById('mainSlider')
-const mainSliderArrows_El = document.getElementsByClassName('mainSlider-arrows-container')[0]
-
-mainSlider_El.addEventListener('mouseenter', () => {
-    mainSliderArrows_El.style.display = 'flex'
+let pathname
+window.addEventListener('load', () => {
+    const url_string = window.location.href
+    const url = new URL(url_string)
+    pathname = url.pathname
 })
 
-mainSliderArrows_El.addEventListener('mouseenter', () => {
-    mainSliderArrows_El.style.display = 'flex'
-})
+if (pathname === '/index.html') {
+    passMainSlidesAuto()
 
-mainSlider_El.addEventListener('mouseleave', () => {
-    mainSliderArrows_El.style.display = 'none'
-})
-/* ** */
+    /* Mostrar setas do mainSlider */
+    const mainSlider_El = document.getElementById('mainSlider')
+    const mainSliderArrows_El = document.getElementsByClassName('mainSlider-arrows-container')[0]
+
+    mainSlider_El.addEventListener('mouseenter', () => {
+        mainSliderArrows_El.style.display = 'flex'
+    })
+
+    mainSliderArrows_El.addEventListener('mouseenter', () => {
+        mainSliderArrows_El.style.display = 'flex'
+    })
+
+    mainSlider_El.addEventListener('mouseleave', () => {
+        mainSliderArrows_El.style.display = 'none'
+    })
+    /* ** */
+}
+
 
 
 /* *Thumbnails Main Slider */
@@ -128,9 +141,6 @@ function openThumbnail(n) {
 function closeThumbnail(n) {
     document.querySelector("#slider__thumbnail_js-"+n).style.display = "none";
 }
-
-
-
 
 
 
@@ -171,6 +181,7 @@ function prev() {
     if (fi < min) { fi = max;}
     loadImg("inspiracao"+fi+".jpg");
 }
+
 
 
 /* *Slider Decorados* */
@@ -442,31 +453,35 @@ function closeArrows(n) {
 
 /* */
 //Semana M countdown
-let htmlCrono = document.getElementById('semanaM__countdown');
-let countdownDate = new Date("September 15, 2021 12:00:00").getTime();
 
-let x = setInterval(function() {
-    let now = new Date().getTime();
-    let distance = countdownDate - now;
+if (pathname === '/index.html') {
+    let htmlCrono = document.getElementById('semanaM__countdown');
+    let countdownDate = new Date("September 15, 2021 12:00:00").getTime();
 
-    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((distance % ( 1000 * 60 * 60 * 24))/ (100 * 60 * 600)).toLocaleString(undefined, {minimumIntegerDigits: 2});
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toLocaleString(undefined, {minimumIntegerDigits: 2});
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000).toLocaleString(undefined, {minimumIntegerDigits: 2});
-    //console.log(hours);
-    if (days < 2 && days >= 1 ) {
-        htmlCrono.innerHTML =  days + " Dia " + hours + ":" + minutes + ":" + seconds;
-    } else if (days < 1) {
-        htmlCrono.innerHTML = hours + ":" + minutes + ":" + seconds;
-    } else if (days > 2) {
-        htmlCrono.innerHTML = days + " Dias " + hours + ":" + minutes + ":" + seconds;
-    } else if (minutes < 10) {
-        htmlCrono.innerHTML = days + " Dias" + hours + ":" + minutes + ":" + seconds;
-    } else if (distance < 0) {
-        clearInterval(x);
-        htmlCrono.innerHTML = "EXPIRED";
-    }
-}, 1000);
+    let x = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = countdownDate - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % ( 1000 * 60 * 60 * 24))/ (100 * 60 * 600)).toLocaleString(undefined, {minimumIntegerDigits: 2});
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toLocaleString(undefined, {minimumIntegerDigits: 2});
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000).toLocaleString(undefined, {minimumIntegerDigits: 2});
+        //console.log(hours);
+        if (days < 2 && days >= 1 ) {
+            htmlCrono.innerHTML =  days + " Dia " + hours + ":" + minutes + ":" + seconds;
+        } else if (days < 1) {
+            htmlCrono.innerHTML = hours + ":" + minutes + ":" + seconds;
+        } else if (days > 2) {
+            htmlCrono.innerHTML = days + " Dias " + hours + ":" + minutes + ":" + seconds;
+        } else if (minutes < 10) {
+            htmlCrono.innerHTML = days + " Dias" + hours + ":" + minutes + ":" + seconds;
+        } else if (distance < 0) {
+            clearInterval(x);
+            htmlCrono.innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+}
 
 
     //console.log(days);
@@ -600,3 +615,21 @@ function changeTabDescriptionProduct(tab) {
         text.style.display = 'block'
     }
 }
+
+
+
+
+/* **CARRINHO** */
+
+
+const input = document.getElementsByClassName('frete-input-placeholder')[0].parentNode.children
+
+window.addEventListener('click', () => {
+    if (input[1] === document.activeElement) {
+        input[0].style.transform = 'translate(0, 10px)'
+        input[0].style.color = '#5A98FF'
+    } else {
+        input[0].style.transform = 'translate(0, 33px)'
+        input[0].style.color = '#BEBEBE'
+    }
+})
