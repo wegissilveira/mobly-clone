@@ -22,6 +22,13 @@ a {
 
 ul { list-style: none;}
 
+button:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
 
 
 
@@ -311,7 +318,7 @@ input#busca { color: #fff;
     padding-left: 10px;
 }
 
-.header__first--search input:focus {outline: none;}
+/* .header__first--search input:focus {outline: none;} */
 /* ** */
 
 .header__first--search button[type=submit] { 
@@ -2841,7 +2848,18 @@ footer { height: 920px;}
     transition: 0.2s;
 }
 
-.produto__comprar--detalhes-comprarBtn:hover { background-color: rgb(18, 151, 38);}
+.produto__comprar--detalhes-comprarBtn:hover { 
+    background-color: rgb(18, 151, 38);
+}
+
+.produto__comprar--detalhes-comprarBtn-remove {
+    background-color: red;
+}
+
+.produto__comprar--detalhes-comprarBtn-remove:hover {
+    background-color: rgb(248, 70, 70);
+}
+
 /* */
 
 /* Frete */
@@ -3039,27 +3057,44 @@ input#frete { padding-left: 10px;}
 /* CARRINHO */
 
 .carrinho-session {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    margin-left: 315px;
-    width: 960px;
+    background-color: #EBEBEB;
 }
 
 .carrinho-container {
     display: flex;
     justify-content: space-between;
+
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin-left: 315px;
+    width: 960px;
 }
 
 .produto-container {
     width: 73%;
 }
 
+.produto-container a {
+    padding-bottom: 14px;
+    color: #5A98FF;
+    text-decoration: underline;
+}
+
 .frete-calculo-container {
-    width: 60%;
+    /* width: 60%; */
+    width: 100%;
+    background-color: #fff;
+
+    border-radius: 3px;
 }
 
 .frete-calculo-container h4 {
     margin-bottom: 5px;
+}
+
+.frete-calculo-subContainer {
+    width: 60%;
+    padding: 15px;
 }
 
 .frete-input-placeholder {
@@ -3082,7 +3117,7 @@ input#frete { padding-left: 10px;}
     -o-transition: 0.2s;
 }
 
-.frete-calculo-subContainer {
+.frete-calculo-info {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -3116,7 +3151,7 @@ input#frete { padding-left: 10px;}
 }
 
 .frete-calculo-cep input:focus {
-    outline: none;
+    /* outline: none; */
     border:1px solid #5A98FF;
 }
 
@@ -3141,25 +3176,27 @@ input#frete { padding-left: 10px;}
     background-color: #7032bb;
 }
 
-.frete-calculo-cep button:focus {
-    outline: 0;
-}
-
-.frete-calculo-subContainer a {
-    padding-bottom: 14px;
-    color: #5A98FF;
-    text-decoration: underline;
-}
-
 .carrinho-produto-container {
+    margin-top: 15px;
+    background-color: #fff;
+    font-size: 14px;
+
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.carrinho-produto-subContainer {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    padding: 15px;
 }
 
-/* .carrinho-img-container {
-    width: 70%;
-} */
+.carrinho-produto-subContainer span {
+    font-weight: bold;
+}
 
 .carrinho-img-container div {
     width: 115px;
@@ -3169,6 +3206,18 @@ input#frete { padding-left: 10px;}
 .carrinho-img-container div img {
     max-width: 100%;
 }
+
+.carrinho-produto-detalhes-container {
+    width: 80%;
+}
+
+.carrinho-produto-detalhes-container h4 {
+    margin-bottom: 7px;
+}
+
+/* .carrinho-produto-detalhes-container p {
+    margin-top: 7px;
+} */
 
 .carrinho-produto-detalhes {
     border-bottom: 1px solid #BEBEBE;
@@ -3182,22 +3231,43 @@ input#frete { padding-left: 10px;}
     max-width: 40%;
 }
 
+.carrinho-produto-detalhes div:first-of-type p {
+    color: #525252;
+}
+
 .carrinho-produto-detalhes div:not(:first-of-type) {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
 
-/* .carrinho-produto-detalhes div:nth-of-type(2),
-.carrinho-produto-detalhes div:nth-of-type(4) {
-    height: 70%;
+.carrinho-produto-detalhes div p:not(:first-of-type) {
+    margin-top: 7px;
+}
+
+/* .carrinho-produto-detalhes div h4 {
+    margin-bottom: 7px;
 } */
 
-.carrinho-produto-detalhes div:nth-of-type(2) p:nth-of-type(2),
+.carrinho-produto-detalhes > div:first-of-type span {
+    /* font-weight: bold; */
+    color: #FF4600;
+}
+
+.carrinho-produto-detalhes div:nth-of-type(3) {
+    justify-content: space-between;
+}
+
+.carrinho-produto-detalhes div:nth-of-type(3) p:nth-of-type(3) {
+    font-size: 11px;
+    color: #525252;
+}
+
+/* .carrinho-produto-detalhes div:nth-of-type(2) p:nth-of-type(2),
 .carrinho-produto-detalhes div:nth-of-type(4) p:nth-of-type(2) {
     font-weight: bold;
-}
+} */
 
 .carrinho-produto-detalhes div:nth-of-type(3) p:nth-of-type(2) {
     border: 1px solid #BEBEBE;
@@ -3205,16 +3275,167 @@ input#frete { padding-left: 10px;}
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
+}
+
+.carrinho-produto-detalhes div:nth-of-type(3) div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #525252;
+    cursor: pointer;
+}
+
+.carrinho-produto-detalhes div:nth-of-type(3) div p {
+    text-decoration: underline;
+    margin-left: 2px;
 }
 
 .carrinho-produto-montagem {
     padding-top: 15px;
 }
 
+.carrinho-produto-montagem div {
+    display: flex;
+}
+
+.carrinho-produto-montagem div i {
+    margin-right: 3px;
+    color: #5F22A8;
+}
+
+
+
 .comprar-container {
     width: 25%;
-    height: 400px;
-    background-color: yellowgreen;
+    /* height: 400px; */
+    background-color: #fff;
+
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.comprar-container span {
+    font-weight: bold;
+}
+
+.comprar-subContainer {
+    padding: 15px;
+}
+
+.comprar-subContainer > div:not(:last-of-type) {
+    border-bottom: 1px solid #BEBEBE;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.comprar-subContainer > div:first-of-type h4 {
+    margin-bottom: 10px;
+}
+
+.comprar-subContainer > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comprar-subContainer > div:first-of-type div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.comprar-subContainer > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.comprar-subContainer > div:nth-of-type(2) div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.comprar-subContainer > div:nth-of-type(2) p:nth-of-type(2) {
+    font-size: 20px;
+    color: #3CD453;
+}
+
+.comprar-subContainer > div:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comprar-subContainer > div:nth-of-type(3) button {
+    width: 100%;
+    height: 35px;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.comprar-subContainer > div:nth-of-type(3) button:nth-of-type(1) {
+    background-color: #3CD453;
+}
+
+.comprar-subContainer > div:nth-of-type(3) button:nth-of-type(2) {
+    background-color: #0070BA;
+}
+
+.comprar-subContainer > div:nth-of-type(3) div {
+    display: flex;
+    justify-content: center;
+    color: #888888;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.comprar-subContainer > div:nth-of-type(4) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.comprar-subContainer > div:nth-of-type(4) div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comprar-subContainer > div:nth-of-type(5) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.comprar-subContainer > div:nth-of-type(5) p {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.comprar-subContainer > div:nth-of-type(5) div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.comprar-subContainer > div:nth-of-type(5) div img {
+    height: 25px;
+    width: 35px;
+    border: solid 1px #e0e0e0;
 }

@@ -76,3 +76,9 @@ font-style: normal;
 .flaticon-chevron-arrow-up:before { content: "\f12b"; }
 .flaticon-diamond:before { content: "\f12c"; }
 .flaticon-down-arrow:before { content: "\f12d"; }
+
+.flaticon-settings:before { content: "\f500"; }
+.flaticon-trash:before { content: "\f501"; }
+.flaticon-information:before { content: "\f502"; }
+.flaticon-shopping-cart:before { content: "\f503"; }
+.flaticon-lock:before { content: "\f504"; }

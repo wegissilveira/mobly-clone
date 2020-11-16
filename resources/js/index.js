@@ -1,4 +1,25 @@
 
+let pathname
+window.addEventListener('load', () => {
+    const url_string = window.location.href
+    const url = new URL(url_string)
+    pathname = url.pathname
+
+    if (pathname === '/index.html') {
+
+        startPromotionClock()
+        passMainSlidesAuto()
+        toggleMainSliderArrows()
+    }
+
+    if (pathname === '/carrinho.html') {
+
+        enableCarrinhoPage()
+    }
+})
+
+
+
 /* *Slides 1* */
 
 // let sliderImages = document.querySelectorAll('.slide--js'),
@@ -98,15 +119,8 @@ function passMainSlidesAuto() {
     setTimeout(passMainSlidesAuto, 5000);
 }
 
-let pathname
-window.addEventListener('load', () => {
-    const url_string = window.location.href
-    const url = new URL(url_string)
-    pathname = url.pathname
-})
 
-if (pathname === '/index.html') {
-    passMainSlidesAuto()
+function toggleMainSliderArrows() {
 
     /* Mostrar setas do mainSlider */
     const mainSlider_El = document.getElementById('mainSlider')
@@ -125,7 +139,6 @@ if (pathname === '/index.html') {
     })
     /* ** */
 }
-
 
 
 /* *Thumbnails Main Slider */
@@ -454,9 +467,10 @@ function closeArrows(n) {
 /* */
 //Semana M countdown
 
-if (pathname === '/index.html') {
-    let htmlCrono = document.getElementById('semanaM__countdown');
-    let countdownDate = new Date("September 15, 2021 12:00:00").getTime();
+function startPromotionClock() {
+
+    const htmlCrono = document.getElementById('semanaM__countdown');
+    const countdownDate = new Date("September 15, 2021 12:00:00").getTime();
 
     let x = setInterval(function() {
         let now = new Date().getTime();
@@ -482,6 +496,7 @@ if (pathname === '/index.html') {
     }, 1000);
 
 }
+
 
 
     //console.log(days);
@@ -538,7 +553,7 @@ function passPageProducts(index) {
 }
 
 function productLike(event, product_id, el) {
-
+    
     const favoritosStorage = JSON.parse(localStorage.getItem('favoritos'))
     const favoritosQtdeStorage = JSON.parse(localStorage.getItem('favoritosQtde'))
 
@@ -597,8 +612,34 @@ function productLike(event, product_id, el) {
 
 /* **Itens individuais** */
 
-function changeTabDescriptionProduct(tab) {
+function addProductToCarrinho(product_id) {
 
+    let cart
+    const cartStorage = JSON.parse(localStorage.getItem('cart'))
+
+    const btnComprar = document.getElementById('comprar_btn--js')
+
+    if (cartStorage !== null) {
+        if (cartStorage.includes(product_id)) {
+            cart = cartStorage.filter(prod => prod !== product_id)
+            btnComprar.className = 'produto__comprar--detalhes-comprarBtn'
+            btnComprar.innerHTML = 'Inserir do carrinho'
+        } else {
+            cart = [...cartStorage, product_id]
+            btnComprar.className = 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove'
+            btnComprar.innerHTML = 'Remover no carrinho'
+        }
+    } else {
+        cart = [product_id]
+        btnComprar.className = 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove'
+        btnComprar.innerHTML = 'Remover do carrinho'
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart))
+}
+
+function changeTabDescriptionProduct(tab) {
+    
     const descriptionTabs = document.getElementsByClassName('produto__comprar--detalhes-descricaoTitle')[0].children
     const dimensions = document.getElementsByClassName('produto__comprar--detalhes-descricaoDimensoes')[0]
     const text = document.getElementsByClassName('produto__comprar--detalhes-descricaoText')[0]
@@ -621,15 +662,16 @@ function changeTabDescriptionProduct(tab) {
 
 /* **CARRINHO** */
 
+function enableCarrinhoPage() {
+    const input = document.getElementsByClassName('frete-input-placeholder')[0].parentNode.children
 
-const input = document.getElementsByClassName('frete-input-placeholder')[0].parentNode.children
-
-window.addEventListener('click', () => {
-    if (input[1] === document.activeElement) {
-        input[0].style.transform = 'translate(0, 10px)'
-        input[0].style.color = '#5A98FF'
-    } else {
-        input[0].style.transform = 'translate(0, 33px)'
-        input[0].style.color = '#BEBEBE'
-    }
-})
+    window.addEventListener('click', () => {
+        if (input[1] === document.activeElement) {
+            input[0].style.transform = 'translate(0, 10px)'
+            input[0].style.color = '#5A98FF'
+        } else {
+            input[0].style.transform = 'translate(0, 33px)'
+            input[0].style.color = '#BEBEBE'
+        }
+    })
+}

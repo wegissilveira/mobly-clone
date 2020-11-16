@@ -1,6 +1,7 @@
 // Criando o objeto da quantidade de favoritos no local storage
 window.addEventListener('load', () => {
     const favoritosQtde = JSON.parse(localStorage.getItem('favoritosQtde'))
+
     localStorage.setItem('favoritosQtde', favoritosQtde !== null ? JSON.stringify   (favoritosQtde) : JSON.stringify({}))
 })
 
@@ -25,6 +26,7 @@ $(function(){
 $(function(){
 
     const favoritosStorage = JSON.parse(localStorage.getItem('favoritos'))
+    const cartStorage = JSON.parse(localStorage.getItem('cart'))
     
     /* Main Slider */
     $.getScript("../../data/mainSliderData.js", function() {
@@ -377,7 +379,7 @@ $(function(){
 
             const favorito = favoritosStorage !== null ? favoritosStorage.includes(value.id) : false
             const favoritosQtde = JSON.parse(localStorage.getItem('favoritosQtde'))
-            
+            const productIsInCart = cartStorage !== null ? cartStorage.includes(value.id) : false            
 
             if (value.id === id) {
                 
@@ -456,6 +458,9 @@ $(function(){
                 price_saveMoney_El.css('line-through', '1.5')
                 productLike_icon_El.addClass(favorito ? 'flaticon-favorite-heart-button' : 'flaticon-like')
                 $('.produto__comprar--detalhes-boxesLike').on('click', () => productLike(event, value.id, 'div'))
+                $('#comprar_btn--js').addClass(productIsInCart ? 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove' : 'produto__comprar--detalhes-comprarBtn ')
+                $('#comprar_btn--js').html(productIsInCart ? 'Remover do carrinho' : 'Inserir no carrinho')
+                $('#comprar_btn--js').on('click', () => addProductToCarrinho(value.id))
 
                 product_mainImg_El.appendTo('.produto__imagem--main')
                 productBuyDetailsPriceTitle_El.appendTo('.produto__comprar--detalhes-preco')

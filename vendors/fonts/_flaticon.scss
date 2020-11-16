@@ -83,6 +83,12 @@
 .flaticon-chevron-arrow-up:before { content: "\f12b"; }
 .flaticon-diamond:before { content: "\f12c"; }
 .flaticon-down-arrow:before { content: "\f12d"; }
+
+.flaticon-settings:before { content: "\f500"; }
+.flaticon-trash:before { content: "\f501"; }
+.flaticon-information:before { content: "\f502"; }
+.flaticon-shopping-cart:before { content: "\f503"; }
+.flaticon-lock:before { content: "\f504"; }
     
     $font-Flaticon-telephone: "\f100";
     $font-Flaticon-key: "\f101";
@@ -130,3 +136,9 @@
     $font-Flaticon-chevron-arrow-up: "\f12b";
     $font-Flaticon-diamond: "\f12c";
     $font-Flaticon-down-arrow: "\f12d";
+
+    $font-Flaticon-settings: "\f500";
+    $font-Flaticon-trash: "\f501";
+    $font-Flaticon-information: "\f502";
+    $font-Flaticon-shopping-cart: "\f503";
+    $font-Flaticon-lock: "\f504";
