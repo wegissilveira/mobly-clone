@@ -612,30 +612,38 @@ function productLike(event, product_id, el) {
 
 /* **Itens individuais** */
 
-function addProductToCarrinho(product_id) {
-
+function addProductToCarrinho(product_id, page) {
+    console.log(product_id)
     let cart
     const cartStorage = JSON.parse(localStorage.getItem('cart'))
 
     const btnComprar = document.getElementById('comprar_btn--js')
-
-    if (cartStorage !== null) {
-        if (cartStorage.includes(product_id)) {
-            cart = cartStorage.filter(prod => prod !== product_id)
-            btnComprar.className = 'produto__comprar--detalhes-comprarBtn'
-            btnComprar.innerHTML = 'Inserir do carrinho'
+    
+    if (page !== 'carrinho') {
+        if (cartStorage !== null) {
+            if (cartStorage.includes(product_id)) {
+                cart = cartStorage.filter(prod => prod !== product_id)
+                btnComprar.className = 'produto__comprar--detalhes-comprarBtn'
+                btnComprar.innerHTML = 'Inserir do carrinho'
+            } else {
+                cart = [...cartStorage, product_id]
+                btnComprar.className = 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove'
+                btnComprar.innerHTML = 'Remover no carrinho'
+            }
         } else {
-            cart = [...cartStorage, product_id]
+            cart = [product_id]
             btnComprar.className = 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove'
-            btnComprar.innerHTML = 'Remover no carrinho'
+            btnComprar.innerHTML = 'Remover do carrinho'
         }
-    } else {
-        cart = [product_id]
-        btnComprar.className = 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove'
-        btnComprar.innerHTML = 'Remover do carrinho'
-    }
 
-    localStorage.setItem('cart', JSON.stringify(cart))
+        localStorage.setItem('cart', JSON.stringify(cart))
+
+    } else {
+        cart = cartStorage.filter(prod => prod !== product_id)
+        localStorage.setItem('cart', JSON.stringify(cart))
+        location.reload()
+    }
+    
 }
 
 function changeTabDescriptionProduct(tab) {
