@@ -106,13 +106,13 @@ $(function(){
         // Criando as divs parents das imagens
         for (let i = 0; i < dataArr.length; i++) {
             if ((i + 1) % 3 === 0) {
-                $('<div></div>').addClass('semanaM__galeria--row')
-                .appendTo('.semanaM__galeria--images')
+                $('<div></div>').addClass('semanaM__galery--row')
+                .appendTo('.semanaM__galery--images')
             }
         }
         
         let divRef = 0
-        const semanaMDivs = $('.semanaM__galeria--row')
+        const semanaMDivs = $('.semanaM__galery--row')
         semanaMDivs.css('margin-bottom', 20)
 
         // Populando as divs com as imagens
@@ -124,8 +124,8 @@ $(function(){
             const semanaMArrow = $('<i></i>') 
             
             semanaMImg.attr('src', value)
-            semanaMArrow_div.addClass('semanaM__galeria--iContainer-green')
-            if (index % 2 !== 0) {semanaMArrow_div.addClass('semanaM__galeria--iContainer-grey')}
+            semanaMArrow_div.addClass('semanaM__galery--iContainer-green')
+            if (index % 2 !== 0) {semanaMArrow_div.addClass('semanaM__galery--iContainer-grey')}
             semanaMArrow.addClass('flaticon-right-arrow')
 
             semanaMArrow.appendTo(semanaMArrow_div)
@@ -218,7 +218,7 @@ $(function(){
                 priceFormat = Number(value.preco.replace(',', '.'))
                 finalPrice = (priceFormat / 100) * (100 - value.desconto)
                 finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
-
+                
                 const slideDiv = $('<div></div>')
                 const slideLink = $('<a></a>')
                 const slideImg = $('<img>')
@@ -227,12 +227,12 @@ $(function(){
                 const slideDescriptionPrice = $(`<p>Por: R$ ${finalPriceStr}</p>`)
                 const slideDescriptionArrow = $('<i></i>')
 
-                slideDiv.addClass('promo__container--slider-uni')
+                slideDiv.addClass('promo__subContainer--slider-uni')
                 slideLink.attr('href', `/item.html?product_id=${value.id}`)
                 slideImg.attr('src', value.imgs.img_1)
-                slideDescriptionDiv.addClass('promo__container--slider-description')
-                slideDescriptionPrice.addClass('promo__container--slider-preco')
-                slideDescriptionArrow.addClass('flaticon-right-arrow promo__container--description-arrow')
+                slideDescriptionDiv.addClass('promo__subContainer--slider-description')
+                slideDescriptionPrice.addClass('promo__subContainer--slider-preco')
+                slideDescriptionArrow.addClass('flaticon-right-arrow promo__subContainer--description-arrow')
                 
                 slideDescriptionTitle.appendTo(slideDescriptionDiv)
                 slideDescriptionPrice.appendTo(slideDescriptionDiv)
@@ -240,7 +240,7 @@ $(function(){
                 slideImg.appendTo(slideLink)
                 slideDescriptionDiv.appendTo(slideLink)
                 slideLink.appendTo(slideDiv)
-                slideDiv.appendTo('.promo__container--slider-bloco')
+                slideDiv.appendTo('.promo__subContainer--slider-bloco')
 
                 novosProdutosArr.push(value.novoProduto)
             }
@@ -256,7 +256,7 @@ $(function(){
             dotIcon.addClass('flaticon-circle marker-amostras--js')
             if (i === 0) {dotIcon.addClass('flaticon-circle marker-amostras--js markerT2')}
             
-            dotIcon.appendTo('.promo__container--header-markerSlider')
+            dotIcon.appendTo('.promo__subContainer--header-markerSlider')
         }
         
 
@@ -386,7 +386,10 @@ $(function(){
             const productIsInCart = cartStorage !== null ? cartStorage.includes(value.id) : false            
 
             if (value.id === id) {
-                
+
+                priceFormat = Number(value.preco.replace(',', '.'))
+                finalPrice = (priceFormat / 100) * (100 - value.desconto)
+                finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
                 const priceSave = (priceFormat - finalPrice).toFixed(2).replace('.', ',')
                 
                 const product_mainImg_El = $('<img>')
@@ -483,101 +486,138 @@ $(function(){
         let productStorageIndex = 0
         let finalTotalPriceValue = 0
         let productsQtdeTotal = 0
-        $.each(returnData(), (index, value) => {
-            
-            
-            if (cartStorage.includes(value.id)) {
 
-                /* *Lista de produtos* */
-                /* Estrutura base */
-                const cartContainer_El = $(`<div></div>`)
-                const cartSubContainer_El = $(`<div></div>`)
-                const cartImgContainer_El = $(`<div></div>`)
-                const cartDetailsContainer_El = $(`<div></div>`)
-
-                const cartDetails_El = $(`<div></div>`)
-                const cartDetailsDiv_1_El = $(`<div><p>Vendido e entregue por <span>Mobly</span></p></div>`)
-                const cartDetailsDiv_2_El = $(`<div><p>Valor Unitário</p></div>`)
-                const cartDetailsDiv_3_El = $(`<div></div>`)
-                const cartDetailsDiv_4_El = $(`<div><p>Total</p></div>`)
-
-                const cartMontagem_El = $(`<div></div>`)
-                const deleteProduct_El = $(`</p><div><i class="flaticon-trash"></i><p>Excluir</p></div>`)
-
-                cartContainer_El.addClass('carrinho-produto-container')
-                cartSubContainer_El.addClass('carrinho-produto-subContainer')
-                cartImgContainer_El.addClass('carrinho-img-container')
-                cartDetailsContainer_El.addClass('carrinho-produto-detalhes-container')
-                cartDetails_El.addClass('carrinho-produto-detalhes')
-                cartMontagem_El.addClass('carrinho-produto-montagem')
-                deleteProduct_El.on('click', () => addProductToCarrinho(value.id, 'carrinho'))
-
-                $('<p>Quantidade').appendTo(cartDetailsDiv_3_El)
-                deleteProduct_El.appendTo(cartDetailsDiv_3_El)    
-                $('<div><i class="flaticon-settings"></i><h4>Serviço de montagem</h4></div>').appendTo(cartMontagem_El)
-                $('<p><a href="#" >Clique aqui</a> e insira seu CEP para verificar a disponibilidade do serviço.</p>').appendTo(cartMontagem_El)
-
-                cartDetailsDiv_1_El.appendTo(cartDetails_El)
-                cartDetailsDiv_2_El.appendTo(cartDetails_El)
-                cartDetailsDiv_3_El.appendTo(cartDetails_El)
-                cartDetailsDiv_4_El.appendTo(cartDetails_El)
-                cartDetails_El.appendTo(cartDetailsContainer_El)
-                cartMontagem_El.appendTo(cartDetailsContainer_El)
-                cartImgContainer_El.appendTo(cartSubContainer_El)
-                cartDetailsContainer_El.appendTo(cartSubContainer_El)
-                cartSubContainer_El.appendTo(cartContainer_El)
-
-                $(cartContainer_El).appendTo('#product-list')
+        if (cartStorage.length > 0) {
+            $.each(returnData(), (index, value) => {
                 
-                /* Estrutura dinâmica */
-                const productQtde = Math.floor(Math.random() * 3) + 1
-                const productTotalValue = productQtde * parseFloat(value.preco.replace(',', '.'))
-                const productTotalValueStr = productTotalValue.toFixed(2).replace('.', ',')
-                finalTotalPriceValue = finalTotalPriceValue + productTotalValue
-                finalTotalPriceValueStr = finalTotalPriceValue.toFixed(2).replace('.', ',')
-                productsQtdeTotal = productsQtdeTotal + productQtde
-                
-                const productDiv_El = $('<div></div>')
-                const productLink_El = $('<a></a>')
-                const productImg_El = $('<img>')
-                const productDetalhes_El = $('.carrinho-produto-detalhes').eq(productStorageIndex).children()
-                const productName_El = $(`<h4>${value.nome}</h4>`)
-                const productId_El = $(`<p>ID: ${value.id}</p>`)
-                const productValue_El = $(`<p><span>R$ ${value.preco}</span></p>`)
-                const productQtde_El = $(`<p>${productQtde}</p>`)
-                const productTotalValue_El = $(`<p><span>R$ ${productTotalValueStr}</span></p>`)
+                if (cartStorage.includes(value.id)) {
 
-                productImg_El.attr('src', value.imgs.img_1)
-                productLink_El.attr('href', `/item.html?product_id${value.id}`)
+                    /* *Lista de produtos* */
+                    /* Estrutura base */
+                    const cartContainer_El = $(`<div></div>`)
+                    const cartSubContainer_El = $(`<div></div>`)
+                    const cartImgContainer_El = $(`<div></div>`)
+                    const cartDetailsContainer_El = $(`<div></div>`)
 
-                productImg_El.appendTo(productLink_El)
-                productLink_El.appendTo(productDiv_El)
-                productDiv_El.appendTo($('.carrinho-img-container').eq(productStorageIndex))
+                    const cartDetails_El = $(`<div></div>`)
+                    const cartDetailsDiv_1_El = $(`<div><p>Vendido e entregue por <span>Mobly</span></p></div>`)
+                    const cartDetailsDiv_2_El = $(`<div><p>Valor Unitário</p></div>`)
+                    const cartDetailsDiv_3_El = $(`<div></div>`)
+                    const cartDetailsDiv_4_El = $(`<div><p>Total</p></div>`)
 
-                productId_El.prependTo(productDetalhes_El.eq(0))
-                productName_El.prependTo(productDetalhes_El.eq(0))
-                productValue_El.appendTo(productDetalhes_El.eq(1))
-                productQtde_El.insertAfter(productDetalhes_El.eq(2).children().eq(0))
-                productTotalValue_El.appendTo(productDetalhes_El.eq(3))
-                
-                productStorageIndex = ++productStorageIndex
+                    const cartMontagem_El = $(`<div></div>`)
+                    const deleteProduct_El = $(`<div><i class="flaticon-trash"></i><p>Excluir</p></div>`)
 
-                /* *Coluna de compra* */
-                const comprarSubtotalItens_El = $(`<p></p>`).html(productsQtdeTotal === 1 ? `Subtotal (1 item)` : `Subtotal (${productsQtdeTotal} itens)`)
-                const comprarSubtotalPrice_El = $(`<p>R$ ${finalTotalPriceValueStr}</p>`)
-                const comprarTotalPrice_El = $(`<p>R$ ${finalTotalPriceValueStr}</p>`)
+                    cartContainer_El.addClass('carrinho-produto-container')
+                    cartSubContainer_El.addClass('carrinho-produto-subContainer')
+                    cartImgContainer_El.addClass('carrinho-img-container')
+                    cartDetailsContainer_El.addClass('carrinho-produto-detalhes-container')
+                    cartDetails_El.addClass('carrinho-produto-detalhes')
+                    cartMontagem_El.addClass('carrinho-produto-montagem')
+                    deleteProduct_El.on('click', () => addProductToCarrinho(value.id, 'carrinho'))
 
-                const comprarSubContainer_El = $('.comprar-subContainer').eq(0).children()
+                    $('<p>Quantidade</p>').appendTo(cartDetailsDiv_3_El)
+                    deleteProduct_El.appendTo(cartDetailsDiv_3_El)    
+                    $('<div><i class="flaticon-settings"></i><h4>Serviço de montagem</h4></div>').appendTo(cartMontagem_El)
+                    $('<p><a href="#" >Clique aqui</a> e insira seu CEP para verificar a disponibilidade do serviço.</p>').appendTo(cartMontagem_El)
 
-                if (productStorageIndex === cartStorage.length) {
-                    comprarSubtotalItens_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
-                    comprarSubtotalPrice_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
-                    comprarTotalPrice_El.appendTo(comprarSubContainer_El.eq(1).children()[0])
+                    cartDetailsDiv_1_El.appendTo(cartDetails_El)
+                    cartDetailsDiv_2_El.appendTo(cartDetails_El)
+                    cartDetailsDiv_3_El.appendTo(cartDetails_El)
+                    cartDetailsDiv_4_El.appendTo(cartDetails_El)
+                    cartDetails_El.appendTo(cartDetailsContainer_El)
+                    cartMontagem_El.appendTo(cartDetailsContainer_El)
+                    cartImgContainer_El.appendTo(cartSubContainer_El)
+                    cartDetailsContainer_El.appendTo(cartSubContainer_El)
+                    cartSubContainer_El.appendTo(cartContainer_El)
+
+                    $(cartContainer_El).appendTo('#product-list')
+                    
+                    /* Estrutura dinâmica */
+                    priceFormat = Number(value.preco.replace(',', '.'))
+                    finalPrice = (priceFormat / 100) * (100 - value.desconto)
+                    finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
+                    const productQtde = Math.floor(Math.random() * 3) + 1
+                    const productTotalValue = productQtde * finalPrice
+
+                    const productTotalValueStr = productTotalValue.toFixed(2).replace('.', ',')
+                    finalTotalPriceValue = finalTotalPriceValue + productTotalValue
+                    finalTotalPriceValueStr = finalTotalPriceValue.toFixed(2).replace('.', ',')
+                    productsQtdeTotal = productsQtdeTotal + productQtde
+                    
+                    const productDiv_El = $('<div></div>')
+                    const productLink_El = $('<a></a>')
+                    const productImg_El = $('<img>')
+                    const productDetalhes_El = $('.carrinho-produto-detalhes').eq(productStorageIndex).children()
+                    const productName_El = $(`<a><h4>${value.nome}</h4></a>`)
+                    const productId_El = $(`<p>ID: ${value.id}</p>`)
+                    const productValue_El = $(`<p><span>R$ ${finalPriceStr}</span></p>`)
+                    const productQtde_El = $(`<p>${productQtde}</p>`)
+                    const productTotalValue_El = $(`<p><span>R$ ${productTotalValueStr}</span></p>`)
+
+                    productImg_El.attr('src', value.imgs.img_1)
+                    productLink_El.attr('href', `/item.html?product_id=${value.id}`)
+                    productName_El.attr('href', `/item.html?product_id=${value.id}`)
+
+                    productImg_El.appendTo(productLink_El)
+                    productLink_El.appendTo(productDiv_El)
+                    productDiv_El.appendTo($('.carrinho-img-container').eq(productStorageIndex))
+
+                    productId_El.prependTo(productDetalhes_El.eq(0))
+                    productName_El.prependTo(productDetalhes_El.eq(0))
+                    productValue_El.appendTo(productDetalhes_El.eq(1))
+                    productQtde_El.insertAfter(productDetalhes_El.eq(2).children().eq(0))
+                    productTotalValue_El.appendTo(productDetalhes_El.eq(3))
+                    
+                    productStorageIndex = ++productStorageIndex
+
+                    /* *Coluna de compra* */
+                    const comprarSubtotalItens_El = $(`<p></p>`).html(productsQtdeTotal === 1 ? `Subtotal (1 item)` : `Subtotal (${productsQtdeTotal} itens)`)
+                    const comprarSubtotalPrice_El = $(`<p>R$ ${finalTotalPriceValueStr}</p>`)
+                    const comprarTotalPrice_El = $(`<p>R$ ${finalTotalPriceValueStr}</p>`)
+
+                    const comprarSubContainer_El = $('.comprar-subContainer').eq(0).children()
+
+                    if (productStorageIndex === cartStorage.length) {
+                        comprarSubtotalItens_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
+                        comprarSubtotalPrice_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
+                        comprarTotalPrice_El.appendTo(comprarSubContainer_El.eq(1).children()[0])
+                        $(`<p>em até 10x de R$ ${(finalTotalPriceValue / 10).toFixed(2)} sem juros</p>`).appendTo(comprarSubContainer_El.eq(1))
+                    }
+                    
                 }
                 
-            }
-            
-        })
+            })
+
+        } else {
+
+            $('.carrinho-session').css('background-color', '#fff')
+            $('.produto-container').remove()
+            $('.comprar-container').remove()
+
+            const emptyCardIcon_El = $('<i></i>')
+            const emptyCardTitle_El = $('<h1></h1>')
+            const emptyCardLinkDiv_El = $('<div></div>')
+
+            emptyCardIcon_El.addClass('flaticon-remove-from-cart')
+            emptyCardIcon_El.css('font-size', '100px')
+            emptyCardTitle_El.html('Seu carrinho de compras está vazio!')
+            emptyCardLinkDiv_El.css('text-align', 'center')
+            $('.carrinho-container').css('color', '#828282')
+            $('.carrinho-container').css('display', 'flex')
+            $('.carrinho-container').css('flex-direction', 'column')
+            $('.carrinho-container').css('align-items', 'center')
+
+            $('<p>Não perca mais tempo <a href="/lancamentos.html">clique aqui</a></p>').appendTo(emptyCardLinkDiv_El)
+            $('<p>e aproveite nossas ofertas.</p>').appendTo(emptyCardLinkDiv_El)
+
+            emptyCardIcon_El.appendTo('.carrinho-container')
+            emptyCardTitle_El.appendTo('.carrinho-container')
+            emptyCardLinkDiv_El.appendTo('.carrinho-container')
+
+            $('.carrinho-container a').css('color', '#337ab7')
+            $('.carrinho-container a').css('text-decoration', 'underline')
+        }
 
         
 

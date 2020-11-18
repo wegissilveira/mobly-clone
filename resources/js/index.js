@@ -347,7 +347,7 @@ function passSlidesOverSlider(arg) {
 
 // let sliderPromo = document.getElementsByClassName('promo__container--slider-bloco'),
 // let dotsAmostras = document.getElementsByClassName('marker-amostras--js');
-let sliderPromo2 = document.getElementsByClassName('promo__container--slider-bloco2'),
+let sliderPromo2 = document.getElementsByClassName('promo__subContainer--slider-bloco2'),
     dotsAmostras2 = document.getElementsByClassName('marker-amostras2--js');
 /* *Nessa maneira eu passo os slides baseado na localização, mas neste caso eu vou ter que colocar cada 4 em um container para que possa ser identificado como uma unidade e possibilitar a mudança dos dots. Por isso inserir a forma com a qual eu já estava fazendo os outros slides.
 function translate() {
@@ -383,7 +383,7 @@ let currentPromoDot = 0
 
 function passSlidesPromo(n) {
     
-    const sliderPromo = document.getElementsByClassName('promo__container--slider-bloco')
+    const sliderPromo = document.getElementsByClassName('promo__subContainer--slider-bloco')
 
     const transformValue = sliderPromo[0].style.transform
     let translateValue = transformValue.replace(/[^\d.]/g, '')

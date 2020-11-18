@@ -17,7 +17,7 @@ function openMenu(n) {
     menu.style.display = "block";
     let menuLeft = menu.getBoundingClientRect().x
 
-    let title = document.getElementsByClassName('header__menu--sub-mainItem')
+    let title = document.getElementsByClassName('header__navigation--subMenu-mainItem')
     let titleLeft = title[n - 1].getBoundingClientRect().x
     let titleWidth = title[n - 1].clientWidth
 
@@ -62,15 +62,16 @@ function openSubMenu1(el) {
 
 /* Floating Banner */
 function openFloatingBanner(n) {
-    let title = document.getElementsByClassName('header__menu--sub-mainItem')
+    let title = document.getElementsByClassName('header__navigation--subMenu-mainItem')
     let titleLeft = title[n + 2].getBoundingClientRect().x
     let titleWidth = title[n + 2].clientWidth
 
-    let banner = document.getElementById('banner'+n)
+    const bannerName = n === 1 ? 'lancamento' : 'outlet'
+    let banner = document.getElementById('banner-'+bannerName)
     banner.style.display = "block";
     let bannerLeft = banner.getBoundingClientRect().x
 
-    let iconArrow = document.getElementsByClassName('header__menu--floatingImage-'+n)[0].children[0]
+    let iconArrow = document.getElementsByClassName('header__navigation--floatingImage-'+bannerName)[0].children[0]
     let iconArrowWidth = iconArrow.clientWidth
     let arrowPosition = titleLeft + ((titleWidth / 2) - iconArrowWidth / 2) - bannerLeft
 
@@ -80,7 +81,8 @@ function openFloatingBanner(n) {
 }
 
 function closeFloatingBanner(n) {
-    document.getElementById('banner'+n).style.display = "none";
+    const bannerName = n === 1 ? 'lancamento' : 'outlet'
+    document.getElementById('banner-'+bannerName).style.display = "none";
     closeBg();
 }
 
