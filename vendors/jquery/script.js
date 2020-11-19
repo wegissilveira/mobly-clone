@@ -284,15 +284,15 @@ $(function(){
 
         for (let i = 0; i < pagesQtde; i++) {
             $(`<p>${i+1}</p>`)
-                .addClass(i === 0 ? 'products__list_pages-active' : '')
+                .addClass(i === 0 ? 'products__list_header--pages-active' : '')
                 .on('click', () => passPageProducts(i))
-                .appendTo('.products__list_pages')            
+                .appendTo('.products__list_header--pages')            
 
             const productsBlock = $('<div></div>')
                 // .css('display', i !== 0 ? 'none' : 'block')
-                .addClass('filters__mostruarioContainer--page')
+                .addClass('products__list_block')
 
-            productsBlock.appendTo('.filters__mostruarioContainer')
+            productsBlock.appendTo('.products__list_container')
 
             productsBlock.appendTo('.favoritos')
         }
@@ -306,7 +306,7 @@ $(function(){
         //     .addClass('flaticon-right-arrow filters__container--row-pages-arrow')
         //     .appendTo('.filters__container--row-pages')
 
-        const produtosPages = $('.filters__mostruarioContainer--page')
+        const produtosPages = $('.products__list_block')
 
         for (let i = 0; i < rowsQtde; i++) {
 
@@ -314,13 +314,13 @@ $(function(){
             
             const produtosRow = $('<div></div>')
 
-            produtosRow.addClass('filters__mostruarioContainer--row')
+            produtosRow.addClass('products__list_block--row')
             produtosRow.attr('id', `row-${i}`)
 
             produtosRow.appendTo(produtosPages[pageIndex])
         }
 
-        const produtosRow = $('.filters__mostruarioContainer--row')
+        const produtosRow = $('.products__list_block--row')
 
         let width = []
         $.each(newReturnData, (index, value) => {
@@ -338,14 +338,14 @@ $(function(){
             const produtosDescriptionPriceParc = $(`<p><strong>10x ${(finalPrice / 10).toFixed(2).replace('.', ',')}</strong><span> sem juros</span></p>`)
             const produtosDescriptionPrice = $(`<p><span>${value.preco}</span><strong> ${finalPriceStr}</strong></p>`)
             
-            produtosSubContainerLink.addClass('filters__mostruarioContainer--row-uni4')
+            produtosSubContainerLink.addClass('products__list_product--container')
             produtosSubContainerLink.attr('href', `/item.html?product_id=${value.id}`)
-            produtosDiscount.addClass('filters__mostruarioContainer--row-discount')
+            produtosDiscount.addClass('products__list_product--discount')
             produtosImg.attr('src', value.imgs.img_1)
             produtosIcon.addClass(favorito ? 'flaticon-favorite-heart-button' : 'flaticon-like')
             produtosIcon.on('click', () => productLike(event, value.id, 'icon'))
-            produtosDescriptionPriceParc.addClass('filters__mostruario--price-split')
-            produtosDescriptionPrice.addClass('filters__mostruario--price')
+            produtosDescriptionPriceParc.addClass('products__list_product--installment')
+            produtosDescriptionPrice.addClass('products__list_product--price')
 
             produtosDiscount.appendTo(produtosSubContainerLink)
             produtosImg.appendTo(produtosSubContainerLink)
@@ -373,7 +373,7 @@ $(function(){
         })
 
         // Aplicando block na página 1 e none nas demais
-        const items = $('.filters__mostruarioContainer--page')
+        const items = $('.products__list_block')
         items.slice(0, items.length).css('display', 'none')
         items.slice(0,1).css('display', 'block')
 
@@ -420,23 +420,23 @@ $(function(){
 
                     const thumb_img_El = $('<img>')
                     thumb_img_El.attr('src', val)
-                    thumb_img_El.addClass(i === 0 ? 'produto__imagem--thumb-img produto__imagem--thumb-img-active' : 'produto__imagem--thumb-img')
+                    thumb_img_El.addClass(i === 0 ? 'product__image--thumb-active' : '')
 
                     thumb_img_El.on('mouseover', () => {
-                        const thumb_imgs_container = $('.produto__imagem--thumb')
+                        const thumb_imgs_container = $('.product__image--thumb')
                         const thumb_imgs_arr = Array.from(thumb_imgs_container[0].children)
 
                         $.map(thumb_imgs_arr, thumb => {
-                            thumb.className = 'produto__imagem--thumb-img'
+                            thumb.className = ''
                         })
 
                         product_mainImg_El.attr('src', imgsArr[i])
 
-                        thumb_imgs_arr[i].className = 'produto__imagem--thumb-img produto__imagem--thumb-img-active'
+                        thumb_imgs_arr[i].className = 'product__image--thumb-active'
 
                     })
 
-                    thumb_img_El.appendTo('.produto__imagem--thumb')
+                    thumb_img_El.appendTo('.product__image--thumb')
                     
                 })
 
@@ -474,7 +474,7 @@ $(function(){
                 $('#comprar_btn--js').html(productIsInCart ? 'Remover do carrinho' : 'Inserir no carrinho')
                 $('#comprar_btn--js').on('click', () => addProductToCarrinho(value.id))
 
-                product_mainImg_El.appendTo('.produto__imagem--main')
+                product_mainImg_El.appendTo('.product__image--mainImage')
                 productBuyDetailsPriceTitle_El.appendTo('.produto__comprar--detalhes-preco')
                 price_savePercentage_El.appendTo('.produto__comprar--detalhes-preco')
                 price_original_El.appendTo('.produto__comprar--detalhes-preco')

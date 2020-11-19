@@ -530,8 +530,8 @@ function addItem() {
 
 function passPageProducts(index) {
     
-    const productPagesContainer = document.getElementsByClassName('filters__mostruarioContainer--page')
-    const productPagesNumber = document.getElementsByClassName('products__list_pages')
+    const productPagesContainer = document.getElementsByClassName('products__list_block')
+    const productPagesNumber = document.getElementsByClassName('products__list_header--pages')
     const productPagesArray = Array.from(productPagesNumber[0].children)
 
     for (let i = 0; i < productPagesArray.length; i++) {
@@ -545,7 +545,7 @@ function passPageProducts(index) {
     }
 
     productPagesContainer[index].style.display = 'block'
-    productPagesArray[index].className = 'products__list_pages-active'
+    productPagesArray[index].className = 'products__list_header--pages-active'
 
     // console.log(productPagesArray)
     // console.log(productPages[0].children[index])
