@@ -50,17 +50,17 @@ input:focus {
 /* **Banners Área - height ** */
 
 /* Mobly Inspira*/
-.secondBanner,
+/* .secondBanner,
 .thirdBanner,
-.fifthBanner { height: 530px; }
+.fifthBanner { height: 530px; } */
 
 
 /* **Banners Background - height ** */
 
 /* Mobly Inspira*/
-.secondBanner__bg,
-.thirdBanner__bg,
-.fifthBanner__bg { height: 475px; }
+/* .secondBanner__bg,
+.thirdBanner__bg, */
+/* .fifthBanner__bg { height: 475px; } */
 
 
 /* **Banners Background - margin-left ** */
@@ -83,10 +83,10 @@ input:focus {
 /* **Banners Background - buttons ** */
 
 /* Mobly Inspira */
-.secondBanner__bg--btn,
-.thirdBanner__bg--btn,
-.fourthBanner__bg--btn,
-.fifthBanner__bg--btn {
+/* .secondBanner__bg--btn, */
+/* .thirdBanner__bg--btn, */
+/* .fourthBanner__bg--btn, */
+/* .fifthBanner__bg--btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +97,7 @@ input:focus {
     font-weight: bold;
     position: absolute;
     transition: 0.3s;
-}
+} */
 
 
 /* **Arrows** */
@@ -141,10 +141,10 @@ input:focus {
 
 
 /* Index - Inspire-se */
-#arrow22,
+/* #arrow22,
 #arrow21 { margin-left: -647px; margin-top: 105px;}
 
-#arrow22 { margin-left: 647px;}
+#arrow22 { margin-left: 647px;} */
 
 
 /* Index - Decorados */
@@ -202,11 +202,10 @@ input:focus {
 /* .promo__container .flaticon-left-arrow:hover,
 .promo__container .flaticon-right-arrow:hover, */
 /* Mobly Inspira - PromoInspira */
-.promoInspira__container .flaticon-left-arrow:hover,
+/* .promoInspira__container .flaticon-left-arrow:hover,
 .promoInspira__container .flaticon-right-arrow:hover {
     color: #FF4600;
-    /*zoom: 1.1;*/
-}
+} */
 
 
 /* .promo__slider--arrow-container {
@@ -234,10 +233,10 @@ input:focus {
     box-shadow: 1px 5px 15px rgba(0, 0, 0, .5);
 } */
 
-.promoInspira__container .promo__slider--arrow-container {
+/* .promoInspira__container .promo__slider--arrow-container {
     width: 1015px;
     margin-left: 0;
-}
+} */
 
 
 
@@ -1432,7 +1431,7 @@ input#busca { color: #fff;
 
 
 /* ------------------------------------------------------- */
-/* PROMO E PROMO INSPIRA */
+/* PROMO SLIDER => PROMO E PROMO INSPIRA */
 /* ------------------------------------------------------- */
 
 .promo { margin-bottom: 50px;}
@@ -1454,7 +1453,17 @@ input#busca { color: #fff;
     width: 61%;
 }
 
-.promoInspira__container,
+.promoInspira__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+    margin-top: -270px;
+    width: 63%;
+    background-color: #fff;
+}
+
 .promo__subContainer {
     display: flex;
     flex-direction: column;
@@ -1463,38 +1472,23 @@ input#busca { color: #fff;
     overflow: hidden;
 }
 
-.promoInspira__container {
-    align-items: center;
-
-    margin-top: -270px;
-    width: 63%;
-    background-color: #fff;
-}
-
-.promoInspira__container--header,
-.promo__subContainer--slider,
+/* .promoInspira__container--header, */
+/* .promo__subContainer--slider,
 .promo__subContainer--header {
     display: flex;
-}
+} */
+
 
 
 /* **Promo Header** */ 
-.promoInspira__container--header,
-.promo__subContainer--header {
+.promoInspira__container--header { 
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
-}
 
-.promoInspira__container--header { 
+    height: 90px;
     width: 94%;
     margin-left: -1%;
-}
-
-.promoInspira__container--header a,
-.promo__subContainer--header p {
-    font-size: 25px;
-    font-weight: bold;
 }
 
 .promoInspira__container--header a {
@@ -1502,10 +1496,29 @@ input#busca { color: #fff;
     align-items: center;
     justify-content: space-between;
 
+    font-weight: bold;
     font-size: 18px;
     margin-top: 10px;
     width: 210px;
 }
+
+.promoInspira__container--header i:hover {
+    color: #FF4600;
+}
+
+.promo__subContainer--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.promo__subContainer--header p {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
 
 /* #promo__container--header-arrow {
     margin-top: 0;
@@ -1516,46 +1529,41 @@ input#busca { color: #fff;
     padding-bottom: 8px;
 } */
 
-.promoInspira__container--header-markerSlider, 
-.promo__subContainer--header-markerSlider {
-    width: 70px;
+.promoInspira__container--header-markerSlider  { 
     display: flex;
     justify-content: space-between;
+    width: 50px;
 }
 
-.promoInspira__container--header-markerSlider  { width: 50px;}
+.promo__subContainer--header-markerSlider {
+    display: flex;
+    justify-content: space-between;
 
-.promoInspira__container--header-markerSlider i,
-.marker-amostras2--js,
+    width: 70px;
+}
+
+.promoInspira__container--header-markerSlider  { 
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+}
+
 .marker-amostras--js {
     font-size: 10px;
     color: #999999;
-    cursor: pointer;
 }
 
-.marker-amostras--js {
-    cursor: default;
+.marker-amostras--active { 
+    color: #FF4600;
 }
-
-.markerT2 { color: #FF4600;}
 /* ** */
 
-
-/* **Promo Slider** */
-.promoInspira__container--slider,
-.promo__subContainer--slider,
-.promo__subContainer--slider-bloco,  
-.promo__subContainer--slider-bloco2 { 
-    justify-content: space-between; 
-    width: 3920px;
-    position: relative;
-}
-
-/* .promo__container--slider-bloco, 
-.promo__container--slider-bloco2 { width: 960px; display: flex;} */
 .promo__subContainer--slider-bloco {
     display: flex;
-    /* z-index: 10; */
+    justify-content: space-between; 
+    width: 3920px;
+
+    position: relative;
     z-index: 8888;
 
     transition: 1s ease-in-out;
@@ -1572,6 +1580,10 @@ input#busca { color: #fff;
     width: 1095px;
     margin-left: -70px;
     margin-top: 240px;
+}
+
+#promoInspira--arrows {
+    margin-left: 0;
 }
 
 .promo__slider--arrow-container i {
@@ -1596,6 +1608,9 @@ input#busca { color: #fff;
 
 .promoInspira__container--slider {
     display: flex;
+    justify-content: space-between; 
+    
+    position: relative;
     overflow: hidden;
     width: 945px;
 }
@@ -1674,7 +1689,9 @@ input#busca { color: #fff;
     color: #000;
 }
 
-.promo__subContainer--slider-description p { color: #000;}
+.promo__subContainer--slider-description p { 
+    color: #000;
+}
 
 .promo__subContainer--slider-preco span { 
     text-decoration: line-through;
@@ -1709,7 +1726,7 @@ input#busca { color: #fff;
 } */
 
 /* Overslap Promo Slider */
-.overslapPromoRight,
+/* .overslapPromoRight,
 .overslapPromoLeft {
     background-color: transparent;
     width: 75px;
@@ -1721,7 +1738,7 @@ input#busca { color: #fff;
     z-index: 1;
 }
 
-.overslapPromoRight { margin-left: 950px;}
+.overslapPromoRight { margin-left: 950px;} */
 
 /*OBS: As arrows foram configuradas no "general shared features */
 
@@ -2096,6 +2113,10 @@ footer { height: 920px;}
 
 /* OBS. - Demais configurações se encontram no 'general shared features' */
 
+.secondBanner { 
+    height: 530px; 
+}
+
 .secondBanner__bg { 
     background-image: url(../../vendors/img/moblyInspira/20190524-MoblyInspira-Home-Desktop-MesasdeJantar.jpg);
     height: 475px;
@@ -2103,6 +2124,16 @@ footer { height: 920px;}
 }
 
 .secondBanner__bg--btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 35px;
+    width: 140px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    transition: 0.3s;
     margin-left: 1300px;
     margin-top: 240px;
     background: #FF7062;
@@ -2138,12 +2169,27 @@ footer { height: 920px;}
 
 /* OBS. - Demais configurações se encontram no 'general shared features' */
 
+.thirdBanner { 
+    height: 530px; 
+}
+
 .thirdBanner__bg { 
     background-image: url(../../vendors/img/moblyInspira/20190524-MoblyInspira-Home-Desktop-EspelhosnaDecor.jpg);
     margin-left: -170px;
+    height: 475px;
 }
 
 .thirdBanner__bg--btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 35px;
+    width: 140px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    transition: 0.3s;
     margin-left: 480px;
     margin-top: 390px;
     background-color: #5A8C8B;
@@ -2188,6 +2234,16 @@ footer { height: 920px;}
 }
 
 .fourthBanner__bg--btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 35px;
+    width: 140px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    transition: 0.3s;
     margin-left: 940px;
     margin-top: 380px;
     background-color: #348D8C;
@@ -2234,7 +2290,13 @@ footer { height: 920px;}
 
 /* OBS. - Demais configurações se encontram no 'general shared features' */
 
-.fifthBanner {margin-bottom: 35px;}
+.fifthBanner { 
+    height: 530px; 
+}
+
+.fifthBanner {
+    margin-bottom: 35px;
+}
 
 .fifthBanner__bg { 
     background-image: url(../../vendors/img/moblyInspira/20190618-MoblyInspira-Home-Desktop_04.jpg); 
@@ -2243,6 +2305,16 @@ footer { height: 920px;}
 }
 
 .fifthBanner__bg--btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 35px;
+    width: 140px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    transition: 0.3s;
     margin-left: 1290px;
     margin-top: 240px;
     background-color: #FFBF4B;
@@ -2307,7 +2379,9 @@ footer { height: 920px;}
     margin-left: -5px;
 }
 
-.lacamentosBanner__mainBg--subContainer p { font-size: 17px;}
+.lacamentosBanner__mainBg--subContainer p { 
+    font-size: 17px;
+}
 
 .lacamentosBanner__mainBg--btn { 
     display: flex;
@@ -2334,9 +2408,9 @@ footer { height: 920px;}
 
 /* Containers compartilhados*/
 .lancamentosBanner__ofertas,
-.lancamentosBanner__boxes,
-.lancamentosBanner__ofertas--container,
-.filters__container,
+/* .lancamentosBanner__boxes, */
+/* .lancamentosBanner__ofertas--container, */
+.products__list_header-container,
 /* .filters__mostruarioContainer, */
 .produto__container { 
     margin-left: 315px;
@@ -2357,6 +2431,7 @@ footer { height: 920px;}
     display: flex;
     justify-content: space-between;
 
+    width: 960px;
     margin-left: 0;
     margin-top: 0;
 }
@@ -2415,7 +2490,10 @@ footer { height: 920px;}
 .lancamentosBanner__boxes {
     display: flex;
     flex-direction: column;
+
+    margin-left: 315px;
     margin-top: 0;
+    width: 960px;
 }
 
 .lancamentosBanner__boxes--firstContainer,
@@ -2450,12 +2528,18 @@ footer { height: 920px;}
 /* ------------------------------------------------------- */
 /* FILTERS */
 /* ------------------------------------------------------- */
-.filters { height: 1280px;}
+
+.products__list_session { 
+    height: 1280px;
+}
+
 .filters-alt { height: 2080px;}
 
-.filters__container {
+.products__list_header-container {
+    width: 960px;
     margin-top: 50px;
-    height: 132px;
+    margin-left: 315px;
+    /* height: 132px; */
 }
 
 .filters__container-row {
@@ -2505,6 +2589,10 @@ footer { height: 920px;}
 }
 
 .filters__container--row-categorias { 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
     width: 100%;
 }
 
@@ -2516,32 +2604,30 @@ footer { height: 920px;}
     width: 466.66px;
 }
 
-.filters__container--row-pages,
-.filters__container--row-categorias {
+.products__list_pages {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     justify-content: space-around;
 }
 
-.filters__container--row-pages {
+.products__list_pages {
     width: 140px;
 }
 
-.filters__container--row-pages p {
+.products__list_pages p {
     cursor: pointer;
 }
 
-.filters__container--row-pages p:hover {
+.products__list_pages p:hover {
     text-decoration: underline;
 }
 
-.filters__container--row-pages-active {
+.products__list_pages-active {
     font-weight: bold;
     text-decoration: underline;
 }
 
-.filters__container--row-pages-arrow {
+.products__list_pages-arrow {
     font-size: 10px;
     color: #FF4600;
     cursor: pointer;
@@ -2552,7 +2638,7 @@ footer { height: 920px;}
     -o-transition:all .1s ease-in-out;
 }
 
-.filters__container--row-pages-arrow:hover {
+/* .products__list_pages-arrow:hover {
     font-size: 10px;
     color: #FF4600;
     cursor: pointer;
@@ -2561,7 +2647,7 @@ footer { height: 920px;}
     -moz-transform: scale(1.6);
     -ms-transform: scale(1.6);
     -o-transform: scale(1.6);
-}
+} */
 
 /* */
 
@@ -2748,7 +2834,7 @@ footer { height: 920px;}
 /* *Filters Ofertas* */
 
 .filters__mostruarioContainer {
-    /* margin-left: 315px; */
+    margin-left: 315px;
     /* margin-top: -150px; */
     width: 960px;
     margin-top: 0;
@@ -2757,6 +2843,7 @@ footer { height: 920px;}
 .filters__mostruarioContainer--row {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .filters__mostruarioContainer--row-uni3,
@@ -3063,7 +3150,7 @@ input#frete { padding-left: 10px;}
     width: 960px;
 }
 
-.pages-favoritos-header {
+.products__list_header {
     border-bottom: #EAEAEA solid 1px;
     width: 100%;
     padding-bottom: 10px;
@@ -3072,7 +3159,7 @@ input#frete { padding-left: 10px;}
     justify-content: space-between;
 }
 
-.pages-favoritos-header p {
+.products__list_header p {
     font-weight: bold;
 }
 

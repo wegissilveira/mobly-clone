@@ -254,7 +254,7 @@ $(function(){
             let dotIcon = $('<i></i>')
 
             dotIcon.addClass('flaticon-circle marker-amostras--js')
-            if (i === 0) {dotIcon.addClass('flaticon-circle marker-amostras--js markerT2')}
+            if (i === 0) {dotIcon.addClass('flaticon-circle marker-amostras--js marker-amostras--active')}
             
             dotIcon.appendTo('.promo__subContainer--header-markerSlider')
         }
@@ -284,9 +284,9 @@ $(function(){
 
         for (let i = 0; i < pagesQtde; i++) {
             $(`<p>${i+1}</p>`)
-                .addClass(i === 0 ? 'filters__container--row-pages-active' : '')
+                .addClass(i === 0 ? 'products__list_pages-active' : '')
                 .on('click', () => passPageProducts(i))
-                .appendTo('.filters__container--row-pages')            
+                .appendTo('.products__list_pages')            
 
             const productsBlock = $('<div></div>')
                 // .css('display', i !== 0 ? 'none' : 'block')
@@ -364,7 +364,12 @@ $(function(){
                 width = [rowIndex]
             }
 
-            $(`#row-${rowIndex}`).css('width', (produtosSubContainerLink[0].offsetWidth * width.length + (width.length * 20)) + 'px')      
+            $(`#row-${rowIndex}`).css('width', (produtosSubContainerLink[0].offsetWidth * width.length + (width.length * 20)) + 'px') 
+            
+            // console.log(produtosSubContainerLink[0].offsetWidth)
+            // console.log(width.length)
+            // console.log(produtosSubContainerLink[0].offsetWidth * width.length + (width.length * 20))
+            // console.log('***')
         })
 
         // Aplicando block na página 1 e none nas demais

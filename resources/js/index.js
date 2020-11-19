@@ -419,11 +419,11 @@ function passSlidesPromoDots(n) {
     const currentPromoDot = n / 25
 
     for (i = 0; i < dotsAmostras.length; i++) {
-        dotsAmostras[i].className = dotsAmostras[i].className.replace(" markerT2", "");
+        dotsAmostras[i].className = dotsAmostras[i].className.replace(" marker-amostras--active", "");
     }
 
     if (dotsAmostras[currentPromoDot] !== undefined) {
-        dotsAmostras[currentPromoDot].className += " markerT2";
+        dotsAmostras[currentPromoDot].className += " marker-amostras--active";
     } 
 }
 
@@ -531,7 +531,7 @@ function addItem() {
 function passPageProducts(index) {
     
     const productPagesContainer = document.getElementsByClassName('filters__mostruarioContainer--page')
-    const productPagesNumber = document.getElementsByClassName('filters__container--row-pages')
+    const productPagesNumber = document.getElementsByClassName('products__list_pages')
     const productPagesArray = Array.from(productPagesNumber[0].children)
 
     for (let i = 0; i < productPagesArray.length; i++) {
@@ -545,7 +545,7 @@ function passPageProducts(index) {
     }
 
     productPagesContainer[index].style.display = 'block'
-    productPagesArray[index].className = 'filters__container--row-pages-active'
+    productPagesArray[index].className = 'products__list_pages-active'
 
     // console.log(productPagesArray)
     // console.log(productPages[0].children[index])
