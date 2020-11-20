@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
 
     if (pathname === '/carrinho.html') {
 
-        enableCarrinhoPage()
+        enableShoppingCartPage()
     }
 })
 
@@ -46,15 +46,15 @@ window.addEventListener('load', () => {
     
 
 
-const mainSliderContainer = document.getElementById('mainSlider')
+const mainSliderContainer_El = document.getElementById('mainSlider')
 
 function passMainSlides(n, ref) {
 
     const windowWidth = document.documentElement.clientWidth
-    let mainSliderContainerWidth = mainSliderContainer.style.width
+    let mainSliderContainerWidth = mainSliderContainer_El.style.width
     mainSliderContainerWidth = Number(mainSliderContainerWidth.replace(/[^\d.]/g, ''))
 
-    const transformValue = mainSliderContainer.style.transform
+    const transformValue = mainSliderContainer_El.style.transform
     let translateValue = transformValue.replace(/[^\d.]/g, '')
     translateValue = Number(translateValue) 
 
@@ -77,7 +77,7 @@ function passMainSlides(n, ref) {
     }
     
 
-    mainSliderContainer.style.transform = `translateX(${translateValue}px)`
+    mainSliderContainer_El.style.transform = `translateX(${translateValue}px)`
 
     passMainSlidesDots(newN) 
 
@@ -86,14 +86,14 @@ function passMainSlides(n, ref) {
 
 function passMainSlidesDots(n) {
     
-    let dots = document.getElementsByClassName("mainMarker--js")
+    let dots_El = document.getElementsByClassName("mainMarker--js")
 
-    let totalDots = mainSliderContainer.children.length
+    let totalDots = mainSliderContainer_El.children.length
 
     currentDotMainSlider = currentDotMainSlider + n
     
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" markerT", "");
+    for (i = 0; i < dots_El.length; i++) {
+        dots_El[i].className = dots_El[i].className.replace(" markerT", "");
     } 
 
     if (currentDotMainSlider < totalDots - 1 && currentDotMainSlider > 0) {
@@ -106,8 +106,8 @@ function passMainSlidesDots(n) {
         currentDotMainSlider = totalDots - 1
     }
 
-    if (dots[currentDotMainSlider] !== undefined) {
-        dots[currentDotMainSlider].className += " markerT"
+    if (dots_El[currentDotMainSlider] !== undefined) {
+        dots_El[currentDotMainSlider].className += " markerT"
     }
     
 }
@@ -554,56 +554,55 @@ function passPageProducts(index) {
 
 function productLike(event, product_id, el) {
     
-    const favoritosStorage = JSON.parse(localStorage.getItem('favoritos'))
-    const favoritosQtdeStorage = JSON.parse(localStorage.getItem('favoritosQtde'))
+    const liked_storage = JSON.parse(localStorage.getItem('liked'))
+    const liked_qtd_storage = JSON.parse(localStorage.getItem('liked_qtd'))
 
-    let favoritosArr = favoritosStorage !== null ? [...favoritosStorage] : []
-    let favoritosQtdeArr = favoritosQtdeStorage !== null ? {...favoritosQtdeStorage} : {}
-    let favoritosQtde = favoritosQtdeArr[product_id] !== undefined ? favoritosQtdeArr[product_id] : 0
+    let liked_arr = liked_storage !== null ? [...liked_storage] : []
+    let liked_qtd_arr = liked_qtd_storage !== null ? {...liked_qtd_storage} : {}
+    let liked_qtd = liked_qtd_arr[product_id] !== undefined ? liked_qtd_arr[product_id] : 0
 
     if (el === 'icon') {
         if (event.target.className === 'flaticon-like') {
 
             event.target.className = 'flaticon-favorite-heart-button'
-            favoritosArr.push(product_id)
+            liked_arr.push(product_id)
 
-            favoritosQtde = ++favoritosQtde
+            liked_qtd = ++liked_qtd
 
         } else {
 
             event.target.className = 'flaticon-like'
 
-            favoritosArr = favoritosArr.filter(item => item !== product_id)
+            liked_arr = liked_arr.filter(item => item !== product_id)
 
-            favoritosQtde = favoritosQtde > 0 ? --favoritosQtde : 0
+            liked_qtd = liked_qtd > 0 ? --liked_qtd : 0
         }
 
     } else if (el === 'div') {
         if (event.currentTarget.children[0].className === 'flaticon-like') {
 
-            favoritosArr.push(product_id)
+            liked_arr.push(product_id)
 
-            favoritosQtde = ++favoritosQtde
+            liked_qtd = ++liked_qtd
 
             event.currentTarget.children[0].className = 'flaticon-favorite-heart-button'
-            event.currentTarget.children[2].innerHTML = favoritosQtde + ' favoritaram'
+            event.currentTarget.children[2].innerHTML = liked_qtd + ' favoritaram'
 
         } else {
 
-            favoritosArr = favoritosArr.filter(item => item !== product_id)
+            liked_arr = liked_arr.filter(item => item !== product_id)
 
-            favoritosQtde = favoritosQtde > 0 ? --favoritosQtde : 0
+            liked_qtd = liked_qtd > 0 ? --liked_qtd : 0
 
             event.currentTarget.children[0].className = 'flaticon-like'
-            event.currentTarget.children[2].innerHTML = favoritosQtde + ' favoritaram'
+            event.currentTarget.children[2].innerHTML = liked_qtd + ' favoritaram'
         }
     }
 
-    favoritosQtdeArr[product_id] = favoritosQtde
+    liked_qtd_arr[product_id] = liked_qtd
 
-    localStorage.setItem('favoritos', JSON.stringify(favoritosArr))
-    localStorage.setItem('favoritosQtde', JSON.stringify(favoritosQtdeArr))
-
+    localStorage.setItem('liked', JSON.stringify(liked_arr))
+    localStorage.setItem('liked_qtd', JSON.stringify(liked_qtd_arr))
     event.preventDefault()
 }
 
@@ -613,34 +612,34 @@ function productLike(event, product_id, el) {
 /* **Itens individuais** */
 
 function addProductToCarrinho(product_id, page) {
-    console.log(product_id)
-    let cart
-    const cartStorage = JSON.parse(localStorage.getItem('cart'))
+    
+    let shopping_cart
+    const cart_storage = JSON.parse(localStorage.getItem('shopping_cart'))
 
-    const btnComprar = document.getElementById('product__buy_btn--js')
+    const insert_cart_btn = document.getElementById('product__buy_btn--js')
     
     if (page !== 'carrinho') {
-        if (cartStorage !== null) {
-            if (cartStorage.includes(product_id)) {
-                cart = cartStorage.filter(prod => prod !== product_id)
-                btnComprar.className = 'product__buy--btn'
-                btnComprar.innerHTML = 'Inserir do carrinho'
+        if (cart_storage !== null) {
+            if (cart_storage.includes(product_id)) {
+                shopping_cart = cart_storage.filter(prod => prod !== product_id)
+                insert_cart_btn.className = 'product__buy--btn'
+                insert_cart_btn.innerHTML = 'Inserir do carrinho'
             } else {
-                cart = [...cartStorage, product_id]
-                btnComprar.className = 'product__buy--btn product__buy--btn-remove'
-                btnComprar.innerHTML = 'Remover no carrinho'
+                shopping_cart = [...cart_storage, product_id]
+                insert_cart_btn.className = 'product__buy--btn product__buy--btn-remove'
+                insert_cart_btn.innerHTML = 'Remover no carrinho'
             }
         } else {
-            cart = [product_id]
-            btnComprar.className = 'product__buy--btn product__buy--btn-remove'
-            btnComprar.innerHTML = 'Remover do carrinho'
+            shopping_cart = [product_id]
+            insert_cart_btn.className = 'product__buy--btn product__buy--btn-remove'
+            insert_cart_btn.innerHTML = 'Remover do carrinho'
         }
 
-        localStorage.setItem('cart', JSON.stringify(cart))
+        localStorage.setItem('shopping_cart', JSON.stringify(shopping_cart))
 
     } else {
-        cart = cartStorage.filter(prod => prod !== product_id)
-        localStorage.setItem('cart', JSON.stringify(cart))
+        shopping_cart = cart_storage.filter(prod => prod !== product_id)
+        localStorage.setItem('shopping_cart', JSON.stringify(shopping_cart))
         location.reload()
     }
     
@@ -648,18 +647,18 @@ function addProductToCarrinho(product_id, page) {
 
 function changeTabDescriptionProduct(tab) {
     
-    const descriptionTabs = document.getElementsByClassName('product__buy--details-navigation')[0].children
+    const description_navigation = document.getElementsByClassName('product__buy--details-navigation')[0].children
     const dimensions = document.getElementsByClassName('product__buy--details-dimensions')[0]
     const text = document.getElementsByClassName('product__buy--details-description')[0]
     
     if (tab === 'size') {
-        descriptionTabs[0].className = 'active-tab'
-        descriptionTabs[1].className = 'disabled-tab'
+        description_navigation[0].className = 'active-tab'
+        description_navigation[1].className = 'disabled-tab'
         dimensions.style.display = 'block'
         text.style.display = 'none'
     } else if (tab ===  'text') {
-        descriptionTabs[0].className = 'disabled-tab'
-        descriptionTabs[1].className = 'active-tab'
+        description_navigation[0].className = 'disabled-tab'
+        description_navigation[1].className = 'active-tab'
         dimensions.style.display = 'none'
         text.style.display = 'block'
     }
@@ -670,16 +669,18 @@ function changeTabDescriptionProduct(tab) {
 
 /* **CARRINHO** */
 
-function enableCarrinhoPage() {
-    const input = document.getElementsByClassName('shopping__cart--products-shipping-placeholder')[0].parentNode.children
+function enableShoppingCartPage() {
+    if (JSON.parse(localStorage.getItem('shopping_cart')).length > 0) {
+        const input = document.getElementsByClassName('shopping__cart--products-shipping-placeholder')[0].parentNode.children
 
-    window.addEventListener('click', () => {
-        if (input[1] === document.activeElement) {
-            input[0].style.transform = 'translate(0, 10px)'
-            input[0].style.color = '#5A98FF'
-        } else {
-            input[0].style.transform = 'translate(0, 33px)'
-            input[0].style.color = '#BEBEBE'
-        }
-    })
+        window.addEventListener('click', () => {
+            if (input[1] === document.activeElement) {
+                input[0].style.transform = 'translate(0, 10px)'
+                input[0].style.color = '#5A98FF'
+            } else {
+                input[0].style.transform = 'translate(0, 33px)'
+                input[0].style.color = '#BEBEBE'
+            }
+        })
+    }
 }

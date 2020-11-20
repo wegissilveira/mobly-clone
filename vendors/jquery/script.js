@@ -1,9 +1,9 @@
 // Criando o objeto da quantidade de favoritos no local storage
-window.addEventListener('load', () => {
-    const favoritosQtde = JSON.parse(localStorage.getItem('favoritosQtde'))
+// window.addEventListener('load', () => {
+//     const favoritosQtde = JSON.parse(localStorage.getItem('liked_qtd'))
 
-    localStorage.setItem('favoritosQtde', favoritosQtde !== null ? JSON.stringify   (favoritosQtde) : JSON.stringify({}))
-})
+//     localStorage.setItem('liked_qtd', favoritosQtde !== null ? JSON.stringify   (favoritosQtde) : JSON.stringify({}))    
+// })
 
 
 $(function(){
@@ -25,8 +25,11 @@ $(function(){
 
 $(function(){
 
-    const favoritosStorage = JSON.parse(localStorage.getItem('favoritos'))
-    const cartStorage = JSON.parse(localStorage.getItem('cart'))
+    let liked_storage = JSON.parse(localStorage.getItem('liked'))
+    liked_storage = liked_storage === null ? [] : liked_storage
+
+    let cart_storage = JSON.parse(localStorage.getItem('shopping_cart'))
+    cart_storage = cart_storage === null ? [] : cart_storage
     
     /* Main Slider */
     $.getScript("../../data/mainSliderData.js", function() {
@@ -258,8 +261,9 @@ $(function(){
 
         /* **Lista de produtos (LANÇAMENTOS PAGE)** */
         /* **Produtos favoritos (Favoritos PAGE)** */
-
-        const favoritosDataArr = returnData().filter(item => favoritosStorage.includes(item.id) )
+        
+    
+        const favoritosDataArr = returnData().filter(item => liked_storage.includes(item.id) )
 
         const url_string = window.location.href
         const url = new URL(url_string)
@@ -284,74 +288,69 @@ $(function(){
                 .on('click', () => passPageProducts(i))
                 .appendTo('.products__list_header--pages')            
 
-            const productsBlock = $('<div></div>')
+            const products_container_El = $('<div></div>')
                 // .css('display', i !== 0 ? 'none' : 'block')
                 .addClass('products__list_block')
 
-            productsBlock.appendTo('.products__list_container')
+            products_container_El.appendTo('.products__list_container')
 
-            productsBlock.appendTo('.liked--container')
+            products_container_El.appendTo('.liked--container')
         }
 
-        if (favoritosStorage.length === 0) {
+        if (liked_storage.length === 0) {
             $('<div><p>Sua lista de favoritos está vazia.</p></div>').appendTo('.liked--container')
         }
         
-        // => TALVEZ INSERIR ESSA ARROW PARA MUDAR DE BLOCO DE PÁGINAS, MAS CASO ISSO OCORRA SERIA NECESSÁRIO UMA ARROW PARA VOLTAR TBM
-        // $('<i></i>')
-        //     .addClass('flaticon-right-arrow filters__container--row-pages-arrow')
-        //     .appendTo('.filters__container--row-pages')
-
-        const produtosPages = $('.products__list_block')
+        const products_block_El = $('.products__list_block')
 
         for (let i = 0; i < rowsQtde; i++) {
 
             const pageIndex = Math.floor(i / 3)
             
-            const produtosRow = $('<div></div>')
+            const products_row_El = $('<div></div>')
 
-            produtosRow.addClass('products__list_block--row')
-            produtosRow.attr('id', `row-${i}`)
+            products_row_El.addClass('products__list_block--row')
+            products_row_El.attr('id', `row-${i}`)
 
-            produtosRow.appendTo(produtosPages[pageIndex])
+            products_row_El.appendTo(products_block_El[pageIndex])
         }
 
-        const produtosRow = $('.products__list_block--row')
+        const products_row_El = $('.products__list_block--row')
 
         let width = []
         $.each(newReturnData, (index, value) => {
   
-            const favorito = favoritosStorage !== null ? favoritosStorage.includes(value.id) : false
+            const is_product_liked = liked_storage !== null ? liked_storage.includes(value.id) : false
             
             const rowIndex = Math.floor(index / 4)
             
-            const produtosSubContainerLink = $('<a></a>')
-            const produtosDiscount = $(`<p>-${value.desconto}%</p>`)
-            const produtosImg = $('<img>')
-            const produtosIcon = $('<i></i>')
-            const produtosDescriptionDiv = $('<div></div>')
-            const produtosDescriptionTitle = $(`<p>${value.nome}</p>`)
-            const produtosDescriptionPriceParc = $(`<p><strong>10x ${(finalPrice / 10).toFixed(2).replace('.', ',')}</strong><span> sem juros</span></p>`)
-            const produtosDescriptionPrice = $(`<p><span>${value.preco}</span><strong> ${finalPriceStr}</strong></p>`)
+            const products_link_subContainer_El = $('<a></a>')
+            const products_discount_El = $(`<p>-${value.desconto}%</p>`)
+            const products_img_El = $('<img>')
+            const produtos_icon_El = $('<i></i>')
+            const products_description_El = $('<div></div>')
+            const products_description_title_El = $(`<p>${value.nome}</p>`)
+            const products_description_installment_El = $(`<p><strong>10x ${(finalPrice / 10).toFixed(2).replace('.', ',')}</strong><span> sem juros</span></p>`)
+            const products_description_price_El = $(`<p><span>${value.preco}</span><strong> ${finalPriceStr}</strong></p>`)
             
-            produtosSubContainerLink.addClass('products__list_product--container')
-            produtosSubContainerLink.attr('href', `/item.html?product_id=${value.id}`)
-            produtosDiscount.addClass('products__list_product--discount')
-            produtosImg.attr('src', value.imgs.img_1)
-            produtosIcon.addClass(favorito ? 'flaticon-favorite-heart-button' : 'flaticon-like')
-            produtosIcon.on('click', () => productLike(event, value.id, 'icon'))
-            produtosDescriptionPriceParc.addClass('products__list_product--installment')
-            produtosDescriptionPrice.addClass('products__list_product--price')
+            products_link_subContainer_El.addClass('products__list_product--container')
+            products_link_subContainer_El.attr('href', `/item.html?product_id=${value.id}`)
+            products_discount_El.addClass('products__list_product--discount')
+            products_img_El.attr('src', value.imgs.img_1)
+            produtos_icon_El.addClass(is_product_liked ? 'flaticon-favorite-heart-button' : 'flaticon-like')
+            produtos_icon_El.on('click', () => productLike(event, value.id, 'icon'))
+            products_description_installment_El.addClass('products__list_product--installment')
+            products_description_price_El.addClass('products__list_product--price')
 
-            produtosDiscount.appendTo(produtosSubContainerLink)
-            produtosImg.appendTo(produtosSubContainerLink)
-            produtosIcon.appendTo(produtosSubContainerLink)
-            produtosDescriptionDiv.appendTo(produtosSubContainerLink)
-            produtosDescriptionTitle.appendTo(produtosDescriptionDiv)
-            produtosDescriptionPriceParc.appendTo(produtosDescriptionDiv)
-            produtosDescriptionPrice.appendTo(produtosDescriptionDiv)
+            products_discount_El.appendTo(products_link_subContainer_El)
+            products_img_El.appendTo(products_link_subContainer_El)
+            produtos_icon_El.appendTo(products_link_subContainer_El)
+            products_description_El.appendTo(products_link_subContainer_El)
+            products_description_title_El.appendTo(products_description_El)
+            products_description_installment_El.appendTo(products_description_El)
+            products_description_price_El.appendTo(products_description_El)
 
-            produtosSubContainerLink.appendTo(produtosRow[rowIndex])
+            products_link_subContainer_El.appendTo(products_row_El[rowIndex])
 
             // O width da row é a soma dos widths de cada div do produto, aqui se garante que cada row tenha o seu próprio array para determinar a qtde de div em cada uma.
             if (width.includes(rowIndex)) {
@@ -360,7 +359,7 @@ $(function(){
                 width = [rowIndex]
             }
 
-            $(`#row-${rowIndex}`).css('width', (produtosSubContainerLink[0].offsetWidth * width.length + (width.length * 20)) + 'px') 
+            $(`#row-${rowIndex}`).css('width', (products_link_subContainer_El[0].offsetWidth * width.length + (width.length * 20)) + 'px') 
             
             // console.log(produtosSubContainerLink[0].offsetWidth)
             // console.log(width.length)
@@ -382,9 +381,10 @@ $(function(){
         
         $.each(returnData(), (index, value) => {
 
-            const favorito = favoritosStorage !== null ? favoritosStorage.includes(value.id) : false
-            const favoritosQtde = JSON.parse(localStorage.getItem('favoritosQtde'))
-            const productIsInCart = cartStorage !== null ? cartStorage.includes(value.id) : false            
+            const favorito = liked_storage !== null ? liked_storage.includes(value.id) : false
+            let favoritosQtde = JSON.parse(localStorage.getItem('liked_qtd'))
+            favoritosQtde = favoritosQtde === null ? {} : favoritosQtde
+            const productIsInCart = cart_storage !== null ? cart_storage.includes(value.id) : false            
 
             if (value.id === id) {
 
@@ -488,11 +488,11 @@ $(function(){
         let finalTotalPriceValue = 0
         let productsQtdeTotal = 0
 
-        if (cartStorage.length > 0) {
+        if (cart_storage.length > 0) {
             $.each(returnData(), (index, value) => {
                 
-                if (cartStorage.includes(value.id)) {
-
+                if (cart_storage.includes(value.id)) {
+                    
                     /* *Lista de produtos* */
                     /* Estrutura base */
                     const cartContainer_El = $(`<div></div>`)
@@ -579,7 +579,7 @@ $(function(){
 
                     const comprarSubContainer_El = $('.shopping__cart--buy-subContainer').eq(0).children()
 
-                    if (productStorageIndex === cartStorage.length) {
+                    if (productStorageIndex === cart_storage.length) {
                         comprarSubtotalItens_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
                         comprarSubtotalPrice_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
                         comprarTotalPrice_El.appendTo(comprarSubContainer_El.eq(1).children()[0])
