@@ -511,7 +511,7 @@ function foscoImg() {
 //Incluindo itens na página de favoritos
 
 let heart = document.getElementById('heartClick');
-let heartList = document.getElementById('favoritos--js');
+let heartList = document.getElementById('liked--js');
 
 // heart.addEventListener('click', addItem);
 
@@ -671,7 +671,7 @@ function changeTabDescriptionProduct(tab) {
 /* **CARRINHO** */
 
 function enableCarrinhoPage() {
-    const input = document.getElementsByClassName('frete-input-placeholder')[0].parentNode.children
+    const input = document.getElementsByClassName('shopping__cart--products-shipping-placeholder')[0].parentNode.children
 
     window.addEventListener('click', () => {
         if (input[1] === document.activeElement) {

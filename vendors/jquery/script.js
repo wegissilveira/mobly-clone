@@ -22,10 +22,6 @@ $(function(){
     $("#newsletter").load("../../shared/newsletter-session.html"); 
 });
 
-// $(function(){
-//     $("#product-list").load("../../shared/product-cart.html")
-// });
-
 
 $(function(){
 
@@ -294,11 +290,11 @@ $(function(){
 
             productsBlock.appendTo('.products__list_container')
 
-            productsBlock.appendTo('.favoritos')
+            productsBlock.appendTo('.liked--container')
         }
 
         if (favoritosStorage.length === 0) {
-            $('<div><p>Sua lista de favoritos está vazia.</p></div>').appendTo('.favoritos')
+            $('<div><p>Sua lista de favoritos está vazia.</p></div>').appendTo('.liked--container')
         }
         
         // => TALVEZ INSERIR ESSA ARROW PARA MUDAR DE BLOCO DE PÁGINAS, MAS CASO ISSO OCORRA SERIA NECESSÁRIO UMA ARROW PARA VOLTAR TBM
@@ -513,12 +509,12 @@ $(function(){
                     const cartMontagem_El = $(`<div></div>`)
                     const deleteProduct_El = $(`<div><i class="flaticon-trash"></i><p>Excluir</p></div>`)
 
-                    cartContainer_El.addClass('carrinho-produto-container')
-                    cartSubContainer_El.addClass('carrinho-produto-subContainer')
-                    cartImgContainer_El.addClass('carrinho-img-container')
-                    cartDetailsContainer_El.addClass('carrinho-produto-detalhes-container')
-                    cartDetails_El.addClass('carrinho-produto-detalhes')
-                    cartMontagem_El.addClass('carrinho-produto-montagem')
+                    cartContainer_El.addClass('shopping__cart--product-container')
+                    cartSubContainer_El.addClass('shopping__cart--product-subContainer')
+                    cartImgContainer_El.addClass('shopping__cart--product-img')
+                    cartDetailsContainer_El.addClass('shopping__cart--product-info-container')
+                    cartDetails_El.addClass('shopping__cart--product-info')
+                    cartMontagem_El.addClass('shopping__cart--product-setUp')
                     deleteProduct_El.on('click', () => addProductToCarrinho(value.id, 'carrinho'))
 
                     $('<p>Quantidade</p>').appendTo(cartDetailsDiv_3_El)
@@ -536,7 +532,7 @@ $(function(){
                     cartDetailsContainer_El.appendTo(cartSubContainer_El)
                     cartSubContainer_El.appendTo(cartContainer_El)
 
-                    $(cartContainer_El).appendTo('#product-list')
+                    $(cartContainer_El).appendTo('#shopping__cart--product-list')
                     
                     /* Estrutura dinâmica */
                     priceFormat = Number(value.preco.replace(',', '.'))
@@ -553,7 +549,7 @@ $(function(){
                     const productDiv_El = $('<div></div>')
                     const productLink_El = $('<a></a>')
                     const productImg_El = $('<img>')
-                    const productDetalhes_El = $('.carrinho-produto-detalhes').eq(productStorageIndex).children()
+                    const productDetalhes_El = $('.shopping__cart--product-info').eq(productStorageIndex).children()
                     const productName_El = $(`<a><h4>${value.nome}</h4></a>`)
                     const productId_El = $(`<p>ID: ${value.id}</p>`)
                     const productValue_El = $(`<p><span>R$ ${finalPriceStr}</span></p>`)
@@ -566,7 +562,7 @@ $(function(){
 
                     productImg_El.appendTo(productLink_El)
                     productLink_El.appendTo(productDiv_El)
-                    productDiv_El.appendTo($('.carrinho-img-container').eq(productStorageIndex))
+                    productDiv_El.appendTo($('.shopping__cart--product-img').eq(productStorageIndex))
 
                     productId_El.prependTo(productDetalhes_El.eq(0))
                     productName_El.prependTo(productDetalhes_El.eq(0))
@@ -581,7 +577,7 @@ $(function(){
                     const comprarSubtotalPrice_El = $(`<p>R$ ${finalTotalPriceValueStr}</p>`)
                     const comprarTotalPrice_El = $(`<p>R$ ${finalTotalPriceValueStr}</p>`)
 
-                    const comprarSubContainer_El = $('.comprar-subContainer').eq(0).children()
+                    const comprarSubContainer_El = $('.shopping__cart--buy-subContainer').eq(0).children()
 
                     if (productStorageIndex === cartStorage.length) {
                         comprarSubtotalItens_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
@@ -596,9 +592,9 @@ $(function(){
 
         } else {
 
-            $('.carrinho-session').css('background-color', '#fff')
-            $('.produto-container').remove()
-            $('.comprar-container').remove()
+            $('.shopping__cart--session').css('background-color', '#fff')
+            $('.shopping__cart--products-container').remove()
+            $('.shopping__cart--buy-container').remove()
 
             const emptyCardIcon_El = $('<i></i>')
             const emptyCardTitle_El = $('<h1></h1>')
@@ -608,20 +604,20 @@ $(function(){
             emptyCardIcon_El.css('font-size', '100px')
             emptyCardTitle_El.html('Seu carrinho de compras está vazio!')
             emptyCardLinkDiv_El.css('text-align', 'center')
-            $('.carrinho-container').css('color', '#828282')
-            $('.carrinho-container').css('display', 'flex')
-            $('.carrinho-container').css('flex-direction', 'column')
-            $('.carrinho-container').css('align-items', 'center')
+            $('.shopping__cart--container').css('color', '#828282')
+            $('.shopping__cart--container').css('display', 'flex')
+            $('.shopping__cart--container').css('flex-direction', 'column')
+            $('.shopping__cart--container').css('align-items', 'center')
 
             $('<p>Não perca mais tempo <a href="/lancamentos.html">clique aqui</a></p>').appendTo(emptyCardLinkDiv_El)
             $('<p>e aproveite nossas ofertas.</p>').appendTo(emptyCardLinkDiv_El)
 
-            emptyCardIcon_El.appendTo('.carrinho-container')
-            emptyCardTitle_El.appendTo('.carrinho-container')
-            emptyCardLinkDiv_El.appendTo('.carrinho-container')
+            emptyCardIcon_El.appendTo('.shopping__cart--container')
+            emptyCardTitle_El.appendTo('.shopping__cart--container')
+            emptyCardLinkDiv_El.appendTo('.shopping__cart--container')
 
-            $('.carrinho-container a').css('color', '#337ab7')
-            $('.carrinho-container a').css('text-decoration', 'underline')
+            $('.shopping__cart--container a').css('color', '#337ab7')
+            $('.shopping__cart--container a').css('text-decoration', 'underline')
         }
 
         
