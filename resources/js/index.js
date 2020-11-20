@@ -617,22 +617,22 @@ function addProductToCarrinho(product_id, page) {
     let cart
     const cartStorage = JSON.parse(localStorage.getItem('cart'))
 
-    const btnComprar = document.getElementById('comprar_btn--js')
+    const btnComprar = document.getElementById('product__buy_btn--js')
     
     if (page !== 'carrinho') {
         if (cartStorage !== null) {
             if (cartStorage.includes(product_id)) {
                 cart = cartStorage.filter(prod => prod !== product_id)
-                btnComprar.className = 'produto__comprar--detalhes-comprarBtn'
+                btnComprar.className = 'product__buy--btn'
                 btnComprar.innerHTML = 'Inserir do carrinho'
             } else {
                 cart = [...cartStorage, product_id]
-                btnComprar.className = 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove'
+                btnComprar.className = 'product__buy--btn product__buy--btn-remove'
                 btnComprar.innerHTML = 'Remover no carrinho'
             }
         } else {
             cart = [product_id]
-            btnComprar.className = 'produto__comprar--detalhes-comprarBtn produto__comprar--detalhes-comprarBtn-remove'
+            btnComprar.className = 'product__buy--btn product__buy--btn-remove'
             btnComprar.innerHTML = 'Remover do carrinho'
         }
 
@@ -648,9 +648,9 @@ function addProductToCarrinho(product_id, page) {
 
 function changeTabDescriptionProduct(tab) {
     
-    const descriptionTabs = document.getElementsByClassName('produto__comprar--detalhes-descricaoTitle')[0].children
-    const dimensions = document.getElementsByClassName('produto__comprar--detalhes-descricaoDimensoes')[0]
-    const text = document.getElementsByClassName('produto__comprar--detalhes-descricaoText')[0]
+    const descriptionTabs = document.getElementsByClassName('product__buy--details-navigation')[0].children
+    const dimensions = document.getElementsByClassName('product__buy--details-dimensions')[0]
+    const text = document.getElementsByClassName('product__buy--details-description')[0]
     
     if (tab === 'size') {
         descriptionTabs[0].className = 'active-tab'
