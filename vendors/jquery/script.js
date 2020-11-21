@@ -1,11 +1,3 @@
-// Criando o objeto da quantidade de favoritos no local storage
-// window.addEventListener('load', () => {
-//     const favoritosQtde = JSON.parse(localStorage.getItem('liked_qtd'))
-
-//     localStorage.setItem('liked_qtd', favoritosQtde !== null ? JSON.stringify   (favoritosQtde) : JSON.stringify({}))    
-// })
-
-
 $(function(){
     $("#includedHeader").load("../../shared/header.html"); 
 });
@@ -45,48 +37,45 @@ $(function(){
         $.each(dataArr, (index, value) => {
 
             // Inserção de imagens no slider
-            const mainSliderDiv = $('<div></div>')
+            const mainSliderDiv_El = $('<div></div>')
             
             if (index === 0) {
-                mainSliderDiv.css("background-image", `url(${value})`)
-                mainSliderDiv.addClass('slider__img slide--js')
+                mainSliderDiv_El.css("background-image", `url(${value})`)
+                mainSliderDiv_El.addClass('slider__img slide--js')
 
-                mainSliderDiv.appendTo(mainSliderContainer)
+                mainSliderDiv_El.appendTo(mainSliderContainer)
             } else {
-                // mainSliderDiv.css({"background-image": `url(${value})`, 'display': 'none'})
-                mainSliderDiv.css({"background-image": `url(${value})`})
-                mainSliderDiv.addClass('slider__img slide--js')
+                mainSliderDiv_El.css({"background-image": `url(${value})`})
+                mainSliderDiv_El.addClass('slider__img slide--js')
                 
-                mainSliderDiv.appendTo(mainSliderContainer)
+                mainSliderDiv_El.appendTo(mainSliderContainer)
             }
 
             // Inserção de thumbnails do slider
-            const thumbnailDiv = $('<div></div>')
-            const thumbnailImg = $('<img>')
-            const thumbnailArrow = $('<i></i>')
+            const thumbnailDiv_El = $('<div></div>')
+            const thumbnailImg_El = $('<img>')
+            const thumbnailArrow_El = $('<i></i>')
 
-            thumbnailDiv.attr('id', `slider__thumbnail_js-${index + 1}`)
-            thumbnailDiv.addClass('slider__thumbnail')
-            thumbnailImg.attr('src', value)
-            thumbnailArrow.addClass('flaticon-down-arrow')
+            thumbnailDiv_El.attr('id', `slider__thumbnail_js-${index + 1}`)
+            thumbnailDiv_El.addClass('slider__thumbnail')
+            thumbnailImg_El.attr('src', value)
+            thumbnailArrow_El.addClass('flaticon-down-arrow')
             
-            thumbnailImg.appendTo(thumbnailDiv)
-            thumbnailArrow.appendTo(thumbnailDiv)
-            thumbnailDiv.appendTo('#slider__marker_thumbnails')
+            thumbnailImg_El.appendTo(thumbnailDiv_El)
+            thumbnailArrow_El.appendTo(thumbnailDiv_El)
+            thumbnailDiv_El.appendTo('#slider__marker_thumbnails')
 
             // Inserção dos pontos de marcação dos slides
-            const sliderMarker = $('<i></i>')
+            const sliderMarker_El = $('<i></i>')
 
-            sliderMarker.addClass('flaticon-circle mainMarker--js')
-            if (index === 0) {sliderMarker.addClass('flaticon-circle mainMarker--js markerT')}
-           
-            // sliderMarker.appendTo('.promo__container--header-markerSlider')
+            sliderMarker_El.addClass('flaticon-circle mainMarker--js')
+            if (index === 0) {sliderMarker_El.addClass('flaticon-circle mainMarker--js markerT')}
 
-            sliderMarker.on('click', () => passMainSlides(index + 1, 'dot'))
-            sliderMarker.on('mouseover', () => openThumbnail(index + 1))
-            sliderMarker.on('mouseout', () => closeThumbnail(index + 1))
+            sliderMarker_El.on('click', () => passMainSlides(index + 1, 'dot'))
+            sliderMarker_El.on('mouseover', () => openThumbnail(index + 1))
+            sliderMarker_El.on('mouseout', () => closeThumbnail(index + 1))
 
-            sliderMarker.appendTo('#slider__marker_icons')
+            sliderMarker_El.appendTo('#slider__marker_icons')
 
         })
 
@@ -111,26 +100,26 @@ $(function(){
         }
         
         let divRef = 0
-        const semanaMDivs = $('.semanaM__galery--row')
-        semanaMDivs.css('margin-bottom', 20)
+        const semanaM_divs_El = $('.semanaM__galery--row')
+        semanaM_divs_El.css('margin-bottom', 20)
 
         // Populando as divs com as imagens
         $.each(dataArr, (index, value) => {
 
-            const semanaMLink = $('<a></a>')
-            const semanaMImg = $('<img>')
-            const semanaMArrow_div = $('<div></div>') 
-            const semanaMArrow = $('<i></i>') 
+            const semanaM_link_El = $('<a></a>')
+            const semanaM_img_El = $('<img>')
+            const semanaM_arrow_div = $('<div></div>') 
+            const semanaM_arrow_El = $('<i></i>') 
             
-            semanaMImg.attr('src', value)
-            semanaMArrow_div.addClass('semanaM__galery--iContainer-green')
-            if (index % 2 !== 0) {semanaMArrow_div.addClass('semanaM__galery--iContainer-grey')}
-            semanaMArrow.addClass('flaticon-right-arrow')
+            semanaM_img_El.attr('src', value)
+            semanaM_arrow_div.addClass('semanaM__galery--iContainer-green')
+            if (index % 2 !== 0) {semanaM_arrow_div.addClass('semanaM__galery--iContainer-grey')}
+            semanaM_arrow_El.addClass('flaticon-right-arrow')
 
-            semanaMArrow.appendTo(semanaMArrow_div)
-            semanaMImg.appendTo(semanaMLink)
-            semanaMArrow_div.appendTo(semanaMLink)
-            semanaMLink.appendTo(semanaMDivs[divRef])
+            semanaM_arrow_El.appendTo(semanaM_arrow_div)
+            semanaM_img_El.appendTo(semanaM_link_El)
+            semanaM_arrow_div.appendTo(semanaM_link_El)
+            semanaM_link_El.appendTo(semanaM_divs_El[divRef])
 
             if ((index + 1) % 3 === 0) {
                 divRef++
@@ -151,45 +140,45 @@ $(function(){
         
         $.each(dataArr, (index, value) => {
 
-            const decoradosBloco = $('<div></div>')
-            const decoradosBlocoRow_1 = $('<div><div></div><div></div></div>')
-            const decoradosBlocoRow_2 = $('<div><div></div><div></div></div>')
+            const decorados_block_El = $('<div></div>')
+            const decorados_row_1_El = $('<div><div></div><div></div></div>')
+            const decorados_row_2_El = $('<div><div></div><div></div></div>')
 
-            const overSliderContainer = $('.decorados_overSlider')
-            const overSliderDiv = $('<div></div>')
+            const over_slider_container_El = $('.decorados_overSlider')
+            const over_slider_div_El = $('<div></div>')
 
-            decoradosBloco.addClass('decorados__slider--bloco')
-            if (index !== 0) {decoradosBloco.css('display', 'none')}
-            decoradosBlocoRow_1.addClass('decorados__slider--row')
-            decoradosBlocoRow_2.addClass('decorados__slider--row')
+            decorados_block_El.addClass('decorados__slider--block')
+            if (index !== 0) {decorados_block_El.css('display', 'none')}
+            decorados_row_1_El.addClass('decorados__slider--row')
+            decorados_row_2_El.addClass('decorados__slider--row')
 
             const valueArr = $.map(value, imgBlock => {
                 return [imgBlock]
             })
 
-            overSliderDiv.appendTo('.decorados_overSlider')
+            over_slider_div_El.appendTo('.decorados_overSlider')
             
             $.each(valueArr, (i, val) => {
 
-                const decoradosImg = $('<img>')
-                decoradosImg.on('click', () => showDecorados_overSlider('open', index, i))
-                decoradosImg.attr('src', val)
+                const decorados_img_El = $('<img>')
+                decorados_img_El.on('click', () => showDecorados_overSlider('open', index, i))
+                decorados_img_El.attr('src', val)
 
                 if (i <= 1) {
-                    decoradosImg.appendTo(decoradosBlocoRow_1[0].children[i])
+                    decorados_img_El.appendTo(decorados_row_1_El[0].children[i])
                 } else {
-                    decoradosImg.appendTo(decoradosBlocoRow_2[0].children[i - 2])
+                    decorados_img_El.appendTo(decorados_row_2_El[0].children[i - 2])
                 } 
 
-                const overSliderImg = $('<img>')
-                overSliderImg.attr('src', val)
-                overSliderImg.appendTo(overSliderContainer[0].children[index + 2])
+                const over_slider_img_El = $('<img>')
+                over_slider_img_El.attr('src', val)
+                over_slider_img_El.appendTo(over_slider_container_El[0].children[index + 2])
                 
             })
 
-            decoradosBlocoRow_1.appendTo(decoradosBloco)
-            decoradosBlocoRow_2.appendTo(decoradosBloco)
-            decoradosBloco.appendTo('.decorados__slider--container')
+            decorados_row_1_El.appendTo(decorados_block_El)
+            decorados_row_2_El.appendTo(decorados_block_El)
+            decorados_block_El.appendTo('.decorados__slider--container')
         })
 
     }).fail(function( jqxhr, settings, exception ) {
@@ -207,7 +196,7 @@ $(function(){
     $.getScript('../../data/produtosData.js', function() {
 
         /* Acabaram de chegar (HOMEPAGE) */
-        let novosProdutosArr = []
+        let new_products_arr = []
 
         $.each(returnData(), (index, value) => {
 
@@ -218,44 +207,44 @@ $(function(){
                 finalPrice = (priceFormat / 100) * (100 - value.desconto)
                 finalPriceStr = finalPrice.toFixed(2).replace('.', ',')
                 
-                const slideDiv = $('<div></div>')
-                const slideLink = $('<a></a>')
-                const slideImg = $('<img>')
-                const slideDescriptionDiv = $('<div></div>')
-                const slideDescriptionTitle = $(`<p>${value.nome}</p>`)
-                const slideDescriptionPrice = $(`<p>Por: R$ ${finalPriceStr}</p>`)
-                const slideDescriptionArrow = $('<i></i>')
+                const product_El = $('<div></div>')
+                const product_link_El = $('<a></a>')
+                const product_img_El = $('<img>')
+                const product_description_El = $('<div></div>')
+                const product_description_title_El = $(`<p>${value.nome}</p>`)
+                const product_description_price_El = $(`<p>Por: R$ ${finalPriceStr}</p>`)
+                const product_description_arrow_El = $('<i></i>')
 
-                slideDiv.addClass('promo__subContainer--slider-uni')
-                slideLink.attr('href', `/item.html?product_id=${value.id}`)
-                slideImg.attr('src', value.imgs.img_1)
-                slideDescriptionDiv.addClass('promo__subContainer--slider-description')
-                slideDescriptionPrice.addClass('promo__subContainer--slider-preco')
-                slideDescriptionArrow.addClass('flaticon-right-arrow promo__subContainer--description-arrow')
+                product_El.addClass('promo__product--container')
+                product_link_El.attr('href', `/item.html?product_id=${value.id}`)
+                product_img_El.attr('src', value.imgs.img_1)
+                product_description_El.addClass('promo__product--description')
+                product_description_price_El.addClass('promo__product--price')
+                product_description_arrow_El.addClass('flaticon-right-arrow')
                 
-                slideDescriptionTitle.appendTo(slideDescriptionDiv)
-                slideDescriptionPrice.appendTo(slideDescriptionDiv)
-                slideDescriptionArrow.appendTo(slideDescriptionDiv)
-                slideImg.appendTo(slideLink)
-                slideDescriptionDiv.appendTo(slideLink)
-                slideLink.appendTo(slideDiv)
-                slideDiv.appendTo('.promo__subContainer--slider-bloco')
+                product_description_title_El.appendTo(product_description_El)
+                product_description_price_El.appendTo(product_description_El)
+                product_description_arrow_El.appendTo(product_description_El)
+                product_img_El.appendTo(product_link_El)
+                product_description_El.appendTo(product_link_El)
+                product_link_El.appendTo(product_El)
+                product_El.appendTo('.promo__subContainer--slider-block')
 
-                novosProdutosArr.push(value.novoProduto)
+                new_products_arr.push(value.novoProduto)
             }
 
         })
 
-        const dotsQtd = Math.floor(novosProdutosArr.length / 4)
+        const dotsQtd = Math.floor(new_products_arr.length / 4)
 
         for (let i = 0; i < dotsQtd; i++) {
 
-            let dotIcon = $('<i></i>')
+            let dot_icon_El = $('<i></i>')
 
-            dotIcon.addClass('flaticon-circle marker-amostras--js')
-            if (i === 0) {dotIcon.addClass('flaticon-circle marker-amostras--js marker-amostras--active')}
+            dot_icon_El.addClass('flaticon-circle marker-promoSlider--js')
+            if (i === 0) {dot_icon_El.addClass('flaticon-circle marker-promoSlider--js marker-amostras--active')}
             
-            dotIcon.appendTo('.promo__subContainer--header-markerSlider')
+            dot_icon_El.appendTo('.promo__subContainer--header-markerSlider')
         }
         
 
@@ -360,11 +349,6 @@ $(function(){
             }
 
             $(`#row-${rowIndex}`).css('width', (products_link_subContainer_El[0].offsetWidth * width.length + (width.length * 20)) + 'px') 
-            
-            // console.log(produtosSubContainerLink[0].offsetWidth)
-            // console.log(width.length)
-            // console.log(produtosSubContainerLink[0].offsetWidth * width.length + (width.length * 20))
-            // console.log('***')
         })
 
         // Aplicando block na página 1 e none nas demais
@@ -381,10 +365,10 @@ $(function(){
         
         $.each(returnData(), (index, value) => {
 
-            const favorito = liked_storage !== null ? liked_storage.includes(value.id) : false
-            let favoritosQtde = JSON.parse(localStorage.getItem('liked_qtd'))
-            favoritosQtde = favoritosQtde === null ? {} : favoritosQtde
-            const productIsInCart = cart_storage !== null ? cart_storage.includes(value.id) : false            
+            const is_product_liked = liked_storage !== null ? liked_storage.includes(value.id) : false
+            let liked_qtd_storage = JSON.parse(localStorage.getItem('liked_qtd'))
+            liked_qtd_storage = liked_qtd_storage === null ? {} : liked_qtd_storage
+            const is_product_in_cart = cart_storage !== null ? cart_storage.includes(value.id) : false            
 
             if (value.id === id) {
 
@@ -419,8 +403,8 @@ $(function(){
                     thumb_img_El.addClass(i === 0 ? 'product__image--thumb-active' : '')
 
                     thumb_img_El.on('mouseover', () => {
-                        const thumb_imgs_container = $('.product__image--thumb')
-                        const thumb_imgs_arr = Array.from(thumb_imgs_container[0].children)
+                        const thumb_imgs_container_El = $('.product__image--thumb')
+                        const thumb_imgs_arr = Array.from(thumb_imgs_container_El[0].children)
 
                         $.map(thumb_imgs_arr, thumb => {
                             thumb.className = ''
@@ -438,24 +422,20 @@ $(function(){
 
                 const productLike_icon_El = $('<i></i>')
                 let productLike_qtde_El
-                if (favoritosQtde !== null) {
-                    productLike_qtde_El = $(`<p>${favoritosQtde[value.id] !== undefined ? favoritosQtde[value.id] : 0} favoritaram</p>`)
-                } else {
-                    productLike_qtde_El = 0
-                }
-                
 
-                const measuresArr = $.map(value.dimensoes, value => {
+                productLike_qtde_El = $(`<p>${liked_qtd_storage[value.id] !== undefined ? liked_qtd_storage[value.id] : 0} favoritaram</p>`)
+
+                const dimensions_arr = $.map(value.dimensoes, value => {
                     return [value]
                 })
 
-                const measuresArr_keys = Object.keys(value.dimensoes).map(item => {
+                const dimensions_arr_keys = Object.keys(value.dimensoes).map(item => {
                     return item.charAt(0).toUpperCase() + item.slice(1)
                 })
                 
-                $.each(measuresArr, (i, val) => {
+                $.each(dimensions_arr, (i, val) => {
                     
-                    $(`<p>${measuresArr_keys[i]}:<span> ${val}</span></p>`)
+                    $(`<p>${dimensions_arr_keys[i]}:<span> ${val}</span></p>`)
                     .addClass('measure_unit')
                     .appendTo(measuresContainer_El[0].children[i])
                 })
@@ -464,10 +444,10 @@ $(function(){
                 price_original_El.addClass('product__buy--originalPrice')
                 price_final_El.addClass('product__buy--currentPrice-container')
                 price_saveMoney_El.css('line-through', '1.5')
-                productLike_icon_El.addClass(favorito ? 'flaticon-favorite-heart-button' : 'flaticon-like')
+                productLike_icon_El.addClass(is_product_liked ? 'flaticon-favorite-heart-button' : 'flaticon-like')
                 $('.product__buy_boxes--like').on('click', () => productLike(event, value.id, 'div'))
-                $('#product__buy_btn--js').addClass(productIsInCart ? 'product__buy--btn product__buy--btn-remove' : 'product__buy--btn ')
-                $('#product__buy_btn--js').html(productIsInCart ? 'Remover do carrinho' : 'Inserir no carrinho')
+                $('#product__buy_btn--js').addClass(is_product_in_cart ? 'product__buy--btn product__buy--btn-remove' : 'product__buy--btn ')
+                $('#product__buy_btn--js').html(is_product_in_cart ? 'Remover do carrinho' : 'Inserir no carrinho')
                 $('#product__buy_btn--js').on('click', () => addProductToCarrinho(value.id))
 
                 product_mainImg_El.appendTo('.product__image--mainImage')

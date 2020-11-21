@@ -22,29 +22,7 @@ window.addEventListener('load', () => {
 
 /* *Slides 1* */
 
-// let sliderImages = document.querySelectorAll('.slide--js'),
-    //leftArrowMain = document.querySelector("#left-arrow--mainSlider-js"),
-    //rightArrowMain = document.querySelector("#right-arrow--mainSlider-js"),
-// let dots = document.getElementsByClassName("mainMarker--js"),
-    // let i,
-    let currentDotMainSlider = 0
-    // currentPromoDot = 0,
-    // currentPromo2 = 1,
-    // currentDeco = 1
-
-// showSlides(current);
-
-
-// function passMainSlidesCallback(n) {
-//     passMainSlides(current += n);
-// }
-
-// function passMainSlidesDots(n) {
-//     passMainSlides(current = n);
-// }
-
-    
-
+let currentDotMainSlider = 0
 
 const mainSliderContainer_El = document.getElementById('mainSlider')
 
@@ -143,12 +121,12 @@ function toggleMainSliderArrows() {
 
 /* *Thumbnails Main Slider */
 function openThumbnail(n) {
-    let marker = document.getElementsByClassName("mainMarker--js")
-    let position = marker[n - 1].getBoundingClientRect().x - (223 / 2)
-    let thumbnail = document.querySelector("#slider__thumbnail_js-"+n)
+    let marker_El = document.getElementsByClassName("mainMarker--js")
+    let position = marker_El[n - 1].getBoundingClientRect().x - (223 / 2)
+    let thumbnail_El = document.querySelector("#slider__thumbnail_js-"+n)
 
-    thumbnail.style.display ="flex";
-    thumbnail.style.left = position + 'px'
+    thumbnail_El.style.display ="flex";
+    thumbnail_El.style.left = position + 'px'
 }
 
 function closeThumbnail(n) {
@@ -196,127 +174,87 @@ function prev() {
 }
 
 
-
-/* *Slider Decorados* */
-
-// let sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
-
-// showSlidesDeco(currentDeco);
-
-// function plusSlidesDeco(n) {
-//     showSlidesDeco(currentDeco += n);
-// }
-
 let currentDeco = 1
 
 function passSlidesDecorados(n) {
 
-    const sliderDecorado = document.querySelectorAll('.decorados__slider--bloco');
-    const sliderDecoradoTabs = document.getElementsByClassName('decorados__header-tabs')
-    const sliderDecoradoTabsArr = Array.from(sliderDecoradoTabs[0].children)
+    const slider_decorados_El = document.querySelectorAll('.decorados__slider--block');
+    const slider_decorados_navigation_El = document.getElementsByClassName('decorados__header-tabs')
+    const slider_decorados_navigation_arr = Array.from(slider_decorados_navigation_El[0].children)
     // const tabsQtd = sliderDecorado.length
     
-    sliderDecoradoTabsArr.map(tab => {
+    slider_decorados_navigation_arr.map(tab => {
         tab.className = ''
     }) 
 
-    for (i = 0; i < sliderDecorado.length; i++) {
-        sliderDecorado[i].style.display = "none";
+    for (i = 0; i < slider_decorados_El.length; i++) {
+        slider_decorados_El[i].style.display = "none";
     }
-        
-    // if (ref !== 'tab') {
+      
+    currentDeco = n + 1
 
-    //     let newN = currentDeco += n
-
-    //     if (newN - 1 < tabsQtd && newN - 1 >= 0) {
-    //         sliderDecoradoTabsArr[newN - 1].className = 'decorados__header-tab-active'
-    //     } else if (newN - 1 >= tabsQtd) {
-    //         sliderDecoradoTabsArr[0].className = 'decorados__header-tab-active'  
-    //     } else if (newN - 1 <= 0) {
-    //         sliderDecoradoTabsArr[tabsQtd - 1].className = 'decorados__header-tab-active' 
-    //     }
-
-    //     if (newN > sliderDecorado.length) {currentDeco = 1}
-    //     if (newN < 1) {currentDeco = sliderDecorado.length}
-
-    //     sliderDecorado[currentDeco-1].style.display = "block";
-
-    // } else {
-        currentDeco = n + 1
-
-        sliderDecoradoTabsArr[n].className = 'decorados__header-tab-active' 
-        sliderDecorado[n].style.display = "block";
-    // }
+    slider_decorados_navigation_arr[n].className = 'decorados__header-tab-active' 
+    slider_decorados_El[n].style.display = "block";
 
 }
 
 let overSliderIndex
 let currentImg
 let overSlider
-const arrowsContainer = document.getElementsByClassName('decorados__overSlider_arrows-container')[0]
+const arrows_container_El = document.getElementsByClassName('decorados__overSlider_arrows-container')[0]
 
 function showDecorados_overSlider(action, indexBlock, indexImg) {
 
     overSliderIndex = indexBlock !== undefined ? indexBlock : overSliderIndex
     currentImg = indexImg !== undefined ? indexImg : currentImg
 
-    // console.log(indexBlock)
-    // console.log('toggle')
-
-    const body = document.getElementsByTagName("BODY")[0]
-    overSlider = document.getElementsByClassName('decorados_overSlider')[0]
-    const overlay = document.getElementsByClassName('decorados_overSlider_overlay')[0]
-    const currentOverSlider = overSlider.children[overSliderIndex + 2]
+    const body_El = document.getElementsByTagName("BODY")[0]
+    overSlider_El = document.getElementsByClassName('decorados_overSlider')[0]
+    const overlay_El = document.getElementsByClassName('decorados_overSlider_overlay')[0]
+    const currentOverSlider = overSlider_El.children[overSliderIndex + 2]
     const currentOverSliderImage = currentOverSlider.children[currentImg]
 
-    // const decoradosContainerTop = document.getElementsByClassName('decorados')[0].offsetTop
-
-    // console.log(currentOverSlider)
-    // console.log(currentOverSliderImage)
-    // console.log(currentImg)
-
     if (action === 'open') {
-        body.style.overflow = 'hidden'
-        overSlider.style.display = 'flex'
-        overlay.style.display = 'block'
-        overlay.style.height = body.offsetHeight + 'px'
+        body_El.style.overflow = 'hidden'
+        overSlider_El.style.display = 'flex'
+        overlay_El.style.display = 'block'
+        overlay_El.style.height = body_El.offsetHeight + 'px'
         // overlay.style.marginTop = -decoradosContainerTop + 'px'
         currentOverSlider.style.display = 'block'
         currentOverSliderImage.style.display = 'block'
-        arrowsContainer.style.display = 'flex'
+        arrows_container_El.style.display = 'flex'
         
         if (currentImg === 0) {
-            arrowsContainer.children[0].style.display = 'none'
-            arrowsContainer.children[1].style.display = 'flex'
-            arrowsContainer.children[2].style.display = 'flex'
-            arrowsContainer.children[3].style.display = 'none'
+            arrows_container_El.children[0].style.display = 'none'
+            arrows_container_El.children[1].style.display = 'flex'
+            arrows_container_El.children[2].style.display = 'flex'
+            arrows_container_El.children[3].style.display = 'none'
         } else if (currentImg === 3) {
-            arrowsContainer.children[0].style.display = 'flex'
-            arrowsContainer.children[1].style.display = 'none'
-            arrowsContainer.children[2].style.display = 'none'
-            arrowsContainer.children[3].style.display = 'flex'
+            arrows_container_El.children[0].style.display = 'flex'
+            arrows_container_El.children[1].style.display = 'none'
+            arrows_container_El.children[2].style.display = 'none'
+            arrows_container_El.children[3].style.display = 'flex'
         } else {
-            arrowsContainer.children[0].style.display = 'flex'
-            arrowsContainer.children[1].style.display = 'none'
-            arrowsContainer.children[2].style.display = 'flex'
-            arrowsContainer.children[3].style.display = 'none'
+            arrows_container_El.children[0].style.display = 'flex'
+            arrows_container_El.children[1].style.display = 'none'
+            arrows_container_El.children[2].style.display = 'flex'
+            arrows_container_El.children[3].style.display = 'none'
         }
 
     } else if (action === 'close') {
         
-        body.style.overflow = 'unset'
-        overSlider.style.display = 'none'
+        body_El.style.overflow = 'unset'
+        overSlider_El.style.display = 'none'
         currentOverSlider.style.display = 'none'
         currentOverSliderImage.style.display = 'none'
-        arrowsContainer.style.display = 'none'
+        arrows_container_El.style.display = 'none'
     }
     
 }
 
 
 function passSlidesOverSlider(arg) {
-    // console.log('pass')
-    const currentOverSlider = overSlider.children[overSliderIndex + 2].children
+    const currentOverSlider = overSlider_El.children[overSliderIndex + 2].children
     
     currentImg = currentImg + arg
     
@@ -325,16 +263,16 @@ function passSlidesOverSlider(arg) {
     }
 
     if (currentImg === currentOverSlider.length - 1) {
-        arrowsContainer.children[2].style.display = 'none'
-        arrowsContainer.children[3].style.display = 'flex'
+        arrows_container_El.children[2].style.display = 'none'
+        arrows_container_El.children[3].style.display = 'flex'
     } else if (currentImg === 0) {
-        arrowsContainer.children[0].style.display = 'none'
-        arrowsContainer.children[1].style.display = 'flex'
+        arrows_container_El.children[0].style.display = 'none'
+        arrows_container_El.children[1].style.display = 'flex'
     } else {
-        arrowsContainer.children[0].style.display = 'flex'
-        arrowsContainer.children[1].style.display = 'none'
-        arrowsContainer.children[2].style.display = 'flex'
-        arrowsContainer.children[3].style.display = 'none'
+        arrows_container_El.children[0].style.display = 'flex'
+        arrows_container_El.children[1].style.display = 'none'
+        arrows_container_El.children[2].style.display = 'flex'
+        arrows_container_El.children[3].style.display = 'none'
     }
 
     currentOverSlider[currentImg].style.display = 'block'
@@ -345,66 +283,32 @@ function passSlidesOverSlider(arg) {
 
 /* slider promo */
 
-// let sliderPromo = document.getElementsByClassName('promo__container--slider-bloco'),
-// let dotsAmostras = document.getElementsByClassName('marker-amostras--js');
-let sliderPromo2 = document.getElementsByClassName('promo__subContainer--slider-bloco2'),
-    dotsAmostras2 = document.getElementsByClassName('marker-amostras2--js');
-/* *Nessa maneira eu passo os slides baseado na localização, mas neste caso eu vou ter que colocar cada 4 em um container para que possa ser identificado como uma unidade e possibilitar a mudança dos dots. Por isso inserir a forma com a qual eu já estava fazendo os outros slides.
-function translate() {
-    sliderPromo.style.transform = "translateX("+current+"px)";
-}
-
-function nextPromo() {
-    current += -986.66666666666667;
-    if (current < -3000) { current = 0;}
-
-    translate();
-    dotsAmostras();
-}
-
-function prevPromo() {
-    current += 986.66666666666667;
-    if (current > 0 ) { current = -2960}
-
-    translate();
-}
-*//*
-function dotsAmostras() {
-    for (i = 0; i < dotsAmostras.length; i++) {
-        dotsAmostras[i].className = dotsAmostras[i].className.replace(" markerT", "");
-    }
-    dotsAmostras[current-1].className += " markerT";
-}
-*/
-
-// showSlidesPromoDots(currentPromoDot);
-// showSlidesPromo2(current);
 let currentPromoDot = 0
 
 function passSlidesPromo(n) {
     
-    const sliderPromo = document.getElementsByClassName('promo__subContainer--slider-bloco')
+    const slider_promo_El = document.getElementsByClassName('promo__subContainer--slider-block')
 
-    const transformValue = sliderPromo[0].style.transform
+    const transformValue = slider_promo_El[0].style.transform
     let translateValue = transformValue.replace(/[^\d.]/g, '')
     translateValue = Number(translateValue)
 
     if (n === 1) {
 
         translateValue < 75 ?
-            sliderPromo[0].style.transform = `translateX(-${translateValue + 25}%)`
+            slider_promo_El[0].style.transform = `translateX(-${translateValue + 25}%)`
         :
-            sliderPromo[0].style.transform = `translateX(0)`
+            slider_promo_El[0].style.transform = `translateX(0)`
 
     } else if (n === -1) {
         translateValue > 0 ?
-            sliderPromo[0].style.transform = `translateX(-${translateValue - 25}%)`
+            slider_promo_El[0].style.transform = `translateX(-${translateValue - 25}%)`
         :
-            sliderPromo[0].style.transform = `translateX(-75%)`
+            slider_promo_El[0].style.transform = `translateX(-75%)`
     }
 
     /* Pontos de marcação dos slides (dots) */
-    const newTransformValue = sliderPromo[0].style.transform
+    const newTransformValue = slider_promo_El[0].style.transform
     let newTranslateValue = newTransformValue.replace(/[^\d.]/g, '')
     newTranslateValue = Number(newTranslateValue)
 
@@ -414,45 +318,19 @@ function passSlidesPromo(n) {
 
 function passSlidesPromoDots(n) {
 
-    const dotsAmostras = document.getElementsByClassName('marker-amostras--js')
+    const promo_slider_dots_El = document.getElementsByClassName('marker-promoSlider--js')
 
     const currentPromoDot = n / 25
 
-    for (i = 0; i < dotsAmostras.length; i++) {
-        dotsAmostras[i].className = dotsAmostras[i].className.replace(" marker-amostras--active", "");
+    for (i = 0; i < promo_slider_dots_El.length; i++) {
+        promo_slider_dots_El[i].className = promo_slider_dots_El[i].className.replace(" marker-amostras--active", "");
     }
 
-    if (dotsAmostras[currentPromoDot] !== undefined) {
-        dotsAmostras[currentPromoDot].className += " marker-amostras--active";
+    if (promo_slider_dots_El[currentPromoDot] !== undefined) {
+        promo_slider_dots_El[currentPromoDot].className += " marker-amostras--active";
     } 
 }
 
-
-// function plusSlidesPromo2(n) {
-//     showSlidesPromo2(currentPromo2 += n);
-// }
-
-// function currentSlidePromo2(n) {
-//     showSlidesPromo2(currentPromo2 = n);
-// }
-
-// function showSlidesPromo2(n) {
-//     if (n > sliderPromo2.length) {currentPromo2 = 1}
-//     if(n < 1) {currentPromo2 = sliderPromo2.length}
-//     for (i = 0; i < sliderPromo2.length; i++) {
-//         sliderPromo2[i].style.display = "none";
-//     }
-
-//     for (i = 0; i < dotsAmostras2.length; i++) {
-//         dotsAmostras2[i].className = dotsAmostras2[i].className.replace(" markerT2", "");
-//     }
-
-//     sliderPromo2[currentPromo2 - 1].style.display = "flex";
-//     dotsAmostras2[currentPromo2 - 1].className += " markerT2";
-// }
-
-
-/* */
 //Setando arrows 'none' e 'block'
 
 function openArrows(n) {
@@ -469,12 +347,12 @@ function closeArrows(n) {
 
 function startPromotionClock() {
 
-    const htmlCrono = document.getElementById('semanaM__countdown');
-    const countdownDate = new Date("September 15, 2021 12:00:00").getTime();
+    const semanaM_countdown_El = document.getElementById('semanaM__countdown');
+    const countdown_date = new Date("September 15, 2021 12:00:00").getTime();
 
     let x = setInterval(function() {
         let now = new Date().getTime();
-        let distance = countdownDate - now;
+        let distance = countdown_date - now;
 
         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
         let hours = Math.floor((distance % ( 1000 * 60 * 60 * 24))/ (100 * 60 * 600)).toLocaleString(undefined, {minimumIntegerDigits: 2});
@@ -482,47 +360,19 @@ function startPromotionClock() {
         let seconds = Math.floor((distance % (1000 * 60)) / 1000).toLocaleString(undefined, {minimumIntegerDigits: 2});
         //console.log(hours);
         if (days < 2 && days >= 1 ) {
-            htmlCrono.innerHTML =  days + " Dia " + hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.innerHTML =  days + " Dia " + hours + ":" + minutes + ":" + seconds;
         } else if (days < 1) {
-            htmlCrono.innerHTML = hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.innerHTML = hours + ":" + minutes + ":" + seconds;
         } else if (days > 2) {
-            htmlCrono.innerHTML = days + " Dias " + hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.innerHTML = days + " Dias " + hours + ":" + minutes + ":" + seconds;
         } else if (minutes < 10) {
-            htmlCrono.innerHTML = days + " Dias" + hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.innerHTML = days + " Dias" + hours + ":" + minutes + ":" + seconds;
         } else if (distance < 0) {
             clearInterval(x);
-            htmlCrono.innerHTML = "EXPIRED";
+            semanaM_countdown_El.innerHTML = "EXPIRED";
         }
     }, 1000);
 
-}
-
-
-
-    //console.log(days);
-
-let fosco = document.getElementById('titles');
-
-function foscoImg() {
-    fosco.style.color = "red";
-}
-
-/* */
-//Incluindo itens na página de favoritos
-
-let heart = document.getElementById('heartClick');
-let heartList = document.getElementById('liked--js');
-
-// heart.addEventListener('click', addItem);
-
-function addItem() {
-    let newItem = document.getElementById('item');
-
-    let img = document.createElement('img');
-
-    img.appendChild(document.createTextNode(newItem));
-
-    itemList.appendChild(img);
 }
 
 
@@ -530,26 +380,17 @@ function addItem() {
 
 function passPageProducts(index) {
     
-    const productPagesContainer = document.getElementsByClassName('products__list_block')
-    const productPagesNumber = document.getElementsByClassName('products__list_header--pages')
-    const productPagesArray = Array.from(productPagesNumber[0].children)
+    const products_block_El = document.getElementsByClassName('products__list_block')
+    const product_pages_number_El = document.getElementsByClassName('products__list_header--pages')
+    const product_pages_number_arr = Array.from(product_pages_number_El[0].children)
 
-    for (let i = 0; i < productPagesArray.length; i++) {
-        //Esse bloco 'if' só será necessário caso eu insira as arrow
-        // if (i !== productPagesArray.length - 1) {
-        //     productPagesArray[i].className = ''
-        // }
-        
-        productPagesContainer[i].style.display = 'none'
-        productPagesArray[i].className = ''
+    for (let i = 0; i < product_pages_number_arr.length; i++) {        
+        products_block_El[i].style.display = 'none'
+        product_pages_number_arr[i].className = ''
     }
 
-    productPagesContainer[index].style.display = 'block'
-    productPagesArray[index].className = 'products__list_header--pages-active'
-
-    // console.log(productPagesArray)
-    // console.log(productPages[0].children[index])
-    // console.log(index)
+    products_block_El[index].style.display = 'block'
+    product_pages_number_arr[index].className = 'products__list_header--pages-active'
 }
 
 function productLike(event, product_id, el) {
@@ -616,23 +457,23 @@ function addProductToCarrinho(product_id, page) {
     let shopping_cart
     const cart_storage = JSON.parse(localStorage.getItem('shopping_cart'))
 
-    const insert_cart_btn = document.getElementById('product__buy_btn--js')
+    const insert_cart_btn_El = document.getElementById('product__buy_btn--js')
     
     if (page !== 'carrinho') {
         if (cart_storage !== null) {
             if (cart_storage.includes(product_id)) {
                 shopping_cart = cart_storage.filter(prod => prod !== product_id)
-                insert_cart_btn.className = 'product__buy--btn'
-                insert_cart_btn.innerHTML = 'Inserir do carrinho'
+                insert_cart_btn_El.className = 'product__buy--btn'
+                insert_cart_btn_El.innerHTML = 'Inserir do carrinho'
             } else {
                 shopping_cart = [...cart_storage, product_id]
-                insert_cart_btn.className = 'product__buy--btn product__buy--btn-remove'
-                insert_cart_btn.innerHTML = 'Remover no carrinho'
+                insert_cart_btn_El.className = 'product__buy--btn product__buy--btn-remove'
+                insert_cart_btn_El.innerHTML = 'Remover no carrinho'
             }
         } else {
             shopping_cart = [product_id]
-            insert_cart_btn.className = 'product__buy--btn product__buy--btn-remove'
-            insert_cart_btn.innerHTML = 'Remover do carrinho'
+            insert_cart_btn_El.className = 'product__buy--btn product__buy--btn-remove'
+            insert_cart_btn_El.innerHTML = 'Remover do carrinho'
         }
 
         localStorage.setItem('shopping_cart', JSON.stringify(shopping_cart))
@@ -647,20 +488,20 @@ function addProductToCarrinho(product_id, page) {
 
 function changeTabDescriptionProduct(tab) {
     
-    const description_navigation = document.getElementsByClassName('product__buy--details-navigation')[0].children
-    const dimensions = document.getElementsByClassName('product__buy--details-dimensions')[0]
-    const text = document.getElementsByClassName('product__buy--details-description')[0]
+    const description_navigation_El = document.getElementsByClassName('product__buy--details-navigation')[0].children
+    const product_dimensions_El = document.getElementsByClassName('product__buy--details-dimensions')[0]
+    const product_description_El = document.getElementsByClassName('product__buy--details-description')[0]
     
     if (tab === 'size') {
-        description_navigation[0].className = 'active-tab'
-        description_navigation[1].className = 'disabled-tab'
-        dimensions.style.display = 'block'
-        text.style.display = 'none'
-    } else if (tab ===  'text') {
-        description_navigation[0].className = 'disabled-tab'
-        description_navigation[1].className = 'active-tab'
-        dimensions.style.display = 'none'
-        text.style.display = 'block'
+        description_navigation_El[0].className = 'active-tab'
+        description_navigation_El[1].className = 'disabled-tab'
+        product_dimensions_El.style.display = 'block'
+        product_description_El.style.display = 'none'
+    } else if (tab === 'text') {
+        description_navigation_El[0].className = 'disabled-tab'
+        description_navigation_El[1].className = 'active-tab'
+        product_dimensions_El.style.display = 'none'
+        product_description_El.style.display = 'block'
     }
 }
 
@@ -671,15 +512,15 @@ function changeTabDescriptionProduct(tab) {
 
 function enableShoppingCartPage() {
     if (JSON.parse(localStorage.getItem('shopping_cart')).length > 0) {
-        const input = document.getElementsByClassName('shopping__cart--products-shipping-placeholder')[0].parentNode.children
+        const cep_input_El = document.getElementsByClassName('shopping__cart--products-shipping-placeholder')[0].parentNode.children
 
         window.addEventListener('click', () => {
-            if (input[1] === document.activeElement) {
-                input[0].style.transform = 'translate(0, 10px)'
-                input[0].style.color = '#5A98FF'
+            if (cep_input_El[1] === document.activeElement) {
+                cep_input_El[0].style.transform = 'translate(0, 10px)'
+                cep_input_El[0].style.color = '#5A98FF'
             } else {
-                input[0].style.transform = 'translate(0, 33px)'
-                input[0].style.color = '#BEBEBE'
+                cep_input_El[0].style.transform = 'translate(0, 33px)'
+                cep_input_El[0].style.color = '#BEBEBE'
             }
         })
     }
