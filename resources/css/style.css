@@ -31,6 +31,31 @@ input:focus {
 
 
 
+/* ------------------------------------------------------- */
+/* SHARED CLASSES */
+/* ------------------------------------------------------- */
+
+.white_arrows {
+    margin: 0;
+    z-index: 8888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    font-size: 10px;
+    background-color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 1px 5px 15px rgba(0, 0, 0, .5);
+}
+
+.white_arrows:hover {
+    color: #FF4600;
+}
+
+
 
 
 /* ********************************************* SHARED SCRIPTS ************************************************************************** */
@@ -678,7 +703,7 @@ input#busca { color: #fff;
     -o-transition: 1s ease-in-out;
 }
 
-.promo__slider--arrow-container {
+.promo__slider--arrows-container {
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -688,13 +713,13 @@ input#busca { color: #fff;
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    .promo__slider--arrow-container {
+    .promo__slider--arrows-container {
         /* display: none; */
     }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-    .promo__slider--arrow-container {
+    .promo__slider--arrows-container {
         display: none;
     }
 }
@@ -703,7 +728,23 @@ input#busca { color: #fff;
     margin-left: 0;
 }
 
-.promo__slider--arrow-container i {
+/* :root {
+    --marginArrow: 0;
+    --z-indexArrow: 8888;
+    --displayArrow: flex;
+    --align-itemsArrow: center;
+    --justify-contentArrow: center;
+    --widthArrow: 35px;
+    --heightArrow: 35px;
+    --font-sizeArrow: 10px;
+    --background-colorArrow: #fff;
+    --font-weightArrow: bold;
+    --border-radiusArrow: 3px;
+    --cursorArrow: pointer;
+    --box-shadowArrow: 1px 5px 15px rgba(0, 0, 0, .5);
+} */
+
+/* .promo__slider--arrow-container i {
     margin: 0;
     z-index: 8888;
     display: flex;
@@ -717,11 +758,33 @@ input#busca { color: #fff;
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 1px 5px 15px rgba(0, 0, 0, .5);
-}
+} */
 
-.promo__slider--arrow-container i:hover {
+
+/* .promo__slider--arrow-container i {
+    margin: var(--marginArrow);
+    z-index: var(--z-indexArrow);
+    display: var(--displayArrow);
+    align-items: var(--align-itemsArrow);
+    justify-content: var(--justify-contentArrow);
+    width: var(--widthArrow);
+    height: var(--heightArrow);
+    font-size: var(--font-sizeArrow);
+    background-color: var(--background-colorArrow);
+    font-weight: var(--font-weightArrow);
+    cursor: var(--cursorArrow);
+    box-shadow: var(--box-shadowArrow);
+    
+    border-radius: var(--border-radiusArrow);
+    -webkit-border-radius: var(--border-radiusArrow);
+    -moz-border-radius: var(--border-radiusArrow);
+    -ms-border-radius: var(--border-radiusArrow);
+    -o-border-radius: var(--border-radiusArrow);
+} */
+
+/* .promo__slider--arrow-container i:hover {
     color: #FF4600;
-}
+} */
 
 .promoInspira__container--slider {
     display: flex;
@@ -1271,7 +1334,7 @@ footer {
 }
 
 /* .inspireseBanner-arrows-container i, */
-.mainSlider-arrows-container i {
+/* .mainSlider-arrows-container i {
     margin: 0;
     z-index: 8888;
     display: flex;
@@ -1285,11 +1348,32 @@ footer {
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 1px 5px 15px rgba(0, 0, 0, .5);
-}
+} */
 
-.mainSlider-arrows-container i:hover {
+/* .mainSlider-arrows-container i {
+    margin: var(--marginArrow);
+    z-index: var(--z-indexArrow);
+    display: var(--displayArrow);
+    align-items: var(--align-itemsArrow);
+    justify-content: var(--justify-contentArrow);
+    width: var(--widthArrow);
+    height: var(--heightArrow);
+    font-size: var(--font-sizeArrow);
+    background-color: var(--background-colorArrow);
+    font-weight: var(--font-weightArrow);
+    cursor: var(--cursorArrow);
+    box-shadow: var(--box-shadowArrow);
+    
+    border-radius: var(--border-radiusArrow);
+    -webkit-border-radius: var(--border-radiusArrow);
+    -moz-border-radius: var(--border-radiusArrow);
+    -ms-border-radius: var(--border-radiusArrow);
+    -o-border-radius: var(--border-radiusArrow);
+} */
+
+/* .mainSlider-arrows-container i:hover {
     color: #FF4600;
-}
+} */
 
 /*OBS: As arrows foram configuradas no "general shared features - Isso no código original, mas está sendo corrigido */
 
@@ -1393,7 +1477,7 @@ footer {
     }
 }
 
-.inspireseBanner-arrows-container i {
+/* .inspireseBanner-arrows-container i {
     margin: 0;
     z-index: 8888;
     display: flex;
@@ -1407,11 +1491,32 @@ footer {
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 1px 5px 15px rgba(0, 0, 0, .5);
+} */
+
+/* .inspireseBanner-arrows-container i {
+    margin: var(--marginArrow);
+    z-index: var(--z-indexArrow);
+    display: var(--displayArrow);
+    align-items: var(--align-itemsArrow);
+    justify-content: var(--justify-contentArrow);
+    width: var(--widthArrow);
+    height: var(--heightArrow);
+    font-size: var(--font-sizeArrow);
+    background-color: var(--background-colorArrow);
+    font-weight: var(--font-weightArrow);
+    cursor: var(--cursorArrow);
+    box-shadow: var(--box-shadowArrow);
+    
+    border-radius: var(--border-radiusArrow);
+    -webkit-border-radius: var(--border-radiusArrow);
+    -moz-border-radius: var(--border-radiusArrow);
+    -ms-border-radius: var(--border-radiusArrow);
+    -o-border-radius: var(--border-radiusArrow);
 }
 
 .inspireseBanner-arrows-container i:hover {
     color: #FF4600;
-}
+} */
 
 
 
@@ -1434,7 +1539,7 @@ footer {
     height: 77%;
 }
 
-.semanaM__galery--container {
+.semanaM__gallery--container {
     display: flex;
     flex-direction: column;
 
@@ -1442,12 +1547,12 @@ footer {
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-    .semanaM__galery--container {
+    .semanaM__gallery--container {
         width: 90%;
     }
 }
 
-.semanaM__galery--header { 
+.semanaM__gallery--header { 
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -1458,7 +1563,7 @@ footer {
     margin-bottom: 29px;
 }
 
-.semanaM__galery--header div { 
+.semanaM__gallery--header div { 
     display: flex; 
     flex-direction:column; 
     align-items: center; 
@@ -1500,42 +1605,42 @@ footer {
 }
 
 /* **Galeria imagens** */
-.semanaM__galery--images {
+.semanaM__gallery--images {
     display: flex;
     flex-direction: column;
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    .semanaM__galery--images {
+    .semanaM__gallery--images {
         margin-left: -9%;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-    .semanaM__galery--images {
+    .semanaM__gallery--images {
         width: 90%;
         margin-left: 5%;
     }
 }
 
-.semanaM__galery--row { 
+.semanaM__gallery--row { 
     display: flex;
     justify-content: space-between;
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    .semanaM__galery--row a {
+    .semanaM__gallery--row a {
         width: 330px;
         margin-left: 20px;
     }
 
-    .semanaM__galery--row a img {
+    .semanaM__gallery--row a img {
         max-width: 100%;
     }
 }
 
-@media (min-width: 768px) and (max-width: 9991.98px) {
-    .semanaM__galery--row a:nth-of-type(3) {
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .semanaM__gallery--row a:nth-of-type(3) {
         display: none;
     }
 }
@@ -1548,42 +1653,49 @@ footer {
 
 
 /* **Galeria Arrows** */
-.semanaM__galery--iContainer-green,
-.semanaM__galery--iContainer-grey {
+
+.semanaM__gallery--arrow {
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-left: 312px;
     margin-top: -83px;
     height: 80px;
     width: 72px;
-    background-color: #3BFE7B;
+    background-color: var(--bgColor);
     color: #FFF;
     position: relative;
-    border-radius: 3px 3px 0px 3px;
     transition: 0.3s;
+    cursor: pointer;
+
+    border-radius: 3px 3px 0px 3px;
+    -webkit-border-radius: 3px 3px 0px 3px;
+    -moz-border-radius: 3px 3px 0px 3px;
+    -ms-border-radius: 3px 3px 0px 3px;
+    -o-border-radius: 3px 3px 0px 3px;
 }
 
-.semanaM__galery--iContainer-grey { 
-    background-color: #22293B;
+.semanaM__gallery--arrow:hover {
+    background-color: var(--bgColorHover);
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    .semanaM__galery--iContainer-green,
-    .semanaM__galery--iContainer-grey {
+    .semanaM__gallery--arrow {
         margin-left: 249px;
     }
 }
 
-.semanaM__galery--iContainer-green:hover { 
-    background-color: #83FF9D;
-}
-.semanaM__galery--iContainer-grey:hover { 
-    background-color: #5C626E;
+.semanaM__gallery--iContainer-green .semanaM__gallery--arrow { 
+    --bgColor: #3BFE7B;
+    --bgColorHover: #83FF9D;
 }
 
-.semanaM__galery--row i {
+.semanaM__gallery--iContainer-grey .semanaM__gallery--arrow { 
+    --bgColor: #22293B;
+    --bgColorHover: #5C626E;
+}
+
+.semanaM__gallery--row i {
     font-size: 10px;
     font-weight: bold;
 }
@@ -1960,11 +2072,54 @@ footer {
 /* ******************************************************************** MOBLY INSPIRA ***************************************************************** */
 
 /* ------------------------------------------------------- */
-/* GENERAL SHARED FEATURES */ 
+/* SHARED CLASSES */ 
 /* ------------------------------------------------------- */
 
 
 
+.mobly_inspira__banners-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 35px;
+    width: 140px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    transition: 0.3s;
+    color: #fff;
+    margin-left: var(--marginLeft);
+    margin-top: var(--marginTop);
+    background-color: var(--bgColorBuy);
+}
+
+.mobly_inspira__banners-btn:hover {
+    background-color: var(--bgColorBuyHover);
+    color: rgba(255, 255, 255, 0.747);
+}
+
+.mobly_inspira__banners--text {
+    margin-left: var(--marginLeftText);
+    margin-top: var(--marginTopText);;
+    line-height: 1.5;
+    font-size: 17px;
+    color: #fff;
+    position: absolute;
+}
+
+.mobly_inspira__banners--clock { 
+    text-align: center;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: var(--marginTopClock);
+    line-height: 1.5;
+    color: #fff;
+}
+
+.mobly_inspira__banners-hight {
+    height: 530px; 
+}
 
 
 
@@ -2025,47 +2180,22 @@ footer {
 /* SECOND BANNER */
 /* ------------------------------------------------------- */
 
-/* OBS. - Demais configurações se encontram no 'general shared features' */
-
-.secondBanner { 
-    height: 530px; 
-}
-
 .secondBanner__bg { 
     background-image: url(../../vendors/img/moblyInspira/20190524-MoblyInspira-Home-Desktop-MesasdeJantar.jpg);
     height: 475px;
     margin-left: -170px;
 }
 
-.secondBanner__bg--btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 35px;
-    width: 140px;
-    border-radius: 3px;
-    font-weight: bold;
-    position: absolute;
-    transition: 0.3s;
-    margin-left: 1300px;
-    margin-top: 240px;
-    background: #FF7062;
-    color: #fff;
+.secondBanner__bg .mobly_inspira__banners-btn {
+    --marginLeft: 1300px;
+    --marginTop: 240px;
+    --bgColorBuy: #FF7062;
+    --bgColorBuyHover: rgba(255, 111, 98, 0.726);
 }
 
-.secondBanner__bg--btn:hover {
-    background-color: rgba(255, 111, 98, 0.726);
-    color: rgba(255, 255, 255, 0.747);
-}
-
-.secondBanner__bg p {
-    margin-top: 360px;
-    margin-left: 480px;
-    position: absolute;
-    font-size: 14px;
-    color: #fff;
-    line-height: 1.5;
+.secondBanner__bg .mobly_inspira__banners--text {
+    --marginLeftText: 480px;
+    --marginTopText: 360px;
 }
 
 
@@ -2081,49 +2211,23 @@ footer {
 /* THIRD BANNER */
 /* ------------------------------------------------------- */
 
-/* OBS. - Demais configurações se encontram no 'general shared features' */
-
-.thirdBanner { 
-    height: 530px; 
-}
-
 .thirdBanner__bg { 
     background-image: url(../../vendors/img/moblyInspira/20190524-MoblyInspira-Home-Desktop-EspelhosnaDecor.jpg);
     margin-left: -170px;
     height: 475px;
 }
 
-.thirdBanner__bg--btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 35px;
-    width: 140px;
-    border-radius: 3px;
-    font-weight: bold;
-    position: absolute;
-    transition: 0.3s;
-    margin-left: 480px;
-    margin-top: 390px;
-    background-color: #5A8C8B;
-    color: #fff;
+.thirdBanner__bg .mobly_inspira__banners-btn {
+    --marginLeft: 480px;
+    --marginTop: 390px;
+    --bgColorBuy: #5A8C8B;
+    --bgColorBuyHover: rgba(90, 140, 139, 0.753);
 }
 
-.thirdBanner__bg--btn:hover {
-    background-color: rgba(90, 140, 139, 0.753);
-    color: rgba(255, 255, 255, 0.781);
+.thirdBanner__bg .mobly_inspira__banners--text {
+    --marginLeftText: 480px;
+    --marginTopText: 280px;
 }
-
-.thirdBanner__bg p {
-    margin-left: 480px;
-    margin-top: 280px;
-    line-height: 1.5;
-    font-size: 14px;
-    color: #fff;
-    position: absolute;
-}
-
 
 
 
@@ -2139,54 +2243,27 @@ footer {
 /* FOURTH BANNER */
 /* ------------------------------------------------------- */
 
-/* OBS. - Demais configurações se encontram no 'general shared features' */
-
 .fourthBanner__bg { 
     background-image: url(../../vendors/img/moblyInspira/20190618-MoblyInspira-Home-Desktop_02v2.jpg); 
     height: 630px;
     margin-left: -170px;
 }
 
-.fourthBanner__bg--btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 35px;
-    width: 140px;
-    border-radius: 3px;
-    font-weight: bold;
-    position: absolute;
-    transition: 0.3s;
-    margin-left: 940px;
-    margin-top: 380px;
-    background-color: #348D8C;
-    color: #fff;
+.fourthBanner__bg .mobly_inspira__banners-btn {
+    --marginLeft: 940px;
+    --marginTop: 380px;
+    --bgColorBuy: #348D8C;
+    --bgColorBuyHover: rgba(52, 141, 140, 0.637);
 }
 
-.fourthBanner__bg--btn:hover {
-    background-color: rgba(52, 141, 140, 0.637);
-    color: rgba(255, 255, 255, 0.733);
+.fourthBanner__bg .mobly_inspira__banners--text {
+    --marginLeftText: 940px;
+    --marginTopText: 260px;
 }
 
-.fourthBanner__bg--text {
-    margin-left: 940px;
-    margin-top: 260px;
-    line-height: 1.5;
-    font-size: 17px;
-    color: #fff;
-    position: absolute;
+.fourthBanner__bg .mobly_inspira__banners--clock { 
+    --marginTopClock: 40px;
 }
-
-.fourthBanner__bg--clock { 
-    text-align: center;
-    position: absolute;
-    margin-left: 500px;
-    margin-top: 40px;
-    line-height: 1.5;
-    color: #fff;
-}
-
 
 
 
@@ -2196,52 +2273,24 @@ footer {
 /* FIFTH BANNER */
 /* ------------------------------------------------------- */
 
-/* OBS. - Demais configurações se encontram no 'general shared features' */
-
-.fifthBanner { 
-    height: 530px; 
-}
-
-.fifthBanner {
-    margin-bottom: 35px;
-}
-
 .fifthBanner__bg { 
     background-image: url(../../vendors/img/moblyInspira/20190618-MoblyInspira-Home-Desktop_04.jpg); 
     height: 475px;
     margin-left: -170px;
 }
 
-.fifthBanner__bg--btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 35px;
-    width: 140px;
-    border-radius: 3px;
-    font-weight: bold;
-    position: absolute;
-    transition: 0.3s;
-    margin-left: 1290px;
-    margin-top: 240px;
-    background-color: #FFBF4B;
-    color: #000;
+.fifthBanner__bg .mobly_inspira__banners-btn {
+    --marginLeft: 1290px;
+    --marginTop: 240px;
+    --bgColorBuy: #FFBF4B;
+    --bgColorBuyHover: rgba(255, 192, 75, 0.74);
 }
 
-.fifthBanner__bg--btn:hover { 
-    background-color: rgba(255, 192, 75, 0.74);
-    color: rgba(0, 0, 0, 0.788);
+.fifthBanner__bg .mobly_inspira__banners--clock { 
+    --marginTopClock: 10px;
 }
 
-.fifthBanner__bg--clock { 
-    text-align: center;
-    position: absolute;
-    margin-left: 500px;
-    margin-top: 10px;
-    line-height: 1.5;
-    color: #fff;
-}
+
 
 
 

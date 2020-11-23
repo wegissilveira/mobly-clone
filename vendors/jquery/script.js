@@ -94,13 +94,13 @@ $(function(){
         // Criando as divs parents das imagens
         for (let i = 0; i < dataArr.length; i++) {
             if ((i + 1) % 3 === 0) {
-                $('<div></div>').addClass('semanaM__galery--row')
-                .appendTo('.semanaM__galery--images')
+                $('<div></div>').addClass('semanaM__gallery--row')
+                .appendTo('.semanaM__gallery--images')
             }
         }
         
         let divRef = 0
-        const semanaM_divs_El = $('.semanaM__galery--row')
+        const semanaM_divs_El = $('.semanaM__gallery--row')
         semanaM_divs_El.css('margin-bottom', 20)
 
         // Populando as divs com as imagens
@@ -112,8 +112,9 @@ $(function(){
             const semanaM_arrow_El = $('<i></i>') 
             
             semanaM_img_El.attr('src', value)
-            semanaM_arrow_div.addClass('semanaM__galery--iContainer-green')
-            if (index % 2 !== 0) {semanaM_arrow_div.addClass('semanaM__galery--iContainer-grey')}
+            semanaM_arrow_div.addClass('semanaM__gallery--arrow')
+            semanaM_link_El.addClass('semanaM__gallery--iContainer-green')
+            if (index % 2 !== 0) {semanaM_link_El.addClass('semanaM__gallery--iContainer-grey')}
             semanaM_arrow_El.addClass('flaticon-right-arrow')
 
             semanaM_arrow_El.appendTo(semanaM_arrow_div)
