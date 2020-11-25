@@ -17,9 +17,6 @@ window.addEventListener('load', () => {
         enableShoppingCartPage()
     }
 
-    console.log('screen: '+window.screen.width)
-    console.log('document: '+$(document).width())
-    console.log('window: '+$(window).width())
 })
 
 
