@@ -30,7 +30,15 @@ $(function(){
         const mainSliderContainer = $('#mainSlider')
         mainSliderContainer.css('width', windowWidth * 7)
 
-        const dataArr = $.map(returnData(), value => {
+        let imgsObj = returnData().fullSizeImgs
+
+        if (windowWidth < 1200) {
+            imgsObj = returnData().responsiveImgs
+            // O height é o width + 10%, para que a imagem seja quadrada e sobre ainda o espaço dos dots
+            $('.mainSlider').css('height', windowWidth + ((windowWidth / 100) * 10))
+        }
+
+        const dataArr = $.map(imgsObj, value => {
             return [value]
         })
 
