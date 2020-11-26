@@ -20,65 +20,6 @@ window.addEventListener('load', () => {
 })
 
 
-/* *MENU RESPONSIVO* */
-
-function toggleResponsiveMenu() {
-
-    const hamburger = document.getElementsByClassName('header__first-row-responsiveMenu')[0]
-    
-    if (hamburger.style.height !== 'unset') {
-
-        hamburger.children[0].style.transform = 'translateY(13px)'
-        hamburger.children[2].style.transform = 'translateY(-13px)'
-
-        setTimeout(() => {
-            hamburger.style.height = 'unset'
-            hamburger.style.justifyContent = 'center'
-            hamburger.style.position = 'relative'
-            hamburger.children[0].style.transform = 'rotate(-45deg)'
-            hamburger.children[0].style.position = 'absolute'
-            // hamburger.children[1].style.transform = 'rotate(45deg)'
-            // hamburger.children[1].style.position = 'absolute'
-            hamburger.children[2].style.transform = 'rotate(45deg)'
-            hamburger.children[2].style.position = 'absolute'
-            // hamburger.children[2].style.display = 'none'
-        }, 2000)
-
-    } else {
-
-        // hamburger.children[0].style.transform = 'translateY(0)'
-        // hamburger.children[2].style.transform = 'translateY(0)'
-
-        hamburger.style.height = '30px'
-        // hamburger.style.justifyContent = 'center'
-        hamburger.children[0].style.transform = 'rotate(0)'
-        hamburger.children[1].style.transform = 'rotate(0)'
-        hamburger.children[2].style.transform = 'rotate(0)'
-
-        setTimeout(() => {
-            
-            
-            hamburger.children[0].style.position = 'unset'
-            // hamburger.children[1].style.position = 'unset'
-            hamburger.children[2].style.position = 'unset'
-            // hamburger.children[2].style.display = 'block'
-            // hamburger.style.justifyContent = 'space-between'
-            hamburger.children[0].style.transform = 'translateY(-13px)'
-            // hamburger.children[1].style.transform = 'translateY(0)'
-            hamburger.children[2].style.transform = 'translateY(13px)'
-
-            
-            hamburger.style.position = 'unset'
-
-            // hamburger.children[0].style.transform = 'rotate(0)'
-            // hamburger.children[1].style.transform = 'rotate(0)'
-        }, 2000)
-    }
-    
-}
-
-
-
 
 /* *Slides 1* */
 

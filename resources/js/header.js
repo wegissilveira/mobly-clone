@@ -1,6 +1,21 @@
+/* *Menu responsivo* */
+
+var toggle = document.getElementById("hamburger-menu--js")
+var responsiveMenu = document.getElementById("header-responsive--js")
+
+toggle.addEventListener( "click", function(e) {
+    e.preventDefault();
+    (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+
+    responsiveMenu.classList.contains('is-open') === true ? 
+        responsiveMenu.classList.remove('is-open') :
+        responsiveMenu.classList.add('is-open')
+});
+
+
 /* *Floating Menus* */
 
-let bg = document.getElementById('backgroundTeste');
+let bg = document.getElementById('floatingMenuBg');
 // let mainSubMenu = document.getElementById('mainSub-1--js');
 
 function openBg() {

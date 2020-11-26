@@ -209,36 +209,154 @@ input#busca { color: #fff;
     }
 }
 
-.header__first-row-responsiveMenu {
+
+/* ** */
+
+
+/* Base/unclicked hamburger icon*/
+.hamburger-menu {
     display: none;
+    position: relative;
+    overflow: hidden;
+    margin-right: 30px;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    /* width: 96px;
+    height: 96px; */
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    background: none;
+    /* cursor: pointer; */
+    /* transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -ms-transition: background 0.2s;
+    -o-transition: background 0.2s; */
 }
 
-@media (max-width: 992px) {
-    .header__first-row-responsiveMenu {
-        width: 50px;
-        height: 30px;
-        margin-right: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+@media (max-width: 991.98px) {
+    .hamburger-menu {
+        display: block;
     }
 }
-
-.header__first-row-responsiveMenu span {
-    width: 100%;
+  
+  .hamburger-menu:focus {
+    outline: none;
+  }
+  
+  .hamburger-menu span {
+    display: block;
+    position: absolute;
+    /* top: 44px; */
+    /* left: 18px;
+    right: 18px;
+    height: 7.68px; */
+    left: 0;
+    right: 0;
     height: 3px;
-    background-color: #ccc;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    transition: 2s ;
-    -webkit-transition: 2s ;
-    -moz-transition: 2s ;
-    -ms-transition: 2s ;
-    -o-transition: 2s ;
+    background: white;
+  }
+  
+  .hamburger-menu span::before,
+  .hamburger-menu span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    /* height: 7.68px; */
+    height: 3px;
+    background-color: white;
+    content: "";
+  }
+  
+  .hamburger-menu span::before {
+    top: -20px;
+  }
+  
+  .hamburger-menu span::after {
+    bottom: -20px;
+  }
+  
+  /* X (with hover colours) hamburger style and animation*/
+  /* .c-hamburger--htx span {
+    transition: background 0s 0.2;
+    -webkit-transition: background 0s 0.2;
+    -moz-transition: background 0s 0.2;
+    -ms-transition: background 0s 0.2;
+    -o-transition: background 0s 0.2;
+} */
+  
+  /* X hamburger style and animation*/
+  /* .c-hamburger--htx {
+    background-color: #ff3264;
+  }
+  
+  .c-hamburger--htx:hover {
+    background-color: #ff3264;
+  } */
+  
+  .hamburger-menu--htx span {
+    transition-duration: 0.2s, 0.2s;
+    /* transition: background 1s 1;
+    -webkit-transition: background 1s 1;
+    -moz-transition: background 1s 1;
+    -ms-transition: background 1s 1;
+    -o-transition: background 1s 1; */
 }
+  
+  .hamburger-menu--htx span::before,
+  .hamburger-menu--htx span::after {
+    transition-duration: 0.2s, 0.2s;
+    transition-delay: 0.2s, 0s;
+  }
+  
+  .hamburger-menu--htx span::before {
+    transition-property: top, transform;
+  }
+  
+  .hamburger-menu--htx span::after {
+    transition-property: bottom, transform;
+  }
+  
+  /* active state, i.e. menu open */
+  /* .c-hamburger--htx.is-active {
+    background-color:  #cb0032;
+  }
+  
+  .c-hamburger--htx.is-active:hover {
+    background-color:  #cb0032;
+  } */
+  
+  .hamburger-menu--htx.is-active span {
+    background: none;
+  }
+  
+  .hamburger-menu--htx.is-active span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  
+  .hamburger-menu--htx.is-active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+  
+  .hamburger-menu--htx.is-active span::before,
+  .hamburger-menu--htx.is-active span::after {
+    transition-delay: 0s, 0.2s;
+  }
+
+
+
+
+
+
+/* ** */
 
 .header__first-row--subContainer-options ul { 
     display: flex;
@@ -586,6 +704,30 @@ input#busca { color: #fff;
     background-color: rgb(44, 44, 44);
 }
 /* */
+
+.header__navigation--responsive {
+    transform: translate(-100%);
+    -webkit-transform: translate(-100%);
+    -moz-transform: translate(-100%);
+    -ms-transform: translate(-100%);
+    -o-transform: translate(-100%);
+
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.header__navigation--responsive.is-open {
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+}
+
+
 
 /* ** */
 
