@@ -1,15 +1,22 @@
 /* *Menu responsivo* */
 
-var toggle = document.getElementById("hamburger-menu--js")
-var responsiveMenu = document.getElementById("header-responsive--js")
+const toggle = document.getElementById("hamburger-menu--js")
+const responsiveMenu = document.getElementById("header-responsive--js")
+const body_El = document.getElementsByTagName("BODY")[0]
 
 toggle.addEventListener( "click", function(e) {
     e.preventDefault();
     (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+        
 
-    responsiveMenu.classList.contains('is-open') === true ? 
-        responsiveMenu.classList.remove('is-open') :
+    if (responsiveMenu.classList.contains('is-open') === true) {
+        responsiveMenu.classList.remove('is-open')
+        body_El.style.overflow = 'unset'
+    } else {
         responsiveMenu.classList.add('is-open')
+        // body_El.style.overflow = 'hidden'
+    }
+     
 });
 
 

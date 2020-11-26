@@ -358,6 +358,10 @@ input#busca { color: #fff;
 
 /* ** */
 
+#includedHeader {
+    position: relative;
+}
+
 .header__first-row--subContainer-options ul { 
     display: flex;
     align-items: center;
@@ -705,6 +709,67 @@ input#busca { color: #fff;
 }
 /* */
 
+
+/* *Variáveis* */
+.responsive__menu {
+    height: 100vh;
+    background-color: var(--responsiveMenuBgColor);
+    color: var(--responsiveMenuColor);
+}
+
+.responsive__menu > ul {
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+.responsive__menu > ul > li {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.responsive__menu > ul > li:not(:first-of-type) {
+    padding-top: 40px;
+}
+
+.responsive__menu > ul > li:last-of-type {
+    color: var(--responsiveMenuLastItemColor)
+}
+
+.responsive__menu > ul > li > a {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.responsive__menu > ul > li i {
+    color: var(--responsiveMenuArrowColor);
+    position: absolute;
+    right: 0;
+}
+
+.responsive__menu > ul > li:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 10px;
+    height: 2px;
+    background-color: var(--responsiveMenuBorderColor);
+    margin-top: 20px;
+    display: block;
+}
+
+/* ** */
+
+.header__navigation--responsive.is-open {
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+
+    z-index: 10;
+}
+
 .header__navigation--responsive {
     transform: translate(-100%);
     -webkit-transform: translate(-100%);
@@ -717,16 +782,132 @@ input#busca { color: #fff;
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
     -o-transition: 0.2s;
+
+    width: 80%;
+
+    position: absolute;
+    z-index: 2;
+    top: 203px;
 }
 
-.header__navigation--responsive.is-open {
-    transform: translate(0);
-    -webkit-transform: translate(0);
-    -moz-transform: translate(0);
-    -ms-transform: translate(0);
-    -o-transform: translate(0);
+.responsive__menu--mainContainer .responsive__menu {
+    --responsiveMenuBgColor: #12013B;
+    --responsiveMenuColor: #fff;
+    --responsiveMenuBorderColor: #fff;
+    --responsiveMenuArrowColor: #FF4600;
+    --responsiveMenuLastItemColor: #FF4600;
+} 
+
+.responsive__menu--fisrtSubContainer .responsive__menu {
+    --responsiveMenuBgColor: #fff;
+    --responsiveMenuColor: #A8A8A8;
+    --responsiveMenuBorderColor: #A8A8A8;
+    --responsiveMenuArrowColor: #A8A8A8;
+    --responsiveMenuLastItemColor: #A8A8A8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90%;
+} 
+
+/* .responsive__menu--mainContainer {
+    height: 100vh;
+} */
+/* 
+.responsive__menu--mainContainer .responsive__menu > ul {
+    margin-top: 30px;
+    font-size: 20px;
 }
 
+.responsive__menu--mainContainer .responsive__menu > ul > li {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.responsive__menu--mainContainer .responsive__menu > ul > li:not(:first-of-type) {
+    padding-top: 40px;
+}
+
+.responsive__menu--mainContainer .responsive__menu > ul > li:last-of-type {
+    color: #FF4600;
+}
+
+.responsive__menu--mainContainer .responsive__menu > ul > li > a {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.responsive__menu--mainContainer .responsive__menu > ul > li i {
+    position: absolute;
+    right: 0;
+}
+
+.responsive__menu--mainContainer .responsive__menu > ul > li:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 10px;
+    height: 2px;
+    background-color: #fff;
+    margin-top: 20px;
+    display: block;
+} */
+
+/* .responsive__menu--mainContainer {
+    height: 100vh;
+} */
+
+/* .responsive__menu--mainContainer > ul {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.responsive__menu--mainContainer > ul > li {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.responsive__menu--mainContainer > ul > li:not(:first-of-type) {
+    padding-top: 40px;
+}
+
+.responsive__menu--mainContainer > ul > li:last-of-type {
+    color: #FF4600;
+}
+
+.responsive__menu--mainContainer > ul > li > a {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.responsive__menu--mainContainer > ul > li i {
+    position: absolute;
+    right: 0;
+}
+
+.responsive__menu--mainContainer > ul > li:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 10px;
+    height: 2px;
+    background-color: #fff;
+    margin-top: 20px;
+    display: block;
+} */
+
+
+/* .responsive__menu--fisrtSubContainer {
+    background-color: #fff;
+    color: #A8A8A8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 100vh;
+} */
 
 
 /* ** */
