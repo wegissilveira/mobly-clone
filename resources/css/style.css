@@ -717,8 +717,23 @@ input#busca { color: #fff;
     color: var(--responsiveMenuColor);
 }
 
+.responsive__menu > div {
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ff4600;
+}
+
+.responsive__menu > h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #807f7f;
+}
+
 .responsive__menu > ul {
-    padding-top: 50px;
+    padding-top: var(--responsiveMenuPaddingTop);
     font-size: 20px;
 }
 
@@ -777,14 +792,14 @@ input#busca { color: #fff;
     -ms-transform: translate(-100%);
     -o-transform: translate(-100%);
 
-    transition: 0.2s;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -ms-transition: 0.2s;
-    -o-transition: 0.2s;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 
     width: 80%;
-
+    overflow: hidden;
     position: absolute;
     z-index: 2;
     top: 203px;
@@ -796,118 +811,42 @@ input#busca { color: #fff;
     --responsiveMenuBorderColor: #fff;
     --responsiveMenuArrowColor: #FF4600;
     --responsiveMenuLastItemColor: #FF4600;
+    --responsiveMenuPaddingTop: 50px;
 } 
 
+.responsive__menu--secondSubContainer .responsive__menu,
 .responsive__menu--fisrtSubContainer .responsive__menu {
     --responsiveMenuBgColor: #fff;
     --responsiveMenuColor: #A8A8A8;
     --responsiveMenuBorderColor: #A8A8A8;
     --responsiveMenuArrowColor: #A8A8A8;
     --responsiveMenuLastItemColor: #A8A8A8;
+    --responsiveMenuPaddingTop: 40px;
     position: absolute;
     top: 0;
     right: 0;
     width: 90%;
+    transform: translate(100%);
+    -webkit-transform: translate(100%);
+    -moz-transform: translate(100%);
+    -ms-transform: translate(100%);
+    -o-transform: translate(100%);
+    
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 } 
 
-/* .responsive__menu--mainContainer {
-    height: 100vh;
-} */
-/* 
-.responsive__menu--mainContainer .responsive__menu > ul {
-    margin-top: 30px;
-    font-size: 20px;
+.responsive__menu.is-open {
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
 }
 
-.responsive__menu--mainContainer .responsive__menu > ul > li {
-    width: 80%;
-    margin-left: 10%;
-}
-
-.responsive__menu--mainContainer .responsive__menu > ul > li:not(:first-of-type) {
-    padding-top: 40px;
-}
-
-.responsive__menu--mainContainer .responsive__menu > ul > li:last-of-type {
-    color: #FF4600;
-}
-
-.responsive__menu--mainContainer .responsive__menu > ul > li > a {
-    display: block;
-    width: 100%;
-    position: relative;
-}
-
-.responsive__menu--mainContainer .responsive__menu > ul > li i {
-    position: absolute;
-    right: 0;
-}
-
-.responsive__menu--mainContainer .responsive__menu > ul > li:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 10px;
-    height: 2px;
-    background-color: #fff;
-    margin-top: 20px;
-    display: block;
-} */
-
-/* .responsive__menu--mainContainer {
-    height: 100vh;
-} */
-
-/* .responsive__menu--mainContainer > ul {
-    margin-top: 30px;
-    font-size: 20px;
-}
-
-.responsive__menu--mainContainer > ul > li {
-    width: 80%;
-    margin-left: 10%;
-}
-
-.responsive__menu--mainContainer > ul > li:not(:first-of-type) {
-    padding-top: 40px;
-}
-
-.responsive__menu--mainContainer > ul > li:last-of-type {
-    color: #FF4600;
-}
-
-.responsive__menu--mainContainer > ul > li > a {
-    display: block;
-    width: 100%;
-    position: relative;
-}
-
-.responsive__menu--mainContainer > ul > li i {
-    position: absolute;
-    right: 0;
-}
-
-.responsive__menu--mainContainer > ul > li:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 10px;
-    height: 2px;
-    background-color: #fff;
-    margin-top: 20px;
-    display: block;
-} */
-
-
-/* .responsive__menu--fisrtSubContainer {
-    background-color: #fff;
-    color: #A8A8A8;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 90%;
-    height: 100vh;
-} */
 
 
 /* ** */
@@ -1901,7 +1840,7 @@ footer {
     background-position: center;
 }
 
-@media (max-width: 1999px) {
+@media (max-width: 1199px) {
     .slider__img {
         background-size: 100%;
     }
@@ -1921,7 +1860,7 @@ footer {
     color: #999999;
 }
 
-@media (max-width: 1999px) {
+@media (max-width: 1199px) {
     #slider__marker_container {
         height: 10%;
     }

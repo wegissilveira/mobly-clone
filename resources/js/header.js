@@ -14,10 +14,21 @@ toggle.addEventListener( "click", function(e) {
         body_El.style.overflow = 'unset'
     } else {
         responsiveMenu.classList.add('is-open')
-        // body_El.style.overflow = 'hidden'
+        body_El.style.overflow = 'hidden'
     }
      
 });
+
+function toggleSubContainer(child) {
+
+    const menuSubContainer = document.getElementsByClassName('responsive__menu')[child]
+
+    menuSubContainer.classList.contains('is-open') ? 
+        menuSubContainer.classList.remove('is-open') :
+        menuSubContainer.classList.add('is-open') 
+
+    console.log(menuSubContainer)
+}
 
 
 /* *Floating Menus* */

@@ -257,8 +257,8 @@
             <div class="responsive__menu--mainContainer">
                 <div class="responsive__menu">
                     <ul>
-                        <li><a href="#">Por Ambiente <i class="flaticon-right-arrow"></i></a></li>
-                        <li><a href="#">Por Categoria <i class="flaticon-right-arrow"></i></a></li>
+                        <li onclick="toggleSubContainer(1)"><a href="#">Por Ambiente <i class="flaticon-right-arrow"></i></a></li>
+                        <li onclick="toggleSubContainer(2)"><a href="#">Por Categoria <i class="flaticon-right-arrow"></i></a></li>
                         <li><a href="#">Inspiração <i class="flaticon-right-arrow"></i></a></li>
                         <li><a href="#">Lançamentos <i class="flaticon-right-arrow"></i></a></li>
                         <li><a href="#">Outlet <i class="flaticon-right-arrow"></i></a></li>
@@ -269,12 +269,33 @@
             </div>
             <div class="responsive__menu--fisrtSubContainer">
                 <div class="responsive__menu">
+                    <div onclick="toggleSubContainer(1)">
+                        <i class="flaticon-left-arrow"></i>
+                        <p>Voltar</p>
+                    </div>
+                    <h1>Por Ambiente</h1>
                     <ul>
                         <li><a href="#">Área Externa<i class="flaticon-right-arrow"></i></a></li>
                         <li><a href="#">Banheiro<i class="flaticon-right-arrow"></i></a></li>
                         <li><a href="#">Cozinha<i class="flaticon-right-arrow"></i></a></li>
                         <li><a href="#">Escritório<i class="flaticon-right-arrow"></i></a></li>
                         <li><a href="#">Lavanderia<i class="flaticon-right-arrow"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="responsive__menu--secondSubContainer">
+                <div class="responsive__menu">
+                    <div onclick="toggleSubContainer(2)">
+                        <i class="flaticon-left-arrow"></i>
+                        <p>Voltar</p>
+                    </div>
+                    <h1>Por Categoria</h1>
+                    <ul>
+                        <li><a href="#">Mesa e Banho<i class="flaticon-right-arrow"></i></a></li>
+                        <li><a href="#">Decoração<i class="flaticon-right-arrow"></i></a></li>
+                        <li><a href="#">Infantil<i class="flaticon-right-arrow"></i></a></li>
+                        <li><a href="#">Iluminação<i class="flaticon-right-arrow"></i></a></li>
+                        <li><a href="#">Eletro<i class="flaticon-right-arrow"></i></a></li>
                     </ul>
                 </div>
             </div>
