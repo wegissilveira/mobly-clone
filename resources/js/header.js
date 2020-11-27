@@ -26,8 +26,6 @@ function toggleSubContainer(child) {
     menuSubContainer.classList.contains('is-open') ? 
         menuSubContainer.classList.remove('is-open') :
         menuSubContainer.classList.add('is-open') 
-
-    console.log(menuSubContainer)
 }
 
 

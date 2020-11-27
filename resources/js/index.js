@@ -17,6 +17,9 @@ window.addEventListener('load', () => {
         enableShoppingCartPage()
     }
 
+    const windowWidth = document.documentElement.clientWidth
+    console.log(windowWidth)
+
 })
 
 
