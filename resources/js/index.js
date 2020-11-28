@@ -17,9 +17,10 @@ window.addEventListener('load', () => {
         enableShoppingCartPage()
     }
 
-    const windowWidth = document.documentElement.clientWidth
-    console.log(windowWidth)
-
+    if (pathname !== '/index.html') {
+            document.getElementById("header-responsive--js").style.top = '156px'
+        
+    }
 })
 
 

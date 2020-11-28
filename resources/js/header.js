@@ -4,10 +4,13 @@ const toggle = document.getElementById("hamburger-menu--js")
 const responsiveMenu = document.getElementById("header-responsive--js")
 const body_El = document.getElementsByTagName("BODY")[0]
 
+// window.addEventListener('load', () => {
+//     responsiveMenu.style.top = '156px'
+// })
+
 toggle.addEventListener( "click", function(e) {
     e.preventDefault();
     (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
-        
 
     if (responsiveMenu.classList.contains('is-open') === true) {
         responsiveMenu.classList.remove('is-open')
@@ -16,16 +19,16 @@ toggle.addEventListener( "click", function(e) {
         responsiveMenu.classList.add('is-open')
         body_El.style.overflow = 'hidden'
     }
-     
+
 });
 
 function toggleSubContainer(child) {
 
     const menuSubContainer = document.getElementsByClassName('responsive__menu')[child]
 
-    menuSubContainer.classList.contains('is-open') ? 
+    menuSubContainer.classList.contains('is-open') ?
         menuSubContainer.classList.remove('is-open') :
-        menuSubContainer.classList.add('is-open') 
+        menuSubContainer.classList.add('is-open')
 }
 
 
@@ -68,7 +71,7 @@ function closeMenu(n) {
 
 // /* */
 function openSubMenu1(el) {
-    
+
     for (let i = 0; i < el.parentNode.children.length; i++) {
         el.parentNode.children[i].children[0].classList.remove('active')
         el.parentNode.children[i].children[1].classList.remove('active2')
@@ -76,15 +79,15 @@ function openSubMenu1(el) {
         el.parentNode.children[i].children[3].style.display = 'none'
     }
 
-    el.children[0].classList.add('active') 
-    el.children[1].classList.add('active2') 
-    el.children[2].classList.add('active2') 
+    el.children[0].classList.add('active')
+    el.children[1].classList.add('active2')
+    el.children[2].classList.add('active2')
     el.children[3].style.display = 'block'
     // mainSubMenu.style.display = "block";
 }
 
 // function closeSubMenu1(el) {
-//     el.children[0].classList.remove('active') 
+//     el.children[0].classList.remove('active')
 //     mainSubMenu.style.display = "none";
 // }
 
