@@ -571,13 +571,26 @@ $(function(){
                     if (productStorageIndex === cart_storage.length) {
                         comprarSubtotalItens_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
                         comprarSubtotalPrice_El.appendTo(comprarSubContainer_El.eq(0).children()[1])
-                        comprarTotalPrice_El.appendTo(comprarSubContainer_El.eq(1).children()[0])
-                        $(`<p>em até 10x de R$ ${(finalTotalPriceValue / 10).toFixed(2)} sem juros</p>`).appendTo(comprarSubContainer_El.eq(1))
+                        comprarTotalPrice_El.appendTo(comprarSubContainer_El.eq(2).children()[0])
+                        $(`<p>em até 10x de R$ ${(finalTotalPriceValue / 10).toFixed(2)} sem juros</p>`).appendTo(comprarSubContainer_El.eq(2))
                     }
                     
                 }
                 
             })
+
+            if ($(window).width() < 1580) {
+                $('.shopping__cart--buy-container').insertAfter('.shopping__cart--products-shipping-container')
+
+                const newDiv = $('<div></div>')
+                const div_2 = $('.shopping__cart--buy-subContainer').eq(0).children().eq(2)
+                const div_3 = $('.shopping__cart--buy-subContainer').eq(0).children().eq(3)
+
+                div_2.appendTo(newDiv)
+                div_3.appendTo(newDiv)
+
+                newDiv.insertAfter($('.shopping__cart--buy-subContainer').eq(0).children().eq(1))
+            }
 
         } else {
 
