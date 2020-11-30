@@ -17,6 +17,8 @@ $(function(){
 
 $(function(){
 
+    const window_width = $(window).width()
+
     let liked_storage = JSON.parse(localStorage.getItem('liked'))
     liked_storage = liked_storage === null ? [] : liked_storage
 
@@ -26,16 +28,16 @@ $(function(){
     /* Main Slider */
     $.getScript("../../data/mainSliderData.js", function() {
 
-        const windowWidth = $(window).width()
+        
         const mainSliderContainer = $('#mainSlider')
-        mainSliderContainer.css('width', windowWidth * 7)
+        mainSliderContainer.css('width', window_width * 7)
 
         let imgsObj = returnData().fullSizeImgs
 
-        if (windowWidth < 1200) {
+        if (window_width < 1200) {
             imgsObj = returnData().responsiveImgs
             // O height é o width + 10%, para que a imagem seja quadrada e sobre ainda o espaço dos dots
-            $('.mainSlider').css('height', windowWidth + ((windowWidth / 100) * 10))
+            $('.mainSlider').css('height', window_width + ((window_width / 100) * 10))
         }
 
         const dataArr = $.map(imgsObj, value => {
@@ -511,10 +513,13 @@ $(function(){
                     $('<div><i class="flaticon-settings"></i><h4>Serviço de montagem</h4></div>').appendTo(cartMontagem_El)
                     $('<p><a href="#" >Clique aqui</a> e insira seu CEP para verificar a disponibilidade do serviço.</p>').appendTo(cartMontagem_El)
 
-                    cartDetailsDiv_1_El.appendTo(cartDetails_El)
-                    cartDetailsDiv_2_El.appendTo(cartDetails_El)
-                    cartDetailsDiv_3_El.appendTo(cartDetails_El)
-                    cartDetailsDiv_4_El.appendTo(cartDetails_El)
+                    if (window_width > 767.68) {
+                        cartDetailsDiv_1_El.appendTo(cartDetails_El)
+                        cartDetailsDiv_2_El.appendTo(cartDetails_El)
+                        cartDetailsDiv_3_El.appendTo(cartDetails_El)
+                        cartDetailsDiv_4_El.appendTo(cartDetails_El)
+                    }
+                    
                     cartDetails_El.appendTo(cartDetailsContainer_El)
                     cartMontagem_El.appendTo(cartDetailsContainer_El)
                     cartImgContainer_El.appendTo(cartSubContainer_El)
@@ -538,7 +543,7 @@ $(function(){
                     const productDiv_El = $('<div></div>')
                     const productLink_El = $('<a></a>')
                     const productImg_El = $('<img>')
-                    const productDetalhes_El = $('.shopping__cart--product-info').eq(productStorageIndex).children()
+                    const productDetalhes_El = $('.shopping__cart--product-info').eq(productStorageIndex)
                     const productName_El = $(`<a><h4>${value.nome}</h4></a>`)
                     const productId_El = $(`<p>ID: ${value.id}</p>`)
                     const productValue_El = $(`<p><span>R$ ${finalPriceStr}</span></p>`)
@@ -553,12 +558,21 @@ $(function(){
                     productLink_El.appendTo(productDiv_El)
                     productDiv_El.appendTo($('.shopping__cart--product-img').eq(productStorageIndex))
 
-                    productId_El.prependTo(productDetalhes_El.eq(0))
-                    productName_El.prependTo(productDetalhes_El.eq(0))
-                    productValue_El.appendTo(productDetalhes_El.eq(1))
-                    productQtde_El.insertAfter(productDetalhes_El.eq(2).children().eq(0))
-                    productTotalValue_El.appendTo(productDetalhes_El.eq(3))
-                    
+                    if (window_width > 767.98) {
+                        productId_El.prependTo(productDetalhes_El.children().eq(0))
+                        productName_El.prependTo(productDetalhes_El.children().eq(0))
+                        productValue_El.appendTo(productDetalhes_El.children().eq(1))
+                        productQtde_El.insertAfter(productDetalhes_El.children().eq(2).children().eq(0))
+                        productTotalValue_El.appendTo(productDetalhes_El.children().eq(3))
+
+                    } else {
+                        const div = $('<div></div>')
+                        productName_El.appendTo(productDetalhes_El)
+                        productQtde_El.appendTo(div)
+                        productTotalValue_El.insertAfter(productQtde_El)
+                        div.appendTo(productDetalhes_El)
+                    }                  
+
                     productStorageIndex = ++productStorageIndex
 
                     /* *Coluna de compra* */
@@ -579,7 +593,7 @@ $(function(){
                 
             })
 
-            if ($(window).width() < 1580) {
+            if (window_width < 1580) {
                 $('.shopping__cart--buy-container').insertAfter('.shopping__cart--products-shipping-container')
 
                 const newDiv = $('<div></div>')
