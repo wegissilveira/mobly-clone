@@ -488,7 +488,6 @@ function addProductToCarrinho(product_id, page) {
         localStorage.setItem('shopping_cart', JSON.stringify(shopping_cart))
         location.reload()
     }
-    
 }
 
 function changeTabDescriptionProduct(tab) {

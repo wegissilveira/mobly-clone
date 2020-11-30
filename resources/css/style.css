@@ -3475,9 +3475,27 @@ footer {
     color: #fff;
 }
 
+@media (max-width: 1199.98px) {
+    .lacamentos--cover--subContainer {
+        margin-left: 230px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .lacamentos--cover--subContainer {
+        margin-left: 200px;
+    }
+}
+
 .lacamentos--cover--subContainer h1 { 
     font-size: 100px;
     margin-left: -5px;
+}
+
+@media (max-width: 767.98px) {
+    .lacamentos--cover--subContainer h1 {
+        font-size: 80px;
+    }
 }
 
 .lacamentos--cover--subContainer p { 
@@ -3508,10 +3526,32 @@ footer {
 /* *Ofertas* */
 
 .lacamentos--offers-container { 
-    margin-left: 315px;
+    margin-left: 20%;
     margin-top: -150px;
-    width: 960px;
+    width: 60%;
 }
+
+@media (max-width: 1579.98px) {
+    .lacamentos--offers-container {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .lacamentos--offers-container {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .lacamentos--offers-container {
+        display: none;
+    }
+}
+
+
 /* */
 
 
@@ -3526,18 +3566,76 @@ footer {
     display: flex;
     justify-content: space-between;
 
-    width: 960px;
+    width: 100%;
     margin-left: 0;
     margin-top: 0;
 }
+
+.lacamentos--offers--subContainer > a {
+    width: 32%;
+}
+
+.lacamentos--offers--subContainer > a > img {
+    max-width: 100%;
+}
+
+
 /* */
 
 /* *SecondBg e Boxes - button* */
 .lancamentos--secondBanner {
     background-image: url(../../vendors/img/lancamentos/BG2.jpg);
-    height: 388px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    /* height: 388px; */
     margin-top: 70px;
-    margin-left: -170px;
+    /* margin-left: -170px; */
+}
+
+@media (max-width: 1199.98px) {
+    .lancamentos--secondBanner {
+        background-image: url(../../vendors/img/lancamentos/BG2-R.jpg);
+        /* margin-left: -300px; */
+    }
+}
+
+@media (max-width: 991.98px) {
+    .lancamentos--secondBanner {
+        background-image: url(../../vendors/img/lancamentos/bg-responsivo.jpeg);
+        width: 100%;
+        /* height: unset; */
+        /* margin-left: 0; */
+        
+    }
+}
+
+.lancamentos--secondBanner > img {
+    visibility: hidden;
+    max-width: 100%;
+}
+
+.lancamentos--secondBanner > img:not(:first-of-type) {
+    display: none;
+}
+
+@media (max-width: 1199.98px) {
+    .lancamentos--secondBanner > img:first-of-type {
+        display: none;
+    }
+
+    .lancamentos--secondBanner > img:nth-of-type(2) {
+        display: inline;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .lancamentos--secondBanner > img:nth-of-type(2) {
+        display: none;
+    }
+
+    .lancamentos--secondBanner > img:nth-of-type(3) {
+        display: inline;
+    }
 }
 
 .lancamentos--secondBanner .lancamentos--conferir--btn {
@@ -3554,25 +3652,60 @@ footer {
     display: flex;
     flex-direction: column;
 
-    margin-left: 315px;
+    width: 60%;
+    margin-left: 20%;
     margin-top: 0;
-    width: 960px;
 }
 
-.lancamentos--boxes-firstContainer {
+@media (max-width: 1579.98px) {
+    .lancamentos--boxes {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .lancamentos--boxes {
+        width: 90%;
+        overflow: hidden;
+        margin-left: 5%;
+    }
+}
+
+.lancamentos--boxes > div {
+    display: flex;
+    margin-top: 70px;
+}
+
+@media (max-width: 991.98px) {
+    .lancamentos--boxes > div {
+        margin-top: 40px;
+    }
+}
+
+.lancamentos--boxes > div:nth-of-type(1) {
+    justify-content: space-between;
+}
+
+.lancamentos--boxes > div:nth-of-type(2) {
+    height: 480px;
+    overflow: hidden;
+}
+
+/* .lancamentos--boxes-firstContainer {
     display: flex;
     justify-content: space-between;
 
     margin-top: 70px;
-}
+} */
 
-.lancamentos--boxes-secondContainer {
+/* .lancamentos--boxes-secondContainer {
     display: flex;
 
     margin-top: 70px;
     height: 480px;
     overflow: hidden;
-}
+} */
 
 .lancamentos--boxes-firstContainer .lancamentos--conferir--btn {
     --btnColor: #000;
@@ -3594,6 +3727,12 @@ footer {
 
 .products__list_session { 
     height: 1280px;
+}
+
+@media (max-width: 1579.98px) {
+    .products__list_session {
+        display: none; /* Removido temporariamente para testes */
+    }
 }
 
 .products__list_header-container {

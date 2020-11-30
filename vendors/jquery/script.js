@@ -588,9 +588,7 @@ $(function(){
                         comprarTotalPrice_El.appendTo(comprarSubContainer_El.eq(2).children()[0])
                         $(`<p>em até 10x de R$ ${(finalTotalPriceValue / 10).toFixed(2)} sem juros</p>`).appendTo(comprarSubContainer_El.eq(2))
                     }
-                    
                 }
-                
             })
 
             if (window_width < 1580) {
