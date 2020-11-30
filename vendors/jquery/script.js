@@ -272,14 +272,43 @@ $(function(){
         let pagesQtde
         let rowsQtde
 
+        // if (url.pathname === '/lancamentos.html') {
+        //     newReturnData = returnData()
+        //     pagesQtde = Math.ceil(returnData().length / 12)
+        //     rowsQtde = Math.ceil(returnData().length / 4)
+        // } else if (url.pathname === '/favoritos.html') {
+        //     newReturnData = favoritosDataArr
+        //     pagesQtde = Math.ceil(favoritosDataArr.length / 12)
+        //     rowsQtde = Math.ceil(favoritosDataArr.length / 4)
+        // }
         if (url.pathname === '/lancamentos.html') {
             newReturnData = returnData()
-            pagesQtde = Math.ceil(returnData().length / 12)
-            rowsQtde = Math.ceil(returnData().length / 4)
+
+            if (window_width >= 992) {
+                pagesQtde = Math.ceil(returnData().length / 12)
+                rowsQtde = Math.ceil(returnData().length / 4)
+            } else if (window_width > 767 && window_width < 992) {
+                pagesQtde = Math.ceil(returnData().length / 9)
+                rowsQtde = Math.ceil(returnData().length / 3)
+            } else if (window_width <= 767) {
+                pagesQtde = 1
+                rowsQtde = Math.ceil(returnData().length / 2)
+            }
+            
         } else if (url.pathname === '/favoritos.html') {
             newReturnData = favoritosDataArr
-            pagesQtde = Math.ceil(favoritosDataArr.length / 12)
-            rowsQtde = Math.ceil(favoritosDataArr.length / 4)
+
+            if (window_width >= 992) {
+                pagesQtde = Math.ceil(favoritosDataArr.length / 12)
+                rowsQtde = Math.ceil(favoritosDataArr.length / 4)
+            } else if (window_width > 767 && window_width < 992) {
+                pagesQtde = Math.ceil(favoritosDataArr.length / 9)
+                rowsQtde = Math.ceil(favoritosDataArr.length / 3)
+            } else if (window_width <= 767) {
+                pagesQtde = 1
+                rowsQtde = Math.ceil(favoritosDataArr.length / 2)
+            }
+            
         }
 
         for (let i = 0; i < pagesQtde; i++) {
@@ -305,7 +334,12 @@ $(function(){
 
         for (let i = 0; i < rowsQtde; i++) {
 
-            const pageIndex = Math.floor(i / 3)
+            let pageIndex 
+            if (window_width > 767) {
+                pageIndex = Math.floor(i / 3)
+            } else {
+                pageIndex = 0
+            }
             
             const products_row_El = $('<div></div>')
 
@@ -322,7 +356,14 @@ $(function(){
   
             const is_product_liked = liked_storage !== null ? liked_storage.includes(value.id) : false
             
-            const rowIndex = Math.floor(index / 4)
+            let rowIndex
+            if (window_width >= 992) {
+                rowIndex = Math.floor(index / 4)
+            } else if (window_width > 767 && window_width < 992) {
+                rowIndex = Math.floor(index / 3)
+            } else if (window_width <= 767) {
+                rowIndex = Math.floor(index / 2)
+            }
             
             const products_link_subContainer_El = $('<a></a>')
             const products_discount_El = $(`<p>-${value.desconto}%</p>`)
@@ -359,7 +400,7 @@ $(function(){
                 width = [rowIndex]
             }
 
-            $(`#row-${rowIndex}`).css('width', (products_link_subContainer_El[0].offsetWidth * width.length + (width.length * 20)) + 'px') 
+            $(`#row-${rowIndex}`).css('width', window_width > 767 ? (products_link_subContainer_El[0].offsetWidth * width.length + (width.length * 20)) + 'px' : '100%') 
         })
 
         // Aplicando block na página 1 e none nas demais
