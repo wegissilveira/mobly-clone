@@ -1,6 +1,7 @@
 
 let pathname
 window.addEventListener('load', () => {
+    const window_width = document.documentElement.clientWidth
     const url_string = window.location.href
     const url = new URL(url_string)
     pathname = url.pathname
@@ -9,7 +10,7 @@ window.addEventListener('load', () => {
 
         startPromotionClock()
         passMainSlidesAuto()
-        toggleMainSliderArrows()
+        window_width >= 1200 ? toggleMainSliderArrows() : null
     }
 
     if (pathname === '/carrinho.html') {
@@ -33,7 +34,7 @@ const mainSliderContainer_El = document.getElementById('mainSlider')
 
 function passMainSlides(n, ref) {
 
-    const windowWidth = document.documentElement.clientWidth
+    const window_width = document.documentElement.clientWidth
     let mainSliderContainerWidth = mainSliderContainer_El.style.width
     mainSliderContainerWidth = Number(mainSliderContainerWidth.replace(/[^\d.]/g, ''))
 
@@ -44,18 +45,18 @@ function passMainSlides(n, ref) {
     let newN = n
     if (ref !== 'dot') {
         if (n === 1) {
-            translateValue < mainSliderContainerWidth - windowWidth ? 
-                translateValue = -translateValue - windowWidth :
+            translateValue < mainSliderContainerWidth - window_width ? 
+                translateValue = -translateValue - window_width :
                 translateValue = 0
     
         } else if (n === -1) {
             translateValue > 0 ?
-                translateValue = -translateValue + windowWidth :
-                translateValue = windowWidth - mainSliderContainerWidth
+                translateValue = -translateValue + window_width :
+                translateValue = window_width - mainSliderContainerWidth
         }
 
     } else {
-        translateValue = -windowWidth * (n - 1)
+        translateValue = -window_width * (n - 1)
         newN = (n - 1) - currentDotMainSlider
     }
     
@@ -291,6 +292,7 @@ function passSlidesOverSlider(arg) {
 let currentPromoDot = 0
 
 function passSlidesPromo(n) {
+    const window_width = document.documentElement.clientWidth
     
     const slider_promo_El = document.getElementsByClassName('promo__subContainer--slider-block')
 
@@ -299,17 +301,32 @@ function passSlidesPromo(n) {
     translateValue = Number(translateValue)
 
     if (n === 1) {
+        if (window_width >= 1200) {
+            translateValue < 75 ?
+                slider_promo_El[0].style.transform = `translateX(-${translateValue + 25}%)`
+            :
+                slider_promo_El[0].style.transform = `translateX(0)`
 
-        translateValue < 75 ?
-            slider_promo_El[0].style.transform = `translateX(-${translateValue + 25}%)`
-        :
-            slider_promo_El[0].style.transform = `translateX(0)`
+        } else if (window_width < 1200) {
+            translateValue < 80 ?
+                slider_promo_El[0].style.transform = `translateX(-${translateValue + 18.72}%)`
+            :
+                slider_promo_El[0].style.transform = `translateX(0)`
+        }
 
     } else if (n === -1) {
-        translateValue > 0 ?
-            slider_promo_El[0].style.transform = `translateX(-${translateValue - 25}%)`
-        :
-            slider_promo_El[0].style.transform = `translateX(-75%)`
+        if (window_width >= 1200) {
+            translateValue > 0 ?
+                slider_promo_El[0].style.transform = `translateX(-${translateValue - 25}%)`
+            :
+                slider_promo_El[0].style.transform = `translateX(-75%)`
+
+        } else if (window_width < 1200) {
+            translateValue > 0 ?
+                slider_promo_El[0].style.transform = `translateX(-${translateValue - 18.72}%)`
+            :
+                slider_promo_El[0].style.transform = `translateX(-93.6%)`
+        }
     }
 
     /* Pontos de marcação dos slides (dots) */
@@ -317,15 +334,21 @@ function passSlidesPromo(n) {
     let newTranslateValue = newTransformValue.replace(/[^\d.]/g, '')
     newTranslateValue = Number(newTranslateValue)
 
-    passSlidesPromoDots(newTranslateValue)
+    window_width >= 768 ? passSlidesPromoDots(window_width, newTranslateValue) : null
 }
 
 
-function passSlidesPromoDots(n) {
-
+function passSlidesPromoDots(window, n) {
+    
     const promo_slider_dots_El = document.getElementsByClassName('marker-promoSlider--js')
 
-    const currentPromoDot = n / 25
+    let currentPromoDot 
+
+    if (window >= 1200) {
+        currentPromoDot = n / 25
+    } else if (window < 1200) {
+        currentPromoDot = n / 18.72
+    }
 
     for (i = 0; i < promo_slider_dots_El.length; i++) {
         promo_slider_dots_El[i].className = promo_slider_dots_El[i].className.replace(" marker-amostras--active", "");

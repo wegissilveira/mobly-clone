@@ -246,16 +246,26 @@ $(function(){
 
         })
 
-        const dotsQtd = Math.floor(new_products_arr.length / 4)
+        let dotsQtd
 
-        for (let i = 0; i < dotsQtd; i++) {
+        if (window_width >= 1200) {
+            dotsQtd = Math.ceil(new_products_arr.length / 4)
+        } else if (window_width < 1200 && window_width >= 768) {
+            dotsQtd = Math.ceil(new_products_arr.length / 3)
+        }
 
-            let dot_icon_El = $('<i></i>')
+        if (window_width >= 768) {
+            for (let i = 0; i < dotsQtd; i++) {
 
-            dot_icon_El.addClass('flaticon-circle marker-promoSlider--js')
-            if (i === 0) {dot_icon_El.addClass('flaticon-circle marker-promoSlider--js marker-amostras--active')}
+                let dot_icon_El = $('<i></i>')
+    
+                dot_icon_El.addClass('flaticon-circle marker-promoSlider--js')
+                if (i === 0) {dot_icon_El.addClass('flaticon-circle marker-promoSlider--js marker-amostras--active')}
+                
+                dot_icon_El.appendTo('.promo__subContainer--header-markerSlider')
+            }
             
-            dot_icon_El.appendTo('.promo__subContainer--header-markerSlider')
+            $('.promo__subContainer--header-markerSlider').css('width', dotsQtd * 1.5 * 10)
         }
         
 
