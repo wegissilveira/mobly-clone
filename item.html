@@ -17,16 +17,25 @@
 
         <section class="product">
             <div class="product__container">
-                <div class="product__image-container">
+                <div>
 
                     <!--Populado com script.js-->
-                    <div class="product__image--mainImage"></div>
-
+                    <!-- <div class="product__image--mainImage"></div> -->
+                    <div id="mainImage-teste-js" class="product__image--mainImage">
+                        <img src="./vendors/img/produtos/estante-1/estante-1-img-1.jpg" />
+                        <img src="./vendors/img/produtos/estante-1/estante-1-img-2.jpg" />
+                        <img src="./vendors/img/produtos/estante-1/estante-1-img-3.jpg" />
+                        <img src="./vendors/img/produtos/estante-1/estante-1-img-4.jpg" />
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 45px; cursor: pointer;">
+                        <p onclick="passTeste('previous')"><</p>
+                        <p onclick="passTeste('previous')">></p>
+                    </div>
                     <!--Populado com script.js-->
                     <div class="product__image--thumb"></div>
 
                     <!-- <a href="" style="color: red;"><i class="flaticon-pinterest"></i></a> -->
-                    <p style="margin-top: 30px;">*Imagens meramente ilustrativas</p>
+                    <p >*Imagens meramente ilustrativas</p>
                 </div>
                 <div class="product__buy--container">
                     <div class="product__buy--subContainer">
@@ -49,25 +58,25 @@
                         <div class="product__buy_boxes--container">
 
                             <!--Populado com script.js-->
-                            <div class="product__buy_boxes--like">
+                            <div>
                                 <p>Favoritos</p>
                             </div>
 
-                            <a href="" >
-                                <div class="product__buy_boxes--payment">
-                                    <i class="flaticon-package-cube-box-for-delivery"></i>
-                                    <p>Formas de<br> pagamento</p>
-                                </div>
-                            </a>
+                            <div>
+                                <i class="flaticon-package-cube-box-for-delivery"></i>
+                                <p>Formas de<br> pagamento</p>
+                            </div>
                         </div>
 
                         <div class="product__buy--details-container">
                             <p>Marca: Mobly</p>
                             <div class="product__buy--details-navigation">
-                                <p onClick="changeTabDescriptionProduct('size')" class="active-tab ">Tamanho</p>
+                                <p onClick="changeTabDescriptionProduct('size')" class="active-tab ">Dimensões</p>
                                 <p onClick="changeTabDescriptionProduct('text')" class="disabled-tab">Descrição</p>
                             </div>
 
+
+                            <h1>Dimensões</h1>
                             <!--Populado com script.js (há um 'p' abaixo do 'i')-->
                             <div class="product__buy--details-dimensions">
                                 <div>
@@ -84,7 +93,9 @@
                                 </div>
                             </div>
                             <!--Populado com script.js-->
-                            <div class="product__buy--details-description"></div>
+                            <div class="product__buy--details-description">
+                                <h1>Descrição</h1>
+                            </div>
                         </div>
                     </div>
                 </div>

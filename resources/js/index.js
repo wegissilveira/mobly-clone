@@ -42,6 +42,8 @@ function passMainSlides(n, ref) {
     let translateValue = transformValue.replace(/[^\d.]/g, '')
     translateValue = Number(translateValue) 
 
+    console.log(mainSliderContainer_El)
+
     let newN = n
     if (ref !== 'dot') {
         if (n === 1) {
@@ -422,7 +424,7 @@ function passPageProducts(index) {
 }
 
 function productLike(event, product_id, el) {
-    
+    console.log(event)
     const liked_storage = JSON.parse(localStorage.getItem('liked'))
     const liked_qtd_storage = JSON.parse(localStorage.getItem('liked_qtd'))
 
@@ -550,5 +552,27 @@ function enableShoppingCartPage() {
                 cep_input_El[0].style.color = '#BEBEBE'
             }
         })
+    }
+}
+
+
+
+function passTeste(arg) {
+  
+    const element = document.getElementById("mainImage-teste-js")
+
+    const transformValue = window.getComputedStyle(element).transform;
+    // var matrix = new WebKitCSSMatrix(element.webkitTransform);
+    var matrix = new WebKitCSSMatrix(transformValue);
+
+    const w = window.getComputedStyle(element).width;
+    var matrix = new WebKitCSSMatrix(transformValue);
+
+    console.log(w);
+    console.log(matrix.m41);
+    console.log(matrix.m41/parseInt(w)*100+"%");
+
+    if (arg === 'next') {
+
     }
 }

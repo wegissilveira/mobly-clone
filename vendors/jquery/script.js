@@ -19,6 +19,9 @@ $(function(){
 
     const window_width = $(window).width()
 
+    const url_string = window.location.href
+    const url = new URL(url_string)
+
     let liked_storage = JSON.parse(localStorage.getItem('liked'))
     liked_storage = liked_storage === null ? [] : liked_storage
 
@@ -143,59 +146,61 @@ $(function(){
     })
 
     /* Ambientes decorados */
-    $.getScript('../../data/ambientesDecoradosData.js', function() {
+    if (url.pathname === '/index.html') {
+        $.getScript('../../data/ambientesDecoradosData.js', function() {
 
-        const dataArr = $.map(returnData(), value => {
-            return [value]
-        })
-        
-        $.each(dataArr, (index, value) => {
-
-            const decorados_block_El = $('<div></div>')
-            const decorados_row_1_El = $('<div><div></div><div></div></div>')
-            const decorados_row_2_El = $('<div><div></div><div></div></div>')
-
-            const over_slider_container_El = $('.decorados_overSlider')
-            const over_slider_div_El = $('<div></div>')
-
-            decorados_block_El.addClass('decorados__slider--block')
-            if (index !== 0) {decorados_block_El.css('display', 'none')}
-            decorados_row_1_El.addClass('decorados__slider--row')
-            decorados_row_2_El.addClass('decorados__slider--row')
-
-            const valueArr = $.map(value, imgBlock => {
-                return [imgBlock]
+            const dataArr = $.map(returnData(), value => {
+                return [value]
             })
-
-            over_slider_div_El.appendTo('.decorados_overSlider')
             
-            $.each(valueArr, (i, val) => {
+            $.each(dataArr, (index, value) => {
 
-                const decorados_img_El = $('<img>')
-                decorados_img_El.on('click', () => showDecorados_overSlider('open', index, i))
-                decorados_img_El.attr('src', val)
+                const decorados_block_El = $('<div></div>')
+                const decorados_row_1_El = $('<div><div></div><div></div></div>')
+                const decorados_row_2_El = $('<div><div></div><div></div></div>')
 
-                if (i <= 1) {
-                    decorados_img_El.appendTo(decorados_row_1_El[0].children[i])
-                } else {
-                    decorados_img_El.appendTo(decorados_row_2_El[0].children[i - 2])
-                } 
+                const over_slider_container_El = $('.decorados_overSlider')
+                const over_slider_div_El = $('<div></div>')
 
-                const over_slider_img_El = $('<img>')
-                over_slider_img_El.attr('src', val)
-                over_slider_img_El.appendTo(over_slider_container_El[0].children[index + 2])
+                decorados_block_El.addClass('decorados__slider--block')
+                if (index !== 0) {decorados_block_El.css('display', 'none')}
+                decorados_row_1_El.addClass('decorados__slider--row')
+                decorados_row_2_El.addClass('decorados__slider--row')
+
+                const valueArr = $.map(value, imgBlock => {
+                    return [imgBlock]
+                })
+
+                over_slider_div_El.appendTo('.decorados_overSlider')
                 
+                $.each(valueArr, (i, val) => {
+
+                    const decorados_img_El = $('<img>')
+                    decorados_img_El.on('click', () => showDecorados_overSlider('open', index, i))
+                    decorados_img_El.attr('src', val)
+
+                    if (i <= 1) {
+                        decorados_img_El.appendTo(decorados_row_1_El[0].children[i])
+                    } else {
+                        decorados_img_El.appendTo(decorados_row_2_El[0].children[i - 2])
+                    } 
+
+                    const over_slider_img_El = $('<img>')
+                    over_slider_img_El.attr('src', val)
+                    over_slider_img_El.appendTo(over_slider_container_El[0].children[index + 2])
+                    
+                })
+
+                decorados_row_1_El.appendTo(decorados_block_El)
+                decorados_row_2_El.appendTo(decorados_block_El)
+                decorados_block_El.appendTo('.decorados__slider--container')
             })
 
-            decorados_row_1_El.appendTo(decorados_block_El)
-            decorados_row_2_El.appendTo(decorados_block_El)
-            decorados_block_El.appendTo('.decorados__slider--container')
+        }).fail(function( jqxhr, settings, exception ) {
+            console.log('error:')
+            console.log(exception)
         })
-
-    }).fail(function( jqxhr, settings, exception ) {
-        console.log('error:')
-        console.log(exception)
-    })
+    }
     
 
     /* Produtos */
@@ -275,8 +280,8 @@ $(function(){
     
         const favoritosDataArr = returnData().filter(item => liked_storage.includes(item.id) )
 
-        const url_string = window.location.href
-        const url = new URL(url_string)
+        // const url_string = window.location.href
+        // const url = new URL(url_string)
 
         let newReturnData
         let pagesQtde
@@ -291,6 +296,7 @@ $(function(){
         //     pagesQtde = Math.ceil(favoritosDataArr.length / 12)
         //     rowsQtde = Math.ceil(favoritosDataArr.length / 4)
         // }
+
         if (url.pathname === '/lancamentos.html') {
             newReturnData = returnData()
 
@@ -361,7 +367,7 @@ $(function(){
 
         const products_row_El = $('.products__list_block--row')
 
-        let width = []
+        let widths_arr = []
         $.each(newReturnData, (index, value) => {
   
             const is_product_liked = liked_storage !== null ? liked_storage.includes(value.id) : false
@@ -404,13 +410,21 @@ $(function(){
             products_link_subContainer_El.appendTo(products_row_El[rowIndex])
 
             // O width da row é a soma dos widths de cada div do produto, aqui se garante que cada row tenha o seu próprio array para determinar a qtde de div em cada uma.
-            if (width.includes(rowIndex)) {
-                width.push(rowIndex)
+            if (widths_arr.includes(rowIndex)) {
+                widths_arr.push(rowIndex)
             } else {
-                width = [rowIndex]
+                widths_arr = [rowIndex]
             }
 
-            $(`#row-${rowIndex}`).css('width', window_width > 767 ? (products_link_subContainer_El[0].offsetWidth * width.length + (width.length * 20)) + 'px' : '100%') 
+            let products_row_width
+
+            if (window_width > 767) {
+                products_row_width = (products_link_subContainer_El[0].offsetWidth * widths_arr.length + (widths_arr.length * 20)) + 'px'
+            } else {
+                products_row_width = '100%'
+            }
+            // $(`#row-${rowIndex}`).css('width', window_width > 767 ? (products_link_subContainer_El[0].offsetWidth * width.length + (width.length * 20)) + 'px' : '100%') 
+            $(`#row-${rowIndex}`).css('width', products_row_width) 
         })
 
         // Aplicando block na página 1 e none nas demais
@@ -502,25 +516,29 @@ $(function(){
                     .appendTo(measuresContainer_El[0].children[i])
                 })
 
+
+                const product_boxes = $('.product__buy_boxes--container')
+                const like_box = product_boxes.children().eq(0)
+
                 price_savePercentage_El.addClass('product__buy--save')
                 price_original_El.addClass('product__buy--originalPrice')
                 price_final_El.addClass('product__buy--currentPrice-container')
                 price_saveMoney_El.css('line-through', '1.5')
                 productLike_icon_El.addClass(is_product_liked ? 'flaticon-favorite-heart-button' : 'flaticon-like')
-                $('.product__buy_boxes--like').on('click', () => productLike(event, value.id, 'div'))
+                like_box.on('click', () => productLike(event, value.id, 'div'))
                 $('#product__buy_btn--js').addClass(is_product_in_cart ? 'product__buy--btn product__buy--btn-remove' : 'product__buy--btn ')
                 $('#product__buy_btn--js').html(is_product_in_cart ? 'Remover do carrinho' : 'Inserir no carrinho')
                 $('#product__buy_btn--js').on('click', () => addProductToCarrinho(value.id))
 
-                product_mainImg_El.appendTo('.product__image--mainImage')
+                // product_mainImg_El.appendTo('.product__image--mainImage')
                 productBuyDetailsPriceTitle_El.appendTo('.product__buy--price')
                 price_savePercentage_El.appendTo('.product__buy--price')
                 price_original_El.appendTo('.product__buy--price')
                 price_final_El.appendTo('.product__buy--price')
                 price_saveMoney_El.appendTo('.product__buy--price')
                 textDescription_El.appendTo('.product__buy--details-description')
-                productLike_icon_El.prependTo('.product__buy_boxes--like')
-                productLike_qtde_El.appendTo('.product__buy_boxes--like')
+                productLike_icon_El.prependTo(like_box)
+                productLike_qtde_El.appendTo(like_box)
 
             }
         })
