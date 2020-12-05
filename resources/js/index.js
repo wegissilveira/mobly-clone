@@ -42,8 +42,6 @@ function passMainSlides(n, ref) {
     let translateValue = transformValue.replace(/[^\d.]/g, '')
     translateValue = Number(translateValue) 
 
-    console.log(mainSliderContainer_El)
-
     let newN = n
     if (ref !== 'dot') {
         if (n === 1) {

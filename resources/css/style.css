@@ -443,9 +443,10 @@ input#busca { color: #fff;
 /* **Header navigation** */
 .header__navigation {
     display: flex;
-    height: 65px;
     justify-content: center;
     align-items: center;
+
+    height: 65px;
 }
 
 /* Daqui pra baixo deve receber o menu retrátil */
@@ -466,8 +467,10 @@ input#busca { color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+
     height: 100%;
     width: 58%;
+    position: relative;
 }
 
 @media (min-width: 1200px) and (max-width: 1579.98px) {
@@ -544,7 +547,8 @@ input#busca { color: #fff;
     background-color: #fff;
     color: #A8A8A8;
     margin-top: 250px;
-    left: 310px;
+    /* left: 310px; */
+    left: -50px;
     width: 960px;
     height: 190px;
     border-radius: 10px;
@@ -552,12 +556,14 @@ input#busca { color: #fff;
     box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
     z-index: 8888;
 
-    display: block;
+    display: none;
 }
 
-.header__navigation--floatingMenu-categoria,
-.header__navigation--floatingMenu { 
-    display: none;
+@media (max-width: 1999.98px) {
+    .header__navigation--floatingMenu,
+    .header__navigation--floatingMenu-categoria {
+        left: -42px;
+    }
 }
 
 /* Icon arrow up*/
