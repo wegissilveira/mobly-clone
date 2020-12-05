@@ -454,6 +454,7 @@ $(function(){
                 const priceSave = (priceFormat - finalPrice).toFixed(2).replace('.', ',')
                 
                 const product_mainImg_El = $('<img>')
+                const product_responsive_circles_El = $('<div>')
                 const productBuyDetailsPriceTitle_El = $(`<h3>${value.nome}</h3>`)
                 const price_savePercentage_El = $(`<p>Economize ${value.desconto}%</p>`)
                 const price_original_El = $(`<p>De: ${value.preco}</p>`)
@@ -470,9 +471,26 @@ $(function(){
 
                 $.each(imgsArr, (i, val) => {
 
-                    if (i === 0) {
-                        product_mainImg_El.attr('src', val)
-                    } 
+                    if (window_width >= 992) {
+                        if (i === 0) {
+                            product_mainImg_El.attr('src', val)
+                        } 
+                        console.log('1')
+
+                    } else {
+                        $('<img>').attr('src', val).appendTo('.product__image--mainImage') 
+                        console.log('2')
+                    }
+                    
+                    const circles_img_El = $('<i></i>')
+                    
+                    i === 0 ? 
+                        circles_img_El.addClass('product_item_circle is-active') 
+                    : 
+                        circles_img_El.addClass('product_item_circle') 
+
+                    circles_img_El.addClass('flaticon-circle')
+                    circles_img_El.appendTo(product_responsive_circles_El)
 
                     const thumb_img_El = $('<img>')
                     thumb_img_El.attr('src', val)
@@ -491,10 +509,17 @@ $(function(){
                         thumb_imgs_arr[i].className = 'product__image--thumb-active'
 
                     })
-
-                    thumb_img_El.appendTo('.product__image--thumb')
                     
+                    if (window_width >= 992) {
+                        thumb_img_El.appendTo('.product__image--thumb')
+                    }
                 })
+
+                product_responsive_circles_El.appendTo('.product__image--circles')
+
+                const dotsQtd_item = product_responsive_circles_El.children().length
+                product_responsive_circles_El.css('width', dotsQtd_item * 2.5 * 10)
+
 
                 const productLike_icon_El = $('<i></i>')
                 let productLike_qtde_El
@@ -530,7 +555,9 @@ $(function(){
                 $('#product__buy_btn--js').html(is_product_in_cart ? 'Remover do carrinho' : 'Inserir no carrinho')
                 $('#product__buy_btn--js').on('click', () => addProductToCarrinho(value.id))
 
-                // product_mainImg_El.appendTo('.product__image--mainImage')
+                if (window_width >= 992) {
+                    product_mainImg_El.appendTo('.product__image--mainImage') 
+                } 
                 productBuyDetailsPriceTitle_El.appendTo('.product__buy--price')
                 price_savePercentage_El.appendTo('.product__buy--price')
                 price_original_El.appendTo('.product__buy--price')

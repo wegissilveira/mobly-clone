@@ -556,23 +556,38 @@ function enableShoppingCartPage() {
 }
 
 
-
+let actual_circle = 0
 function passTeste(arg) {
   
-    const element = document.getElementById("mainImage-teste-js")
+    const circles_container_El = document.getElementsByClassName("product__image--circles")[0].children[0].children
 
-    const transformValue = window.getComputedStyle(element).transform;
-    // var matrix = new WebKitCSSMatrix(element.webkitTransform);
-    var matrix = new WebKitCSSMatrix(transformValue);
+    const img_container_El = document.getElementsByClassName("product__image--mainImage")[0]
+    const totalImages = img_container_El.children.length
+    
+    const transformValue = window.getComputedStyle(img_container_El).transform;
+    const width = window.getComputedStyle(img_container_El).width;
+    const matrix = new WebKitCSSMatrix(transformValue);
+    const translateValue = parseInt(matrix.m41/parseInt(width)*100)
 
-    const w = window.getComputedStyle(element).width;
-    var matrix = new WebKitCSSMatrix(transformValue);
+    if (translateValue % 100 === 0) {
+        if (arg === 'next') {
+            if (translateValue > (totalImages - 1) * (-100)) {
+                actual_circle++
+                img_container_El.style.transform = `translateX(${translateValue - 100}%)`
+            }
+        }
 
-    console.log(w);
-    console.log(matrix.m41);
-    console.log(matrix.m41/parseInt(w)*100+"%");
+        if (arg === 'previous') {
+            if (translateValue < 0) {
+                actual_circle--
+                img_container_El.style.transform = `translateX(${translateValue + 100}%)`
+            }
+        }
 
-    if (arg === 'next') {
-
+        Array.from(circles_container_El).forEach(circle => {
+            circle.classList.remove('is-active')
+        })
+        
+        circles_container_El[actual_circle].classList.add('is-active')
     }
 }
