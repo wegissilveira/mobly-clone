@@ -17,11 +17,7 @@
         <div id="externalHeader" class="header__first-row">
             <div class="header__first-row--subContainer">
                 <div class="header__first-row--search">
-                    <input type="text" name="busca" id="busca" placeholder="Encontre produtos..." onfocus="this.placeholder=''" onblur="this.placeholder='Encontre produtos...'" style="
-                        background-color: #201047; 
-                        border: none; 
-                        font-size: 15px; 
-                        font-style: italic;" >
+                    <input type="text" name="busca" id="busca" placeholder="Encontre produtos..." onfocus="this.placeholder=''" onblur="this.placeholder='Encontre produtos...'" >
                     <button type="submit">Buscar</button>
                 </div>
                 
@@ -77,8 +73,8 @@
         </div>
         <div class="header__navigation">
             <ul>
-                <div class="header__navigation--subMenu" style="padding-left: 0;" onmouseover="openMenu(1)" onmouseout="closeMenu(1)">
-                    <li class="header__navigation--subMenu-mainItem">Por Ambiente</li>
+                <li class="header__navigation--subMenu" onmouseover="openMenu(1)" onmouseout="closeMenu(1)">
+                    <p>Por Ambiente</p>
                     <i class="flaticon-chevron-arrow-down"></i>
                     <div class="header__navigation--floatingMenu" id="floatingMenu1">
                         <i class="flaticon-drop-up-arrow"></i>
@@ -147,9 +143,9 @@
                             <div class="overArrow-floatingMenu"></div>
                         </div>
                     </div>
-                </div>
-                <div class="header__navigation--subMenu" onmouseover="openMenu(2)" onmouseout="closeMenu(2)">
-                    <li class="header__navigation--subMenu-mainItem">Por Categoria</li>
+                </li>
+                <li class="header__navigation--subMenu" onmouseover="openMenu(2)" onmouseout="closeMenu(2)">
+                    <p>Por Categoria</p>
                     <i class="flaticon-chevron-arrow-down"></i>
                     <div class="header__navigation--floatingMenu-categoria" id="floatingMenu2">
                         <i class="flaticon-drop-up-arrow"></i>
@@ -213,44 +209,47 @@
                             <div class="overArrow-floatingMenu"></div>
                         </div>
                     </div>
-                </div>
-                <a class="header__navigation--subMenu-banner" href="/moblyInspira.html">
+                </li>
+                
+                <li>
+                    <a class="header__navigation--subMenu-banner" href="/moblyInspira.html">INSPIRAÇÃO</a>
+                </li>
+                
+                <!-- <a class="header__navigation--subMenu-banner" href="/moblyInspira.html">
                     <li class="header__navigation--subMenu-mainItem">INSPIRAÇÃO</li>
-                </a>
-                <a 
+                </a> -->
+                <li 
                     class="header__navigation--subMenu-banner" 
-                    href="/lancamentos.html" 
                     onmouseover="openFloatingBanner(1)" 
                     onmouseout="closeFloatingBanner(1)"
                 >
-                    <li class="header__navigation--subMenu-mainItem">LANÇAMENTOS</li>
+                    <a href="/lancamentos.html" class="header__navigation--subMenu-mainItem">LANÇAMENTOS</a>
                     <div class="header__navigation--floatingImage-lancamento" id="banner-lancamento" >
                         <i class="flaticon-drop-up-arrow"></i>
                         <img src="/vendors/img/banner-flutuante.jpg" alt="banner flutuante">
                         <p class="header__navigation--floatingImage-lancamento-btn">APROVEITAR</p>
                     </div>
-                </a>
-                <a 
+                </li>
+                <li
                     class="header__navigation--subMenu-banner" 
-                    href="#" 
                     onmouseover="openFloatingBanner(2)" 
                     onmouseout="closeFloatingBanner(2)"
                 >
-                    <li class="header__navigation--subMenu-mainItem">OUTLET</li>
+                    <a href="#" class="header__navigation--subMenu-mainItem"></a>OUTLET</a>
                     <div class="header__navigation--floatingImage-outlet" id="banner-outlet">
                         <i class="flaticon-drop-up-arrow"></i>
                         <img src="/vendors/img/banner-flutuante2.jpg" alt="banner flutuante">
                         <p class="header__navigation--floatingImage-outlet-btn">APROVEITAR</p>
                     </div>
-                </a>
-                <a class="header__navigation--subMenu-banner" href="#">
-                    <li class="header__navigation--subMenu-mainItem">BLOG</li>
-                </a>
+                </li>
+                <li class="header__navigation--subMenu-banner" href="#">
+                    <a>BLOG</a>
+                </li>
                 <!--<a href="/teste.html"><li>teste</li></a>
                                     <a href="/item.html" ><li>item</li></a>-->
-                <a class="header__navigation--subMenu-banner" href="#" style="padding-right: 0;">
-                    <li id="header__navigation--promocoes">PROMOÇÕES</li>
-                </a>
+                <li class="header__navigation--subMenu-banner" href="#">
+                    <a>PROMOÇÕES</a>
+                </li>
             </ul>
         </div>
         <div id="header-responsive--js" class="header__navigation--responsive">

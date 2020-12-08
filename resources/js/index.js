@@ -70,7 +70,8 @@ function passMainSlides(n, ref) {
 
 function passMainSlidesDots(n) {
     
-    let dots_El = document.getElementsByClassName("mainMarker--js")
+    // let dots_El = document.getElementsByClassName("mainMarker--js")
+    let dots_El = document.querySelectorAll('.mainMarker--js')
 
     let totalDots = mainSliderContainer_El.children.length
 
@@ -108,7 +109,8 @@ function toggleMainSliderArrows() {
 
     /* Mostrar setas do mainSlider */
     const mainSlider_El = document.getElementById('mainSlider')
-    const mainSliderArrows_El = document.getElementsByClassName('mainSlider-arrows-container')[0]
+    // const mainSliderArrows_El = document.getElementsByClassName('mainSlider-arrows-container')[0]
+    const mainSliderArrows_El = document.querySelector('.mainSlider-arrows-container')
 
     mainSlider_El.addEventListener('mouseenter', () => {
         mainSliderArrows_El.style.display = 'flex'
@@ -127,7 +129,8 @@ function toggleMainSliderArrows() {
 
 /* *Thumbnails Main Slider */
 function openThumbnail(n) {
-    let marker_El = document.getElementsByClassName("mainMarker--js")
+    // let marker_El = document.getElementsByClassName("mainMarker--js")
+    let marker_El = document.querySelectorAll(".mainMarker--js")
     let position = marker_El[n - 1].getBoundingClientRect().x - (223 / 2)
     let thumbnail_El = document.querySelector("#slider__thumbnail_js-"+n)
 
@@ -185,7 +188,8 @@ let currentDeco = 1
 function passSlidesDecorados(n) {
 
     const slider_decorados_El = document.querySelectorAll('.decorados__slider--block');
-    const slider_decorados_navigation_El = document.getElementsByClassName('decorados__header-tabs')
+    // const slider_decorados_navigation_El = document.getElementsByClassName('decorados__header-tabs')
+    const slider_decorados_navigation_El = document.querySelectorAll('.decorados__header-tabs')
     const slider_decorados_navigation_arr = Array.from(slider_decorados_navigation_El[0].children)
     // const tabsQtd = sliderDecorado.length
     
@@ -206,17 +210,22 @@ function passSlidesDecorados(n) {
 
 let overSliderIndex
 let currentImg
-let overSlider
-const arrows_container_El = document.getElementsByClassName('decorados__overSlider_arrows-container')[0]
+// let overSlider
+let overSlider_El
+// const arrows_container_El = document.getElementsByClassName('decorados__overSlider_arrows-container')[0]
+const arrows_container_El = document.querySelector('.decorados__overSlider_arrows-container')
 
 function showDecorados_overSlider(action, indexBlock, indexImg) {
 
     overSliderIndex = indexBlock !== undefined ? indexBlock : overSliderIndex
     currentImg = indexImg !== undefined ? indexImg : currentImg
 
-    const body_El = document.getElementsByTagName("BODY")[0]
-    overSlider_El = document.getElementsByClassName('decorados_overSlider')[0]
-    const overlay_El = document.getElementsByClassName('decorados_overSlider_overlay')[0]
+    // const body_El = document.getElementsByTagName("BODY")[0]
+    // overSlider_El = document.getElementsByClassName('decorados_overSlider')[0]
+    // const overlay_El = document.getElementsByClassName('decorados_overSlider_overlay')[0]
+    const body_El = document.querySelector("BODY")
+    overSlider_El = document.querySelector('.decorados_overSlider')
+    const overlay_El = document.querySelector('.decorados_overSlider_overlay')
     const currentOverSlider = overSlider_El.children[overSliderIndex + 2]
     const currentOverSliderImage = currentOverSlider.children[currentImg]
 
@@ -294,7 +303,8 @@ let currentPromoDot = 0
 function passSlidesPromo(n) {
     const window_width = document.documentElement.clientWidth
     
-    const slider_promo_El = document.getElementsByClassName('promo__subContainer--slider-block')
+    // const slider_promo_El = document.getElementsByClassName('promo__subContainer--slider-block')
+    const slider_promo_El = document.querySelectorAll('.promo__subContainer--slider-block')
 
     const transformValue = slider_promo_El[0].style.transform
     let translateValue = transformValue.replace(/[^\d.]/g, '')
@@ -340,7 +350,8 @@ function passSlidesPromo(n) {
 
 function passSlidesPromoDots(window, n) {
     
-    const promo_slider_dots_El = document.getElementsByClassName('marker-promoSlider--js')
+    // const promo_slider_dots_El = document.getElementsByClassName('marker-promoSlider--js')
+    const promo_slider_dots_El = document.querySelectorAll('.marker-promoSlider--js')
 
     let currentPromoDot 
 
@@ -388,16 +399,16 @@ function startPromotionClock() {
         let seconds = Math.floor((distance % (1000 * 60)) / 1000).toLocaleString(undefined, {minimumIntegerDigits: 2});
         //console.log(hours);
         if (days < 2 && days >= 1 ) {
-            semanaM_countdown_El.innerHTML =  days + " Dia " + hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.textContent =  days + " Dia " + hours + ":" + minutes + ":" + seconds;
         } else if (days < 1) {
-            semanaM_countdown_El.innerHTML = hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.textContent = hours + ":" + minutes + ":" + seconds;
         } else if (days > 2) {
-            semanaM_countdown_El.innerHTML = days + " Dias " + hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.textContent = days + " Dias " + hours + ":" + minutes + ":" + seconds;
         } else if (minutes < 10) {
-            semanaM_countdown_El.innerHTML = days + " Dias" + hours + ":" + minutes + ":" + seconds;
+            semanaM_countdown_El.textContent = days + " Dias" + hours + ":" + minutes + ":" + seconds;
         } else if (distance < 0) {
             clearInterval(x);
-            semanaM_countdown_El.innerHTML = "EXPIRED";
+            semanaM_countdown_El.textContent = "EXPIRED";
         }
     }, 1000);
 
@@ -408,8 +419,10 @@ function startPromotionClock() {
 
 function passPageProducts(index) {
     
-    const products_block_El = document.getElementsByClassName('products__list_block')
-    const product_pages_number_El = document.getElementsByClassName('products__list_header--pages')
+    // const products_block_El = document.getElementsByClassName('products__list_block')
+    // const product_pages_number_El = document.getElementsByClassName('products__list_header--pages')
+    const products_block_El = document.querySelectorAll('.products__list_block')
+    const product_pages_number_El = document.querySelectorAll('.products__list_header--pages')
     const product_pages_number_arr = Array.from(product_pages_number_El[0].children)
 
     for (let i = 0; i < product_pages_number_arr.length; i++) {        
@@ -422,7 +435,7 @@ function passPageProducts(index) {
 }
 
 function productLike(event, product_id, el) {
-    console.log(event)
+    
     const liked_storage = JSON.parse(localStorage.getItem('liked'))
     const liked_qtd_storage = JSON.parse(localStorage.getItem('liked_qtd'))
 
@@ -455,7 +468,7 @@ function productLike(event, product_id, el) {
             liked_qtd = ++liked_qtd
 
             event.currentTarget.children[0].className = 'flaticon-favorite-heart-button'
-            event.currentTarget.children[2].innerHTML = liked_qtd + ' favoritaram'
+            event.currentTarget.children[2].textContent = liked_qtd + ' favoritaram'
 
         } else {
 
@@ -464,7 +477,7 @@ function productLike(event, product_id, el) {
             liked_qtd = liked_qtd > 0 ? --liked_qtd : 0
 
             event.currentTarget.children[0].className = 'flaticon-like'
-            event.currentTarget.children[2].innerHTML = liked_qtd + ' favoritaram'
+            event.currentTarget.children[2].textContent = liked_qtd + ' favoritaram'
         }
     }
 
@@ -492,16 +505,16 @@ function addProductToCarrinho(product_id, page) {
             if (cart_storage.includes(product_id)) {
                 shopping_cart = cart_storage.filter(prod => prod !== product_id)
                 insert_cart_btn_El.className = 'product__buy--btn'
-                insert_cart_btn_El.innerHTML = 'Inserir do carrinho'
+                insert_cart_btn_El.textContent = 'Inserir do carrinho'
             } else {
                 shopping_cart = [...cart_storage, product_id]
                 insert_cart_btn_El.className = 'product__buy--btn product__buy--btn-remove'
-                insert_cart_btn_El.innerHTML = 'Remover no carrinho'
+                insert_cart_btn_El.textContent = 'Remover no carrinho'
             }
         } else {
             shopping_cart = [product_id]
             insert_cart_btn_El.className = 'product__buy--btn product__buy--btn-remove'
-            insert_cart_btn_El.innerHTML = 'Remover do carrinho'
+            insert_cart_btn_El.textContent = 'Remover do carrinho'
         }
 
         localStorage.setItem('shopping_cart', JSON.stringify(shopping_cart))
@@ -515,9 +528,12 @@ function addProductToCarrinho(product_id, page) {
 
 function changeTabDescriptionProduct(tab) {
     
-    const description_navigation_El = document.getElementsByClassName('product__buy--details-navigation')[0].children
-    const product_dimensions_El = document.getElementsByClassName('product__buy--details-dimensions')[0]
-    const product_description_El = document.getElementsByClassName('product__buy--details-description')[0]
+    // const description_navigation_El = document.getElementsByClassName('product__buy--details-navigation')[0].children
+    // const product_dimensions_El = document.getElementsByClassName('product__buy--details-dimensions')[0]
+    // const product_description_El = document.getElementsByClassName('product__buy--details-description')[0]
+    const description_navigation_El = document.querySelector('.product__buy--details-navigation').children
+    const product_dimensions_El = document.querySelector('.product__buy--details-dimensions')
+    const product_description_El = document.querySelector('.product__buy--details-description')
     
     if (tab === 'size') {
         description_navigation_El[0].className = 'active-tab'
@@ -538,28 +554,36 @@ function changeTabDescriptionProduct(tab) {
 /* **CARRINHO** */
 
 function enableShoppingCartPage() {
-    if (JSON.parse(localStorage.getItem('shopping_cart')).length > 0) {
-        const cep_input_El = document.getElementsByClassName('shopping__cart--products-shipping-placeholder')[0].parentNode.children
+    
+    const cart_storage = JSON.parse(localStorage.getItem('shopping_cart'))
 
-        window.addEventListener('click', () => {
-            if (cep_input_El[1] === document.activeElement) {
-                cep_input_El[0].style.transform = 'translate(0, 10px)'
-                cep_input_El[0].style.color = '#5A98FF'
-            } else {
-                cep_input_El[0].style.transform = 'translate(0, 33px)'
-                cep_input_El[0].style.color = '#BEBEBE'
-            }
-        })
+    if (cart_storage !== null) {
+        if (cart_storage.length > 0) {
+            // const cep_input_El = document.getElementsByClassName('shopping__cart--products-shipping-placeholder')[0].parentNode.children
+            const cep_input_El = document.querySelector('.shopping__cart--products-shipping-placeholder').parentNode.children
+
+            window.addEventListener('click', () => {
+                if (cep_input_El[1] === document.activeElement) {
+                    cep_input_El[0].style.transform = 'translate(0, 10px)'
+                    cep_input_El[0].style.color = '#5A98FF'
+                } else {
+                    cep_input_El[0].style.transform = 'translate(0, 33px)'
+                    cep_input_El[0].style.color = '#BEBEBE'
+                }
+            })
+        }
     }
 }
 
-
+//Tenho que ver como ficará aqui, essa função deve ser ativada somente no 'touch', mas ainda não sei como isso funciona
 let actual_circle = 0
 function passTeste(arg) {
   
-    const circles_container_El = document.getElementsByClassName("product__image--circles")[0].children[0].children
+    // const circles_container_El = document.getElementsByClassName("product__image--circles")[0].children[0].children
+    const circles_container_El = document.querySelector(".product__image--circles").children[0].children
 
-    const img_container_El = document.getElementsByClassName("product__image--mainImage")[0]
+    // const img_container_El = document.getElementsByClassName("product__image--mainImage")[0]
+    const img_container_El = document.querySelector(".product__image--mainImage")
     const totalImages = img_container_El.children.length
     
     const transformValue = window.getComputedStyle(img_container_El).transform;

@@ -573,6 +573,27 @@ function returnData() {
             descricao: 'Carregando todo o charme e sofisticação do <strong>estilo industrial</strong> na estrutura, a <strong>Mesa Chaplin</strong> reúne requinte e bom gosto na medida certa para a sua <strong>sala de jantar ou cozinha</strong>. O destaque da peça vai para as <strong>linhas retas</strong> que dão esse ar moderno para ela, sem contar, claro, as <strong>cores sóbrias do tampo e dos pés</strong> que ajudam na hora de <strong>combinar</strong> com outros <strong>móveis</strong> e dar o seu toque pessoal na <strong>decoração</strong>. É a oportunidade perfeita de deixar o seu ambiente de confraternização bonito, aconchegante e pronto para receber as visitas. Ah, a peça não acompanha cadeiras e você deve adquiri-las separadamente para deixar o uso completo.',
             novoProduto: false
         },
+        {
+            id: 28,
+            imgs: {
+                img_1: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_2: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_3: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_4: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg'
+            },
+            nome: 'Mesa de Jantar Retangular Chaplin Marrom e Preta 136 cm',
+            // material: 'Escritório Madeira Pinus',
+            preco: '508,99',
+            desconto: 57,
+            dimensoes: {
+                altura: '77 cm',
+                largura: '136 cm',
+                profundidade: '90 cm',
+                peso: '26,000 kg'
+            },
+            descricao: 'Carregando todo o charme e sofisticação do <strong>estilo industrial</strong> na estrutura, a <strong>Mesa Chaplin</strong> reúne requinte e bom gosto na medida certa para a sua <strong>sala de jantar ou cozinha</strong>. O destaque da peça vai para as <strong>linhas retas</strong> que dão esse ar moderno para ela, sem contar, claro, as <strong>cores sóbrias do tampo e dos pés</strong> que ajudam na hora de <strong>combinar</strong> com outros <strong>móveis</strong> e dar o seu toque pessoal na <strong>decoração</strong>. É a oportunidade perfeita de deixar o seu ambiente de confraternização bonito, aconchegante e pronto para receber as visitas. Ah, a peça não acompanha cadeiras e você deve adquiri-las separadamente para deixar o uso completo.',
+            novoProduto: false
+        },
     ]
 
     return produtosData

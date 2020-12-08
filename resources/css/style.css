@@ -137,6 +137,13 @@ header i {
     width: 325px;
 }
 
+.header__first-row--search > input {
+    background-color: #201047; 
+    border: none; 
+    font-size: 15px; 
+    font-style: italic;
+}
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .header__first-row--search {
         width: 300px;
@@ -457,7 +464,7 @@ input#busca { color: #fff;
 }
 
 /* Removido para testes */
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
     .header__navigation {
         display: none;
     }
@@ -469,29 +476,38 @@ input#busca { color: #fff;
     justify-content: center;
 
     height: 100%;
-    width: 58%;
+    width: 65%;
     position: relative;
 }
 
-@media (min-width: 1200px) and (max-width: 1579.98px) {
+@media (max-width: 1579.98px) {
     .header__navigation ul {
-        width: 75%;
+        width: 80%;
     }
 }
 
 @media (max-width: 1199.98px) {
     .header__navigation ul {
-        width: 90%;
+        width: 95%;
         font-size: 13px;
     }
 }
 
-@media (max-width: 991.78px) {
+.header__navigation > ul > li {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header__navigation > ul > li:hover {
+    color: #FF4600; 
+}
+
+/* @media (max-width: 991.78px) {
     .header__navigation ul {
-        width: 90%;
+        width: 95%;
         font-size: 10px;
     }
-}
+} */
 
 .header__navigation--subMenu-banner,
 .header__navigation--subMenu { 
@@ -506,28 +522,51 @@ input#busca { color: #fff;
     padding-right: 18.5px;
 }
 
+/* .header__navigation > ul > div:first-of-type {
+    padding-left: 0;
+} */
+
 .header__navigation--subMenu-banner {
     width: unset;
     cursor: pointer;   
 }
 
-.header__navigation--subMenu-mainItem { 
+/* .header__navigation--subMenu > li {
     font-size: 16px;
     font-weight: bold;
 }
 
-.header__navigation--subMenu-mainItem:hover { 
+.header__navigation--subMenu > li:hover {
     color: #FF4600; 
+} */
+
+/* .header__navigation--subMenu-mainItem { 
+    font-size: 16px;
+    font-weight: bold;
+} */
+
+/* .header__navigation--subMenu-mainItem:hover { 
+    color: #FF4600; 
+} */
+
+.header__navigation > ul > li:last-of-type {
+    font-weight: 100;
+    color: #FF4600;
 }
 
-#header__navigation--promocoes { 
+.header__navigation > ul > li:last-of-type:hover {
+    font-weight: 100;
+    color: #5F23A8;
+}
+
+/* #header__navigation--promocoes { 
     font-weight: 100;
     color: #FF4600;
 }
 
 #header__navigation--promocoes:hover { 
     color: #5F23A8;
-} 
+}  */
 
 
 /* Floating Menu*/
@@ -665,7 +704,7 @@ input#busca { color: #fff;
 .header__navigation--floatingImage-outlet {
     position: absolute;
     margin-top: 424px;
-    left: 310px;
+    left: -37px;
     z-index: 8888;
 
     display: none;
@@ -1800,6 +1839,15 @@ footer {
     margin-bottom: 25px;
 }
 
+.footer__container--welcome p:first-of-type {
+    font-size: 20px;
+}
+
+.footer__container--welcome p:last-of-type {
+    font-size: 14px; 
+    margin-bottom: 40px;
+}
+
 .footer__container--welcome a { 
     color: rgb(115, 32, 179); 
     font-weight: bold;
@@ -2561,18 +2609,39 @@ footer {
     background-color: #6D1DAC; 
 }
 
-.ultimos__bg--btn i {
-    font-size: 10px;
-}
-
-.ultimos__bg--btn-text {
+.ultimos__bg--btn > div {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+
+    position: relative;
 }
 
+/* .ultimos__bg--btn i {
+    font-size: 10px;
+} */
 
+/* .ultimos__bg--btn-text {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 
+    position: relative;
+} */
+
+/* .ultimos__bg--btn-text > div {
+    position: absolute;
+    right: 5px;
+} */
+
+.ultimos__bg--btn > div > div {
+    position: absolute;
+    right: 5px;
+}
+
+.ultimos__bg--btn > div > div i {
+    font-size: 10px;
+}
 
 
 
@@ -2692,6 +2761,17 @@ footer {
     align-items: center;
     margin-left: 12px;
     width: 61%;
+}
+
+.decorados__header--container > div:first-of-type > p {
+    font-size: 11px; 
+    font-style: italic; 
+    color: #ADADAD;
+}
+
+.decorados__header--container > div:nth-of-type(2) > p {
+    font-size: 22px; 
+    font-weight: bold;
 }
 
 .decorados__header--container ul { 
@@ -4266,6 +4346,10 @@ footer {
     .product__buy--shipping > div:first-of-type {
         width: 40%;
     }
+}
+
+.product__buy--shipping > div:first-of-type > i {
+    font-size: 20px;
 }
 
 .product__buy--shipping div:nth-of-type(2) {

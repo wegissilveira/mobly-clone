@@ -96,10 +96,19 @@ function openSubMenu1(el) {
 
 /* Floating Banner */
 function openFloatingBanner(n) {
-    let title = document.getElementsByClassName('header__navigation--subMenu-mainItem')
-    let titleLeft = title[n + 2].getBoundingClientRect().x
-    let titleWidth = title[n + 2].clientWidth
+    // console.log(event.target.querySelector('a'))
+    let title = event.target.querySelector('a')
 
+    console.log(title.getBoundingClientRect())
+    console.log(title.clientWidth)
+
+    // let title = document.getElementsByClassName('header__navigation--subMenu-mainItem')
+    // console.log(title)
+    // let titleLeft = title[n - 1].getBoundingClientRect().x
+    // let titleWidth = title[n - 1].clientWidth
+    let titleLeft = title.getBoundingClientRect().x
+    let titleWidth = title.clientWidth
+    // console.log(n)
     const bannerName = n === 1 ? 'lancamento' : 'outlet'
     let banner = document.getElementById('banner-'+bannerName)
     banner.style.display = "block";
