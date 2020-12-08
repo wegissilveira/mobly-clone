@@ -32,10 +32,9 @@ function toggleSubContainer(child) {
 }
 
 
-/* *Floating Menus* */
+/* *Floating ITEMS* */
 
 let bg = document.getElementById('floatingMenuBg');
-// let mainSubMenu = document.getElementById('mainSub-1--js');
 
 function openBg() {
     bg.style.display = "block";
@@ -45,31 +44,6 @@ function closeBg() {
     bg.style.display = "none";
 }
 
-/* *Floating Menu* */
-function openMenu(n) {
-    let menu = document.getElementById('floatingMenu'+n)
-    menu.style.display = "block";
-    let menuLeft = menu.getBoundingClientRect().x
-
-    let title = document.getElementsByClassName('header__navigation--subMenu-mainItem')
-    let titleLeft = title[n - 1].getBoundingClientRect().x
-    let titleWidth = title[n - 1].clientWidth
-
-    let iconArrow = document.getElementById('floatingMenu'+n).children[0]
-    let iconArrowWidth = iconArrow.clientWidth
-    let arrowPosition = titleLeft + ((titleWidth / 2) - iconArrowWidth / 2) - menuLeft
-
-    iconArrow.style.left = arrowPosition + 'px'
-
-    openBg();
-}
-
-function closeMenu(n) {
-    document.getElementById('floatingMenu'+n).style.display = "none";
-    closeBg();
-}
-
-// /* */
 function openSubMenu1(el) {
 
     for (let i = 0; i < el.parentNode.children.length; i++) {
@@ -86,46 +60,43 @@ function openSubMenu1(el) {
     // mainSubMenu.style.display = "block";
 }
 
-// function closeSubMenu1(el) {
-//     el.children[0].classList.remove('active')
-//     mainSubMenu.style.display = "none";
-// }
+/* Floating Banner e floating menus */
+function openFloatingBanner(e) {
 
+    const tab = e.currentTarget;
+   
+    const tabLeft = tab.getBoundingClientRect().x
+    const tabWidth = tab.clientWidth
 
-/* *Floating Banners* */
-
-/* Floating Banner */
-function openFloatingBanner(n) {
-    // console.log(event.target.querySelector('a'))
-    let title = event.target.querySelector('a')
-
-    console.log(title.getBoundingClientRect())
-    console.log(title.clientWidth)
-
-    // let title = document.getElementsByClassName('header__navigation--subMenu-mainItem')
-    // console.log(title)
-    // let titleLeft = title[n - 1].getBoundingClientRect().x
-    // let titleWidth = title[n - 1].clientWidth
-    let titleLeft = title.getBoundingClientRect().x
-    let titleWidth = title.clientWidth
-    // console.log(n)
-    const bannerName = n === 1 ? 'lancamento' : 'outlet'
-    let banner = document.getElementById('banner-'+bannerName)
+    const banner = tab.querySelector('div')    
     banner.style.display = "block";
-    let bannerLeft = banner.getBoundingClientRect().x
+    const bannerLeft = banner.getBoundingClientRect().x
 
-    let iconArrow = document.getElementsByClassName('header__navigation--floatingImage-'+bannerName)[0].children[0]
-    let iconArrowWidth = iconArrow.clientWidth
-    let arrowPosition = titleLeft + ((titleWidth / 2) - iconArrowWidth / 2) - bannerLeft
+    const iconArrow = tab.querySelector('.flaticon-drop-up-arrow')
+    const iconArrowWidth = iconArrow.clientWidth
+    const arrowPosition = tabLeft + ((tabWidth / 2) - iconArrowWidth / 2) - bannerLeft
 
     iconArrow.style.left = arrowPosition + 'px'
 
     openBg();
 }
 
-function closeFloatingBanner(n) {
-    const bannerName = n === 1 ? 'lancamento' : 'outlet'
-    document.getElementById('banner-'+bannerName).style.display = "none";
+function closeFloatingBanner(e) {
+    const tab = e.currentTarget
+    const banner = tab.querySelector('div')    
+    banner.style.display = "none";
+
     closeBg();
 }
+  
+function getTabsNavigation() {
+    document.querySelectorAll('.header__navigation--subMenu')
+        .forEach((elmNode, i) => {
+            if (i === 0 || i === 1 || i === 3 || i === 4) {
+                elmNode.addEventListener('mouseover', openFloatingBanner)
+                elmNode.addEventListener('mouseout', closeFloatingBanner)
+            }
+        });
+}
 
+getTabsNavigation();
