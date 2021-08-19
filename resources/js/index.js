@@ -23,7 +23,8 @@ window.addEventListener('load', () => {
         
     }
 })
-
+console.log(window.innerWidth)
+console.log(window.outerWidth)
 
 
 /* *Slides 1* */
@@ -37,7 +38,7 @@ function passMainSlides(n, ref) {
     const window_width = document.documentElement.clientWidth
     let mainSliderContainerWidth = mainSliderContainer_El.style.width
     mainSliderContainerWidth = Number(mainSliderContainerWidth.replace(/[^\d.]/g, ''))
-
+    
     const transformValue = mainSliderContainer_El.style.transform
     let translateValue = transformValue.replace(/[^\d.]/g, '')
     translateValue = Number(translateValue) 

@@ -30,7 +30,6 @@ $(function(){
     
     /* Main Slider */
     $.getScript("../../data/mainSliderData.js", function() {
-
         
         const mainSliderContainer = $('#mainSlider')
         mainSliderContainer.css('width', window_width * 7)
@@ -507,7 +506,6 @@ $(function(){
                         product_mainImg_El.attr('src', imgsArr[i])
 
                         thumb_imgs_arr[i].className = 'product__image--thumb-active'
-
                     })
                     
                     if (window_width >= 992) {

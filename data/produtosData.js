@@ -11,7 +11,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/sofa-1/sofa-1-img-4.jpg'
             },
             nome: 'Sofá 3 Lugares Retrátil Nairóbi Suede Grafite 210 cm',
-            // material: 'Escritório Madeira Pinus',
             preco: '1849,99',
             desconto: 58,
             dimensoes: {
@@ -32,7 +31,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/estante-1/estante-1-img-4.jpg'
             },
             nome: 'Estante Home para TV 65 Polegadas Eldorado Avelã Off White',
-            // material: 'Escritório Madeira Pinus',
             preco: '904,99',
             desconto: 30,
             dimensoes: {
@@ -54,7 +52,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-5.jpg',
             },
             nome: 'Guarda-Roupa Casal com Espelho Florida 2 PT 6 GV Neve',
-            // material: 'Escritório Madeira Pinus',
             preco: '1804,99',
             desconto: 38,
             dimensoes: {
@@ -75,7 +72,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/comoda-1/comoda-1-img-4.jpg'
             },
             nome: 'Cômoda Sing Retrô 4 Gv Branco e Garapa',
-            // material: 'Escritório Madeira Pinus',
             preco: '730,99',
             desconto: 26,
             dimensoes: {
@@ -95,7 +91,6 @@ function returnData() {
                 img_3: '../vendors/img/produtos/escrivaninha-1/escrivaninha-1-img-3.jpg',
             },
             nome: 'Escrivaninha Window 1 GV Preto',
-            // material: 'Escritório Madeira Pinus',
             preco: '236,99',
             desconto: 32,
             dimensoes: {
@@ -114,7 +109,6 @@ function returnData() {
                 img_2: '../vendors/img/produtos/armario-1/armario-1-img-2.jpg',
             },
             nome: 'Armário de Escritório Window 2 PT Preto',
-            // material: 'Escritório Madeira Pinus',
             preco: '218,99',
             desconto: 48,
             dimensoes: {
@@ -136,7 +130,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-5.jpg',
             },
             nome: 'Escrivaninha Suspensa Lilac Branca',
-            // material: 'Escritório Madeira Pinus',
             preco: '206,99',
             desconto: 16,
             dimensoes: {
@@ -157,7 +150,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/banqueta-1/banqueta-1-img-4.jpg'
             },
             nome: 'Banqueta Giratória Fitz Preta',
-            // material: 'Escritório Madeira Pinus',
             preco: '309,99',
             desconto: 29,
             dimensoes: {
@@ -179,7 +171,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/banqueta-2/banqueta-2-img-5.jpg',
             },
             nome: 'Banqueta Giratória Marilyn Branca',
-            // material: 'Escritório Madeira Pinus',
             preco: '329,99',
             desconto: 54,
             dimensoes: {
@@ -198,7 +189,6 @@ function returnData() {
                 img_2: '../vendors/img/produtos/mesa-1/mesa-1-img-2.jpg',
             },
             nome: 'Conjunto para Área Externa Monaco Marrom',
-            // material: 'Escritório Madeira Pinus',
             preco: '3799,99',
             desconto: 58,
             dimensoes: {
@@ -219,7 +209,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/cadeira-1/cadeira-1-img-4.jpg'
             },
             nome: 'Cadeira de Jardim Rio Marrom',
-            // material: 'Escritório Madeira Pinus',
             preco: '159,99',
             desconto: 22,
             dimensoes: {
@@ -241,7 +230,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/comoda-2/comoda-2-img-5.jpg',
             },
             nome: 'Cômoda Colors 9 GV Mel Verniz e Colorido',
-            // material: 'Escritório Madeira Pinus',
             preco: '995,99',
             desconto: 8,
             dimensoes: {
@@ -263,7 +251,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/sofa-2/sofa-2-img-5.jpg',
             },
             nome: 'Sofá 3 Lugares Floret Linho Azul',
-            // material: 'Escritório Madeira Pinus',
             preco: '1657,99',
             desconto: 31,
             dimensoes: {
@@ -285,7 +272,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/banqueta-3/banqueta-3-img-5.jpg',
             },
             nome: 'Banco Dili Amêndoa e Preto',
-            // material: 'Escritório Madeira Pinus',
             preco: '139,99',
             desconto: 47,
             dimensoes: {
@@ -306,7 +292,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/cadeira-2/cadeira-2-img-4.jpg'
             },
             nome: 'Conjunto de 2 Cadeiras Tóquio Preto',
-            // material: 'Escritório Madeira Pinus',
             preco: '420,99',
             desconto: 62,
             dimensoes: {
@@ -327,7 +312,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/mesa-2/mesa-2-img-4.jpg'
             },
             nome: 'Mesa Gamer Omin 1 GV Grafite',
-            // material: 'Escritório Madeira Pinus',
             preco: '203,99',
             desconto: 53,
             dimensoes: {
@@ -349,7 +333,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/cama-1/cama-1-img-5.jpg',
             },
             nome: 'Cama Casal Bogart Mel',
-            // material: 'Escritório Madeira Pinus',
             preco: '503,99',
             desconto: 17,
             dimensoes: {
@@ -371,7 +354,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/cama-2/cama-2-img-5.jpg',
             },
             nome: 'Cama Casal Monaco Cumaru',
-            // material: 'Escritório Madeira Pinus',
             preco: '260,99',
             desconto: 26,
             dimensoes: {
@@ -392,7 +374,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-4.jpg'
             },
             nome: 'Guarda-Roupa Casal Bahia Flex Color 3 PT Ipe Rustic e Off White',
-            // material: 'Escritório Madeira Pinus',
             preco: '777,99',
             desconto: 36,
             dimensoes: {
@@ -414,7 +395,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-5.jpg',
             },
             nome: 'Guarda-Roupa Casal Veneza Gold 3 PT 4 GV Branco',
-            // material: 'Escritório Madeira Pinus',
             preco: '1154,99',
             desconto: 57,
             dimensoes: {
@@ -435,7 +415,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/cama-3/cama-3-img-4.jpg'
             },
             nome: 'Cama Casal Beauty Branca',
-            // material: 'Escritório Madeira Pinus',
             preco: '1298,99',
             desconto: 18,
             dimensoes: {
@@ -456,7 +435,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/estante-2/estante-2-img-4.jpg'
             },
             nome: 'Estante Livreiro Office Preto',
-            // material: 'Escritório Madeira Pinus',
             preco: '253,99',
             desconto: 44,
             dimensoes: {
@@ -476,7 +454,6 @@ function returnData() {
                 img_3: '../vendors/img/produtos/estante-3/estante-3-img-3.jpg',
             },
             nome: 'Estante Livreiro Zurich com 6 Nichos - Branco',
-            // material: 'Escritório Madeira Pinus',
             preco: '172,99',
             desconto: 33,
             dimensoes: {
@@ -498,7 +475,6 @@ function returnData() {
                 img_5: '../vendors/img/produtos/cadeira-3/cadeira-3-img-5.jpg',
             },
             nome: 'Conjunto com 2 Cadeiras Tulipa Eiffel Preto',
-            // material: 'Escritório Madeira Pinus',
             preco: '519,99',
             desconto: 26,
             dimensoes: {
@@ -519,7 +495,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/comoda-3/comoda-3-img-4.jpg'
             },
             nome: 'Cômoda Austin Premium 10 GV Preta',
-            // material: 'Escritório Madeira Pinus',
             preco: '199,99',
             desconto: 35,
             dimensoes: {
@@ -540,7 +515,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-4.jpg'
             },
             nome: 'Escrivaninha Hannover Branca',
-            // material: 'Escritório Madeira Pinus',
             preco: '348,99',
             desconto: 59,
             dimensoes: {
@@ -561,7 +535,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg'
             },
             nome: 'Mesa de Jantar Retangular Chaplin Marrom e Preta 136 cm',
-            // material: 'Escritório Madeira Pinus',
             preco: '508,99',
             desconto: 57,
             dimensoes: {
@@ -582,7 +555,6 @@ function returnData() {
                 img_4: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg'
             },
             nome: 'Mesa de Jantar Retangular Chaplin Marrom e Preta 136 cm',
-            // material: 'Escritório Madeira Pinus',
             preco: '508,99',
             desconto: 57,
             dimensoes: {
