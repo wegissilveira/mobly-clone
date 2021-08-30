@@ -2018,12 +2018,6 @@ footer {
 
 
 
-
-
-
-
-
-
 /* ------------------------------------------------------- */
 /* INSPIRE-SE */
 /* ------------------------------------------------------- */
@@ -2466,7 +2460,8 @@ footer {
     align-items: center;
 
     margin-left: -170px;
-    background-image: url(/vendors/img/Placement-UltimasPecas-MouseOver.jpg);
+    /* background-image: url(./vendors/img/Placement-UltimasPecas-MouseOver.jpg); */
+    background-image: url(../../vendors/img/Placement-UltimasPecas-MouseOver.jpg);
     height: 334px;
 }
 

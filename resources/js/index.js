@@ -6,26 +6,23 @@ window.addEventListener('load', () => {
     const url = new URL(url_string)
     pathname = url.pathname
 
-    if (pathname === '/index.html') {
+    if (pathname === './index.html') {
 
         startPromotionClock()
         passMainSlidesAuto()
         window_width >= 1200 ? toggleMainSliderArrows() : null
     }
 
-    if (pathname === '/carrinho.html') {
+    if (pathname === './carrinho.html') {
 
         enableShoppingCartPage()
     }
 
-    if (pathname !== '/index.html') {
+    if (pathname !== './index.html') {
             document.getElementById("header-responsive--js").style.top = '156px'
         
     }
 })
-console.log(window.innerWidth)
-console.log(window.outerWidth)
-
 
 /* *Slides 1* */
 
@@ -157,7 +154,8 @@ function startSlide() {
 }
 
 function loadImg(img) {
-    document.getElementById('inspirese__banner').style.backgroundImage="URL(../../../vendors/img/inspiresse/"+img+")";
+    // document.getElementById('inspirese__banner').style.backgroundImage="URL(./../../../vendors/img/inspiresse/"+img+")";
+    document.getElementById('inspirese__banner').style.backgroundImage="URL(./vendors/img/inspiresse/"+img+")" //servidor
 }
 
 function next() {

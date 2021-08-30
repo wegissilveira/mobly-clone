@@ -1,22 +1,21 @@
 $(function(){
-    $("#includedHeader").load("../../shared/header.html"); 
+    $("#includedHeader").load("./shared/header.html"); 
 });
 
 $(function(){
-    $("#includedFooter").load("../../shared/footer.html"); 
+    $("#includedFooter").load("./shared/footer.html"); 
 });
 
 $(function(){
-    $("#info").load("../../shared/info-session.html"); 
+    $("#info").load("./shared/info-session.html"); 
 });
 
 $(function(){
-    $("#newsletter").load("../../shared/newsletter-session.html"); 
+    $("#newsletter").load("./shared/newsletter-session.html"); 
 });
 
 
 $(function(){
-
     const window_width = $(window).width()
 
     const url_string = window.location.href
@@ -29,7 +28,7 @@ $(function(){
     cart_storage = cart_storage === null ? [] : cart_storage
     
     /* Main Slider */
-    $.getScript("../../data/mainSliderData.js", function() {
+    $.getScript("./data/mainSliderData.js", function() {
         
         const mainSliderContainer = $('#mainSlider')
         mainSliderContainer.css('width', window_width * 7)
@@ -67,7 +66,7 @@ $(function(){
             const thumbnailDiv_El = $('<div></div>')
             const thumbnailImg_El = $('<img>')
             const thumbnailArrow_El = $('<i></i>')
-
+            
             thumbnailDiv_El.attr('id', `slider__thumbnail_js-${index + 1}`)
             thumbnailDiv_El.addClass('slider__thumbnail')
             thumbnailImg_El.attr('src', value)
@@ -97,7 +96,7 @@ $(function(){
     })
     
     /* SemanaM imagens */
-    $.getScript("../../data/semanaMData.js", function() {
+    $.getScript("./data/semanaMData.js", function() {
 
         const dataArr = $.map(returnData(), value => {
             return [value]
@@ -145,8 +144,8 @@ $(function(){
     })
 
     /* Ambientes decorados */
-    if (url.pathname === '/index.html') {
-        $.getScript('../../data/ambientesDecoradosData.js', function() {
+    if (url.pathname === '/mobly-clone/index.html') {
+        $.getScript('./data/ambientesDecoradosData.js', function() {
 
             const dataArr = $.map(returnData(), value => {
                 return [value]
@@ -173,7 +172,6 @@ $(function(){
                 over_slider_div_El.appendTo('.decorados_overSlider')
                 
                 $.each(valueArr, (i, val) => {
-
                     const decorados_img_El = $('<img>')
                     decorados_img_El.on('click', () => showDecorados_overSlider('open', index, i))
                     decorados_img_El.attr('src', val)
@@ -187,7 +185,6 @@ $(function(){
                     const over_slider_img_El = $('<img>')
                     over_slider_img_El.attr('src', val)
                     over_slider_img_El.appendTo(over_slider_container_El[0].children[index + 2])
-                    
                 })
 
                 decorados_row_1_El.appendTo(decorados_block_El)
@@ -208,13 +205,13 @@ $(function(){
     let finalPrice 
     let finalPriceStr 
 
-    $.getScript('../../data/produtosData.js', function() {
+    $.getScript('./data/produtosData.js', function() {
 
         /* Acabaram de chegar (HOMEPAGE) */
         let new_products_arr = []
 
         $.each(returnData(), (index, value) => {
-
+            // console.log(value)
             // Criação da div com todos os elementos necessários dentro
             if (value.novoProduto) {
 
@@ -231,7 +228,7 @@ $(function(){
                 const product_description_arrow_El = $('<i></i>')
 
                 product_El.addClass('promo__product--container')
-                product_link_El.attr('href', `/item.html?product_id=${value.id}`)
+                product_link_El.attr('href', `./item.html?product_id=${value.id}`)
                 product_img_El.attr('src', value.imgs.img_1)
                 product_description_El.addClass('promo__product--description')
                 product_description_price_El.addClass('promo__product--price')
@@ -286,7 +283,7 @@ $(function(){
         let pagesQtde
         let rowsQtde
 
-        // if (url.pathname === '/lancamentos.html') {
+        // if (url./mobly-clone === '/lancamentos.html') {
         //     newReturnData = returnData()
         //     pagesQtde = Math.ceil(returnData().length / 12)
         //     rowsQtde = Math.ceil(returnData().length / 4)
@@ -296,9 +293,9 @@ $(function(){
         //     rowsQtde = Math.ceil(favoritosDataArr.length / 4)
         // }
 
-        if (url.pathname === '/lancamentos.html') {
+        if (url.pathname === '/mobly-clone/lancamentos.html') {
             newReturnData = returnData()
-
+            console.log(newReturnData)
             if (window_width >= 992) {
                 pagesQtde = Math.ceil(returnData().length / 12)
                 rowsQtde = Math.ceil(returnData().length / 4)
@@ -310,7 +307,7 @@ $(function(){
                 rowsQtde = Math.ceil(returnData().length / 2)
             }
             
-        } else if (url.pathname === '/favoritos.html') {
+        } else if (url.pathname === '/mobly-clone/favoritos.html') {
             newReturnData = favoritosDataArr
 
             if (window_width >= 992) {
@@ -390,7 +387,7 @@ $(function(){
             const products_description_price_El = $(`<p><span>${value.preco}</span><strong> ${finalPriceStr}</strong></p>`)
             
             products_link_subContainer_El.addClass('products__list_product--container')
-            products_link_subContainer_El.attr('href', `/item.html?product_id=${value.id}`)
+            products_link_subContainer_El.attr('href', `./item.html?product_id=${value.id}`)
             products_discount_El.addClass('products__list_product--discount')
             products_img_El.attr('src', value.imgs.img_1)
             produtos_icon_El.addClass(is_product_liked ? 'flaticon-favorite-heart-button' : 'flaticon-like')
@@ -645,8 +642,8 @@ $(function(){
                     const productTotalValue_El = $(`<p><span>R$ ${productTotalValueStr}</span></p>`)
 
                     productImg_El.attr('src', value.imgs.img_1)
-                    productLink_El.attr('href', `/item.html?product_id=${value.id}`)
-                    productName_El.attr('href', `/item.html?product_id=${value.id}`)
+                    productLink_El.attr('href', `./item.html?product_id=${value.id}`)
+                    productName_El.attr('href', `./item.html?product_id=${value.id}`)
 
                     productImg_El.appendTo(productLink_El)
                     productLink_El.appendTo(productDiv_El)
@@ -717,7 +714,7 @@ $(function(){
             $('.shopping__cart--container').css('flex-direction', 'column')
             $('.shopping__cart--container').css('align-items', 'center')
 
-            $('<p>Não perca mais tempo <a href="/lancamentos.html">clique aqui</a></p>').appendTo(emptyCardLinkDiv_El)
+            $('<p>Não perca mais tempo <a href="./lancamentos.html">clique aqui</a></p>').appendTo(emptyCardLinkDiv_El)
             $('<p>e aproveite nossas ofertas.</p>').appendTo(emptyCardLinkDiv_El)
 
             emptyCardIcon_El.appendTo('.shopping__cart--container')

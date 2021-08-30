@@ -5,10 +5,10 @@ function returnData() {
         {
             id: 1,
             imgs: {
-                img_1: '../vendors/img/produtos/sofa-1/sofa-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/sofa-1/sofa-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/sofa-1/sofa-1-img-3.jpg',
-                img_4: '../vendors/img/produtos/sofa-1/sofa-1-img-4.jpg'
+                img_1: './vendors/img/produtos/sofa-1/sofa-1-img-1.jpg',
+                img_2: './vendors/img/produtos/sofa-1/sofa-1-img-2.jpg',
+                img_3: './vendors/img/produtos/sofa-1/sofa-1-img-3.jpg',
+                img_4: './vendors/img/produtos/sofa-1/sofa-1-img-4.jpg'
             },
             nome: 'Sofá 3 Lugares Retrátil Nairóbi Suede Grafite 210 cm',
             preco: '1849,99',
@@ -20,15 +20,15 @@ function returnData() {
                 peso: '51,680 kg'
             },
             descricao: 'É na <strong>sala de estar</strong> onde a maior parte dos momentos de lazer da família acontece, seja curtindo um filminho, jogando aquele lançamento dos games ou recebendo os amigos para um café, por isso é essencial ter um <strong>sofá</strong> para acomodar a todos muito bem. Espaçoso, bem estruturado e com um design para deixar o lar-style perfeito, o <strong>modelo Nairóbi</strong> tem assento retrátil, o que faz dele uma peça ótima para oferecer aquele aconchego extra. Revestido com o elegante e macio tecido suede, esse móvel tem ainda uma <strong>cor sóbria que pode ser facilmente harmonizada com vários estilos de decoração</strong>, sendo ideal para te inspirar e dar aquela mãozinha na hora de criar o ambiente dos sonhos. Agora é só combiná-lo com aquele rack e TV incríveis e pronto! Seu centro de entretenimento está completo.',
-            novoProduto: true
+            novoProduto: false
         },
         {
             id: 2,
             imgs: {
-                img_1: '../vendors/img/produtos/estante-1/estante-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/estante-1/estante-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/estante-1/estante-1-img-3.jpg',
-                img_4: '../vendors/img/produtos/estante-1/estante-1-img-4.jpg'
+                img_1: './vendors/img/produtos/estante-1/estante-1-img-1.jpg',
+                img_2: './vendors/img/produtos/estante-1/estante-1-img-2.jpg',
+                img_3: './vendors/img/produtos/estante-1/estante-1-img-3.jpg',
+                img_4: './vendors/img/produtos/estante-1/estante-1-img-4.jpg'
             },
             nome: 'Estante Home para TV 65 Polegadas Eldorado Avelã Off White',
             preco: '904,99',
@@ -45,11 +45,11 @@ function returnData() {
         {
             id: 3,
             imgs: {
-                img_1: '../vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-3.jpg',
-                img_4: '../vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-4.jpg',
-                img_5: '../vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-5.jpg',
+                img_1: './vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-1.jpg',
+                img_2: './vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-2.jpg',
+                img_3: './vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-3.jpg',
+                img_4: './vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-4.jpg',
+                img_5: './vendors/img/produtos/guarda-roupas-1/guarda-roupas-1-img-5.jpg',
             },
             nome: 'Guarda-Roupa Casal com Espelho Florida 2 PT 6 GV Neve',
             preco: '1804,99',
@@ -61,15 +61,15 @@ function returnData() {
                 peso: '221,872 kg'
             },
             descricao: 'Item necessário para o bom funcionamento do quarto, o Guarda-Roupa Florida é o móvel ideal para que a arrumação do ambiente fique em dia. Equipado com 2 portas e 6 gavetas, ele tem compartimentos para vestuário, calçados, acessórios, cosméticos e até caixas organizadoras - tudo para garantir que peças fundamentais à sua rotina estejam sempre à mão. De quebra, o visual robusto com coloração tradicional a esse tipo de mobiliário oferece sofisticação e bom gosto para a decoração do seu espaço. Só benefícios para um lar incrível como o seu',
-            novoProduto: false
+            novoProduto: true
         },
         {
             id: 4,
             imgs: {
-                img_1: '../vendors/img/produtos/comoda-1/comoda-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/comoda-1/comoda-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/comoda-1/comoda-1-img-3.jpg',
-                img_4: '../vendors/img/produtos/comoda-1/comoda-1-img-4.jpg'
+                img_1: './vendors/img/produtos/comoda-1/comoda-1-img-1.jpg',
+                img_2: './vendors/img/produtos/comoda-1/comoda-1-img-2.jpg',
+                img_3: './vendors/img/produtos/comoda-1/comoda-1-img-3.jpg',
+                img_4: './vendors/img/produtos/comoda-1/comoda-1-img-4.jpg'
             },
             nome: 'Cômoda Sing Retrô 4 Gv Branco e Garapa',
             preco: '730,99',
@@ -86,9 +86,9 @@ function returnData() {
         {
             id: 5,
             imgs: {
-                img_1: '../vendors/img/produtos/escrivaninha-1/escrivaninha-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/escrivaninha-1/escrivaninha-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/escrivaninha-1/escrivaninha-1-img-3.jpg',
+                img_1: './vendors/img/produtos/escrivaninha-1/escrivaninha-1-img-1.jpg',
+                img_2: './vendors/img/produtos/escrivaninha-1/escrivaninha-1-img-2.jpg',
+                img_3: './vendors/img/produtos/escrivaninha-1/escrivaninha-1-img-3.jpg',
             },
             nome: 'Escrivaninha Window 1 GV Preto',
             preco: '236,99',
@@ -105,8 +105,8 @@ function returnData() {
         {
             id: 6,
             imgs: {
-                img_1: '../vendors/img/produtos/armario-1/armario-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/armario-1/armario-1-img-2.jpg',
+                img_1: './vendors/img/produtos/armario-1/armario-1-img-1.jpg',
+                img_2: './vendors/img/produtos/armario-1/armario-1-img-2.jpg',
             },
             nome: 'Armário de Escritório Window 2 PT Preto',
             preco: '218,99',
@@ -123,11 +123,11 @@ function returnData() {
         {
             id: 7,
             imgs: {
-                img_1: '../vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-4.jpg',
-                img_5: '../vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-5.jpg',
+                img_1: './vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-1.jpg',
+                img_2: './vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-2.jpg',
+                img_3: './vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-3.jpg',
+                img_4: './vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-4.jpg',
+                img_5: './vendors/img/produtos/escrivaninha-2/escrivaninha-2-img-5.jpg',
             },
             nome: 'Escrivaninha Suspensa Lilac Branca',
             preco: '206,99',
@@ -144,10 +144,10 @@ function returnData() {
         {
             id: 8,
             imgs: {
-                img_1: '../vendors/img/produtos/banqueta-1/banqueta-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/banqueta-1/banqueta-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/banqueta-1/banqueta-1-img-3.jpg',
-                img_4: '../vendors/img/produtos/banqueta-1/banqueta-1-img-4.jpg'
+                img_1: './vendors/img/produtos/banqueta-1/banqueta-1-img-1.jpg',
+                img_2: './vendors/img/produtos/banqueta-1/banqueta-1-img-2.jpg',
+                img_3: './vendors/img/produtos/banqueta-1/banqueta-1-img-3.jpg',
+                img_4: './vendors/img/produtos/banqueta-1/banqueta-1-img-4.jpg'
             },
             nome: 'Banqueta Giratória Fitz Preta',
             preco: '309,99',
@@ -164,11 +164,11 @@ function returnData() {
         {
             id: 9,
             imgs: {
-                img_1: '../vendors/img/produtos/banqueta-2/banqueta-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/banqueta-2/banqueta-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/banqueta-2/banqueta-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/banqueta-2/banqueta-2-img-4.jpg',
-                img_5: '../vendors/img/produtos/banqueta-2/banqueta-2-img-5.jpg',
+                img_1: './vendors/img/produtos/banqueta-2/banqueta-2-img-1.jpg',
+                img_2: './vendors/img/produtos/banqueta-2/banqueta-2-img-2.jpg',
+                img_3: './vendors/img/produtos/banqueta-2/banqueta-2-img-3.jpg',
+                img_4: './vendors/img/produtos/banqueta-2/banqueta-2-img-4.jpg',
+                img_5: './vendors/img/produtos/banqueta-2/banqueta-2-img-5.jpg',
             },
             nome: 'Banqueta Giratória Marilyn Branca',
             preco: '329,99',
@@ -185,8 +185,8 @@ function returnData() {
         {
             id: 10,
             imgs: {
-                img_1: '../vendors/img/produtos/mesa-1/mesa-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/mesa-1/mesa-1-img-2.jpg',
+                img_1: './vendors/img/produtos/mesa-1/mesa-1-img-1.jpg',
+                img_2: './vendors/img/produtos/mesa-1/mesa-1-img-2.jpg',
             },
             nome: 'Conjunto para Área Externa Monaco Marrom',
             preco: '3799,99',
@@ -203,10 +203,10 @@ function returnData() {
         {
             id: 11,
             imgs: {
-                img_1: '../vendors/img/produtos/cadeira-1/cadeira-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/cadeira-1/cadeira-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/cadeira-1/cadeira-1-img-3.jpg',
-                img_4: '../vendors/img/produtos/cadeira-1/cadeira-1-img-4.jpg'
+                img_1: './vendors/img/produtos/cadeira-1/cadeira-1-img-1.jpg',
+                img_2: './vendors/img/produtos/cadeira-1/cadeira-1-img-2.jpg',
+                img_3: './vendors/img/produtos/cadeira-1/cadeira-1-img-3.jpg',
+                img_4: './vendors/img/produtos/cadeira-1/cadeira-1-img-4.jpg'
             },
             nome: 'Cadeira de Jardim Rio Marrom',
             preco: '159,99',
@@ -223,11 +223,11 @@ function returnData() {
         {
             id: 12,
             imgs: {
-                img_1: '../vendors/img/produtos/comoda-2/comoda-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/comoda-2/comoda-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/comoda-2/comoda-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/comoda-2/comoda-2-img-4.jpg',
-                img_5: '../vendors/img/produtos/comoda-2/comoda-2-img-5.jpg',
+                img_1: './vendors/img/produtos/comoda-2/comoda-2-img-1.jpg',
+                img_2: './vendors/img/produtos/comoda-2/comoda-2-img-2.jpg',
+                img_3: './vendors/img/produtos/comoda-2/comoda-2-img-3.jpg',
+                img_4: './vendors/img/produtos/comoda-2/comoda-2-img-4.jpg',
+                img_5: './vendors/img/produtos/comoda-2/comoda-2-img-5.jpg',
             },
             nome: 'Cômoda Colors 9 GV Mel Verniz e Colorido',
             preco: '995,99',
@@ -244,11 +244,11 @@ function returnData() {
         {
             id: 13,
             imgs: {
-                img_1: '../vendors/img/produtos/sofa-2/sofa-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/sofa-2/sofa-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/sofa-2/sofa-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/sofa-2/sofa-2-img-4.jpg',
-                img_5: '../vendors/img/produtos/sofa-2/sofa-2-img-5.jpg',
+                img_1: './vendors/img/produtos/sofa-2/sofa-2-img-1.jpg',
+                img_2: './vendors/img/produtos/sofa-2/sofa-2-img-2.jpg',
+                img_3: './vendors/img/produtos/sofa-2/sofa-2-img-3.jpg',
+                img_4: './vendors/img/produtos/sofa-2/sofa-2-img-4.jpg',
+                img_5: './vendors/img/produtos/sofa-2/sofa-2-img-5.jpg',
             },
             nome: 'Sofá 3 Lugares Floret Linho Azul',
             preco: '1657,99',
@@ -265,11 +265,11 @@ function returnData() {
         {
             id: 14,
             imgs: {
-                img_1: '../vendors/img/produtos/banqueta-3/banqueta-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/banqueta-3/banqueta-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/banqueta-3/banqueta-3-img-3.jpg',
-                img_4: '../vendors/img/produtos/banqueta-3/banqueta-3-img-4.jpg',
-                img_5: '../vendors/img/produtos/banqueta-3/banqueta-3-img-5.jpg',
+                img_1: './vendors/img/produtos/banqueta-3/banqueta-3-img-1.jpg',
+                img_2: './vendors/img/produtos/banqueta-3/banqueta-3-img-2.jpg',
+                img_3: './vendors/img/produtos/banqueta-3/banqueta-3-img-3.jpg',
+                img_4: './vendors/img/produtos/banqueta-3/banqueta-3-img-4.jpg',
+                img_5: './vendors/img/produtos/banqueta-3/banqueta-3-img-5.jpg',
             },
             nome: 'Banco Dili Amêndoa e Preto',
             preco: '139,99',
@@ -286,10 +286,10 @@ function returnData() {
         {
             id: 15,
             imgs: {
-                img_1: '../vendors/img/produtos/cadeira-2/cadeira-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/cadeira-2/cadeira-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/cadeira-2/cadeira-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/cadeira-2/cadeira-2-img-4.jpg'
+                img_1: './vendors/img/produtos/cadeira-2/cadeira-2-img-1.jpg',
+                img_2: './vendors/img/produtos/cadeira-2/cadeira-2-img-2.jpg',
+                img_3: './vendors/img/produtos/cadeira-2/cadeira-2-img-3.jpg',
+                img_4: './vendors/img/produtos/cadeira-2/cadeira-2-img-4.jpg'
             },
             nome: 'Conjunto de 2 Cadeiras Tóquio Preto',
             preco: '420,99',
@@ -306,10 +306,10 @@ function returnData() {
         {
             id: 16,
             imgs: {
-                img_1: '../vendors/img/produtos/mesa-2/mesa-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/mesa-2/mesa-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/mesa-2/mesa-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/mesa-2/mesa-2-img-4.jpg'
+                img_1: './vendors/img/produtos/mesa-2/mesa-2-img-1.jpg',
+                img_2: './vendors/img/produtos/mesa-2/mesa-2-img-2.jpg',
+                img_3: './vendors/img/produtos/mesa-2/mesa-2-img-3.jpg',
+                img_4: './vendors/img/produtos/mesa-2/mesa-2-img-4.jpg'
             },
             nome: 'Mesa Gamer Omin 1 GV Grafite',
             preco: '203,99',
@@ -326,11 +326,11 @@ function returnData() {
         {
             id: 17,
             imgs: {
-                img_1: '../vendors/img/produtos/cama-1/cama-1-img-1.jpg',
-                img_2: '../vendors/img/produtos/cama-1/cama-1-img-2.jpg',
-                img_3: '../vendors/img/produtos/cama-1/cama-1-img-3.jpg',
-                img_4: '../vendors/img/produtos/cama-1/cama-1-img-4.jpg',
-                img_5: '../vendors/img/produtos/cama-1/cama-1-img-5.jpg',
+                img_1: './vendors/img/produtos/cama-1/cama-1-img-1.jpg',
+                img_2: './vendors/img/produtos/cama-1/cama-1-img-2.jpg',
+                img_3: './vendors/img/produtos/cama-1/cama-1-img-3.jpg',
+                img_4: './vendors/img/produtos/cama-1/cama-1-img-4.jpg',
+                img_5: './vendors/img/produtos/cama-1/cama-1-img-5.jpg',
             },
             nome: 'Cama Casal Bogart Mel',
             preco: '503,99',
@@ -347,11 +347,11 @@ function returnData() {
         {
             id: 18,
             imgs: {
-                img_1: '../vendors/img/produtos/cama-2/cama-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/cama-2/cama-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/cama-2/cama-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/cama-2/cama-2-img-4.jpg',
-                img_5: '../vendors/img/produtos/cama-2/cama-2-img-5.jpg',
+                img_1: './vendors/img/produtos/cama-2/cama-2-img-1.jpg',
+                img_2: './vendors/img/produtos/cama-2/cama-2-img-2.jpg',
+                img_3: './vendors/img/produtos/cama-2/cama-2-img-3.jpg',
+                img_4: './vendors/img/produtos/cama-2/cama-2-img-4.jpg',
+                img_5: './vendors/img/produtos/cama-2/cama-2-img-5.jpg',
             },
             nome: 'Cama Casal Monaco Cumaru',
             preco: '260,99',
@@ -368,10 +368,10 @@ function returnData() {
         {
             id: 19,
             imgs: {
-                img_1: '../vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-4.jpg'
+                img_1: './vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-1.jpg',
+                img_2: './vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-2.jpg',
+                img_3: './vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-3.jpg',
+                img_4: './vendors/img/produtos/guarda-roupas-2/guarda-roupas-2-img-4.jpg'
             },
             nome: 'Guarda-Roupa Casal Bahia Flex Color 3 PT Ipe Rustic e Off White',
             preco: '777,99',
@@ -388,11 +388,11 @@ function returnData() {
         {
             id: 20,
             imgs: {
-                img_1: '../vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-3.jpg',
-                img_4: '../vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-4.jpg',
-                img_5: '../vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-5.jpg',
+                img_1: './vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-1.jpg',
+                img_2: './vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-2.jpg',
+                img_3: './vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-3.jpg',
+                img_4: './vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-4.jpg',
+                img_5: './vendors/img/produtos/guarda-roupas-3/guarda-roupas-3-img-5.jpg',
             },
             nome: 'Guarda-Roupa Casal Veneza Gold 3 PT 4 GV Branco',
             preco: '1154,99',
@@ -409,10 +409,10 @@ function returnData() {
         {
             id: 21,
             imgs: {
-                img_1: '../vendors/img/produtos/cama-3/cama-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/cama-3/cama-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/cama-3/cama-3-img-3.jpg',
-                img_4: '../vendors/img/produtos/cama-3/cama-3-img-4.jpg'
+                img_1: './vendors/img/produtos/cama-3/cama-3-img-1.jpg',
+                img_2: './vendors/img/produtos/cama-3/cama-3-img-2.jpg',
+                img_3: './vendors/img/produtos/cama-3/cama-3-img-3.jpg',
+                img_4: './vendors/img/produtos/cama-3/cama-3-img-4.jpg'
             },
             nome: 'Cama Casal Beauty Branca',
             preco: '1298,99',
@@ -429,10 +429,10 @@ function returnData() {
         {
             id: 22,
             imgs: {
-                img_1: '../vendors/img/produtos/estante-2/estante-2-img-1.jpg',
-                img_2: '../vendors/img/produtos/estante-2/estante-2-img-2.jpg',
-                img_3: '../vendors/img/produtos/estante-2/estante-2-img-3.jpg',
-                img_4: '../vendors/img/produtos/estante-2/estante-2-img-4.jpg'
+                img_1: './vendors/img/produtos/estante-2/estante-2-img-1.jpg',
+                img_2: './vendors/img/produtos/estante-2/estante-2-img-2.jpg',
+                img_3: './vendors/img/produtos/estante-2/estante-2-img-3.jpg',
+                img_4: './vendors/img/produtos/estante-2/estante-2-img-4.jpg'
             },
             nome: 'Estante Livreiro Office Preto',
             preco: '253,99',
@@ -449,9 +449,9 @@ function returnData() {
         {
             id: 23,
             imgs: {
-                img_1: '../vendors/img/produtos/estante-3/estante-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/estante-3/estante-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/estante-3/estante-3-img-3.jpg',
+                img_1: './vendors/img/produtos/estante-3/estante-3-img-1.jpg',
+                img_2: './vendors/img/produtos/estante-3/estante-3-img-2.jpg',
+                img_3: './vendors/img/produtos/estante-3/estante-3-img-3.jpg',
             },
             nome: 'Estante Livreiro Zurich com 6 Nichos - Branco',
             preco: '172,99',
@@ -468,11 +468,11 @@ function returnData() {
         {
             id: 24,
             imgs: {
-                img_1: '../vendors/img/produtos/cadeira-3/cadeira-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/cadeira-3/cadeira-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/cadeira-3/cadeira-3-img-3.jpg',
-                img_4: '../vendors/img/produtos/cadeira-3/cadeira-3-img-4.jpg',
-                img_5: '../vendors/img/produtos/cadeira-3/cadeira-3-img-5.jpg',
+                img_1: './vendors/img/produtos/cadeira-3/cadeira-3-img-1.jpg',
+                img_2: './vendors/img/produtos/cadeira-3/cadeira-3-img-2.jpg',
+                img_3: './vendors/img/produtos/cadeira-3/cadeira-3-img-3.jpg',
+                img_4: './vendors/img/produtos/cadeira-3/cadeira-3-img-4.jpg',
+                img_5: './vendors/img/produtos/cadeira-3/cadeira-3-img-5.jpg',
             },
             nome: 'Conjunto com 2 Cadeiras Tulipa Eiffel Preto',
             preco: '519,99',
@@ -489,10 +489,10 @@ function returnData() {
         {
             id: 25,
             imgs: {
-                img_1: '../vendors/img/produtos/comoda-3/comoda-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/comoda-3/comoda-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/comoda-3/comoda-3-img-3.jpg',
-                img_4: '../vendors/img/produtos/comoda-3/comoda-3-img-4.jpg'
+                img_1: './vendors/img/produtos/comoda-3/comoda-3-img-1.jpg',
+                img_2: './vendors/img/produtos/comoda-3/comoda-3-img-2.jpg',
+                img_3: './vendors/img/produtos/comoda-3/comoda-3-img-3.jpg',
+                img_4: './vendors/img/produtos/comoda-3/comoda-3-img-4.jpg'
             },
             nome: 'Cômoda Austin Premium 10 GV Preta',
             preco: '199,99',
@@ -509,10 +509,10 @@ function returnData() {
         {
             id: 26,
             imgs: {
-                img_1: '../vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-2.jpg',
-                img_3: '../vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-3.jpg',
-                img_4: '../vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-4.jpg'
+                img_1: './vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-1.jpg',
+                img_2: './vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-2.jpg',
+                img_3: './vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-3.jpg',
+                img_4: './vendors/img/produtos/escrivaninha-3/escrivaninha-3-img-4.jpg'
             },
             nome: 'Escrivaninha Hannover Branca',
             preco: '348,99',
@@ -529,10 +529,10 @@ function returnData() {
         {
             id: 27,
             imgs: {
-                img_1: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
-                img_3: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
-                img_4: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg'
+                img_1: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_2: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_3: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_4: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg'
             },
             nome: 'Mesa de Jantar Retangular Chaplin Marrom e Preta 136 cm',
             preco: '508,99',
@@ -549,10 +549,10 @@ function returnData() {
         {
             id: 28,
             imgs: {
-                img_1: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
-                img_2: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
-                img_3: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
-                img_4: '../vendors/img/produtos/mesa-3/mesa-3-img-1.jpg'
+                img_1: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_2: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_3: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg',
+                img_4: './vendors/img/produtos/mesa-3/mesa-3-img-1.jpg'
             },
             nome: 'Mesa de Jantar Retangular Chaplin Marrom e Preta 136 cm',
             preco: '508,99',
